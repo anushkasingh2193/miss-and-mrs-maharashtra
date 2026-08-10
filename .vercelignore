@@ -1,0 +1,19 @@
+.git
+.vercel
+node_modules
+dist
+*.log
+*.tsbuildinfo
+server.err.log
+server.out.log
+components/
+Miss Mrs Maharashtra website/
+Miss Mrs Maharashtra website from zip/node_modules/
+Miss Mrs Maharashtra website from zip/dist/
+Miss Mrs Maharashtra website from zip/.vercel-public/
+Miss Mrs Maharashtra website from zip/docs/
+Miss Mrs Maharashtra website from zip/design_handoff_pageant_website/
+Miss Mrs Maharashtra website from zip/public/missmrs-assets/website-zip/
+Miss Mrs Maharashtra website from zip/public/missmrs-assets/website-zip-optimized/
+Miss Mrs Maharashtra website from zip/tmp-*.jpg
+runway-candidates.jpg
