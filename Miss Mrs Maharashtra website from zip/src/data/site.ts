@@ -409,6 +409,37 @@ export const videos = [
 
 export const youtubeChannelUrl = "https://youtube.com/@missmrs.maharashtra?si=hPMFhDSZFTgQF2f0";
 
+export const latestNews = [
+  {
+    src: videos[0].src,
+    feature: "Main stage",
+    date: "Aug 2026",
+    title: "Season 3 auditions open across Maharashtra",
+    summary: "The Miss & Mrs. Maharashtra season expands its audition pathway across Nagpur, Pune and Mumbai.",
+  },
+  {
+    src: videos[1].src,
+    feature: "Spotlight",
+    date: "Jul 2026",
+    title: "Contestant stories from the crown pathway",
+    summary: "A closer look at the women preparing for grooming week, stage presentation and the finale journey.",
+  },
+  {
+    src: videos[2].src,
+    feature: "Stories",
+    date: "Jul 2026",
+    title: "Why contestants step onto the pageant stage",
+    summary: "Personal voices from participants on confidence, representation and the ambition behind applying.",
+  },
+  {
+    src: videos[3].src,
+    feature: "Backstage",
+    date: "Jun 2026",
+    title: "Behind the crown: season coverage",
+    summary: "Backstage energy, titleholder moments and production highlights from the pageant team.",
+  },
+];
+
 export const press = [
   { outlet: "Official release", head: "Season 3 auditions open across Nagpur, Pune and Mumbai", date: "Jul 2026" },
   { outlet: "Pageant desk", head: "Miss & Mrs. Maharashtra announces expanded city auditions", date: "Jul 2026" },

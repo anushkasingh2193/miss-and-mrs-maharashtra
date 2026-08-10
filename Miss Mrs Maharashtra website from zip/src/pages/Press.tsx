@@ -1,4 +1,5 @@
-import { gallery, press, pressKit, videos, type PageKey } from "@/data/site";
+import { ExternalLink } from "lucide-react";
+import { gallery, latestNews, press, pressKit, type PageKey, youtubeChannelUrl } from "@/data/site";
 import { Hero, Section, SectionHeader } from "@/components/Section";
 import { YouTubePreview } from "@/components/VideoBento";
 
@@ -6,19 +7,50 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
   return (
     <>
       <Hero eyebrow="Press" title="Media, videos and press kit." body="Broadcast clips, season coverage and the materials journalists need for accurate stories." image={gallery[3]} />
-      <Section>
-        <SectionHeader eyebrow="Video" title="Season footage." />
-        <div className="grid gap-6 md:grid-cols-2">
-          {videos.map((video) => (
-            <div key={video.src} className="reveal">
+      <Section className="cinematic-band gold-lift text-white">
+        <div className="mb-12 grid gap-8 lg:grid-cols-[.85fr_1fr] lg:items-end">
+          <SectionHeader
+            eyebrow="Latest news"
+            title="Coverage from the season."
+            body="Video-led updates, contestant stories and pageant coverage from the Miss & Mrs. Maharashtra media desk."
+          />
+          <div className="reveal lg:justify-self-end">
+            <a
+              href={youtubeChannelUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent transition hover:text-blush-hover"
+            >
+              Open channel <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-4">
+          {latestNews.map((item, index) => (
+            <article
+              key={item.src}
+              className={
+                index === 0
+                  ? "reveal grid gap-0 overflow-hidden border gold-divider bg-[#070607]/76 lg:col-span-2 lg:row-span-2"
+                  : "reveal overflow-hidden border gold-divider bg-[#070607]/76"
+              }
+            >
               <YouTubePreview
-                src={video.src}
-                title={video.title}
-                feature={video.feature}
-                className="aspect-video"
+                src={item.src}
+                title={item.title}
+                feature={item.feature}
+                className={index === 0 ? "aspect-video lg:aspect-[16/10]" : "aspect-video"}
               />
-              <p className="mt-3 text-sm uppercase tracking-[.2em] text-blush-muted">{video.title}</p>
-            </div>
+              <div className="p-6">
+                <div className="mb-3 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                  <span>{item.date}</span>
+                  <span>{item.feature}</span>
+                </div>
+                <h3 className="font-display text-3xl leading-tight text-blush-ink">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-blush-body">{item.summary}</p>
+              </div>
+            </article>
           ))}
         </div>
       </Section>
