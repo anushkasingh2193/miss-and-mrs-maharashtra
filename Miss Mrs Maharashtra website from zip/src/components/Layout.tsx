@@ -8,16 +8,12 @@ import { cn } from "@/lib/utils";
 export function Layout({ page, navigate, children }: { page: PageKey; navigate: (page: PageKey) => void; children: ReactNode }) {
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
-  const [curtain, setCurtain] = useState(false);
   const countdown = useCountdown();
   useScrollReveal();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     setMenu(false);
-    setCurtain(true);
-    const id = window.setTimeout(() => setCurtain(false), 520);
-    return () => window.clearTimeout(id);
   }, [page]);
 
   useEffect(() => {
@@ -33,20 +29,11 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
 
   return (
     <div className="page-shell">
-      <div
-        className={cn(
-          "pointer-events-none fixed inset-0 z-[80] grid place-items-center bg-blush-accent text-white transition duration-500",
-          curtain ? "translate-x-0 opacity-100" : "translate-x-full opacity-0",
-        )}
-      >
-        <div className="font-display text-5xl">M&M</div>
-      </div>
-
       <header className="site-header sticky top-0 z-50 border-b gold-divider backdrop-blur-2xl">
         <div className="content-wrap flex min-h-[var(--header-height)] items-center gap-5 px-[clamp(18px,3.6vw,38px)]">
-          <button onClick={() => go("home")} className="mr-auto text-left text-blush-ink transition hover:text-blush-hover" aria-label="Go to home page">
-            <span className="block text-[8px] font-semibold tracking-[.32em]">MISS & MRS.</span>
-            <span className="brand-mark mt-1 block font-display text-[clamp(1.35rem,1.8vw,1.9rem)] leading-none">MAHARASHTRA</span>
+          <button onClick={() => go("home")} className="site-logo mr-auto text-left text-blush-ink transition hover:text-blush-hover" aria-label="Go to home page">
+            <span className="site-logo-kicker">MISS &amp; MRS.</span>
+            <span className="site-logo-word">MAHARASHTRA</span>
           </button>
           <nav className="hidden items-center gap-5 lg:flex" aria-label="Main navigation">
             {navItems.map((item) => (
