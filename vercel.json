@@ -2,11 +2,5 @@
   "framework": "vite",
   "installCommand": "cd \"Miss Mrs Maharashtra website from zip\" && npm ci",
   "buildCommand": "cd \"Miss Mrs Maharashtra website from zip\" && npm run build",
-  "outputDirectory": "Miss Mrs Maharashtra website from zip/dist",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "outputDirectory": "Miss Mrs Maharashtra website from zip/dist"
 }
