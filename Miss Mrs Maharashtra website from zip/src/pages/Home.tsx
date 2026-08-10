@@ -26,8 +26,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             muted
             loop
             playsInline
-            preload="metadata"
-            poster={imageRoles.homeHeroPoster}
+            preload="auto"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(213,168,75,.08),rgba(7,6,7,.2)_42%,rgba(7,6,7,.76)_100%)]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#070607]/76 via-[#070607]/22 to-transparent" />
