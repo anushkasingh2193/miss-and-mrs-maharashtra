@@ -4,9 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "prepare:public": "node scripts/prepare-public.mjs",
-    "dev": "npm run prepare:public && vite",
-    "build": "npm run prepare:public && tsc -b && vite build",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
