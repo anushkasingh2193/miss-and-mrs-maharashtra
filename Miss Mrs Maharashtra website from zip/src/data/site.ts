@@ -50,6 +50,7 @@ export const navItems: Array<{ key: PageKey; label: string }> = [
   { key: "categories", label: "Categories" },
   { key: "mentors", label: "Mentors" },
   { key: "winners", label: "Winners" },
+  { key: "press", label: "News" },
   { key: "contact", label: "Contact" },
 ];
 

@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { auditionCities, categories, gallery, imageRoles, pillars, sponsorNames, stats, tickets, type PageKey } from "@/data/site";
+import { auditionCities, categories, gallery, imageRoles, latestNews, pillars, sponsorNames, stats, tickets, type PageKey } from "@/data/site";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useHomeMotion } from "@/hooks/useHomeMotion";
 import { Section, SectionHeader } from "@/components/Section";
@@ -56,6 +56,37 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               </div>
               <div className="mt-4 text-[10px] uppercase tracking-[.34em] text-blush-accent">{s.label}</div>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="cinematic-band border-b gold-divider">
+        <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeader
+            eyebrow="Latest news"
+            title="Season updates and media coverage."
+            body="Video-led news, contestant stories and coverage from the Miss & Mrs. Maharashtra stage."
+          />
+          <button onClick={() => navigate("press")} className="reveal inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
+            View all news <ArrowRight size={15} />
+          </button>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {latestNews.slice(0, 3).map((item) => (
+            <button
+              key={item.title}
+              type="button"
+              onClick={() => navigate("press")}
+              className="reveal group border gold-divider bg-[#070607]/76 p-6 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
+            >
+              <div className="mb-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                <span>{item.date}</span>
+                <span>{item.feature}</span>
+              </div>
+              <h3 className="font-display text-3xl leading-tight text-blush-ink transition group-hover:text-blush-accent">{item.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-blush-body">{item.summary}</p>
+            </button>
           ))}
         </div>
       </Section>
