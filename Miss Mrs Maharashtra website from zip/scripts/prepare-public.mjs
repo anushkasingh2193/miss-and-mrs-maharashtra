@@ -1,7 +1,8 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync } from "node:fs";
 import { basename, join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const projectRoot = new URL("..", import.meta.url).pathname;
+const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const source = join(projectRoot, "public");
 const target = join(projectRoot, ".vercel-public");
 
