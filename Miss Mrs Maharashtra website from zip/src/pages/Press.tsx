@@ -1,17 +1,71 @@
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { gallery, latestNews, press, pressKit, type PageKey, youtubeChannelUrl } from "@/data/site";
-import { Hero, Section, SectionHeader } from "@/components/Section";
+import { Section, SectionHeader } from "@/components/Section";
 import { YouTubePreview } from "@/components/VideoBento";
 
 export function Press(_: { navigate: (page: PageKey) => void }) {
+  const leadNews = latestNews[0];
+
   return (
     <>
-      <Hero eyebrow="Press" title="Media, videos and press kit." body="Broadcast clips, season coverage and the materials journalists need for accurate stories." image={gallery[3]} />
-      <Section className="cinematic-band gold-lift text-white">
+      <section className="relative min-h-[78vh] overflow-hidden border-b gold-divider bg-[#070607] text-white">
+        <img
+          src={gallery[3]}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-[50%_26%] opacity-70"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070607] via-[#070607]/52 to-[#070607]/78" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#070607] to-transparent" />
+        <div className="content-wrap relative z-10 grid min-h-[78vh] gap-10 px-[clamp(20px,4vw,42px)] pb-[clamp(64px,8vw,112px)] pt-32 lg:grid-cols-[1fr_.7fr] lg:items-end">
+          <div className="max-w-4xl">
+            <div className="eyebrow mb-5 text-blush-accent">Latest news</div>
+            <h1 className="hero-title">Latest news and media coverage.</h1>
+            <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
+              Season updates, contestant stories, stage highlights and official coverage from Miss & Mrs. Maharashtra.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href="#latest-news"
+                className="inline-flex items-center gap-3 bg-blush-accent px-7 py-4 text-xs font-semibold uppercase tracking-[.22em] text-black transition hover:bg-blush-hover"
+              >
+                Read latest <ArrowRight size={16} />
+              </a>
+              <a
+                href={youtubeChannelUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-3 border-b border-blush-wash/70 pb-3 text-xs font-semibold uppercase tracking-[.22em] text-blush-wash transition hover:text-blush-accent"
+              >
+                Open channel <ExternalLink size={15} />
+              </a>
+            </div>
+          </div>
+          <a
+            href="#latest-news"
+            className="group hidden border gold-divider bg-[#070607]/76 p-6 backdrop-blur lg:block"
+            aria-label={`Open latest news: ${leadNews.title}`}
+          >
+            <div className="mb-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+              <span>{leadNews.date}</span>
+              <span>{leadNews.feature}</span>
+            </div>
+            <h2 className="font-display text-4xl leading-tight text-blush-ink">{leadNews.title}</h2>
+            <p className="mt-4 text-sm leading-7 text-blush-body">{leadNews.summary}</p>
+            <span className="mt-7 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.22em] text-blush-accent transition group-hover:text-blush-hover">
+              View coverage <ArrowRight size={15} />
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <Section id="latest-news" className="cinematic-band gold-lift text-white">
         <div className="mb-12 grid gap-8 lg:grid-cols-[.85fr_1fr] lg:items-end">
           <SectionHeader
             eyebrow="Latest news"
-            title="Coverage from the season."
+            title="News from the season."
             body="Video-led updates, contestant stories and pageant coverage from the Miss & Mrs. Maharashtra media desk."
           />
           <div className="reveal lg:justify-self-end">
@@ -21,7 +75,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
               rel="noreferrer"
               className="inline-flex items-center gap-2 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent transition hover:text-blush-hover"
             >
-              Open channel <ExternalLink size={14} />
+              More videos <ExternalLink size={14} />
             </a>
           </div>
         </div>
