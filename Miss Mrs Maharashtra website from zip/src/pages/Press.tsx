@@ -1,10 +1,11 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, CalendarDays, ExternalLink, Newspaper, PlayCircle } from "lucide-react";
 import { gallery, latestNews, press, pressKit, type PageKey, youtubeChannelUrl } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
 import { YouTubePreview } from "@/components/VideoBento";
 
 export function Press(_: { navigate: (page: PageKey) => void }) {
   const leadNews = latestNews[0];
+  const secondaryNews = latestNews.slice(1);
 
   return (
     <>
@@ -45,7 +46,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
           </div>
           <a
             href="#latest-news"
-            className="group hidden border gold-divider bg-[#070607]/76 p-6 backdrop-blur lg:block"
+            className="group hidden border gold-divider bg-[#070607]/82 p-7 shadow-2xl shadow-black/25 backdrop-blur lg:block"
             aria-label={`Open latest news: ${leadNews.title}`}
           >
             <div className="mb-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
@@ -54,7 +55,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
             </div>
             <h2 className="font-display text-4xl leading-tight text-blush-ink">{leadNews.title}</h2>
             <p className="mt-4 text-sm leading-7 text-blush-body">{leadNews.summary}</p>
-            <span className="mt-7 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[.22em] text-blush-accent transition group-hover:text-blush-hover">
+            <span className="mt-7 inline-flex items-center gap-3 border-t gold-divider pt-5 text-xs font-semibold uppercase tracking-[.22em] text-blush-accent transition group-hover:text-blush-hover">
               View coverage <ArrowRight size={15} />
             </span>
           </a>
@@ -62,11 +63,27 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
       </section>
 
       <Section id="latest-news" className="cinematic-band gold-lift text-white">
+        <div className="reveal mb-10 grid border gold-divider bg-[#070607]/78 text-sm text-blush-body md:grid-cols-3">
+          {[
+            { icon: Newspaper, label: "Official desk", value: "Miss & Mrs. Maharashtra" },
+            { icon: PlayCircle, label: "Coverage type", value: "Videos, releases, stories" },
+            { icon: CalendarDays, label: "Current season", value: "Season 3 updates" },
+          ].map((item) => (
+            <div key={item.label} className="flex items-center gap-4 border-b gold-divider p-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
+              <item.icon size={18} className="shrink-0 text-blush-accent" />
+              <div>
+                <div className="text-[10px] uppercase tracking-[.22em] text-blush-muted">{item.label}</div>
+                <div className="mt-1 text-blush-ink">{item.value}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
         <div className="mb-12 grid gap-8 lg:grid-cols-[.85fr_1fr] lg:items-end">
           <SectionHeader
             eyebrow="Latest news"
-            title="News from the season."
-            body="Video-led updates, contestant stories and pageant coverage from the Miss & Mrs. Maharashtra media desk."
+            title="Newsroom."
+            body="Official updates, contestant stories and stage coverage from the Miss & Mrs. Maharashtra media desk."
           />
           <div className="reveal lg:justify-self-end">
             <a
@@ -80,41 +97,79 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
           </div>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-4">
-          {latestNews.map((item, index) => (
+        <div className="grid gap-6 lg:grid-cols-[1.25fr_.95fr]">
+          <article className="reveal overflow-hidden border gold-divider bg-[#070607]/82 shadow-2xl shadow-black/20">
+            <YouTubePreview
+              src={leadNews.src}
+              title={leadNews.title}
+              feature={leadNews.feature}
+              className="aspect-video"
+            />
+            <div className="p-6 md:p-8">
+              <div className="mb-4 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                <span className="border gold-divider px-3 py-2 text-blush-ink">Featured</span>
+                <span>{leadNews.date}</span>
+                <span>{leadNews.feature}</span>
+              </div>
+              <h3 className="font-display text-[clamp(2.2rem,5vw,4.6rem)] leading-none text-blush-ink">{leadNews.title}</h3>
+              <p className="mt-5 max-w-2xl text-base leading-8 text-blush-body">{leadNews.summary}</p>
+              <a
+                href={youtubeChannelUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-7 inline-flex items-center gap-3 bg-blush-accent px-6 py-4 text-xs font-semibold uppercase tracking-[.22em] text-black transition hover:bg-blush-hover"
+              >
+                Watch update <ExternalLink size={15} />
+              </a>
+            </div>
+          </article>
+
+          <div className="grid gap-4">
+            {secondaryNews.map((item) => (
             <article
               key={item.src}
-              className={
-                index === 0
-                  ? "reveal grid gap-0 overflow-hidden border gold-divider bg-[#070607]/76 lg:col-span-2 lg:row-span-2"
-                  : "reveal overflow-hidden border gold-divider bg-[#070607]/76"
-              }
+              className="reveal grid gap-0 overflow-hidden border gold-divider bg-[#070607]/78 md:grid-cols-[180px_1fr] lg:grid-cols-1 xl:grid-cols-[190px_1fr]"
             >
               <YouTubePreview
                 src={item.src}
                 title={item.title}
                 feature={item.feature}
-                className={index === 0 ? "aspect-video lg:aspect-[16/10]" : "aspect-video"}
+                className="aspect-video h-full"
               />
-              <div className="p-6">
-                <div className="mb-3 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+              <div className="flex flex-col justify-between p-5">
+                <div>
+                  <div className="mb-3 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.2em] text-blush-accent">
                   <span>{item.date}</span>
                   <span>{item.feature}</span>
+                  </div>
+                  <h3 className="font-display text-2xl leading-tight text-blush-ink">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-blush-body">{item.summary}</p>
                 </div>
-                <h3 className="font-display text-3xl leading-tight text-blush-ink">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-blush-body">{item.summary}</p>
+                <a
+                  href={youtubeChannelUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[.22em] text-blush-accent transition hover:text-blush-hover"
+                >
+                  Watch <ArrowRight size={14} />
+                </a>
               </div>
             </article>
           ))}
+          </div>
         </div>
       </Section>
       <Section tone="tint">
-        <SectionHeader eyebrow="Coverage" title="Press list." />
-        {press.map((item) => (
-          <div key={item.head} className="reveal grid gap-5 border-t hairline py-7 md:grid-cols-[150px_1fr_120px]">
-            <span className="text-blush-muted">{item.outlet}</span><strong>{item.head}</strong><span>{item.date}</span>
-          </div>
-        ))}
+        <SectionHeader eyebrow="Coverage" title="Media mentions & official releases." />
+        <div className="grid border-t hairline">
+          {press.map((item) => (
+            <article key={item.head} className="reveal grid gap-4 border-b hairline py-7 md:grid-cols-[180px_1fr_120px] md:items-center">
+              <span className="text-xs uppercase tracking-[.2em] text-blush-muted">{item.outlet}</span>
+              <strong className="font-display text-2xl font-normal leading-tight text-blush-ink">{item.head}</strong>
+              <span className="text-sm text-blush-body md:text-right">{item.date}</span>
+            </article>
+          ))}
+        </div>
       </Section>
       <Section>
         <SectionHeader eyebrow="Press kit" title="Official media resources." />
