@@ -27,6 +27,17 @@ const fallbackImages = [
   "/missmrs-assets/website-zip-portrait/MIS/s3 winners/TS102092.jpg",
 ];
 
+const uniqueImages = (imageList: string[]) => {
+  const seen = new Set<string>();
+
+  return imageList.filter((image) => {
+    const normalized = decodeURI(image).trim().toLowerCase();
+    if (seen.has(normalized)) return false;
+    seen.add(normalized);
+    return true;
+  });
+};
+
 function useMediaQuery(
   query: string,
   { defaultValue = false, initializeWithValue = true }: UseMediaQueryOptions = {},
@@ -149,7 +160,7 @@ function ThreeDPhotoCarousel({ images }: { images?: string[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isCarouselActive, setIsCarouselActive] = useState(true);
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const cards = useMemo(() => (images?.length ? images : fallbackImages).slice(0, 10), [images]);
+  const cards = useMemo(() => uniqueImages(images?.length ? images : fallbackImages).slice(0, 10), [images]);
 
   const handleClick = (imgUrl: string, index: number) => {
     setActiveImg(imgUrl);

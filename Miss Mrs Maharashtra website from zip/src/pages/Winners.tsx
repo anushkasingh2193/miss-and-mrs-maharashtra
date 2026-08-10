@@ -11,7 +11,16 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
   const [showFullArchive, setShowFullArchive] = useState(false);
 
   const carouselImages = useMemo(
-    () => winnerSeasonGroups.flatMap((season) => season.images).slice(0, 12),
+    () => {
+      const seasonHighlights = winnerSeasonGroups.flatMap((season) => {
+        const middleIndex = Math.floor(season.images.length / 2);
+        return [season.images[0], season.images[middleIndex], season.images[season.images.length - 1]];
+      });
+
+      return [...titleholders.map((winner) => winner.bg), ...seasonHighlights].filter(
+        (image, index, images): image is string => Boolean(image) && images.indexOf(image) === index,
+      );
+    },
     [],
   );
   const selectedSeason = winnerSeasonGroups[activeSeason] ?? winnerSeasonGroups[0];
