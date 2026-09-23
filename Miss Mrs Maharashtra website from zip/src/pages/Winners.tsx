@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { ArrowRight, X } from "lucide-react";
-import { titleholders, winnerSeasonGroups, type PageKey } from "@/data/site";
+import { imageRoles, mAndMWinnerImages, titleholders, winnerSeasonGroups, type PageKey } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
         return [season.images[0], season.images[middleIndex], season.images[season.images.length - 1]];
       });
 
-      return [...titleholders.map((winner) => winner.bg), ...seasonHighlights].filter(
+      return [...mAndMWinnerImages, ...titleholders.map((winner) => winner.bg), ...seasonHighlights].filter(
         (image, index, images): image is string => Boolean(image) && images.indexOf(image) === index,
       );
     },
@@ -29,20 +29,75 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
 
   return (
     <>
-      <section className="overflow-hidden bg-blush-page pt-[clamp(68px,8vw,118px)]">
-        <div className="content-wrap px-[clamp(20px,4vw,42px)]">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="eyebrow mb-5">Hall of fame</div>
-            <h1 className="hero-title text-blush-ink">Past winners in orbit.</h1>
-            <p className="mx-auto mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-              Drag the carousel to explore titleholder portraits, season winners and sash moments from the Miss & Mrs. Maharashtra stage.
+      <section className="relative overflow-hidden border-b gold-divider bg-[#070607] pt-[clamp(82px,9vw,132px)] text-white">
+        <img
+          src={imageRoles.galleryHero}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-[50%_28%] opacity-45"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070607] via-[#070607]/72 to-[#070607]/88" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#070607] to-transparent" />
+        <div className="content-wrap relative z-10 grid gap-9 px-[clamp(20px,4vw,42px)] lg:grid-cols-[.86fr_.74fr] lg:items-end">
+          <div className="max-w-4xl pb-4">
+            <div className="eyebrow mb-5 text-blush-accent">Hall of fame</div>
+            <h1 className="font-display text-[clamp(4.4rem,10vw,9rem)] leading-[.86] text-blush-ink">Winners gallery.</h1>
+            <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
+              M&M crown portraits, finale lineups and sash moments from the Miss & Mrs. Maharashtra stage.
             </p>
           </div>
+          <button
+            type="button"
+            onClick={() => setLightbox(mAndMWinnerImages[0])}
+            className="group hidden overflow-hidden border gold-divider bg-[#070607]/84 p-3 text-left shadow-2xl shadow-black/30 transition hover:border-blush-accent/60 focus:outline-none focus:ring-2 focus:ring-blush-accent lg:block"
+          >
+            <div className="relative aspect-[4/5] overflow-hidden bg-blush-wash">
+              <img
+                src={mAndMWinnerImages[0]}
+                alt="M&M crowned winner portrait"
+                className="h-full w-full object-cover object-[50%_14%] transition duration-700 group-hover:scale-105"
+                loading="eager"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#070607]/86 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <p className="text-[10px] uppercase tracking-[.28em] text-blush-accent">Featured M&M frame</p>
+                <h2 className="mt-2 font-display text-4xl leading-none text-white">Crowned on stage.</h2>
+              </div>
+            </div>
+          </button>
         </div>
-        <div className="mt-10">
+        <div className="relative z-10 mt-10">
           <ThreeDPhotoCarousel images={carouselImages} />
         </div>
       </section>
+
+      <Section className="cinematic-band gold-lift !py-[clamp(42px,5vw,72px)]">
+        <div className="grid gap-4 md:grid-cols-3">
+          {mAndMWinnerImages.slice(9, 12).map((image, index) => (
+            <button
+              key={image}
+              type="button"
+              onClick={() => setLightbox(image)}
+              className="group reveal relative aspect-[16/10] overflow-hidden border gold-divider bg-[#070607] focus:outline-none focus:ring-2 focus:ring-blush-accent"
+            >
+              <img
+                src={image}
+                alt={`M&M winner gallery group frame ${index + 1}`}
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#070607]/80 via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">
+                M&M gallery / 0{index + 1}
+              </span>
+            </button>
+          ))}
+        </div>
+      </Section>
 
       <Section tone="tint">
         <SectionHeader eyebrow="Featured titleholders" title="Recent crowns, carefully framed." body="A curated edit of winners, sash moments and titleholder portraits before the full season archive." />

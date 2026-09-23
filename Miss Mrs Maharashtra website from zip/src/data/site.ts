@@ -15,6 +15,7 @@ const FAST = `${LOCAL}fast/`;
 const WEBSITE_ZIP = `${LOCAL}website-zip/`;
 const PORTRAIT_WEBSITE_ZIP = `${LOCAL}website-zip-portrait/`;
 const CURATED = `${LOCAL}curated/`;
+const DRIVE_MM = `${LOCAL}drive-mm/`;
 
 const stock = {
   runway: `${FAST}runway.jpg`,
@@ -31,17 +32,41 @@ const stock = {
   fashion: `${LOCAL}gallery/DSC00068.JPG`,
 };
 
+export const mAndMWinnerImages = [
+  `${DRIVE_MM}DSC00068.jpg`,
+  `${DRIVE_MM}DSC00076.jpg`,
+  `${DRIVE_MM}DSC00082.jpg`,
+  `${DRIVE_MM}DSC00092.jpg`,
+  `${DRIVE_MM}DSC00097.jpg`,
+  `${DRIVE_MM}TS102025.jpg`,
+  `${DRIVE_MM}TS102029.jpg`,
+  `${DRIVE_MM}TS102043.jpg`,
+  `${DRIVE_MM}TS102060.jpg`,
+  `${DRIVE_MM}DSC07912.jpg`,
+  `${DRIVE_MM}DSC09813.jpg`,
+  `${DRIVE_MM}DSC09835.jpg`,
+];
+
+export const mAndMWinnerPortfolio = [
+  { image: mAndMWinnerImages[0], eyebrow: "M&M / Season 3", name: "Crowned Portrait", title: "Mrs. Maharashtra stage" },
+  { image: mAndMWinnerImages[1], eyebrow: "M&M / Season 3", name: "Blue Gown Crown", title: "Winner portrait" },
+  { image: mAndMWinnerImages[2], eyebrow: "M&M / Season 3", name: "Final Walk", title: "Titleholder moment" },
+  { image: mAndMWinnerImages[3], eyebrow: "M&M / Season 3", name: "Silver Crown", title: "Winner portrait" },
+  { image: mAndMWinnerImages[5], eyebrow: "M&M / Season 3", name: "Coronation Frame", title: "Stage portrait" },
+  { image: mAndMWinnerImages[10], eyebrow: "M&M / Season 3", name: "Winner Lineup", title: "Group coverage" },
+];
+
 export const imageRoles = {
   homeHeroPoster: `${CURATED}sneha-kalbhor.jpg`,
-  brandProof: `${CURATED}sneha-kalbhor.jpg`,
+  brandProof: mAndMWinnerImages[10],
   founderPortrait: `${FAST}zoya.jpg`,
   titleMiss: `${LOCAL}featured/title-miss-maharashtra.jpg`,
   titleMrs: `${LOCAL}featured/title-mrs-maharashtra.jpg`,
   mentorHero: `${LOCAL}mentor/mentor_kavita-1367x2048.jpg`,
   sponsorHero: `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s3 winners/TS102046.jpg`,
   sponsorProof: stock.makeup,
-  titleholderSpotlight: `${LOCAL}featured/titleholder-spotlight.jpg`,
-  galleryHero: `${CURATED}archana-kamble.jpg`,
+  titleholderSpotlight: mAndMWinnerImages[0],
+  galleryHero: mAndMWinnerImages[10],
 };
 
 export const navItems: Array<{ key: PageKey; label: string }> = [
@@ -216,7 +241,7 @@ export const winnerSeasonGroups = [
     eyebrow: "Mrs. Maharashtra",
     title: "Season 3 Winners",
     note: "A full season gallery of finalists, winners and coronation night highlights.",
-    images: zipFolder("M&M/M&M s3 winners"),
+    images: [...mAndMWinnerImages, ...zipFolder("M&M/M&M s3 winners")],
   },
   {
     eyebrow: "Miss Maharashtra",

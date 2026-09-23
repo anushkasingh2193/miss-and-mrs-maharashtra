@@ -1,13 +1,8 @@
-import { titleholders } from "@/data/site";
+import { mAndMWinnerPortfolio } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 
-const portfolioItems = titleholders.map((winner) => ({
-  image: winner.bg,
-  eyebrow: winner.plate,
-  name: winner.name,
-  title: winner.title,
-}));
+const portfolioItems = mAndMWinnerPortfolio;
 
 export default function Example() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -18,8 +13,8 @@ export default function Example() {
         <div className="eyebrow mb-4">Winner portfolio</div>
         <h2 className="font-display text-[clamp(2.8rem,5vw,5.8rem)] leading-none text-blush-ink">Crowned in frame.</h2>
         <p className="mt-4 text-sm leading-7 text-blush-body">
-          A portrait-led edit of winners, founder moments and season voices,
-          matched to the correct names from the Miss & Mrs. Maharashtra archive.
+          A portrait-led edit from the M&M winner archive, framed for crowns,
+          sash details and finale-stage presence.
         </p>
       </div>
 
