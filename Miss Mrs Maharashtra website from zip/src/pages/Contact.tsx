@@ -47,7 +47,7 @@ export function Contact(_: { navigate: (page: PageKey) => void }) {
                   <a
                     key={`${action.label}-${action.value}`}
                     href={action.href}
-                    className="group border gold-divider bg-[#070607]/76 p-5 transition hover:border-blush-accent/60 focus:outline-none focus:ring-2 focus:ring-blush-accent"
+                    className="group border gold-divider bg-[#061122]/76 p-5 transition hover:border-blush-accent/60 focus:outline-none focus:ring-2 focus:ring-blush-accent"
                   >
                     <div className="mb-6 flex items-center justify-between text-blush-accent">
                       <span className="text-[10px] uppercase tracking-[.28em]">{action.label}</span>
@@ -64,7 +64,7 @@ export function Contact(_: { navigate: (page: PageKey) => void }) {
 
       <Section className="cinematic-band">
         <div className="grid gap-8 lg:grid-cols-[.82fr_1.18fr]">
-          <div className="border gold-divider bg-[#070607]/72 p-7 md:p-9">
+          <div className="border gold-divider bg-[#061122]/72 p-7 md:p-9">
             <div className="mb-7 flex items-center gap-3 text-blush-accent">
               <MapPin size={18} />
               <div className="eyebrow">Office</div>
@@ -78,7 +78,7 @@ export function Contact(_: { navigate: (page: PageKey) => void }) {
               ))}
             </div>
           </div>
-          <div className="overflow-hidden border gold-divider bg-[#070607]">
+          <div className="overflow-hidden border gold-divider bg-[#061122]">
             <iframe
               className="min-h-[460px] w-full grayscale invert-[.88] contrast-125"
               src={mapUrl}

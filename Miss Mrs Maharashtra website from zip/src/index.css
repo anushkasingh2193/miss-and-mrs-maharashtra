@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 :root {
-  color: #fff8e8;
-  background: #040404;
+  color: #EEF6FF;
+  background: #020817;
   font-family: "Jost", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,7 +27,7 @@ body {
   min-width: 320px;
   background:
     radial-gradient(circle at 82% 10%, rgba(214, 174, 79, 0.12), transparent 28%),
-    linear-gradient(180deg, #040404 0%, #0b0a08 46%, #040404 100%);
+    linear-gradient(180deg, #020817 0%, #071426 46%, #020817 100%);
 }
 
 button,
@@ -54,7 +54,7 @@ select:focus-visible {
   min-height: 100vh;
   background:
     radial-gradient(circle at 12% 0%, rgba(243, 209, 122, 0.08), transparent 28%),
-    #040404;
+    #020817;
 }
 
 .home-cinema {
@@ -63,7 +63,7 @@ select:focus-visible {
   background:
     radial-gradient(circle at 82% 4%, rgba(214, 174, 79, 0.1), transparent 24%),
     radial-gradient(circle at 12% 32%, rgba(214, 174, 79, 0.055), transparent 26%),
-    linear-gradient(180deg, #040404 0%, #0b0a08 34%, #040404 68%, #080706 100%);
+    linear-gradient(180deg, #020817 0%, #071426 34%, #020817 68%, #061122 100%);
 }
 
 .home-cinema::before {
@@ -84,7 +84,7 @@ select:focus-visible {
   background:
     radial-gradient(circle at 74% 10%, rgba(214, 174, 79, 0.065), transparent 28%),
     radial-gradient(circle at 16% 92%, rgba(214, 174, 79, 0.032), transparent 24%),
-    linear-gradient(180deg, rgba(4, 4, 4, 0.99), rgba(10, 9, 7, 0.95) 48%, rgba(4, 4, 4, 0.99));
+    linear-gradient(180deg, rgba(2, 8, 23, 0.99), rgba(7, 20, 38, 0.95) 48%, rgba(2, 8, 23, 0.99));
 }
 
 .cinematic-band::after {
@@ -112,7 +112,7 @@ select:focus-visible {
 .stat-strip {
   background:
     linear-gradient(90deg, rgba(214, 174, 79, 0.12), rgba(214, 174, 79, 0.035) 18%, rgba(214, 174, 79, 0.035) 82%, rgba(214, 174, 79, 0.12)),
-    rgba(4, 4, 4, 0.82);
+    rgba(2, 8, 23, 0.82);
 }
 
 .stat-item {
@@ -137,7 +137,7 @@ select:focus-visible {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(214, 174, 79, 0.16);
-  background: #040404;
+  background: #020817;
   box-shadow: 0 30px 95px rgba(0, 0, 0, 0.34);
 }
 
@@ -147,7 +147,7 @@ select:focus-visible {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, transparent 42%, rgba(4, 4, 4, 0.82)),
+    linear-gradient(180deg, transparent 42%, rgba(2, 8, 23, 0.82)),
     radial-gradient(circle at 80% 18%, rgba(214, 174, 79, 0.16), transparent 32%);
 }
 
@@ -157,19 +157,41 @@ select:focus-visible {
 
 .premium-panel {
   border: 1px solid rgba(214, 174, 79, 0.18);
-  background: rgba(4, 4, 4, 0.7);
+  background: rgba(2, 8, 23, 0.7);
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(16px);
 }
 
 .site-header {
   background:
-    linear-gradient(180deg, rgba(4, 4, 4, 0.98), rgba(4, 4, 4, 0.92));
+    linear-gradient(180deg, rgba(2, 8, 23, 0.98), rgba(2, 8, 23, 0.92));
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.24);
 }
 
-.brand-mark {
-  letter-spacing: 0.18em;
+.site-logo {
+  display: inline-grid;
+  gap: 3px;
+  min-width: clamp(190px, 20vw, 292px);
+}
+
+.site-logo-kicker {
+  display: block;
+  font-size: clamp(8px, 0.72vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  line-height: 1;
+  color: #EEF6FF;
+}
+
+.site-logo-word {
+  display: block;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(1.72rem, 2.75vw, 2.72rem);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 0.9;
+  color: #EEF6FF;
+  text-shadow: 0 1px 22px rgba(214, 174, 79, 0.08);
 }
 
 .nav-link {
@@ -200,7 +222,7 @@ select:focus-visible {
   overflow: hidden;
   border: 1px solid #d6ae4f;
   background: #d6ae4f;
-  color: #040404;
+  color: #020817;
   transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -336,7 +358,7 @@ select:focus-visible {
   border: 1px solid rgba(213, 168, 75, 0.24);
   background:
     radial-gradient(circle at 80% 0%, rgba(213, 168, 75, 0.13), transparent 34%),
-    #070607;
+    #061122;
   transform-origin: top center;
   transform: rotateX(0deg) translateY(0);
   transition:
@@ -349,7 +371,7 @@ select:focus-visible {
   min-height: 180px;
   background:
     radial-gradient(circle at 88% 0%, rgba(213, 168, 75, 0.18), transparent 36%),
-    linear-gradient(180deg, rgba(16, 14, 11, 0.9), rgba(7, 6, 7, 0.98));
+    linear-gradient(180deg, rgba(11, 26, 48, 0.9), rgba(6, 17, 34, 0.98));
   backdrop-filter: blur(18px);
 }
 
@@ -502,7 +524,7 @@ select:focus-visible {
 
 .hover-nudge:hover {
   padding-left: 14px;
-  background: #1b1710;
+  background: #10233E;
 }
 
 .shimmer {
@@ -545,16 +567,16 @@ select:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(7, 6, 7, 0.8), rgba(7, 6, 7, 0.18), rgba(7, 6, 7, 0.66));
+  background: linear-gradient(90deg, rgba(6, 17, 34, 0.8), rgba(6, 17, 34, 0.18), rgba(6, 17, 34, 0.66));
   pointer-events: none;
 }
 
 .form-field {
   width: 100%;
   border: 1px solid rgba(213, 168, 75, 0.2);
-  background: #100e0b;
+  background: #0B1A30;
   padding: 14px 16px;
-  color: #fff7e6;
+  color: #EEF6FF;
   outline: none;
 }
 

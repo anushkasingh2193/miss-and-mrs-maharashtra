@@ -105,8 +105,8 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
 
       <Section className="cinematic-band">
         {submitted ? (
-          <div className="mx-auto max-w-3xl border gold-divider bg-[#070607]/76 p-8 text-center md:p-12">
-            <div className="mx-auto mb-6 grid size-14 place-items-center rounded-full bg-blush-accent text-[#040404]">
+          <div className="mx-auto max-w-3xl border gold-divider bg-[#061122]/76 p-8 text-center md:p-12">
+            <div className="mx-auto mb-6 grid size-14 place-items-center rounded-full bg-blush-accent text-[#020817]">
               <Check />
             </div>
             <div className="eyebrow mb-5">Application received</div>
@@ -124,7 +124,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
           </div>
         ) : (
           <div className="grid gap-10 lg:grid-cols-[1.2fr_.8fr]">
-            <form onSubmit={submit} className="border gold-divider bg-[#070607]/76 p-6 md:p-10">
+            <form onSubmit={submit} className="border gold-divider bg-[#061122]/76 p-6 md:p-10">
               <div className="mb-8">
                 <div className="eyebrow mb-3">Application form</div>
                 <h2 className="font-display text-[clamp(2.1rem,3.8vw,4rem)] leading-none text-blush-ink">Who's applying?</h2>
@@ -137,7 +137,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
                     type="button"
                     onClick={() => setCat(item.key)}
                     className={cn(
-                      "border gold-divider bg-[#100e0b]/72 p-5 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent",
+                      "border gold-divider bg-[#0B1A30]/72 p-5 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent",
                       cat === item.key && "border-blush-accent bg-blush-accent/10",
                     )}
                   >
@@ -188,7 +188,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
                 <p className="text-sm text-blush-muted">{wordCount} words</p>
                 <label className="grid cursor-pointer grid-cols-[28px_1fr] gap-4 text-left">
                   <input className="peer sr-only" type="checkbox" checked={form.consent} onChange={(event) => setField("consent", event.target.checked)} />
-                  <span className={cn("grid size-7 place-items-center border border-blush-accent text-[#040404] peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-blush-accent", form.consent && "bg-blush-accent")}>{form.consent ? <Check size={15} /> : null}</span>
+                  <span className={cn("grid size-7 place-items-center border border-blush-accent text-[#020817] peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-blush-accent", form.consent && "bg-blush-accent")}>{form.consent ? <Check size={15} /> : null}</span>
                   <span className="text-sm leading-7 text-blush-body">I confirm the information is accurate and I meet the eligibility criteria for my category.</span>
                 </label>
                 {errors.consent ? <p className="text-sm text-blush-accent">{errors.consent}</p> : null}
@@ -223,7 +223,7 @@ function Field({ label, error, children }: { label: string; error?: string; chil
 
 function InfoPanel({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="border gold-divider bg-[#070607]/58 p-6">
+    <div className="border gold-divider bg-[#061122]/58 p-6">
       <h3 className="font-display text-3xl text-blush-ink">{title}</h3>
       <ul className="mt-5 grid gap-3 text-sm leading-7 text-blush-body">
         {items.map((item) => (

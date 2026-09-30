@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 export function Section({ children, tone = "page", className = "", id }: { children: ReactNode; tone?: "page" | "tint" | "dark"; className?: string; id?: string }) {
   return (
-    <section id={id} className={cn("section-pad", tone === "tint" && "bg-blush-tint", tone === "dark" && "bg-[#070607] text-white", className)}>
+    <section id={id} className={cn("section-pad", tone === "tint" && "bg-blush-tint", tone === "dark" && "bg-[#061122] text-white", className)}>
       <div className="content-wrap">{children}</div>
     </section>
   );
@@ -21,7 +21,7 @@ export function SectionHeader({ eyebrow, title, body }: { eyebrow: string; title
 
 export function Hero({ eyebrow, title, body, image }: { eyebrow: string; title: string; body: string; image: string }) {
   return (
-    <section className="relative min-h-[72vh] overflow-hidden bg-[#070607] text-white">
+    <section className="relative min-h-[72vh] overflow-hidden bg-[#061122] text-white">
       <img
         src={image}
         alt=""
@@ -30,7 +30,7 @@ export function Hero({ eyebrow, title, body, image }: { eyebrow: string; title: 
         decoding="async"
         fetchPriority="high"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#070607] via-[#070607]/35 to-[#070607]/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#061122] via-[#061122]/35 to-[#061122]/70" />
       <div className="content-wrap relative z-10 flex min-h-[72vh] flex-col justify-end px-[clamp(20px,4vw,42px)] pb-[clamp(72px,9vw,128px)] pt-24">
         <div className="eyebrow mb-5 text-blush-wash">{eyebrow}</div>
         <h1 className="hero-title max-w-4xl">{title}</h1>

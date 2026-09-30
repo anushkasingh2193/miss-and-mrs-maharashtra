@@ -7,12 +7,12 @@ const config: Config = {
     extend: {
       colors: {
         blush: {
-          page: "#040404",
-          tint: "#0B0A08",
-          wash: "#15120C",
-          ink: "#FFF8E8",
-          body: "#D8CFBB",
-          muted: "#C0AD80",
+          page: "#020817",
+          tint: "#071426",
+          wash: "#0E1D33",
+          ink: "#EEF6FF",
+          body: "#C7D6E8",
+          muted: "#8FA6C3",
           accent: "#D6AE4F",
           hover: "#E1BC62",
         },

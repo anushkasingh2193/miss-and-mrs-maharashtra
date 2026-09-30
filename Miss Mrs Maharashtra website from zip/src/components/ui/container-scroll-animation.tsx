@@ -60,9 +60,9 @@ function Card({
         scale,
         boxShadow: "0 38px 120px rgba(0,0,0,.42), 0 0 0 1px rgba(214,174,79,.18)",
       }}
-      className="mx-auto mt-6 w-full overflow-hidden border border-blush-accent/25 bg-[#040404] p-1 shadow-2xl md:w-[75vw] md:max-w-[980px] md:p-2"
+      className="mx-auto mt-6 w-full overflow-hidden border border-blush-accent/25 bg-[#020817] p-1 shadow-2xl md:w-[75vw] md:max-w-[980px] md:p-2"
     >
-      <div className="w-full overflow-hidden border border-blush-accent/15 bg-[#040404]">
+      <div className="w-full overflow-hidden border border-blush-accent/15 bg-[#020817]">
         {children}
       </div>
     </motion.div>

@@ -93,7 +93,7 @@ const CursorFollow: React.FC<CursorFollowProps> = ({ children, className = "" })
                   height: 40,
                   borderRadius: 20,
                   background: "#d6ae4f",
-                  color: "#070607",
+                  color: "#061122",
                   paddingLeft: 16,
                   paddingRight: 16,
                   minWidth: 40,
@@ -105,7 +105,7 @@ const CursorFollow: React.FC<CursorFollowProps> = ({ children, className = "" })
                   height: CIRCLE_SIZE,
                   borderRadius: 999,
                   background: "#d6ae4f",
-                  color: "#070607",
+                  color: "#061122",
                   paddingLeft: 0,
                   paddingRight: 0,
                   minWidth: CIRCLE_SIZE,
@@ -128,7 +128,7 @@ const CursorFollow: React.FC<CursorFollowProps> = ({ children, className = "" })
               initial={{ opacity: 0, filter: "blur(8px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.28, delay: 0.1, ease: "easeInOut" }}
-              style={{ whiteSpace: "nowrap", width: "100%", textAlign: "center", color: "#070607" }}
+              style={{ whiteSpace: "nowrap", width: "100%", textAlign: "center", color: "#061122" }}
             >
               {cursorText}
             </motion.span>

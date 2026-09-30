@@ -79,9 +79,9 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
         </div>
       ) : null}
 
-      <footer className="footer-cinema relative overflow-hidden border-t hairline bg-[#070607] px-[clamp(20px,4vw,42px)]">
+      <footer className="footer-cinema relative overflow-hidden border-t hairline bg-[#061122] px-[clamp(20px,4vw,42px)]">
         <div className="content-wrap relative z-10 py-[clamp(58px,7vw,110px)]">
-          <div className="beam-frame beam-frame-strong grid gap-10 border gold-divider bg-[#070607]/72 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+          <div className="beam-frame beam-frame-strong grid gap-10 border gold-divider bg-[#061122]/72 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
               <div className="eyebrow mb-5">Season three</div>
               <h2 className="font-display text-[clamp(2.8rem,5.8vw,6.6rem)] leading-[.9] text-blush-ink">Your season starts here.</h2>

@@ -9,7 +9,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b gold-divider bg-[#070607] text-white">
+      <section className="relative overflow-hidden border-b gold-divider bg-[#061122] text-white">
         <img
           src={gallery[3]}
           alt=""
@@ -18,8 +18,8 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
           decoding="async"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070607] via-[#070607]/68 to-[#070607]/88" />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#070607] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061122] via-[#061122]/68 to-[#061122]/88" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122] to-transparent" />
         <div className="content-wrap relative z-10 grid min-h-[68vh] gap-10 px-[clamp(20px,4vw,42px)] pb-[clamp(48px,7vw,88px)] pt-[clamp(112px,12vw,156px)] lg:grid-cols-[.92fr_.72fr] lg:items-end">
           <div className="max-w-3xl">
             <div className="eyebrow mb-5 text-blush-accent">Official newsroom</div>
@@ -47,7 +47,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
             </div>
           </div>
 
-          <div className="reveal hidden border gold-divider bg-[#070607]/86 shadow-2xl shadow-black/30 backdrop-blur lg:block">
+          <div className="reveal hidden border gold-divider bg-[#061122]/86 shadow-2xl shadow-black/30 backdrop-blur lg:block">
             <YouTubePreview
               src={leadNews.src}
               title={leadNews.title}
@@ -72,7 +72,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
       </section>
 
       <Section id="latest-news" className="cinematic-band gold-lift text-white">
-        <div className="reveal mb-10 grid border gold-divider bg-[#070607]/78 text-sm text-blush-body md:grid-cols-3">
+        <div className="reveal mb-10 grid border gold-divider bg-[#061122]/78 text-sm text-blush-body md:grid-cols-3">
           {[
             { icon: Newspaper, label: "Official desk", value: "Miss & Mrs. Maharashtra" },
             { icon: PlayCircle, label: "Coverage type", value: "Videos, releases, stories" },
@@ -107,7 +107,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.25fr_.95fr]">
-          <article className="reveal overflow-hidden border gold-divider bg-[#070607]/82 shadow-2xl shadow-black/20">
+          <article className="reveal overflow-hidden border gold-divider bg-[#061122]/82 shadow-2xl shadow-black/20">
             <YouTubePreview
               src={leadNews.src}
               title={leadNews.title}
@@ -137,7 +137,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
             {secondaryNews.map((item) => (
             <article
               key={item.src}
-              className="reveal grid gap-0 overflow-hidden border gold-divider bg-[#070607]/78 md:grid-cols-[180px_1fr] lg:grid-cols-1 xl:grid-cols-[190px_1fr]"
+              className="reveal grid gap-0 overflow-hidden border gold-divider bg-[#061122]/78 md:grid-cols-[180px_1fr] lg:grid-cols-1 xl:grid-cols-[190px_1fr]"
             >
               <YouTubePreview
                 src={item.src}

@@ -12,7 +12,7 @@ export function Mentors(_: { navigate: (page: PageKey) => void }) {
             <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
               Expert mentorship across grooming, public speaking, styling, runway presence and social advocacy.
             </p>
-            <div className="mt-10 grid max-w-xl grid-cols-3 border gold-divider bg-[#040404]/72">
+            <div className="mt-10 grid max-w-xl grid-cols-3 border gold-divider bg-[#020817]/72">
               {[["6", "Mentors"], ["8", "Jury voices"], ["3", "Cities"]].map(([value, label]) => (
                 <div key={label} className="border-r gold-divider p-5">
                   <div className="font-display text-4xl text-blush-ink">{value}</div>
@@ -24,7 +24,7 @@ export function Mentors(_: { navigate: (page: PageKey) => void }) {
 
           <div className="reveal relative mx-auto w-full max-w-[620px]">
             <div className="absolute -inset-5 rounded-t-full border border-blush-accent/20" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-t-full border gold-divider bg-[#040404] shadow-[0_36px_110px_rgba(0,0,0,.42)]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-t-full border gold-divider bg-[#020817] shadow-[0_36px_110px_rgba(0,0,0,.42)]">
               <img
                 src={imageRoles.mentorHero}
                 alt="Miss and Mrs Maharashtra mentor guidance"

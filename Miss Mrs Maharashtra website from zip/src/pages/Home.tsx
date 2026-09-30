@@ -29,8 +29,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             preload="auto"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(213,168,75,.08),rgba(7,6,7,.2)_42%,rgba(7,6,7,.76)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#070607]/76 via-[#070607]/22 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#070607]/72 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#061122]/76 via-[#061122]/22 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/72 to-transparent" />
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full flex-col justify-end px-[clamp(20px,4vw,42px)] pb-20 will-change-transform">
             <div className="max-w-3xl text-white">
               <div className="eyebrow mb-5 text-blush-accent">Miss & Mrs. Maharashtra Season 3</div>
@@ -78,7 +78,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               key={item.title}
               type="button"
               onClick={() => navigate("press")}
-              className="reveal group border gold-divider bg-[#070607]/76 p-6 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
+              className="reveal group border gold-divider bg-[#061122]/76 p-6 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
             >
               <div className="mb-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
                 <span>{item.date}</span>
@@ -115,8 +115,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 style={{ objectPosition: idx === 0 ? "50% 34%" : "50% 22%" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#070607] via-[#070607]/38 to-transparent" />
-              <div className="absolute left-0 top-0 bg-[#070607]/85 px-5 py-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/38 to-transparent" />
+              <div className="absolute left-0 top-0 bg-[#061122]/85 px-5 py-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">
                 {idx === 0 ? "Title 01" : "Title 02"}
               </div>
               <div className="absolute inset-x-0 bottom-0 p-[clamp(18px,2.4vw,28px)]">
@@ -142,20 +142,20 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               <button onClick={() => navigate("about")} className="mt-8 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Founder story</button>
             </div>
             <div className="reveal">
-              <div className="beam-frame beam-frame-soft relative mx-auto h-[clamp(330px,36vw,450px)] max-w-[460px] overflow-hidden border gold-divider bg-[#070607] shadow-[0_34px_110px_rgba(0,0,0,.38)]">
+              <div className="beam-frame beam-frame-soft relative mx-auto h-[clamp(330px,36vw,450px)] max-w-[460px] overflow-hidden border gold-divider bg-[#061122] shadow-[0_34px_110px_rgba(0,0,0,.38)]">
                 <img
                   src={imageRoles.founderPortrait}
                   alt="Zoya Siraj Sheikh"
                   className="h-full w-full object-cover object-[50%_12%]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070607] via-[#070607]/16 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/16 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Founder & Chairman</p>
                   <h3 className="mt-2 font-display text-4xl leading-none text-white">Mrs. Zoya Siraj Sheikh</h3>
                 </div>
               </div>
-              <div className="mt-3 grid border gold-divider bg-[#070607]/72 sm:grid-cols-3">
+              <div className="mt-3 grid border gold-divider bg-[#061122]/72 sm:grid-cols-3">
                 {[
                   ["2022", "Mrs. Maharashtra"],
                   ["3rd", "Runner-up, Mrs. Universe"],
@@ -172,7 +172,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </section>
 
-      <section className="overflow-hidden border-b gold-divider bg-[#070607]/88 py-5">
+      <section className="overflow-hidden border-b gold-divider bg-[#061122]/88 py-5">
         <div className="marquee-track flex w-max gap-10 text-xs uppercase tracking-[.34em] text-blush-accent">
           {Array.from({ length: 2 }).map((_, repeat) => (
             <div key={repeat} className="flex gap-10">
@@ -210,7 +210,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
 
       <Section className="cinematic-band !py-[clamp(36px,5vw,68px)] text-white">
         <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1fr_.78fr] lg:items-stretch">
-          <div className="reveal flex flex-col justify-between border gold-divider bg-[#070607]/72 p-[clamp(24px,3vw,42px)]">
+          <div className="reveal flex flex-col justify-between border gold-divider bg-[#061122]/72 p-[clamp(24px,3vw,42px)]">
             <div>
               <div className="eyebrow mb-5">Season 3 auditions</div>
               <h2 className="font-display text-[clamp(3rem,5vw,5.9rem)] leading-[.92] text-blush-ink">Applications close 30 September.</h2>
@@ -231,7 +231,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             </div>
           </div>
 
-          <div className="reveal relative h-[clamp(390px,41vw,520px)] w-full max-w-[360px] justify-self-center overflow-hidden border gold-divider bg-[#070607] lg:justify-self-end">
+          <div className="reveal relative h-[clamp(390px,41vw,520px)] w-full max-w-[360px] justify-self-center overflow-hidden border gold-divider bg-[#061122] lg:justify-self-end">
             <video
               className="absolute inset-0 h-full w-full object-cover"
               src="/missmrs-assets/videos/hero-expansion-01.mp4"
@@ -253,7 +253,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           </div>
         </div>
 
-        <div className="reveal beam-frame beam-frame-strong mx-auto mt-5 grid max-w-6xl border gold-divider bg-[#070607]/72 sm:grid-cols-4">
+        <div className="reveal beam-frame beam-frame-strong mx-auto mt-5 grid max-w-6xl border gold-divider bg-[#061122]/72 sm:grid-cols-4">
           {countdown.map((item) => (
             <div key={item.l} className="border-r gold-divider px-6 py-5">
               <div className="font-display text-[clamp(2.3rem,3.3vw,4rem)] leading-none text-blush-ink">{item.v}</div>
@@ -267,7 +267,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <SectionHeader eyebrow="The crown pathway" title="A complete season, not one night." />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {pillars.map((p) => (
-            <article key={p.title} className="reveal group overflow-hidden border gold-divider bg-[#040404]/72 transition duration-300 hover:-translate-y-1 hover:border-blush-accent/55">
+            <article key={p.title} className="reveal group overflow-hidden border gold-divider bg-[#020817]/72 transition duration-300 hover:-translate-y-1 hover:border-blush-accent/55">
               <div className="relative aspect-[3/4] overflow-hidden bg-blush-wash">
                 <img
                   src={encodeURI(p.bg)}
@@ -276,7 +276,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   style={{ objectPosition: p.position }}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070607]/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061122]/20 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 bg-blush-page px-4 py-2 font-display text-sm tracking-[.1em] text-blush-accent">{p.num}</div>
               </div>
               <div className="p-6">
@@ -291,7 +291,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
 
       <section id="shot6" className="cinematic-band px-[clamp(20px,4vw,42px)] py-[clamp(44px,6vw,76px)]">
         <div className="content-wrap grid gap-8 lg:grid-cols-[.8fr_1.05fr] lg:items-center">
-          <div className="relative mx-auto w-full max-w-[500px] overflow-hidden border gold-divider bg-[#070607]/72 p-3 shadow-[0_28px_80px_rgba(0,0,0,.28)]">
+          <div className="relative mx-auto w-full max-w-[500px] overflow-hidden border gold-divider bg-[#061122]/72 p-3 shadow-[0_28px_80px_rgba(0,0,0,.28)]">
             <div className="overflow-hidden bg-blush-wash">
               <img
                 id="shot6img"
@@ -309,7 +309,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             <h2 className="display-title max-w-2xl">The crown continues beyond the night.</h2>
             <p data-beat="1" className="mt-7 max-w-2xl font-display text-2xl leading-snug text-blush-ink transition duration-700">"A title year shaped by confidence, service and presence."</p>
             <p data-beat="2" className="mt-6 max-w-xl font-light leading-8 text-blush-body transition duration-700">From the runway to public appearances, each titleholder carries the platform into schools, shoots, designer showcases and national pathways.</p>
-            <div data-beat="3" className="mt-8 grid gap-1 border gold-divider bg-[#070607]/72 transition duration-700 sm:grid-cols-3">
+            <div data-beat="3" className="mt-8 grid gap-1 border gold-divider bg-[#061122]/72 transition duration-700 sm:grid-cols-3">
               {[["14", "Appearances"], ["9", "Schools reached"], ["1", "National entry"]].map(([n, label]) => (
                 <div key={label} className="border-r hairline p-6"><div className="font-display text-4xl text-blush-ink">{n}</div><div className="mt-2 text-[10px] uppercase tracking-[.24em] text-blush-accent">{label}</div></div>
               ))}
@@ -346,7 +346,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       <TestimonialsSection />
 
       <Section className="cinematic-band gold-lift">
-        <div className="grid gap-10 border gold-divider bg-[#040404]/76 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+        <div className="grid gap-10 border gold-divider bg-[#020817]/76 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
           <div className="reveal">
             <div className="eyebrow mb-5">Become a sponsor</div>
             <h2 className="display-title max-w-3xl">Partner with a state stage built for visibility.</h2>
@@ -355,7 +355,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             </p>
           </div>
           <div className="reveal flex flex-col gap-5 lg:items-end">
-            <div className="grid w-full grid-cols-2 border gold-divider bg-[#040404]/84">
+            <div className="grid w-full grid-cols-2 border gold-divider bg-[#020817]/84">
               {[["1,000", "Gala audience"], ["120+", "Contestants"], ["3", "Audition cities"], ["40+", "Guests & jury"]].map(([n, label]) => (
                 <div key={label} className="border-r border-t gold-divider p-5">
                   <div className="font-display text-4xl text-blush-ink">{n}</div>
@@ -376,14 +376,14 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="grid gap-1 bg-blush-ink/10">
             {tickets.map((ticket) => (
-              <div key={ticket.name} className="reveal hover-nudge grid grid-cols-[1fr_auto] gap-5 bg-[#070607]/76 p-6">
+              <div key={ticket.name} className="reveal hover-nudge grid grid-cols-[1fr_auto] gap-5 bg-[#061122]/76 p-6">
                 <div><h3 className="font-display text-2xl">{ticket.name}</h3><p className="text-sm text-blush-body">{ticket.perk}</p></div>
                 <strong>{ticket.price}</strong>
               </div>
             ))}
           </div>
           <div className="grid grid-cols-2 gap-1 bg-blush-ink/10">
-            {sponsorNames.map((name) => <div key={name} className="reveal grid min-h-28 place-items-center bg-[#070607]/76 p-5 text-center font-display text-2xl transition hover:text-blush-accent">{name}</div>)}
+            {sponsorNames.map((name) => <div key={name} className="reveal grid min-h-28 place-items-center bg-[#061122]/76 p-5 text-center font-display text-2xl transition hover:text-blush-accent">{name}</div>)}
           </div>
         </div>
       </Section>

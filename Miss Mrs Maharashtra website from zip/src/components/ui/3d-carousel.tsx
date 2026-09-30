@@ -103,7 +103,7 @@ const Carousel = memo(function Carousel({
 
   return (
     <div
-      className="flex h-full items-center justify-center bg-[#070607]"
+      className="flex h-full items-center justify-center bg-[#061122]"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
@@ -131,7 +131,7 @@ const Carousel = memo(function Carousel({
           <motion.button
             type="button"
             key={`${imgUrl}-${i}`}
-            className="absolute flex h-full origin-center items-center justify-center bg-[#070607] p-2"
+            className="absolute flex h-full origin-center items-center justify-center bg-[#061122] p-2"
             style={{
               width: `${faceWidth}px`,
               height: `${faceHeight}px`,
@@ -176,21 +176,21 @@ function ThreeDPhotoCarousel({ images }: { images?: string[] }) {
 
   if (isMobile) {
     return (
-      <div className="border-y border-blush-accent/20 bg-[#070607] p-4">
+      <div className="border-y border-blush-accent/20 bg-[#061122] p-4">
         <div className="grid grid-cols-2 gap-3">
           {cards.slice(0, 6).map((imgUrl, index) => (
             <button
               key={`${imgUrl}-${index}`}
               type="button"
               onClick={() => handleClick(imgUrl, index)}
-              className="aspect-[3/4] overflow-hidden border border-blush-accent/20 bg-[#040404]"
+              className="aspect-[3/4] overflow-hidden border border-blush-accent/20 bg-[#020817]"
             >
               <img src={encodeURI(imgUrl)} alt={`Winner portrait ${index + 1}`} className="h-full w-full object-cover" loading="lazy" decoding="async" />
             </button>
           ))}
         </div>
         {activeImg ? (
-          <div className="fixed inset-0 z-[90] grid place-items-center bg-[#070607]/95 p-5" onClick={handleClose}>
+          <div className="fixed inset-0 z-[90] grid place-items-center bg-[#061122]/95 p-5" onClick={handleClose}>
             <img src={encodeURI(activeImg)} alt="Selected winner portrait" className="max-h-full max-w-full object-contain" />
           </div>
         ) : null}
@@ -207,7 +207,7 @@ function ThreeDPhotoCarousel({ images }: { images?: string[] }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="fixed inset-0 z-[90] flex items-center justify-center bg-[#070607]/92 p-5"
+            className="fixed inset-0 z-[90] flex items-center justify-center bg-[#061122]/92 p-5"
             transition={transitionOverlay}
           >
             <motion.img
@@ -221,7 +221,7 @@ function ThreeDPhotoCarousel({ images }: { images?: string[] }) {
           </motion.div>
         ) : null}
       </AnimatePresence>
-      <div className="relative h-[560px] w-full overflow-hidden border-y border-blush-accent/20 bg-[#070607] max-sm:h-[390px]">
+      <div className="relative h-[560px] w-full overflow-hidden border-y border-blush-accent/20 bg-[#061122] max-sm:h-[390px]">
         <Carousel
           handleClick={handleClick}
           cards={cards}

@@ -37,7 +37,7 @@ export default function Example() {
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070607]/88 via-[#070607]/10 to-transparent opacity-80 transition group-hover:opacity-95" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061122]/88 via-[#061122]/10 to-transparent opacity-80 transition group-hover:opacity-95" />
             <div className="absolute inset-x-0 bottom-0 translate-y-3 p-5 text-white opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
               <div className="text-[10px] uppercase tracking-[.24em] text-white/70">
                 {winner.eyebrow}

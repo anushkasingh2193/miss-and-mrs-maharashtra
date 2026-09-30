@@ -111,7 +111,7 @@ function TestimonialsCard({
   return (
     <figure
       className={cn(
-        "w-full max-w-xs border gold-divider bg-[#070607]/74 p-8 shadow-[0_20px_70px_rgba(0,0,0,.24)] backdrop-blur-md",
+        "w-full max-w-xs border gold-divider bg-[#061122]/74 p-8 shadow-[0_20px_70px_rgba(0,0,0,.24)] backdrop-blur-md",
         className,
       )}
       {...props}

@@ -53,8 +53,8 @@ const platformPillars = [
 export function About({ navigate }: { navigate: (page: PageKey) => void }) {
   return (
     <div className="home-cinema">
-      <section className="relative overflow-hidden border-b gold-divider bg-[#050505] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_28%,rgba(214,174,79,.16),transparent_28%),radial-gradient(circle_at_18%_70%,rgba(214,174,79,.08),transparent_34%),linear-gradient(180deg,#050505,#0b0907_52%,#050505)]" />
+      <section className="relative overflow-hidden border-b gold-divider bg-[#031026] text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_28%,rgba(214,174,79,.16),transparent_28%),radial-gradient(circle_at_18%_70%,rgba(214,174,79,.08),transparent_34%),linear-gradient(180deg,#031026,#0b0907_52%,#031026)]" />
         <div className="content-wrap relative z-10 grid min-h-[calc(82vh-var(--header-height))] gap-10 px-[clamp(20px,4vw,42px)] py-[clamp(56px,7vw,100px)] lg:grid-cols-[1.02fr_.82fr] lg:items-center">
           <div className="reveal max-w-4xl">
             <div className="eyebrow mb-5 text-blush-accent">About the platform</div>
@@ -74,10 +74,10 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
 
           <div className="reveal relative mx-auto w-full max-w-[640px]">
             <div className="absolute -inset-4 border border-blush-accent/15" />
-            <div className="relative grid gap-3 border gold-divider bg-[#070607]/72 p-3 shadow-[0_34px_120px_rgba(0,0,0,.46)]">
+            <div className="relative grid gap-3 border gold-divider bg-[#061122]/72 p-3 shadow-[0_34px_120px_rgba(0,0,0,.46)]">
               <div className="grid gap-3 sm:grid-cols-2">
                 {leadershipCards.map((leader) => (
-                  <div key={leader.name} className="relative aspect-[4/5] overflow-hidden bg-[#040404]">
+                  <div key={leader.name} className="relative aspect-[4/5] overflow-hidden bg-[#020817]">
                     <img
                       src={leader.image}
                       alt={`${leader.name}, ${leader.role} of Miss and Mrs Maharashtra`}
@@ -87,7 +87,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
                       decoding="async"
                       fetchPriority="high"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#070607] via-[#070607]/12 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/12 to-transparent" />
                     <div className="absolute bottom-5 left-5 right-5">
                       <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">{leader.role}</p>
                       <h2 className="mt-2 font-display text-[clamp(1.9rem,3vw,3.6rem)] leading-none text-white">{leader.name}</h2>
@@ -95,7 +95,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
                   </div>
                 ))}
               </div>
-              <div className="border gold-divider bg-[#040404]/78 p-5">
+              <div className="border gold-divider bg-[#020817]/78 p-5">
                 <div className="eyebrow mb-3">Leadership</div>
                 <p className="font-display text-[clamp(1.8rem,3vw,3.4rem)] leading-tight text-blush-ink">
                   Presented by Zoya and Siraj Sheikh.
@@ -106,7 +106,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
               </div>
               <div className="grid gap-1 sm:grid-cols-3">
                 {founderStats.map(([value, label]) => (
-                  <div key={label} className="border gold-divider bg-[#040404]/78 p-4">
+                  <div key={label} className="border gold-divider bg-[#020817]/78 p-4">
                     <div className="font-display text-[clamp(1.5rem,2.3vw,2.6rem)] leading-none text-blush-ink">{value}</div>
                     <div className="mt-3 text-[9px] uppercase tracking-[.2em] text-blush-accent">{label}</div>
                   </div>
@@ -118,7 +118,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
       </section>
 
       <Section className="cinematic-band !py-0">
-        <div className="grid border-y gold-divider bg-[#040404]/72 md:grid-cols-5">
+        <div className="grid border-y gold-divider bg-[#020817]/72 md:grid-cols-5">
           {proofStats.map(([value, label]) => (
             <div key={label} className="border-r gold-divider px-5 py-7">
               <div className="font-display text-[clamp(1.9rem,2.8vw,3.4rem)] leading-none text-blush-ink">{value}</div>
@@ -147,7 +147,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div className="reveal grid gap-3 sm:grid-cols-2">
             {leadershipCards.map((leader) => (
-              <div key={`vision-${leader.name}`} className="beam-frame relative aspect-[4/5] overflow-hidden border gold-divider bg-[#070607]">
+              <div key={`vision-${leader.name}`} className="beam-frame relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122]">
                 <img
                   src={leader.image}
                   alt={`${leader.name}, ${leader.role}`}
@@ -155,7 +155,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
                   style={{ objectPosition: leader.position }}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#070607] via-[#070607]/12 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/12 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">
                   <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">{leader.role}</p>
                   <h2 className="mt-2 font-display text-[clamp(1.9rem,3vw,3.4rem)] leading-none text-white">{leader.name}</h2>
@@ -170,7 +170,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
             <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
               Zoya brings titleholder experience and pageant vision; Siraj brings production discipline, partnerships and operational leadership. Together, they shape one credible Maharashtra stage.
             </p>
-            <div className="mt-8 grid border gold-divider bg-[#070607]/72 sm:grid-cols-3">
+            <div className="mt-8 grid border gold-divider bg-[#061122]/72 sm:grid-cols-3">
               {founderStats.map(([value, label]) => (
                 <div key={label} className="border-r gold-divider p-6">
                   <div className="font-display text-[clamp(2.3rem,3.6vw,4.6rem)] leading-none text-blush-ink">{value}</div>
@@ -186,7 +186,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
         <SectionHeader eyebrow="Platform" title="Clear purpose. Real preparation." body="The pageant experience is structured around outcomes contestants can carry beyond one evening on stage." />
         <div className="grid gap-1 bg-blush-ink/10 md:grid-cols-4">
           {platformPillars.map((pillar) => (
-            <article key={pillar.title} className="reveal bg-[#070607]/78 p-7 transition hover:bg-[#11100c]">
+            <article key={pillar.title} className="reveal bg-[#061122]/78 p-7 transition hover:bg-[#11100c]">
               <h3 className="font-display text-3xl text-blush-ink">{pillar.title}</h3>
               <p className="mt-5 text-sm leading-7 text-blush-body">{pillar.body}</p>
             </article>
