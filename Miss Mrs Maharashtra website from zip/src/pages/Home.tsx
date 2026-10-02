@@ -60,56 +60,6 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <section id="featured-stage" className="featured-stage-scroll relative h-[250vh] overflow-visible bg-[#020817]">
-        <div className="sticky top-[var(--header-height)] h-[calc(100vh-var(--header-height))] min-h-[640px] overflow-hidden">
-          <div id="featured-stage-tiles" className="featured-stage-tiles pointer-events-none absolute inset-x-0 top-0 z-20 hidden h-[34vh] grid-cols-3 gap-[3px] md:grid">
-            {[imageRoles.titleMiss, imageRoles.brandProof, imageRoles.titleMrs].map((image, index) => (
-              <div key={image} className="featured-stage-tile overflow-hidden bg-[#061122]" data-feature-tile={index + 1}>
-                <img
-                  src={image}
-                  alt=""
-                  className="h-full w-full object-cover"
-                  style={{ objectPosition: index === 1 ? "50% 20%" : "50% 26%" }}
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-
-          <img
-            id="featured-stage-bg"
-            src={imageRoles.galleryHero}
-            alt="Miss and Mrs Maharashtra winners on stage"
-            className="absolute inset-0 h-full w-full object-cover object-[50%_22%] will-change-transform"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,rgba(214,174,79,.12),transparent_28%),linear-gradient(180deg,rgba(2,8,23,.42),rgba(2,8,23,.18)_38%,rgba(2,8,23,.78))]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#020817]/74 via-transparent to-[#020817]/62" />
-
-          <div className="featured-stage-copy absolute inset-0 z-10 flex flex-col items-center justify-center px-[clamp(18px,4vw,54px)] text-center">
-            <p id="featured-stage-kicker" className="eyebrow mb-5 text-blush-accent will-change-transform">The Featured Stage</p>
-            <h2
-              id="featured-stage-title"
-              className="featured-stage-title font-display text-[clamp(4.4rem,16vw,17rem)] leading-[.74] text-white will-change-transform"
-            >
-              Crowned
-            </h2>
-            <div id="featured-stage-line" className="mt-8 h-px w-[min(220px,42vw)] bg-blush-accent/70 will-change-transform" />
-            <p id="featured-stage-caption" className="mt-7 max-w-2xl font-display text-[clamp(1.25rem,2.4vw,2.65rem)] leading-tight text-white/90 will-change-transform">
-              Maharashtra takes the stage in light, confidence and applause.
-            </p>
-            <p className="mt-5 text-[10px] uppercase tracking-[.34em] text-blush-accent/90">Season 3 / Miss & Mrs. Maharashtra</p>
-          </div>
-
-          <div className="pointer-events-none absolute bottom-7 left-[clamp(18px,4vw,54px)] z-20 hidden text-[10px] uppercase tracking-[.3em] text-white/58 md:block">
-            Scroll
-          </div>
-          <div className="pointer-events-none absolute bottom-7 right-[clamp(18px,4vw,54px)] z-20 hidden text-[10px] uppercase tracking-[.3em] text-blush-accent md:block">
-            01 / 03
-          </div>
-        </div>
-      </section>
-
       <Section className="cinematic-band border-b gold-divider">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
