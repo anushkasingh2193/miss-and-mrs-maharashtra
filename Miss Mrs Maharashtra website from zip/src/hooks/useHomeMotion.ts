@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
+const smoothstep = (value: number) => value * value * (3 - 2 * value);
 
 function progressFor(el: HTMLElement) {
   const rect = el.getBoundingClientRect();
@@ -70,18 +71,18 @@ export function useHomeMotion() {
       const pageantBody = document.getElementById("pageant-body");
       if (pageant && pageantImageCard && pageantImage) {
         const p = progressFor(pageant);
-        const enlarge = clamp01((p - 0.12) / 0.62);
-        const drift = clamp01((p - 0.34) / 0.4);
-        const fill = clamp01((p - 0.58) / 0.34);
+        const enlarge = smoothstep(clamp01((p - 0.12) / 0.72));
+        const drift = smoothstep(clamp01((p - 0.42) / 0.5));
+        const fill = smoothstep(clamp01((p - 0.72) / 0.24));
         const isDesktop = window.innerWidth >= 1024;
 
-        const cardScale = 1 + enlarge * 0.2 + fill * (isDesktop ? 1.25 : 0.18);
-        const cardX = isDesktop ? -drift * 4 + fill * 21 : 0;
-        const cardY = isDesktop ? fill * 6 : 0;
+        const cardScale = 1 + enlarge * 0.12 + fill * (isDesktop ? 0.38 : 0.1);
+        const cardX = isDesktop ? -drift * 2.4 + fill * 2.8 : 0;
+        const cardY = isDesktop ? fill * 2 : 0;
         pageantImageCard.style.transform = `translate3d(${cardX}vw, ${cardY}px, 0) scale(${cardScale})`;
-        pageantImage.style.transform = `scale(${1.02 + enlarge * 0.06})`;
+        pageantImage.style.transform = `scale(${1.012 + enlarge * 0.035})`;
         if (pageantCopy) {
-          pageantCopy.style.opacity = String(1 - fill * 0.72);
+          pageantCopy.style.opacity = String(1 - fill * 0.35);
         }
 
         pageant.querySelectorAll<HTMLElement>("[data-pageant-line]").forEach((line, index) => {
