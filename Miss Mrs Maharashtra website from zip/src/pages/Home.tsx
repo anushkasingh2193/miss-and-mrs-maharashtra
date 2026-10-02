@@ -134,22 +134,40 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </ContainerScroll>
 
-      <section className="cinematic-band px-[clamp(20px,4vw,42px)] py-[clamp(38px,5vw,68px)]">
+      <section id="founder-reveal" className="founder-reveal-section cinematic-band px-[clamp(20px,4vw,42px)] py-[clamp(52px,7vw,104px)]">
         <div className="content-wrap">
           <div className="grid gap-10 lg:grid-cols-[1fr_.92fr] lg:items-center">
-            <div className="reveal relative z-10">
-              <div className="eyebrow mb-3">Founder</div>
-              <h2 className="font-display text-[clamp(3rem,5.4vw,7rem)] leading-[.9] text-blush-ink">Zoya Siraj Sheikh.</h2>
+            <div className="relative z-10">
+              <div className="founder-line-mask mb-3">
+                <div className="founder-reveal-line eyebrow" data-founder-line style={{ transitionDelay: "0ms" }}>Founder</div>
+              </div>
+              <h2 className="font-display text-[clamp(3rem,5.4vw,7rem)] leading-[.9] text-blush-ink">
+                <span className="founder-line-mask">
+                  <span className="founder-reveal-line block" data-founder-line style={{ transitionDelay: "90ms" }}>Zoya Siraj</span>
+                </span>
+                <span className="founder-line-mask">
+                  <span className="founder-reveal-line block" data-founder-line style={{ transitionDelay: "170ms" }}>Sheikh.</span>
+                </span>
+              </h2>
               <p className="mt-4 text-xs uppercase tracking-[.24em] text-blush-accent">Mrs. Maharashtra 2022 / 3rd Runner-up, Mrs. Universe</p>
-              <p className="mt-6 max-w-md font-display text-[clamp(1.55rem,2.4vw,2.9rem)] leading-tight text-blush-ink">"Built for women with presence, purpose and national ambition."</p>
+              <p className="founder-quote mt-6 max-w-md font-display text-[clamp(1.55rem,2.4vw,2.9rem)] leading-tight text-blush-ink" aria-label="Built for women with presence, purpose and national ambition.">
+                {["Built", "for", "women", "with", "presence,", "purpose", "and", "national", "ambition."].map((word, index) => (
+                  <span key={`${word}-${index}`} className="founder-quote-word" data-founder-word style={{ transitionDelay: `${260 + index * 46}ms` }}>
+                    {index === 0 ? '"' : ""}
+                    {word}
+                    {index === 8 ? '"' : ""}
+                  </span>
+                ))}
+              </p>
               <button onClick={() => navigate("about")} className="mt-8 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Founder story</button>
             </div>
-            <div className="reveal">
+            <div className="founder-photo-column">
               <div className="beam-frame beam-frame-soft relative mx-auto h-[clamp(330px,36vw,450px)] max-w-[460px] overflow-hidden border gold-divider bg-[#061122] shadow-[0_34px_110px_rgba(0,0,0,.38)]">
                 <img
+                  id="founder-photo-img"
                   src={imageRoles.founderPortrait}
                   alt="Zoya Siraj Sheikh"
-                  className="h-full w-full object-cover object-[50%_12%]"
+                  className="h-full w-full object-cover object-[50%_12%] will-change-transform"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/16 to-transparent" />

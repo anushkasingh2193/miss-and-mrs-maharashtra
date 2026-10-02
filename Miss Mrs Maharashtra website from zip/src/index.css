@@ -492,6 +492,53 @@ select:focus-visible {
   transform: rotateX(-4deg) translateY(-2px);
 }
 
+.founder-reveal-section {
+  overflow: hidden;
+}
+
+.founder-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.founder-reveal-line {
+  display: block;
+  opacity: 0.22;
+  transform: translate3d(0, 105%, 0);
+  transition:
+    transform 0.86s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.86s ease;
+  will-change: transform, opacity;
+}
+
+.founder-quote {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.34em;
+  row-gap: 0.06em;
+}
+
+.founder-quote-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  filter: blur(8px);
+  transition:
+    transform 0.72s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.72s ease,
+    filter 0.72s ease;
+  will-change: transform, opacity, filter;
+}
+
+.founder-photo-column {
+  transform: translateZ(0);
+}
+
+#founder-photo-img {
+  transform: translate3d(0, 36px, 0) scale(1.12);
+  transform-origin: center top;
+}
+
 @media (min-width: 901px) and (max-width: 1180px) {
   .founder-float-card {
     width: 180px !important;
@@ -729,6 +776,14 @@ select:focus-visible {
 
   .image-settle {
     transform: none;
+  }
+
+  .founder-reveal-line,
+  .founder-quote-word,
+  #founder-photo-img {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
   }
 
   .luxury-hover-card,

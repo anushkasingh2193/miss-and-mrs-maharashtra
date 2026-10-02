@@ -35,6 +35,34 @@ export function useHomeMotion() {
         shot4Track.style.transform = window.innerWidth >= 1024 ? `translate3d(${-progressFor(shot4) * 50}%, 0, 0)` : "translate3d(0, 0, 0)";
       }
 
+      const founder = document.getElementById("founder-reveal");
+      const founderPhoto = document.getElementById("founder-photo-img");
+      if (founder) {
+        const rect = founder.getBoundingClientRect();
+        const p = clamp01((window.innerHeight - rect.top) / Math.max(1, window.innerHeight * 0.9));
+        const imageProgress = clamp01((p - 0.12) / 0.78);
+        const textProgress = clamp01((p - 0.05) / 0.72);
+
+        if (founderPhoto) {
+          const scale = 1.12 - imageProgress * 0.12;
+          const y = (1 - imageProgress) * 36 - imageProgress * 12;
+          founderPhoto.style.transform = `translate3d(0, ${y}px, 0) scale(${scale})`;
+        }
+
+        founder.querySelectorAll<HTMLElement>("[data-founder-line]").forEach((line, index) => {
+          const lineProgress = clamp01((textProgress - index * 0.13) / 0.38);
+          line.style.transform = `translate3d(0, ${(1 - lineProgress) * 105}%, 0)`;
+          line.style.opacity = String(0.22 + lineProgress * 0.78);
+        });
+
+        founder.querySelectorAll<HTMLElement>("[data-founder-word]").forEach((word, index) => {
+          const wordProgress = clamp01((textProgress - 0.28 - index * 0.035) / 0.24);
+          word.style.transform = `translate3d(0, ${(1 - wordProgress) * 22}px, 0)`;
+          word.style.opacity = String(wordProgress);
+          word.style.filter = `blur(${(1 - wordProgress) * 8}px)`;
+        });
+      }
+
       const shot6 = document.getElementById("shot6");
       const shot6Img = document.getElementById("shot6img");
       if (shot6 && shot6Img) {
