@@ -205,32 +205,44 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </section>
 
-      <Section className="cinematic-band gold-lift !py-[clamp(42px,5vw,72px)]">
-        <div className="grid gap-10 lg:grid-cols-[.82fr_1fr] lg:items-center">
-          <div className="editorial-image luxury-hover-card reveal mx-auto aspect-[4/5] w-full max-w-[520px]">
-            <img
-              src={imageRoles.brandProof}
-              alt="Miss and Mrs Maharashtra crowned contestants on stage"
-              className="luxury-hover-image h-full w-full object-cover transition duration-700"
-              style={{ objectPosition: "50% 20%" }}
-              loading="lazy"
-            />
-            <div className="luxury-hover-content absolute bottom-6 left-6 z-10">
-              <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Nagpur, Maharashtra</p>
-              <h3 className="luxury-hover-title mt-2 font-display text-[clamp(2rem,3vw,4rem)] leading-none text-white">Two seasons crowned.</h3>
-              <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
-                <ArrowRight size={15} />
-              </span>
+      <section id="pageant-reveal" className="pageant-reveal-section cinematic-band gold-lift">
+        <div className="pageant-sticky-frame sticky top-[var(--header-height)] min-h-[calc(100vh-var(--header-height))] overflow-hidden px-[clamp(20px,4vw,42px)] py-[clamp(42px,5vw,72px)]">
+          <div className="content-wrap grid min-h-[calc(100vh-var(--header-height)-clamp(84px,10vw,144px))] gap-10 lg:grid-cols-[.82fr_1fr] lg:items-center">
+            <div className="pageant-image-wrap relative z-10 mx-auto w-full max-w-[520px]">
+              <div id="pageant-image-card" className="editorial-image beam-frame beam-frame-soft mx-auto aspect-[4/5] w-full overflow-hidden will-change-transform">
+                <img
+                  id="pageant-image"
+                  src={imageRoles.brandProof}
+                  alt="Miss and Mrs Maharashtra crowned contestants on stage"
+                  className="h-full w-full object-cover will-change-transform"
+                  style={{ objectPosition: "50% 20%" }}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/82 via-[#020817]/12 to-transparent" />
+                <div className="absolute bottom-6 left-6 z-10">
+                  <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Nagpur, Maharashtra</p>
+                  <h3 className="mt-2 font-display text-[clamp(2rem,3vw,4rem)] leading-none text-white">Two seasons crowned.</h3>
+                </div>
+              </div>
+            </div>
+            <div id="pageant-copy" className="pageant-copy relative z-20 max-w-2xl">
+              <div className="pageant-line-mask mb-5">
+                <div className="pageant-reveal-line eyebrow" data-pageant-line>The pageant</div>
+              </div>
+              <h2 className="display-title mb-7">
+                <span className="pageant-line-mask">
+                  <span className="pageant-reveal-line block" data-pageant-line>A state stage with a</span>
+                </span>
+                <span className="pageant-line-mask">
+                  <span className="pageant-reveal-line block" data-pageant-line>national standard.</span>
+                </span>
+              </h2>
+              <p id="pageant-body" className="text-lg font-light leading-8 text-blush-body will-change-transform">A premium Maharashtra stage for confidence, purpose and national presence. Every season is built around grooming, runway discipline, media visibility and a title year beyond coronation night.</p>
+              <button onClick={() => navigate("about")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Our story <ArrowRight size={15} /></button>
             </div>
           </div>
-          <div className="reveal max-w-2xl">
-            <div className="eyebrow mb-5">The pageant</div>
-            <h2 className="display-title mb-7">A state stage with a national standard.</h2>
-            <p className="text-lg font-light leading-8 text-blush-body">A premium Maharashtra stage for confidence, purpose and national presence. Every season is built around grooming, runway discipline, media visibility and a title year beyond coronation night.</p>
-            <button onClick={() => navigate("about")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Our story <ArrowRight size={15} /></button>
-          </div>
         </div>
-      </Section>
+      </section>
 
       <Section className="cinematic-band !py-[clamp(36px,5vw,68px)] text-white">
         <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1fr_.78fr] lg:items-stretch">

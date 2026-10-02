@@ -59,7 +59,7 @@ select:focus-visible {
 
 .home-cinema {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background:
     radial-gradient(circle at 82% 4%, rgba(214, 174, 79, 0.1), transparent 24%),
     radial-gradient(circle at 12% 32%, rgba(214, 174, 79, 0.055), transparent 26%),
@@ -149,6 +149,66 @@ select:focus-visible {
   background:
     linear-gradient(180deg, transparent 42%, rgba(2, 8, 23, 0.82)),
     radial-gradient(circle at 80% 18%, rgba(214, 174, 79, 0.16), transparent 32%);
+}
+
+.pageant-reveal-section {
+  position: relative;
+  min-height: 230vh;
+}
+
+.pageant-sticky-frame {
+  isolation: isolate;
+}
+
+.pageant-sticky-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(214, 174, 79, 0.1), transparent 24%),
+    linear-gradient(90deg, rgba(2, 8, 23, 0.12), rgba(2, 8, 23, 0.72));
+  z-index: 1;
+}
+
+.pageant-image-wrap {
+  transform: translateZ(0);
+}
+
+#pageant-image-card {
+  transform-origin: center center;
+}
+
+#pageant-image {
+  transform: scale(1.02);
+  transform-origin: 50% 20%;
+}
+
+.pageant-copy {
+  transition: opacity 0.3s ease;
+}
+
+.pageant-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.pageant-reveal-line {
+  display: block;
+  opacity: 0.2;
+  transform: translate3d(0, 105%, 0);
+  transition:
+    transform 0.82s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.82s ease;
+  will-change: transform, opacity;
+}
+
+#pageant-body {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.7s ease;
 }
 
 .luxury-hover-card {
@@ -749,6 +809,16 @@ select:focus-visible {
   .display-title {
     font-size: clamp(32px, 10vw, 48px);
   }
+
+  .pageant-reveal-section {
+    min-height: 170vh;
+  }
+
+  .pageant-sticky-frame {
+    position: relative;
+    top: auto;
+    min-height: auto;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -780,7 +850,11 @@ select:focus-visible {
 
   .founder-reveal-line,
   .founder-quote-word,
-  #founder-photo-img {
+  #founder-photo-img,
+  .pageant-reveal-line,
+  #pageant-image-card,
+  #pageant-image,
+  #pageant-body {
     opacity: 1 !important;
     filter: none !important;
     transform: none !important;

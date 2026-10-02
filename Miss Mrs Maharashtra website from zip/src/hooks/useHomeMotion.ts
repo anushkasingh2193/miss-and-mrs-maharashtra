@@ -63,6 +63,40 @@ export function useHomeMotion() {
         });
       }
 
+      const pageant = document.getElementById("pageant-reveal");
+      const pageantImageCard = document.getElementById("pageant-image-card");
+      const pageantImage = document.getElementById("pageant-image");
+      const pageantCopy = document.getElementById("pageant-copy");
+      const pageantBody = document.getElementById("pageant-body");
+      if (pageant && pageantImageCard && pageantImage) {
+        const p = progressFor(pageant);
+        const enlarge = clamp01((p - 0.12) / 0.62);
+        const drift = clamp01((p - 0.34) / 0.4);
+        const fill = clamp01((p - 0.58) / 0.34);
+        const isDesktop = window.innerWidth >= 1024;
+
+        const cardScale = 1 + enlarge * 0.2 + fill * (isDesktop ? 1.25 : 0.18);
+        const cardX = isDesktop ? -drift * 4 + fill * 21 : 0;
+        const cardY = isDesktop ? fill * 6 : 0;
+        pageantImageCard.style.transform = `translate3d(${cardX}vw, ${cardY}px, 0) scale(${cardScale})`;
+        pageantImage.style.transform = `scale(${1.02 + enlarge * 0.06})`;
+        if (pageantCopy) {
+          pageantCopy.style.opacity = String(1 - fill * 0.72);
+        }
+
+        pageant.querySelectorAll<HTMLElement>("[data-pageant-line]").forEach((line, index) => {
+          const lineProgress = clamp01((p - 0.26 - index * 0.1) / 0.26);
+          line.style.transform = `translate3d(0, ${(1 - lineProgress) * 105}%, 0)`;
+          line.style.opacity = String(0.2 + lineProgress * 0.8);
+        });
+
+        if (pageantBody) {
+          const bodyProgress = clamp01((p - 0.48) / 0.24);
+          pageantBody.style.opacity = String(bodyProgress);
+          pageantBody.style.transform = `translate3d(0, ${(1 - bodyProgress) * 24}px, 0)`;
+        }
+      }
+
       const shot6 = document.getElementById("shot6");
       const shot6Img = document.getElementById("shot6img");
       if (shot6 && shot6Img) {
