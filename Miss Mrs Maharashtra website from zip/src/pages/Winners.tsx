@@ -51,20 +51,23 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
           <button
             type="button"
             onClick={() => setLightbox(mAndMWinnerImages[0])}
-            className="group hidden overflow-hidden border gold-divider bg-[#061122]/84 p-3 text-left shadow-2xl shadow-black/30 transition hover:border-blush-accent/60 focus:outline-none focus:ring-2 focus:ring-blush-accent lg:block"
+            className="group luxury-hover-card hidden overflow-hidden border gold-divider bg-[#061122]/84 p-3 text-left shadow-2xl shadow-black/30 transition hover:border-blush-accent/60 focus:outline-none focus:ring-2 focus:ring-blush-accent lg:block"
           >
-            <div className="relative aspect-[4/5] overflow-hidden bg-blush-wash">
+            <div className="luxury-hover-media relative aspect-[4/5] overflow-hidden bg-blush-wash">
               <img
                 src={mAndMWinnerImages[0]}
                 alt="M&M crowned winner portrait"
-                className="h-full w-full object-cover object-[50%_14%] transition duration-700 group-hover:scale-105"
+                className="luxury-hover-image h-full w-full object-cover object-[50%_14%] transition duration-700"
                 loading="eager"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#061122]/86 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5">
+              <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/86 via-transparent to-transparent" />
+              <div className="luxury-hover-content absolute bottom-5 left-5 right-5">
                 <p className="text-[10px] uppercase tracking-[.28em] text-blush-accent">Featured M&M frame</p>
-                <h2 className="mt-2 font-display text-4xl leading-none text-white">Crowned on stage.</h2>
+                <h2 className="luxury-hover-title mt-2 font-display text-4xl leading-none text-white">Crowned on stage.</h2>
+                <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
+                  <ArrowRight size={15} />
+                </span>
               </div>
             </div>
           </button>
@@ -81,17 +84,17 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
               key={image}
               type="button"
               onClick={() => setLightbox(image)}
-              className="group reveal relative aspect-[16/10] overflow-hidden border gold-divider bg-[#061122] focus:outline-none focus:ring-2 focus:ring-blush-accent"
+              className="group luxury-hover-card reveal relative aspect-[16/10] overflow-hidden border gold-divider bg-[#061122] focus:outline-none focus:ring-2 focus:ring-blush-accent"
             >
               <img
                 src={image}
                 alt={`M&M winner gallery group frame ${index + 1}`}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                className="luxury-hover-image h-full w-full object-cover transition duration-700"
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#061122]/80 via-transparent to-transparent" />
-              <span className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">
+              <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/80 via-transparent to-transparent" />
+              <span className="luxury-hover-content absolute bottom-4 left-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">
                 M&M gallery / 0{index + 1}
               </span>
             </button>
@@ -107,15 +110,18 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
               key={w.name}
               type="button"
               onClick={() => setLightbox(w.bg)}
-              className="group reveal overflow-hidden border gold-divider bg-blush-page text-left transition duration-300 hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
+              className="group luxury-hover-card reveal overflow-hidden border gold-divider bg-blush-page text-left transition duration-300 hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
             >
-              <div className="relative aspect-[4/5] overflow-hidden bg-blush-wash">
-                <img src={w.bg} alt={w.name} className="absolute inset-0 h-full w-full object-cover object-[50%_18%] transition duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/86 via-transparent to-transparent" />
+              <div className="luxury-hover-media relative aspect-[4/5] overflow-hidden bg-blush-wash">
+                <img src={w.bg} alt={w.name} className="luxury-hover-image absolute inset-0 h-full w-full object-cover object-[50%_18%] transition duration-700" loading="lazy" decoding="async" />
+                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/86 via-transparent to-transparent" />
                 <div className="absolute left-0 top-0 bg-blush-page px-4 py-3 text-[10px] uppercase tracking-[.26em] text-blush-accent">{w.plate}</div>
-                <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-6 text-white">
                   <p className="text-[10px] uppercase tracking-[.24em] text-blush-accent">{w.title}</p>
-                  <h3 className="mt-3 font-display text-3xl">{w.name}</h3>
+                  <h3 className="luxury-hover-title mt-3 font-display text-3xl">{w.name}</h3>
+                  <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
+                    <ArrowRight size={15} />
+                  </span>
                 </div>
               </div>
               <p className="p-6 text-sm leading-7 text-blush-body">{w.quote}</p>
@@ -158,19 +164,22 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
             <button
               type="button"
               onClick={() => setLightbox(featuredImage)}
-              className="group relative min-h-[460px] overflow-hidden bg-[#020817] text-left focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blush-accent"
+              className="group luxury-hover-card relative min-h-[460px] overflow-hidden bg-[#020817] text-left focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blush-accent"
             >
               <img
                 src={featuredImage}
                 alt={`${selectedSeason.title} featured portrait`}
-                className="absolute inset-0 h-full w-full object-cover object-[50%_18%] transition duration-700 group-hover:scale-105"
+                className="luxury-hover-image absolute inset-0 h-full w-full object-cover object-[50%_18%] transition duration-700"
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/92 via-[#020817]/12 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-7">
+              <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/92 via-[#020817]/12 to-transparent" />
+              <div className="luxury-hover-content absolute bottom-0 left-0 p-7">
                 <div className="eyebrow mb-3">Featured frame</div>
-                <h3 className="font-display text-[clamp(2rem,4vw,4.6rem)] leading-none text-white">{selectedSeason.title}</h3>
+                <h3 className="luxury-hover-title font-display text-[clamp(2rem,4vw,4.6rem)] leading-none text-white">{selectedSeason.title}</h3>
+                <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
+                  <ArrowRight size={15} />
+                </span>
               </div>
             </button>
 
@@ -190,12 +199,12 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
                     key={image}
                     type="button"
                     onClick={() => setLightbox(image)}
-                    className="group relative aspect-[3/4] overflow-hidden border border-blush-accent/15 bg-blush-wash focus:outline-none focus:ring-2 focus:ring-blush-accent"
+                    className="group luxury-hover-card relative aspect-[3/4] overflow-hidden border border-blush-accent/15 bg-blush-wash focus:outline-none focus:ring-2 focus:ring-blush-accent"
                   >
                     <img
                       src={image}
                       alt={`${selectedSeason.title} archive portrait ${idx + 1}`}
-                      className="h-full w-full object-cover object-[50%_18%] transition duration-500 group-hover:scale-105"
+                      className="luxury-hover-image h-full w-full object-cover object-[50%_18%] transition duration-500"
                       loading="lazy"
                       decoding="async"
                     />

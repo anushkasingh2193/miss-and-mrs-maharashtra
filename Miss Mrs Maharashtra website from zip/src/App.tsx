@@ -10,6 +10,7 @@ import { Register } from "@/pages/Register";
 import { Sponsors } from "@/pages/Sponsors";
 import { Winners } from "@/pages/Winners";
 import type { PageKey } from "@/data/site";
+import { useLuxuryHoverMotion } from "@/hooks/useLuxuryHoverMotion";
 
 const pages: Record<PageKey, React.ComponentType<{ navigate: (page: PageKey) => void }>> = {
   home: Home,
@@ -26,6 +27,7 @@ const pages: Record<PageKey, React.ComponentType<{ navigate: (page: PageKey) => 
 export default function App() {
   const [page, setPage] = useState<PageKey>("home");
   const Page = pages[page];
+  useLuxuryHoverMotion();
 
   return (
     <Layout page={page} navigate={setPage}>

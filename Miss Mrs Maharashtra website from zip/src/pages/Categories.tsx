@@ -59,23 +59,26 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
               <button
                 key={item.key}
                 onClick={() => navigate("register")}
-                className="group relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122] text-left text-white shadow-[0_24px_90px_rgba(0,0,0,.34)] transition hover:-translate-y-1 hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent"
+                className="group luxury-hover-card relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122] text-left text-white shadow-[0_24px_90px_rgba(0,0,0,.34)] transition hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent"
               >
                 <img
                   src={item.image}
                   alt={`${item.key === "miss" ? "Miss" : "Mrs."} Maharashtra category`}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  className="luxury-hover-image h-full w-full object-cover transition duration-700"
                   style={{ objectPosition: item.position }}
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#031026] via-[#031026]/30 to-transparent" />
+                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#031026] via-[#031026]/30 to-transparent" />
                 <div className="absolute left-0 top-0 bg-[#031026]/88 px-5 py-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">{item.label}</div>
-                <div className="absolute inset-x-0 bottom-0 p-6">
+                <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-6">
                   <p className="text-[10px] uppercase tracking-[.26em] text-blush-accent">{item.pathway}</p>
-                  <h2 className="mt-3 font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none">{item.key === "miss" ? "Miss" : "Mrs."} Maharashtra</h2>
+                  <h2 className="luxury-hover-title mt-3 font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none">{item.key === "miss" ? "Miss" : "Mrs."} Maharashtra</h2>
                   <p className="mt-4 text-sm leading-6 text-white/78">{item.promise}</p>
+                  <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
+                    <ArrowRight size={15} />
+                  </span>
                 </div>
               </button>
             ))}
@@ -100,22 +103,22 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
             const detail = categoryDetails[idx];
 
             return (
-              <article key={cat.key} className="reveal grid overflow-hidden border gold-divider bg-[#020817]/76 lg:grid-cols-[.82fr_1fr]">
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#061122] lg:aspect-auto">
+              <article key={cat.key} className="luxury-hover-card reveal grid overflow-hidden border gold-divider bg-[#020817]/76 lg:grid-cols-[.82fr_1fr]">
+                <div className="luxury-hover-media relative aspect-[4/5] overflow-hidden bg-[#061122] lg:aspect-auto">
                   <img
                     src={detail.image}
                     alt={`${cat.title} applicant pathway`}
-                    className="h-full w-full object-cover transition duration-700 hover:scale-105"
+                    className="luxury-hover-image h-full w-full object-cover transition duration-700"
                     style={{ objectPosition: detail.position }}
                     loading="lazy"
                     decoding="async"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/86 via-transparent to-transparent" />
+                  <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/86 via-transparent to-transparent" />
                   <div className="absolute bottom-5 left-5 text-[10px] uppercase tracking-[.28em] text-blush-accent">{detail.label}</div>
                 </div>
-                <div className="p-[clamp(24px,3.5vw,44px)]">
+                <div className="luxury-hover-content p-[clamp(24px,3.5vw,44px)]">
                   <div className="eyebrow mb-5">{cat.pathway}</div>
-                  <h2 className="font-display text-[clamp(2.8rem,4.8vw,5.8rem)] leading-none text-blush-ink">{cat.title}</h2>
+                  <h2 className="luxury-hover-title font-display text-[clamp(2.8rem,4.8vw,5.8rem)] leading-none text-blush-ink">{cat.title}</h2>
                   <p className="mt-6 text-lg font-light leading-8 text-blush-body">{detail.eligibility}</p>
                   <div className="mt-7 grid gap-3 sm:grid-cols-2">
                     {detail.facts.map((fact) => (

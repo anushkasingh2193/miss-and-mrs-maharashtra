@@ -108,23 +108,26 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       >
         <div className="grid gap-2 p-2 md:grid-cols-2">
           {categories.map((cat, idx) => (
-            <button key={cat.key} onClick={() => navigate("categories")} className="group relative aspect-[4/5] min-w-0 overflow-hidden text-left text-white">
+            <button key={cat.key} onClick={() => navigate("categories")} className="group luxury-hover-card relative aspect-[4/5] min-w-0 overflow-hidden text-left text-white">
               <img
                 src={idx === 0 ? imageRoles.titleMiss : imageRoles.titleMrs}
                 alt={cat.title}
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                className="luxury-hover-image h-full w-full object-cover transition duration-700"
                 style={{ objectPosition: idx === 0 ? "50% 34%" : "50% 22%" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/38 to-transparent" />
+              <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/38 to-transparent" />
               <div className="absolute left-0 top-0 bg-[#061122]/85 px-5 py-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">
                 {idx === 0 ? "Title 01" : "Title 02"}
               </div>
-              <div className="absolute inset-x-0 bottom-0 p-[clamp(18px,2.4vw,28px)]">
+              <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(18px,2.4vw,28px)]">
                 <p className="eyebrow mb-3 max-w-xl text-blush-accent">{cat.pathway}</p>
-                <h3 className="font-display text-[clamp(28px,3vw,44px)] leading-none">{cat.title}</h3>
+                <h3 className="luxury-hover-title font-display text-[clamp(28px,3vw,44px)] leading-none">{cat.title}</h3>
                 <p className="mt-3 max-w-lg text-sm leading-6 text-white/75">
                   {idx === 0 ? "For unmarried women ready for the national stage." : "For women carrying confidence, purpose and presence."}
                 </p>
+                <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
+                  <ArrowRight size={15} />
+                </span>
               </div>
             </button>
           ))}
@@ -186,17 +189,20 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
 
       <Section className="cinematic-band gold-lift !py-[clamp(42px,5vw,72px)]">
         <div className="grid gap-10 lg:grid-cols-[.82fr_1fr] lg:items-center">
-          <div className="editorial-image reveal mx-auto aspect-[4/5] w-full max-w-[520px]">
+          <div className="editorial-image luxury-hover-card reveal mx-auto aspect-[4/5] w-full max-w-[520px]">
             <img
               src={imageRoles.brandProof}
               alt="Miss and Mrs Maharashtra crowned contestants on stage"
-              className="h-full w-full object-cover transition duration-700 hover:scale-[1.035]"
+              className="luxury-hover-image h-full w-full object-cover transition duration-700"
               style={{ objectPosition: "50% 20%" }}
               loading="lazy"
             />
-            <div className="absolute bottom-6 left-6 z-10">
+            <div className="luxury-hover-content absolute bottom-6 left-6 z-10">
               <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Nagpur, Maharashtra</p>
-              <h3 className="mt-2 font-display text-[clamp(2rem,3vw,4rem)] leading-none text-white">Two seasons crowned.</h3>
+              <h3 className="luxury-hover-title mt-2 font-display text-[clamp(2rem,3vw,4rem)] leading-none text-white">Two seasons crowned.</h3>
+              <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
+                <ArrowRight size={15} />
+              </span>
             </div>
           </div>
           <div className="reveal max-w-2xl">
@@ -231,9 +237,9 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             </div>
           </div>
 
-          <div className="reveal relative h-[clamp(390px,41vw,520px)] w-full max-w-[360px] justify-self-center overflow-hidden border gold-divider bg-[#061122] lg:justify-self-end">
+          <div className="luxury-hover-card reveal relative h-[clamp(390px,41vw,520px)] w-full max-w-[360px] justify-self-center overflow-hidden border gold-divider bg-[#061122] lg:justify-self-end">
             <video
-              className="absolute inset-0 h-full w-full object-cover"
+              className="luxury-hover-image absolute inset-0 h-full w-full object-cover"
               src="/missmrs-assets/videos/hero-expansion-01.mp4"
               muted
               loop
@@ -242,11 +248,14 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               poster={imageRoles.titleMrs}
               style={{ objectPosition: "50% 32%" }}
             />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,6,7,.42),transparent_46%,rgba(7,6,7,.2)),linear-gradient(180deg,transparent_46%,rgba(7,6,7,.82))]" />
-            <div className="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-5">
+            <div className="luxury-hover-overlay absolute inset-0 bg-[linear-gradient(90deg,rgba(7,6,7,.42),transparent_46%,rgba(7,6,7,.2)),linear-gradient(180deg,transparent_46%,rgba(7,6,7,.82))]" />
+            <div className="luxury-hover-content absolute bottom-7 left-7 right-7 flex items-end justify-between gap-5">
               <div>
                 <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Nagpur finale pathway</p>
-                <h3 className="mt-3 font-display text-[clamp(2rem,3.6vw,4.8rem)] leading-none text-white">Step into the season.</h3>
+                <h3 className="luxury-hover-title mt-3 font-display text-[clamp(2rem,3.6vw,4.8rem)] leading-none text-white">Step into the season.</h3>
+                <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
+                  <ArrowRight size={15} />
+                </span>
               </div>
               <span className="hidden border-b border-blush-accent pb-2 text-[10px] uppercase tracking-[.24em] text-blush-accent sm:block">Auditions open</span>
             </div>
@@ -267,22 +276,25 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <SectionHeader eyebrow="The crown pathway" title="A complete season, not one night." />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {pillars.map((p) => (
-            <article key={p.title} className="reveal group overflow-hidden border gold-divider bg-[#020817]/72 transition duration-300 hover:-translate-y-1 hover:border-blush-accent/55">
-              <div className="relative aspect-[3/4] overflow-hidden bg-blush-wash">
+            <article key={p.title} className="luxury-hover-card reveal group overflow-hidden border gold-divider bg-[#020817]/72 transition duration-300 hover:border-blush-accent/55">
+              <div className="luxury-hover-media relative aspect-[3/4] overflow-hidden bg-blush-wash">
                 <img
                   src={encodeURI(p.bg)}
                   alt={p.title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  className="luxury-hover-image h-full w-full object-cover transition duration-700"
                   style={{ objectPosition: p.position }}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#061122]/20 via-transparent to-transparent" />
+                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/20 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 bg-blush-page px-4 py-2 font-display text-sm tracking-[.1em] text-blush-accent">{p.num}</div>
               </div>
-              <div className="p-6">
+              <div className="luxury-hover-content p-6">
                 <div className="text-[10px] uppercase tracking-[.24em] text-blush-muted">{p.caption}</div>
-                <h3 className="mt-4 font-display text-3xl leading-tight text-blush-ink">{p.title}</h3>
+                <h3 className="luxury-hover-title mt-4 font-display text-3xl leading-tight text-blush-ink">{p.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-blush-body">{p.body}</p>
+                <span className="luxury-hover-arrow mt-5 text-blush-accent" aria-hidden="true">
+                  <ArrowRight size={15} />
+                </span>
               </div>
             </article>
           ))}

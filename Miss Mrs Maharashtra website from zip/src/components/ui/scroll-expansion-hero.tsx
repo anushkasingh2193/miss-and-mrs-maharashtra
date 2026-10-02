@@ -94,11 +94,11 @@ function PortraitVideoCard({ clip, featured = false, onOpen }: { clip: HeroClip;
       type="button"
       onClick={onOpen}
       aria-label={`Open ${clip.label} reel`}
-      className={`group overflow-hidden border bg-[#061122] p-1.5 text-left shadow-[0_20px_70px_rgba(0,0,0,.32)] transition hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent ${featured ? "border-blush-accent/45 sm:translate-y-6" : "border-blush-accent/25"}`}
+      className={`group luxury-hover-card overflow-hidden border bg-[#061122] p-1.5 text-left shadow-[0_20px_70px_rgba(0,0,0,.32)] transition hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent ${featured ? "border-blush-accent/45 sm:translate-y-6" : "border-blush-accent/25"}`}
     >
-      <div className="relative aspect-[9/16] overflow-hidden">
+      <div className="luxury-hover-media relative aspect-[9/16] overflow-hidden">
         <video
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+          className="luxury-hover-image h-full w-full object-cover transition duration-700"
           src={clip.src}
           poster={clip.poster}
           autoPlay
@@ -108,11 +108,13 @@ function PortraitVideoCard({ clip, featured = false, onOpen }: { clip: HeroClip;
           preload="metadata"
           style={{ objectPosition: clip.objectPosition || "50% 18%" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#061122]/78 to-transparent" />
+        <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/78 to-transparent" />
         <span className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-blush-accent/45 bg-[#020817]/62 text-blush-accent opacity-0 backdrop-blur transition group-hover:opacity-100">
           <span className="ml-1 h-0 w-0 border-y-[8px] border-l-[12px] border-y-transparent border-l-blush-accent" />
         </span>
-        <div className="absolute bottom-3 left-3 text-[9px] uppercase tracking-[.24em] text-blush-accent">{clip.label}</div>
+        <div className="luxury-hover-content absolute bottom-3 left-3 text-[9px] uppercase tracking-[.24em] text-blush-accent">
+          <span className="luxury-hover-title">{clip.label}</span>
+        </div>
       </div>
     </button>
   );

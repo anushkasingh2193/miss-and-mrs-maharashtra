@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Section({ children, tone = "page", className = "", id }: { children: ReactNode; tone?: "page" | "tint" | "dark"; className?: string; id?: string }) {
@@ -42,20 +43,24 @@ export function Hero({ eyebrow, title, body, image }: { eyebrow: string; title: 
 
 export function ImageTile({ image, title, meta, body, className = "" }: { image: string; title: string; meta?: string; body?: string; className?: string }) {
   return (
-    <div className={cn("group reveal image-card overflow-hidden bg-blush-wash", className)}>
-      <div className="image-clip aspect-[4/5] overflow-hidden">
+    <div className={cn("group reveal image-card luxury-hover-card overflow-hidden bg-blush-wash", className)}>
+      <div className="image-clip luxury-hover-media aspect-[4/5] overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="image-settle h-full w-full object-cover object-center"
+          className="image-settle luxury-hover-image h-full w-full object-cover object-center"
           loading="lazy"
           decoding="async"
         />
+        <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/72 via-transparent to-transparent opacity-85" />
       </div>
-      <div className="border border-t-0 hairline bg-blush-page p-6">
-        <h3 className="font-display text-2xl">{title}</h3>
+      <div className="luxury-hover-content border border-t-0 hairline bg-blush-page p-6">
+        <h3 className="luxury-hover-title font-display text-2xl">{title}</h3>
         {meta ? <p className="mt-2 text-xs uppercase tracking-[.2em] text-blush-muted">{meta}</p> : null}
         {body ? <p className="mt-4 text-sm leading-7 text-blush-body">{body}</p> : null}
+        <span className="luxury-hover-arrow mt-5 text-blush-accent" aria-hidden="true">
+          <ArrowRight size={15} />
+        </span>
       </div>
     </div>
   );

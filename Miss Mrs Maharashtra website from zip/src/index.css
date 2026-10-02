@@ -151,6 +151,105 @@ select:focus-visible {
     radial-gradient(circle at 80% 18%, rgba(214, 174, 79, 0.16), transparent 32%);
 }
 
+.luxury-hover-card {
+  --hover-x: 0px;
+  --hover-y: 0px;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  position: relative;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+  will-change: transform;
+}
+
+.luxury-hover-card:hover,
+.luxury-hover-card:focus-visible,
+.luxury-hover-card:focus-within {
+  transform: perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-3px);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+}
+
+.luxury-hover-media {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.luxury-hover-image {
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform 0.85s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s ease;
+  will-change: transform;
+}
+
+.luxury-hover-card:hover .luxury-hover-image,
+.luxury-hover-card:focus-visible .luxury-hover-image,
+.luxury-hover-card:focus-within .luxury-hover-image {
+  transform: translate3d(var(--hover-x), var(--hover-y), 0) scale(1.08);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.luxury-hover-overlay {
+  transition: opacity 0.45s ease, background 0.45s ease;
+}
+
+.luxury-hover-card:hover .luxury-hover-overlay,
+.luxury-hover-card:focus-visible .luxury-hover-overlay,
+.luxury-hover-card:focus-within .luxury-hover-overlay {
+  opacity: 0.78;
+}
+
+.luxury-hover-content {
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.luxury-hover-card:hover .luxury-hover-content,
+.luxury-hover-card:focus-visible .luxury-hover-content,
+.luxury-hover-card:focus-within .luxury-hover-content {
+  transform: translateY(-10px);
+}
+
+.luxury-hover-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.luxury-hover-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(86px, 56%);
+  height: 1px;
+  background: #d6ae4f;
+  transform: scaleX(0.28);
+  transform-origin: left;
+  opacity: 0.72;
+  transition: transform 0.42s ease, opacity 0.42s ease;
+}
+
+.luxury-hover-card:hover .luxury-hover-title::after,
+.luxury-hover-card:focus-visible .luxury-hover-title::after,
+.luxury-hover-card:focus-within .luxury-hover-title::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.luxury-hover-arrow {
+  display: inline-flex;
+  transition: transform 0.35s ease;
+}
+
+.luxury-hover-card:hover .luxury-hover-arrow,
+.luxury-hover-card:focus-visible .luxury-hover-arrow,
+.luxury-hover-card:focus-within .luxury-hover-arrow {
+  transform: translateX(8px);
+}
+
 .gold-divider {
   border-color: rgba(214, 174, 79, 0.18);
 }
@@ -630,5 +729,21 @@ select:focus-visible {
 
   .image-settle {
     transform: none;
+  }
+
+  .luxury-hover-card,
+  .luxury-hover-card:hover,
+  .luxury-hover-card:focus-visible,
+  .luxury-hover-card:focus-within,
+  .luxury-hover-card:hover .luxury-hover-image,
+  .luxury-hover-card:focus-visible .luxury-hover-image,
+  .luxury-hover-card:focus-within .luxury-hover-image,
+  .luxury-hover-card:hover .luxury-hover-content,
+  .luxury-hover-card:focus-visible .luxury-hover-content,
+  .luxury-hover-card:focus-within .luxury-hover-content,
+  .luxury-hover-card:hover .luxury-hover-arrow,
+  .luxury-hover-card:focus-visible .luxury-hover-arrow,
+  .luxury-hover-card:focus-within .luxury-hover-arrow {
+    transform: none !important;
   }
 }
