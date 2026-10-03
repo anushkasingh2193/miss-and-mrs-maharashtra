@@ -24,17 +24,17 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
           <div className="max-w-3xl">
             <div className="eyebrow mb-5 text-blush-accent">Official newsroom</div>
             <h1 className="font-display text-[clamp(4.4rem,11vw,9.5rem)] leading-[.86] text-blush-ink">
-              Latest news.
+              News & coverage.
             </h1>
             <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-              Season updates, contestant stories, stage highlights and official coverage from Miss & Mrs. Maharashtra.
+              Follow official announcements, contestant stories, stage highlights and media-ready updates from the Miss & Mrs. Maharashtra season.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#latest-news"
                 className="inline-flex items-center gap-3 bg-blush-accent px-6 py-4 text-xs font-semibold uppercase tracking-[.2em] text-black transition hover:bg-blush-hover"
               >
-                View stories <ArrowRight size={16} />
+                Read latest updates <ArrowRight size={16} />
               </a>
               <a
                 href={youtubeChannelUrl}
@@ -42,7 +42,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
                 rel="noreferrer"
                 className="inline-flex items-center gap-3 border border-blush-wash/30 px-6 py-4 text-xs font-semibold uppercase tracking-[.2em] text-blush-wash transition hover:border-blush-accent hover:text-blush-accent"
               >
-                Open channel <ExternalLink size={15} />
+                Watch video coverage <ExternalLink size={15} />
               </a>
             </div>
           </div>
@@ -64,7 +64,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
                 href="#latest-news"
                 className="mt-5 inline-flex items-center gap-3 border-t gold-divider pt-4 text-xs font-semibold uppercase tracking-[.2em] text-blush-accent transition hover:text-blush-hover"
               >
-                Read coverage <ArrowRight size={15} />
+                View full newsroom <ArrowRight size={15} />
               </a>
             </div>
           </div>
@@ -91,8 +91,8 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
         <div className="mb-12 grid gap-8 lg:grid-cols-[.85fr_1fr] lg:items-end">
           <SectionHeader
             eyebrow="Latest news"
-            title="Newsroom."
-            body="Official updates, contestant stories and stage coverage from the Miss & Mrs. Maharashtra media desk."
+            title="The official season newsroom."
+            body="Use this space for announcements, contestant features, video coverage, press references and verified pageant updates."
           />
           <div className="reveal lg:justify-self-end">
             <a
@@ -101,7 +101,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
               rel="noreferrer"
               className="inline-flex items-center gap-2 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent transition hover:text-blush-hover"
             >
-              More videos <ExternalLink size={14} />
+              Open YouTube channel <ExternalLink size={14} />
             </a>
           </div>
         </div>
@@ -128,7 +128,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
                 rel="noreferrer"
                 className="mt-7 inline-flex items-center gap-3 bg-blush-accent px-6 py-4 text-xs font-semibold uppercase tracking-[.22em] text-black transition hover:bg-blush-hover"
               >
-                Watch update <ExternalLink size={15} />
+                Watch full update <ExternalLink size={15} />
               </a>
             </div>
           </article>
@@ -160,7 +160,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
                   rel="noreferrer"
                   className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[.22em] text-blush-accent transition hover:text-blush-hover"
                 >
-                  Watch <ArrowRight size={14} />
+                  Watch story <ArrowRight size={14} />
                 </a>
               </div>
             </article>
@@ -181,13 +181,13 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
       <Section>
-        <SectionHeader eyebrow="Press kit" title="Official media resources." />
+        <SectionHeader eyebrow="Press kit" title="Official media resources." body="Brand assets, founder details, images and season facts for journalists, partners and coverage teams." />
         <div className="grid gap-1 bg-blush-ink/10 md:grid-cols-4">
           {pressKit.map((item) => <div key={item.name} className="reveal bg-blush-page p-7"><h3 className="font-display text-2xl">{item.name}</h3><p className="mt-4 text-sm text-blush-body">{item.meta}</p></div>)}
         </div>
       </Section>
       <Section tone="dark">
-        <SectionHeader eyebrow="Media accreditation" title="Need passes, assets or an interview?" body="The press desk can coordinate founder interviews, titleholder availability and credited images for editorial coverage." />
+        <SectionHeader eyebrow="Media accreditation" title="Need passes, assets or an interview?" body="The press desk can coordinate founder interviews, titleholder availability, credited images and finale access for editorial coverage." />
       </Section>
     </>
   );

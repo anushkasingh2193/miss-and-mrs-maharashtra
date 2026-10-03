@@ -64,7 +64,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-5">
               <button onClick={() => navigate("register")} className="gold-cta inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Apply now <ArrowRight size={15} />
+                Start application <ArrowRight size={15} />
               </button>
               <a href="#founder-vision" className="border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent transition hover:text-blush-hover">
                 Meet the founders

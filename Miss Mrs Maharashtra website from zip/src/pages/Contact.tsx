@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { contactRows, faqs, mapUrl, type PageKey } from "@/data/site";
 import { Section } from "@/components/Section";
 
@@ -24,7 +24,7 @@ const contactActions = [
   },
 ];
 
-export function Contact(_: { navigate: (page: PageKey) => void }) {
+export function Contact({ navigate }: { navigate: (page: PageKey) => void }) {
   const [open, setOpen] = useState(0);
 
   return (
@@ -39,6 +39,14 @@ export function Contact(_: { navigate: (page: PageKey) => void }) {
               <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
                 Auditions, sponsorship, tickets, media accreditation and contestant support are handled by the Nagpur season office.
               </p>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <button onClick={() => navigate("register")} className="gold-cta inline-flex items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.22em]">
+                  Start contestant form <ArrowRight size={15} />
+                </button>
+                <button onClick={() => navigate("sponsors")} className="inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.22em] text-blush-accent">
+                  Partnership options <ArrowRight size={15} />
+                </button>
+              </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
               {contactActions.map((action) => {

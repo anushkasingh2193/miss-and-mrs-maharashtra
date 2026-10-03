@@ -264,18 +264,18 @@ export const winnerSeasonGroups = [
 ];
 
 export const stats = [
-  { n: "120+", label: "Contestants" },
-  { n: "1,000", label: "Gala audience" },
-  { n: "18", label: "Designers" },
-  { n: "40+", label: "Guests & jury" },
+  { n: "120+", label: "Women trained" },
+  { n: "1,000", label: "Finale audience" },
+  { n: "18", label: "Designer looks" },
+  { n: "40+", label: "Mentors, jury & guests" },
 ];
 
 export const journey = [
-  { no: "01", title: "Apply online", body: "Ten minutes, three steps. You choose the category and the city you want to audition in." },
-  { no: "02", title: "City audition", body: "A short walk, a two-minute introduction and a conversation with the selection panel." },
-  { no: "03", title: "Grooming week", body: "Finalists train with the mentors: ramp, voice, styling, interview technique, advocacy briefing." },
-  { no: "04", title: "Portfolio shoot", body: "A full editorial shoot with the season photographer. The images are yours to keep and use." },
-  { no: "05", title: "Coronation night", body: "Four rounds before a thousand guests and a national jury. Then a year of holding the title." },
+  { no: "01", title: "Submit your interest", body: "Choose Miss or Mrs. Maharashtra, select your audition city and tell the team what the crown would mean for you." },
+  { no: "02", title: "Meet the panel", body: "Walk, introduce yourself and speak with the selection team in a city audition built for first-timers and experienced contestants." },
+  { no: "03", title: "Train like a finalist", body: "Grooming covers ramp, voice, styling, interview technique, advocacy and stage confidence." },
+  { no: "04", title: "Build your portfolio", body: "Finalists receive editorial images and content moments they can use for modelling, media and professional visibility." },
+  { no: "05", title: "Own finale night", body: "Four rounds before guests, press and jury, followed by a titleholder year with appearances and national pathway consideration." },
 ];
 
 export const auditionCities = [
@@ -302,10 +302,10 @@ export const categories = [
 ] as const;
 
 export const pillars = [
-  { num: "01", title: "Runway Royalty", body: "A full fashion extravaganza with designer collections, choreographed by working ramp directors.", bg: `${LOCAL}pillars-upright/runway-royalty.jpg`, caption: "Opening walk, Season 3", position: "50% 50%" },
-  { num: "02", title: "Talent Showcase", body: "Contestants reveal the skill they have quietly built: dance, music, spoken word, sport.", bg: `${LOCAL}pillars-upright/talent-showcase.jpg`, caption: "Showcase round, Nagpur", position: "48% 50%" },
-  { num: "03", title: "Empowering Voices", body: "A dedicated advocacy round where each contestant argues the cause she will carry as titleholder.", bg: `${LOCAL}pillars-upright/empowering-voices.jpg`, caption: "Advocacy briefing, backstage", position: "50% 50%" },
-  { num: "04", title: "Evening Gala", body: "The pinnacle: coronation night before a thousand guests, press and national jury.", bg: `${LOCAL}pillars-upright/evening-gala.jpg`, caption: "Coronation night, Civil Lines", position: "50% 50%" },
+  { num: "01", title: "Runway training", body: "Learn posture, pacing, turns and camera awareness before stepping into designer-led finale rounds.", bg: `${LOCAL}pillars-upright/runway-royalty.jpg`, caption: "Opening walk, Season 3", position: "50% 50%" },
+  { num: "02", title: "Talent presentation", body: "Shape a ninety-second talent moment that feels confident, stage-ready and true to your story.", bg: `${LOCAL}pillars-upright/talent-showcase.jpg`, caption: "Showcase round, Nagpur", position: "48% 50%" },
+  { num: "03", title: "Advocacy voice", body: "Prepare the cause you want to carry as a titleholder, with guidance on clarity, confidence and public impact.", bg: `${LOCAL}pillars-upright/empowering-voices.jpg`, caption: "Advocacy briefing, backstage", position: "50% 50%" },
+  { num: "04", title: "Finale presence", body: "A polished coronation night with press, guests, jury and production standards built for a serious state stage.", bg: `${LOCAL}pillars-upright/evening-gala.jpg`, caption: "Coronation night, Civil Lines", position: "50% 50%" },
 ];
 
 export const timeline = [
@@ -411,11 +411,11 @@ export const eligibility = [
 ];
 
 export const receives = [
-  "Professional portfolio shoot with a published fashion photographer.",
-  "Grooming, ramp and voice-modulation training across finale week.",
-  "Designer wardrobe and styling for all runway rounds.",
-  "Press and social coverage across pageant channels.",
-  "Entry consideration for Miss Supraglobal, Miss Summit International, Mrs. India Supranational and Women of the Universe.",
+  "Professional portfolio shoot and usable contestant media assets.",
+  "Ramp, grooming, styling, voice and interview preparation before finale week.",
+  "Designer wardrobe guidance and stage styling for runway rounds.",
+  "Press, social and pageant-channel visibility through the season.",
+  "National pathway consideration for Miss Supraglobal, Miss Summit International, Mrs. India Supranational and Women of the Universe.",
 ];
 
 export const policies = [
@@ -440,29 +440,29 @@ export const latestNews = [
     src: videos[0].src,
     feature: "Main stage",
     date: "Aug 2026",
-    title: "Season 3 auditions open across Maharashtra",
-    summary: "The Miss & Mrs. Maharashtra season expands its audition pathway across Nagpur, Pune and Mumbai.",
+    title: "Season 3 expands to Nagpur, Pune and Mumbai",
+    summary: "A wider audition pathway gives more women access to grooming, portfolio building and the Miss & Mrs. Maharashtra finale stage.",
   },
   {
     src: videos[1].src,
     feature: "Spotlight",
     date: "Jul 2026",
-    title: "Contestant stories from the crown pathway",
-    summary: "A closer look at the women preparing for grooming week, stage presentation and the finale journey.",
+    title: "Inside the crown pathway",
+    summary: "Contestants prepare for ramp, advocacy, interviews and the titleholder responsibilities that continue after coronation night.",
   },
   {
     src: videos[2].src,
     feature: "Stories",
     date: "Jul 2026",
-    title: "Why contestants step onto the pageant stage",
-    summary: "Personal voices from participants on confidence, representation and the ambition behind applying.",
+    title: "Why women choose the pageant stage",
+    summary: "Personal voices on confidence, representation, visibility and the decision to step into a public platform.",
   },
   {
     src: videos[3].src,
     feature: "Backstage",
     date: "Jun 2026",
-    title: "Behind the crown: season coverage",
-    summary: "Backstage energy, titleholder moments and production highlights from the pageant team.",
+    title: "Behind the crown: production notes",
+    summary: "Backstage energy, titleholder moments, mentor preparation and the production discipline behind the season.",
   },
 ];
 
@@ -487,7 +487,7 @@ export const faqs = [
   { q: "What does the Rs. 2,500 application fee cover?", a: "The city audition, grooming day and administrative processing. It does not guarantee selection." },
   { q: "Where are the auditions held?", a: "Nagpur on 3 October, Pune on 10 October and Mumbai on 17 October 2026." },
   { q: "How long is the finale commitment?", a: "Four days in Nagpur, 18-21 November 2026." },
-  { q: "What happens after I win?", a: "The title runs a full year: appearances, community programmes and national platform consideration." },
+  { q: "What happens after I win?", a: "The title runs for a full year with public appearances, community programmes, content opportunities and national platform consideration." },
 ];
 
 export const contactRows = [

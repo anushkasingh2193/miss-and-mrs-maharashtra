@@ -47,7 +47,7 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
             ))}
           </nav>
           <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 px-5 py-2.5 text-[10px] uppercase tracking-[.2em] sm:inline-flex">
-            Register <ArrowRight size={15} />
+            Start application <ArrowRight size={15} />
           </button>
           <button className="lg:hidden" onClick={() => setMenu((v) => !v)} aria-label="Toggle menu">
             {menu ? <X /> : <Menu />}
@@ -71,9 +71,9 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
       {sticky && page !== "register" ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t gold-divider bg-blush-page/92 px-5 py-3 backdrop-blur-xl sm:py-4">
           <div className="content-wrap flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-blush-body">{countdown[0].v} days left. Applications close 30 September 2026.</p>
+            <p className="text-sm text-blush-body">{countdown[0].v} days to finale week. Audition interest is still being reviewed.</p>
             <button onClick={() => go("register")} className="gold-cta inline-flex items-center justify-center gap-2 px-5 py-3 text-[11px] uppercase tracking-[.2em]">
-              Apply now <ArrowRight size={15} />
+              Submit interest <ArrowRight size={15} />
             </button>
           </div>
         </div>
@@ -84,12 +84,12 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
           <div className="beam-frame beam-frame-strong grid gap-10 border gold-divider bg-[#061122]/72 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
               <div className="eyebrow mb-5">Season three</div>
-              <h2 className="font-display text-[clamp(2.8rem,5.8vw,6.6rem)] leading-[.9] text-blush-ink">Your season starts here.</h2>
-              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">Applications are open for women ready to step into the Miss & Mrs. Maharashtra spotlight.</p>
+              <h2 className="font-display text-[clamp(2.8rem,5.8vw,6.6rem)] leading-[.9] text-blush-ink">Your crown journey starts here.</h2>
+              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">Tell us your category, city and story. The season office will guide shortlisted applicants through auditions, grooming and finale preparation.</p>
             </div>
             <div className="flex flex-col gap-4 lg:items-end">
               <button onClick={() => go("register")} className="gold-cta inline-flex w-fit items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Apply now <ArrowRight size={16} />
+                Start application <ArrowRight size={16} />
               </button>
               <button onClick={() => go("contact")} className="inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
                 Speak to the team <ArrowRight size={15} />

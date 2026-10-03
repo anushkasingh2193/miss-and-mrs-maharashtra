@@ -6,7 +6,7 @@ const categoryDetails = [
   {
     key: "miss",
     label: "Title 01",
-    promise: "For unmarried women ready for a national stage.",
+    promise: "For unmarried women ready to build confidence, media presence and national-stage readiness.",
     eligibility: "Single and unmarried women and girls of Maharashtra.",
     pathway: "Miss Supraglobal / Miss Summit International",
     image: imageRoles.titleMiss,
@@ -16,7 +16,7 @@ const categoryDetails = [
   {
     key: "mrs",
     label: "Title 02",
-    promise: "For women carrying confidence, purpose and presence.",
+    promise: "For married women, mothers and second-act leaders ready to carry a public title with purpose.",
     eligibility: "Married, divorced, widowed women, and single mothers.",
     pathway: "Mrs. India Supranational / Women of the Universe",
     image: imageRoles.titleMrs,
@@ -40,13 +40,13 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
         <div className="content-wrap relative z-10 grid min-h-[calc(82vh-var(--header-height))] gap-10 px-[clamp(20px,4vw,42px)] py-[clamp(56px,7vw,96px)] lg:grid-cols-[.92fr_1.08fr] lg:items-center">
           <div className="reveal max-w-4xl">
             <div className="eyebrow mb-5">Categories</div>
-            <h1 className="hero-title max-w-4xl">Two crowns. One national-standard season.</h1>
+            <h1 className="hero-title max-w-4xl">Choose the crown that matches your story.</h1>
             <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-              Miss Maharashtra and Mrs. Maharashtra are judged separately, with shared grooming, shared production standards and distinct national pathways.
+              Miss Maharashtra and Mrs. Maharashtra are judged separately, with shared grooming, shared production standards and distinct national pathways after the finale.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-5">
               <button onClick={() => navigate("register")} className="gold-cta inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Apply now <ArrowRight size={15} />
+                Start application <ArrowRight size={15} />
               </button>
               <a href="#compare-categories" className="border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent transition hover:text-blush-hover">
                 Compare categories
@@ -97,7 +97,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
       </Section>
 
       <Section className="cinematic-band">
-        <SectionHeader eyebrow="Choose your crown" title="The right category, clearly defined." body="Both categories share the same stage quality, grooming season and finale discipline. Eligibility and onward pathways stay distinct." />
+        <SectionHeader eyebrow="Choose your crown" title="The right category, clearly defined." body="Both titles share the same stage quality, grooming season and finale discipline. Eligibility and onward pathways stay distinct so every applicant enters the correct lane." />
         <div className="grid gap-5 lg:grid-cols-2">
           {categories.map((cat, idx) => {
             const detail = categoryDetails[idx];
@@ -129,7 +129,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
                     There is no minimum height, weight or complexion requirement. Applicants are assessed on preparation, communication, advocacy, talent and stage presence.
                   </p>
                   <button onClick={() => navigate("register")} className="gold-cta mt-8 inline-flex items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.24em]">
-                    Apply for {cat.title} <ArrowRight size={15} />
+                    Start {cat.title} form <ArrowRight size={15} />
                   </button>
                 </div>
               </article>
@@ -157,7 +157,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
       </Section>
 
       <Section className="cinematic-band">
-        <SectionHeader eyebrow="Scoring" title="Transparent criteria for every finalist." body="The same scoring structure is applied with category-specific judgment, keeping the pageant clear and fair." />
+        <SectionHeader eyebrow="Scoring" title="Transparent criteria for every finalist." body="Contestants are assessed on preparation, communication, advocacy, talent and stage presence, with category-specific judgment applied fairly." />
         <div className="grid gap-4 md:grid-cols-5">
           {scoring.map((s) => (
             <article key={s.no} className="reveal border gold-divider bg-[#020817]/78 p-6">

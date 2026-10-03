@@ -28,7 +28,7 @@ const initialForm: FormState = {
   consent: false,
 };
 
-const feeNotes = ["Application fee Rs. 2,500", "Payable only if shortlisted", "No cost to enter the form"];
+const feeNotes = ["Interest form is free", "Rs. 2,500 only after slot confirmation", "Team follow-up for shortlisted applicants"];
 
 export function Register(_: { navigate: (page: PageKey) => void }) {
   const [cat, setCat] = useState<"miss" | "mrs">("miss");
@@ -82,10 +82,10 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
     <>
       <section className="cinematic-band border-b gold-divider px-[clamp(20px,4vw,42px)] py-[clamp(72px,9vw,118px)]">
         <div className="content-wrap">
-          <div className="eyebrow mb-5">Season 3 · Applications open</div>
-          <h1 className="hero-title max-w-4xl text-blush-ink">Apply for the crown.</h1>
+          <div className="eyebrow mb-5">Season 3 · Contestant interest</div>
+          <h1 className="hero-title max-w-4xl text-blush-ink">Start your crown journey.</h1>
           <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-            A simple application for Miss Maharashtra and Mrs. Maharashtra. Shortlisted applicants are contacted for city auditions.
+            Share your category, city and story. The season office reviews every interest form and contacts eligible applicants for the next audition step.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {feeNotes.map((note, idx) => (
@@ -127,7 +127,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
             <form onSubmit={submit} className="border gold-divider bg-[#061122]/76 p-6 md:p-10">
               <div className="mb-8">
                 <div className="eyebrow mb-3">Application form</div>
-                <h2 className="font-display text-[clamp(2.1rem,3.8vw,4rem)] leading-none text-blush-ink">Who's applying?</h2>
+                <h2 className="font-display text-[clamp(2.1rem,3.8vw,4rem)] leading-none text-blush-ink">Which crown path fits you?</h2>
               </div>
 
               <div className="mb-8 grid gap-3 md:grid-cols-2">
@@ -176,26 +176,26 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
                     <input className="form-field" aria-invalid={!!errors.occupation} value={form.occupation} onChange={(e) => setField("occupation", e.target.value)} />
                   </Field>
                 </div>
-                <Field label="Why do you want to apply?" error={errors.statement}>
+                <Field label="What would you use the title for?" error={errors.statement}>
                   <textarea
                     className="form-field min-h-32"
                     aria-invalid={!!errors.statement}
                     value={form.statement}
                     onChange={(e) => setField("statement", e.target.value)}
-                    placeholder="Tell the jury what you would use the title for."
+                    placeholder="Tell the selection team about your confidence journey, ambition, advocacy idea or reason for stepping onto the stage."
                   />
                 </Field>
                 <p className="text-sm text-blush-muted">{wordCount} words</p>
                 <label className="grid cursor-pointer grid-cols-[28px_1fr] gap-4 text-left">
                   <input className="peer sr-only" type="checkbox" checked={form.consent} onChange={(event) => setField("consent", event.target.checked)} />
                   <span className={cn("grid size-7 place-items-center border border-blush-accent text-[#020817] peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-blush-accent", form.consent && "bg-blush-accent")}>{form.consent ? <Check size={15} /> : null}</span>
-                  <span className="text-sm leading-7 text-blush-body">I confirm the information is accurate and I meet the eligibility criteria for my category.</span>
+                <span className="text-sm leading-7 text-blush-body">I confirm the information is accurate and I meet the eligibility criteria for the category I selected.</span>
                 </label>
                 {errors.consent ? <p className="text-sm text-blush-accent">{errors.consent}</p> : null}
               </div>
 
               <button type="submit" className="gold-cta mt-9 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Submit application
+                Submit interest form
               </button>
             </form>
 

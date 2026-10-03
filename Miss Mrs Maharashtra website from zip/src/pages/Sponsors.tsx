@@ -3,10 +3,10 @@ import { imageRoles, partnerProof, sponsorNames, tiers, type PageKey } from "@/d
 import { Section, SectionHeader } from "@/components/Section";
 
 const sponsorReach = [
-  ["1,000", "Gala audience"],
-  ["120+", "Contestants"],
+  ["1,000", "Finale guests"],
+  ["120+", "Contestant community"],
   ["3", "Audition cities"],
-  ["40+", "Guests & jury"],
+  ["40+", "Guests, mentors & jury"],
 ];
 
 export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
@@ -17,12 +17,12 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_22%,rgba(214,174,79,.16),transparent_30%),linear-gradient(90deg,rgba(4,4,4,.95),rgba(4,4,4,.56)_52%,rgba(4,4,4,.88))]" />
         <div className="content-wrap relative z-10 flex min-h-[72vh] flex-col justify-end px-[clamp(20px,4vw,42px)] pb-[clamp(72px,9vw,120px)] pt-24">
           <div className="eyebrow mb-5">Become a sponsor</div>
-          <h1 className="hero-title max-w-5xl">Partner with Maharashtra's crown stage.</h1>
+          <h1 className="hero-title max-w-5xl">Own a visible place in the crown season.</h1>
           <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-            Build brand presence across auditions, grooming, coronation night, media coverage and titleholder appearances.
+            Build brand presence across auditions, grooming, finale night, media coverage and titleholder appearances that continue beyond the event.
           </p>
           <button onClick={() => navigate("contact")} className="gold-cta mt-9 inline-flex w-fit items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-            Enquire now <ArrowRight size={15} />
+            Request partnership call <ArrowRight size={15} />
           </button>
         </div>
       </section>
@@ -41,8 +41,8 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
       <Section className="cinematic-band">
         <SectionHeader
           eyebrow="Sponsor packages"
-          title="Choose your level of presence."
-          body="Each package is designed for visible association with the pageant journey: city auditions, finale stage, contestant media and titleholder activity."
+          title="Choose the right level of visibility."
+          body="Each package connects your brand to a specific part of the pageant journey: city auditions, finalist grooming, finale stage, contestant media and titleholder activity."
         />
         <div className="grid gap-5 lg:grid-cols-3">
           {tiers.map((tier) => (
@@ -56,7 +56,7 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
                 ))}
               </ul>
               <button onClick={() => navigate("contact")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
-                Request sponsorship deck <ArrowRight size={14} />
+                Discuss this package <ArrowRight size={14} />
               </button>
             </article>
           ))}
@@ -77,14 +77,14 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
             <blockquote className="font-display text-[clamp(2.4rem,4.6vw,5.5rem)] leading-none text-blush-ink">"{partnerProof.quote}"</blockquote>
             <p className="mt-7 text-blush-body">{partnerProof.name}, {partnerProof.role}</p>
             <button onClick={() => navigate("contact")} className="gold-cta mt-9 inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-              Request sponsorship deck <ArrowRight size={15} />
+              Request partner deck <ArrowRight size={15} />
             </button>
           </div>
         </div>
       </Section>
 
       <Section className="cinematic-band">
-        <SectionHeader eyebrow="Partnership categories" title="Available lanes for brand presence." body="Confirmed partners appear in campaign material separately; these categories show where new sponsors can enter the season." />
+        <SectionHeader eyebrow="Partnership categories" title="Available lanes for brand presence." body="These lanes show where sponsors can enter the season with meaningful relevance instead of generic logo placement." />
         <div className="grid grid-cols-2 gap-1 bg-blush-ink/10 md:grid-cols-3">
           {sponsorNames.map((name) => (
             <div key={name} className="reveal grid min-h-28 place-items-center bg-[#020817]/76 p-5 text-center font-display text-2xl text-blush-ink transition hover:text-blush-accent">

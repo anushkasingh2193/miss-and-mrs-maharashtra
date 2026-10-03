@@ -34,12 +34,12 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full flex-col justify-end px-[clamp(20px,4vw,42px)] pb-20 will-change-transform">
             <div className="max-w-3xl text-white">
               <div className="eyebrow mb-5 text-blush-accent">Miss & Mrs. Maharashtra Season 3</div>
-              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]">Own the stage.</h1>
-              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">Season 3 auditions are open.</p>
-              <p className="mt-4 text-xs uppercase tracking-[.26em] text-blush-accent">Nagpur / Pune / Mumbai</p>
+              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]">Step into your crown year.</h1>
+              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">Miss & Mrs. Maharashtra Season 3 is built for women ready for grooming, visibility, national pathways and a titleholder year with purpose.</p>
+              <p className="mt-4 text-xs uppercase tracking-[.26em] text-blush-accent">Auditions / grooming / finale night</p>
               <div className="mt-9 flex flex-wrap gap-4">
-                <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Apply now</button>
-                <a href="#tickets" className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">Finale seats</a>
+                <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Start application</button>
+                <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">Choose category</button>
               </div>
             </div>
             <span className="shimmer absolute bottom-8 right-[clamp(20px,4vw,42px)] text-[10px] uppercase tracking-[.3em] text-white/55">Scroll</span>
@@ -64,8 +64,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
             eyebrow="Latest news"
-            title="Season updates and media coverage."
-            body="Video-led news, contestant stories and coverage from the Miss & Mrs. Maharashtra stage."
+            title="Official updates from the crown pathway."
+            body="Season announcements, contestant stories, backstage coverage and titleholder moments from the Miss & Mrs. Maharashtra media desk."
           />
           <button onClick={() => navigate("press")} className="reveal inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
             View all news <ArrowRight size={15} />
@@ -96,12 +96,12 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             <div>
               <div className="eyebrow mb-5">Choose your crown</div>
               <h2 className="font-display text-[clamp(36px,4.6vw,70px)] leading-[.96] text-blush-ink">
-              Choose your
+              Find your
               <br />
               crown pathway.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base font-light leading-7 text-blush-body">
-              Miss Maharashtra and Mrs. Maharashtra lead into one national-standard season.
+              Miss Maharashtra and Mrs. Maharashtra are separate titles with shared grooming, shared finale production and distinct onward national opportunities.
             </p>
           </div>
         }
@@ -123,7 +123,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <p className="eyebrow mb-3 max-w-xl text-blush-accent">{cat.pathway}</p>
                 <h3 className="luxury-hover-title font-display text-[clamp(28px,3vw,44px)] leading-none">{cat.title}</h3>
                 <p className="mt-3 max-w-lg text-sm leading-6 text-white/75">
-                  {idx === 0 ? "For unmarried women ready for the national stage." : "For women carrying confidence, purpose and presence."}
+                  {idx === 0 ? "For unmarried women ready to build confidence, visibility and stage presence." : "For married women, mothers and second-act leaders ready for a titleholder platform."}
                 </p>
                 <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
                   <ArrowRight size={15} />
@@ -225,9 +225,9 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           </div>
           <div className="reveal max-w-2xl">
             <div className="eyebrow mb-5">The pageant</div>
-            <h2 className="display-title mb-7">A state stage with a national standard.</h2>
-            <p className="text-lg font-light leading-8 text-blush-body">A premium Maharashtra stage for confidence, purpose and national presence. Every season is built around grooming, runway discipline, media visibility and a title year beyond coronation night.</p>
-            <button onClick={() => navigate("about")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Our story <ArrowRight size={15} /></button>
+            <h2 className="display-title mb-7">More than a pageant night.</h2>
+            <p className="text-lg font-light leading-8 text-blush-body">The season is designed around preparation: grooming, runway discipline, interview readiness, media visibility and a titleholder year that continues after the crown is placed.</p>
+            <button onClick={() => navigate("about")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">See the platform <ArrowRight size={15} /></button>
           </div>
         </div>
       </Section>
@@ -237,8 +237,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="reveal flex flex-col justify-between border gold-divider bg-[#061122]/72 p-[clamp(24px,3vw,42px)]">
             <div>
               <div className="eyebrow mb-5">Season 3 auditions</div>
-              <h2 className="font-display text-[clamp(3rem,5vw,5.9rem)] leading-[.92] text-blush-ink">Applications close 30 September.</h2>
-              <p className="mt-5 max-w-md text-base font-light leading-7 text-blush-body">Limited audition slots are open across Maharashtra.</p>
+              <h2 className="font-display text-[clamp(3rem,5vw,5.9rem)] leading-[.92] text-blush-ink">Audition interest is being reviewed.</h2>
+              <p className="mt-5 max-w-md text-base font-light leading-7 text-blush-body">Submit your details for Miss or Mrs. Maharashtra and the season office will guide eligible applicants through the next available city step.</p>
             </div>
             <div className="mt-8">
               <div className="grid gap-3 text-sm text-blush-body sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
@@ -250,7 +250,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 ))}
               </div>
               <button onClick={() => navigate("register")} className="gold-cta mt-9 inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Apply now <ArrowRight size={15} />
+                Submit interest <ArrowRight size={15} />
               </button>
             </div>
           </div>
@@ -291,7 +291,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       </Section>
 
       <Section className="cinematic-band gold-lift">
-        <SectionHeader eyebrow="The crown pathway" title="A complete season, not one night." />
+        <SectionHeader eyebrow="The crown pathway" title="A complete season, not one night." body="Every finalist receives structure, practice and visibility before the finale lights come on." />
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {pillars.map((p) => (
             <article key={p.title} className="luxury-hover-card reveal group overflow-hidden border gold-divider bg-[#020817]/72 transition duration-300 hover:border-blush-accent/55">
@@ -337,8 +337,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="max-w-3xl">
             <div className="eyebrow mb-5">Titleholder spotlight</div>
             <h2 className="display-title max-w-2xl">The crown continues beyond the night.</h2>
-            <p data-beat="1" className="mt-7 max-w-2xl font-display text-2xl leading-snug text-blush-ink transition duration-700">"A title year shaped by confidence, service and presence."</p>
-            <p data-beat="2" className="mt-6 max-w-xl font-light leading-8 text-blush-body transition duration-700">From the runway to public appearances, each titleholder carries the platform into schools, shoots, designer showcases and national pathways.</p>
+            <p data-beat="1" className="mt-7 max-w-2xl font-display text-2xl leading-snug text-blush-ink transition duration-700">"A title year shaped by confidence, service, visibility and presence."</p>
+            <p data-beat="2" className="mt-6 max-w-xl font-light leading-8 text-blush-body transition duration-700">From the runway to public appearances, each titleholder carries the platform into schools, shoots, designer showcases, media moments and national pathways.</p>
             <div data-beat="3" className="mt-8 grid gap-1 border gold-divider bg-[#061122]/72 transition duration-700 sm:grid-cols-3">
               {[["14", "Appearances"], ["9", "Schools reached"], ["1", "National entry"]].map(([n, label]) => (
                 <div key={label} className="border-r hairline p-6"><div className="font-display text-4xl text-blush-ink">{n}</div><div className="mt-2 text-[10px] uppercase tracking-[.24em] text-blush-accent">{label}</div></div>
@@ -362,9 +362,9 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         ]}
       >
         <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">
-          A glimpse of the stage, lights and titleholder moments before the mentors, jury and titleholder voices.
+          Watch the stage, lights and titleholder moments that show what contestants prepare for across the season.
         </p>
-        <button onClick={() => navigate("press")} className="mt-8 w-fit border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Watch coverage</button>
+        <button onClick={() => navigate("press")} className="mt-8 w-fit border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">View season coverage</button>
       </ScrollExpandMedia>
 
       <VideoBento />
@@ -379,9 +379,9 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="grid gap-10 border gold-divider bg-[#020817]/76 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
           <div className="reveal">
             <div className="eyebrow mb-5">Become a sponsor</div>
-            <h2 className="display-title max-w-3xl">Partner with a state stage built for visibility.</h2>
+            <h2 className="display-title max-w-3xl">Put your brand beside the crown journey.</h2>
             <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-              Connect your brand with contestants, families, gala guests, media coverage and year-long titleholder appearances across Maharashtra.
+              Connect your brand with contestants, families, finale guests, media coverage and year-long titleholder appearances across Maharashtra.
             </p>
           </div>
           <div className="reveal flex flex-col gap-5 lg:items-end">
@@ -394,7 +394,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               ))}
             </div>
             <button onClick={() => navigate("sponsors")} className="gold-cta inline-flex w-fit items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-              Sponsor the season <ArrowRight size={15} />
+              Explore partnership <ArrowRight size={15} />
             </button>
           </div>
         </div>
@@ -402,7 +402,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
 
       <Section className="cinematic-band scroll-mt-28">
         <div id="tickets" />
-        <SectionHeader eyebrow="The Grand Finale" title="Finale night and season partners." />
+        <SectionHeader eyebrow="The Grand Finale" title="Choose your finale night experience." body="Reserve your place in the room for the coronation, designer runway and titleholder crowning." />
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="grid gap-1 bg-blush-ink/10">
             {tickets.map((ticket) => (
