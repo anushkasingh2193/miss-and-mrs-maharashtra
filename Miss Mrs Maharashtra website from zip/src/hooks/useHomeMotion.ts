@@ -50,28 +50,6 @@ export function useHomeMotion() {
         shot4Track.style.transform = window.innerWidth >= 1024 ? `translate3d(${-progressFor(shot4) * 50}%, 0, 0)` : "translate3d(0, 0, 0)";
       }
 
-      const pathwayFilm = document.getElementById("pathway-film");
-      if (pathwayFilm) {
-        const p = progressFor(pathwayFilm);
-        const active = Math.min(3, Math.floor(p * 4.05));
-        pathwayFilm.style.setProperty("--pathway-progress", String(p));
-
-        pathwayFilm.querySelectorAll<HTMLElement>("[data-pathway-img]").forEach((img) => {
-          const index = Number(img.dataset.pathwayImg || 0);
-          const distance = Math.abs(index - active);
-          img.style.opacity = distance === 0 ? "1" : "0";
-          img.style.transform = `scale(${1.08 + p * 0.08 - index * 0.01}) translate3d(${(p - 0.5) * -22}px, ${(p - 0.5) * 18}px, 0)`;
-        });
-
-        pathwayFilm.querySelectorAll<HTMLElement>("[data-pathway-step]").forEach((step) => {
-          const index = Number(step.dataset.pathwayStep || 0);
-          const isActive = index === active;
-          step.classList.toggle("is-active", isActive);
-          step.style.opacity = isActive ? "1" : "0.42";
-          step.style.transform = isActive ? "translate3d(0, 0, 0)" : "translate3d(0, 14px, 0)";
-        });
-      }
-
       const founder = document.getElementById("founder-reveal");
       const founderPhoto = document.getElementById("founder-photo-img");
       if (founder) {

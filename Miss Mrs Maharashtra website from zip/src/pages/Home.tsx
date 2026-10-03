@@ -194,48 +194,32 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <section id="pathway-film" className="pathway-film cinematic-band gold-lift">
-        <div className="pathway-sticky content-wrap">
-          <div className="pathway-frame">
-            <div className="pathway-media" aria-hidden="true">
-              {pillars.map((p, index) => (
+      <Section className="cinematic-band gold-lift">
+        <SectionHeader eyebrow="The crown pathway" title="A complete season, not one night." body="Every finalist receives structure, practice and visibility before the finale lights come on." />
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {pillars.map((p) => (
+            <article key={p.title} className="luxury-hover-card reveal group overflow-hidden border gold-divider bg-[#020817]/72 transition duration-300 hover:border-blush-accent/55">
+              <div className="luxury-hover-media relative aspect-[3/4] overflow-hidden bg-blush-wash">
                 <img
-                  key={p.title}
                   src={encodeURI(p.bg)}
-                  alt=""
-                  className="pathway-image"
-                  data-pathway-img={index}
+                  alt={p.title}
+                  className="luxury-hover-image h-full w-full object-cover transition duration-700"
                   style={{ objectPosition: p.position }}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  loading="lazy"
                 />
-              ))}
-              <div className="pathway-vignette" />
-            </div>
-            <div className="pathway-copy">
-              <div className="eyebrow mb-5">The crown pathway</div>
-              <h2 className="display-title max-w-2xl">A complete season, not one night.</h2>
-              <p className="mt-5 max-w-xl text-base font-light leading-8 text-blush-body">
-                Scroll through the preparation sequence that takes a finalist from first audition to finale presence.
-              </p>
-              <div className="mt-9 grid gap-4">
-                {pillars.map((p, index) => (
-                  <article key={p.title} className="pathway-step" data-pathway-step={index}>
-                    <span>{p.num}</span>
-                    <div>
-                      <p>{p.caption}</p>
-                      <h3>{p.title}</h3>
-                      <small>{p.body}</small>
-                    </div>
-                  </article>
-                ))}
+                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/20 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 bg-blush-page px-4 py-2 font-display text-sm tracking-[.1em] text-blush-accent">{p.num}</div>
               </div>
-              <button onClick={() => navigate("register")} className="gold-cta mt-9 inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Enter the pathway <ArrowRight size={15} />
-              </button>
-            </div>
-          </div>
+              <div className="luxury-hover-content p-6">
+                <div className="text-[10px] uppercase tracking-[.24em] text-blush-muted">{p.caption}</div>
+                <h3 className="luxury-hover-title mt-4 font-display text-3xl leading-tight text-blush-ink">{p.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-blush-body">{p.body}</p>
+                <span className="luxury-hover-arrow mt-5 text-blush-accent" aria-hidden="true"><ArrowRight size={15} /></span>
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
+      </Section>
 
       <section id="founder-reveal" className="founder-reveal-section cinematic-band px-[clamp(20px,4vw,42px)] py-[clamp(52px,7vw,104px)]">
         <div className="content-wrap">
