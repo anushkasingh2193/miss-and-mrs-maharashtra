@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
-const smoothstep = (value: number) => value * value * (3 - 2 * value);
 
 function progressFor(el: HTMLElement) {
   const rect = el.getBoundingClientRect();
@@ -62,40 +61,6 @@ export function useHomeMotion() {
           word.style.opacity = String(wordProgress);
           word.style.filter = `blur(${(1 - wordProgress) * 8}px)`;
         });
-      }
-
-      const pageant = document.getElementById("pageant-reveal");
-      const pageantImageCard = document.getElementById("pageant-image-card");
-      const pageantImage = document.getElementById("pageant-image");
-      const pageantCopy = document.getElementById("pageant-copy");
-      const pageantBody = document.getElementById("pageant-body");
-      if (pageant && pageantImageCard && pageantImage) {
-        const p = progressFor(pageant);
-        const enlarge = smoothstep(clamp01((p - 0.12) / 0.72));
-        const drift = smoothstep(clamp01((p - 0.42) / 0.5));
-        const fill = smoothstep(clamp01((p - 0.72) / 0.24));
-        const isDesktop = window.innerWidth >= 1024;
-
-        const cardScale = 1 + enlarge * 0.12 + fill * (isDesktop ? 0.38 : 0.1);
-        const cardX = isDesktop ? -drift * 2.4 + fill * 2.8 : 0;
-        const cardY = isDesktop ? fill * 2 : 0;
-        pageantImageCard.style.transform = `translate3d(${cardX}vw, ${cardY}px, 0) scale(${cardScale})`;
-        pageantImage.style.transform = `scale(${1.012 + enlarge * 0.035})`;
-        if (pageantCopy) {
-          pageantCopy.style.opacity = String(1 - fill * 0.35);
-        }
-
-        pageant.querySelectorAll<HTMLElement>("[data-pageant-line]").forEach((line, index) => {
-          const lineProgress = clamp01((p - 0.26 - index * 0.1) / 0.26);
-          line.style.transform = `translate3d(0, ${(1 - lineProgress) * 105}%, 0)`;
-          line.style.opacity = String(0.2 + lineProgress * 0.8);
-        });
-
-        if (pageantBody) {
-          const bodyProgress = clamp01((p - 0.48) / 0.24);
-          pageantBody.style.opacity = String(bodyProgress);
-          pageantBody.style.transform = `translate3d(0, ${(1 - bodyProgress) * 24}px, 0)`;
-        }
       }
 
       const shot6 = document.getElementById("shot6");
