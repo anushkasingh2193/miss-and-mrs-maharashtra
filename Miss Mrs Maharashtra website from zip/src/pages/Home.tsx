@@ -33,7 +33,13 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full flex-col justify-end px-[clamp(20px,4vw,42px)] pb-20 will-change-transform">
             <div className="max-w-3xl text-white">
               <div className="eyebrow mb-5 text-blush-accent">Miss & Mrs. Maharashtra Season 3</div>
-              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]">The crown begins before the stage.</h1>
+              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]" aria-label="The crown begins before the stage.">
+                {["The", "crown", "begins", "before", "the", "stage."].map((word, index) => (
+                  <span key={`${word}-${index}`} className="hero-word-reveal" style={{ animationDelay: `${220 + index * 95}ms` }}>
+                    {word}
+                  </span>
+                ))}
+              </h1>
               <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">
                 A guided pageant season for grooming, visibility, national pathways and a titleholder year with purpose.
               </p>
@@ -48,7 +54,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </section>
 
-      <Section className="cinematic-band !py-0">
+      <Section id="stats-film" className="cinematic-band !py-0">
         <div className="stat-strip grid border-b gold-divider md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="stat-item reveal px-8 py-8 text-center md:py-9">
@@ -61,10 +67,11 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <Section className="cinematic-band gold-lift">
+      <Section id="pageant-intro" className="cinematic-band gold-lift">
         <div className="grid gap-12 lg:grid-cols-[1fr_.9fr] lg:items-center">
           <div className="reveal relative mx-auto aspect-[5/4] w-full max-w-[700px] overflow-hidden bg-[#061122] shadow-[0_34px_110px_rgba(0,0,0,.3)]">
             <img
+              id="pageant-intro-img"
               src={imageRoles.brandProof}
               alt="Miss and Mrs Maharashtra crowned contestants on stage"
               className="h-full w-full object-cover"
@@ -187,32 +194,48 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <Section className="cinematic-band gold-lift">
-        <SectionHeader eyebrow="The crown pathway" title="A complete season, not one night." body="Every finalist receives structure, practice and visibility before the finale lights come on." />
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {pillars.map((p) => (
-            <article key={p.title} className="luxury-hover-card reveal group overflow-hidden border gold-divider bg-[#020817]/72 transition duration-300 hover:border-blush-accent/55">
-              <div className="luxury-hover-media relative aspect-[3/4] overflow-hidden bg-blush-wash">
+      <section id="pathway-film" className="pathway-film cinematic-band gold-lift">
+        <div className="pathway-sticky content-wrap">
+          <div className="pathway-frame">
+            <div className="pathway-media" aria-hidden="true">
+              {pillars.map((p, index) => (
                 <img
+                  key={p.title}
                   src={encodeURI(p.bg)}
-                  alt={p.title}
-                  className="luxury-hover-image h-full w-full object-cover transition duration-700"
+                  alt=""
+                  className="pathway-image"
+                  data-pathway-img={index}
                   style={{ objectPosition: p.position }}
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
-                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/20 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 bg-blush-page px-4 py-2 font-display text-sm tracking-[.1em] text-blush-accent">{p.num}</div>
+              ))}
+              <div className="pathway-vignette" />
+            </div>
+            <div className="pathway-copy">
+              <div className="eyebrow mb-5">The crown pathway</div>
+              <h2 className="display-title max-w-2xl">A complete season, not one night.</h2>
+              <p className="mt-5 max-w-xl text-base font-light leading-8 text-blush-body">
+                Scroll through the preparation sequence that takes a finalist from first audition to finale presence.
+              </p>
+              <div className="mt-9 grid gap-4">
+                {pillars.map((p, index) => (
+                  <article key={p.title} className="pathway-step" data-pathway-step={index}>
+                    <span>{p.num}</span>
+                    <div>
+                      <p>{p.caption}</p>
+                      <h3>{p.title}</h3>
+                      <small>{p.body}</small>
+                    </div>
+                  </article>
+                ))}
               </div>
-              <div className="luxury-hover-content p-6">
-                <div className="text-[10px] uppercase tracking-[.24em] text-blush-muted">{p.caption}</div>
-                <h3 className="luxury-hover-title mt-4 font-display text-3xl leading-tight text-blush-ink">{p.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-blush-body">{p.body}</p>
-                <span className="luxury-hover-arrow mt-5 text-blush-accent" aria-hidden="true"><ArrowRight size={15} /></span>
-              </div>
-            </article>
-          ))}
+              <button onClick={() => navigate("register")} className="gold-cta mt-9 inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
+                Enter the pathway <ArrowRight size={15} />
+              </button>
+            </div>
+          </div>
         </div>
-      </Section>
+      </section>
 
       <section id="founder-reveal" className="founder-reveal-section cinematic-band px-[clamp(20px,4vw,42px)] py-[clamp(52px,7vw,104px)]">
         <div className="content-wrap">
@@ -310,7 +333,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       </ScrollExpandMedia>
 
       <Section className="cinematic-band gold-lift !py-0">
-        <ImageGallery />
+        <ImageGallery onViewGallery={() => navigate("winners")} />
       </Section>
 
       <TestimonialsSection />

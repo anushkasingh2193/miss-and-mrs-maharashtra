@@ -66,7 +66,7 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
         ) : null}
       </header>
 
-      <main className={page !== "register" ? "pb-20 sm:pb-0" : undefined}>{children}</main>
+      <main key={page} className={cn("page-transition", page !== "register" && "pb-20 sm:pb-0")}>{children}</main>
 
       {sticky && page !== "register" ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t gold-divider bg-blush-page/92 px-5 py-3 backdrop-blur-xl sm:py-4">
