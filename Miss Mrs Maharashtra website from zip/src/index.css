@@ -270,7 +270,7 @@ select:focus-visible {
 .site-logo {
   display: inline-grid;
   gap: 3px;
-  min-width: clamp(190px, 20vw, 292px);
+  min-width: clamp(178px, 18vw, 260px);
 }
 
 .site-logo-kicker {
@@ -377,18 +377,16 @@ select:focus-visible {
     linear-gradient(#000 0 0);
   mask-composite: exclude;
   opacity: 0.72;
-  animation: beamSpin 7s linear infinite;
+  animation: none;
 }
 
 .beam-frame-soft::before {
-  opacity: 0.42;
-  animation-duration: 10s;
+  opacity: 0.32;
 }
 
 .beam-frame-strong::before {
   padding: 1.5px;
-  opacity: 0.9;
-  animation-duration: 5.8s;
+  opacity: 0.62;
 }
 
 @property --beam-angle {

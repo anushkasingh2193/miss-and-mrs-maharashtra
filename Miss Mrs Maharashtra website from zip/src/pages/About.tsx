@@ -147,7 +147,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div className="reveal grid gap-3 sm:grid-cols-2">
             {leadershipCards.map((leader) => (
-              <div key={`vision-${leader.name}`} className="beam-frame relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122]">
+              <div key={`vision-${leader.name}`} className="relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122] shadow-[0_28px_90px_rgba(0,0,0,.28)]">
                 <img
                   src={leader.image}
                   alt={`${leader.name}, ${leader.role}`}

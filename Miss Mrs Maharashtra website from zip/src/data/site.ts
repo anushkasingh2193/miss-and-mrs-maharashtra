@@ -374,21 +374,21 @@ export const quotes = [
 ];
 
 export const tickets = [
-  { name: "Gallery", perk: "Reserved seating, tier three", price: "Rs. 1,500" },
-  { name: "Premium", perk: "Front-block seating, welcome drink", price: "Rs. 4,000" },
-  { name: "Patron's Table", perk: "Table of ten, after-party, programme credit", price: "Rs. 45,000" },
+  { name: "Gallery", perk: "Reserved seating with full-stage view", price: "Rs. 1,500" },
+  { name: "Premium", perk: "Front-block seating, welcome drink and priority entry", price: "Rs. 4,000" },
+  { name: "Patron's Table", perk: "Table of ten with after-party access and programme credit", price: "Rs. 45,000" },
 ];
 
 export const sponsorNames = ["Beauty & Makeup", "Designer Wardrobe", "Hospitality", "Media Coverage", "Wellness Partner", "Gifting Partner"];
 
 export const tiers = [
-  { tier: "Associate", price: "Rs. 1.5L", slots: "Six slots per season", perks: ["Logo on stage backdrop", "Four gala passes", "Social media feature post", "Programme half-page"] },
-  { tier: "Powered By", price: "Rs. 6L", slots: "Two slots per season", featured: true, perks: ["Category naming rights", "Ten gala passes", "Jury-round branding", "Titleholder appearance days x3"] },
-  { tier: "Title Partner", price: "On request", slots: "One slot per season", perks: ["Event renamed with your brand", "Stage presence", "Year-long ambassadorship", "Co-branded press"] },
+  { tier: "Associate", price: "Rs. 1.5L", slots: "Six slots per season", bestFor: "Local visibility during auditions and finale week", perks: ["Logo on stage backdrop", "Four gala passes", "Social media feature post", "Programme half-page"] },
+  { tier: "Powered By", price: "Rs. 6L", slots: "Two slots per season", bestFor: "Brands that want category-level presence", featured: true, perks: ["Category naming rights", "Ten gala passes", "Jury-round branding", "Titleholder appearance days x3"] },
+  { tier: "Title Partner", price: "On request", slots: "One slot per season", bestFor: "Long-term brand ownership of the season", perks: ["Event renamed with your brand", "Stage presence", "Year-long ambassadorship", "Co-branded press"] },
 ];
 
 export const partnerProof = {
-  quote: "We took the Powered By slot for one season to reach women in Vidarbha. The titleholder appearances did more for us than a year of local print.",
+  quote: "The titleholder appearances gave us visibility far beyond finale night.",
   name: "Megha Kapoor Amesar",
   role: "Megha's Makeover, Makeover Partner, Seasons 1 & 2",
 };

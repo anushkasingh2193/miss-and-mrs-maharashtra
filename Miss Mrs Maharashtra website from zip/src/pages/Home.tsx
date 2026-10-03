@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { auditionCities, categories, gallery, imageRoles, latestNews, pillars, sponsorNames, stats, tickets, type PageKey } from "@/data/site";
+import { auditionCities, categories, gallery, imageRoles, latestNews, pillars, stats, tickets, type PageKey } from "@/data/site";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useHomeMotion } from "@/hooks/useHomeMotion";
 import { Section, SectionHeader } from "@/components/Section";
@@ -8,7 +8,7 @@ import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import ImageGallery from "@/components/ui/image-gallery";
 import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
 import { TestimonialsSection } from "@/components/ui/testimonials-6";
-import { VideoBento } from "@/components/VideoBento";
+import { YouTubePreview } from "@/components/VideoBento";
 
 export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
   const countdown = useCountdown();
@@ -34,8 +34,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full flex-col justify-end px-[clamp(20px,4vw,42px)] pb-20 will-change-transform">
             <div className="max-w-3xl text-white">
               <div className="eyebrow mb-5 text-blush-accent">Miss & Mrs. Maharashtra Season 3</div>
-              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]">Step into your crown year.</h1>
-              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">Miss & Mrs. Maharashtra Season 3 is built for women ready for grooming, visibility, national pathways and a titleholder year with purpose.</p>
+              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]">The crown begins before the stage.</h1>
+              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">Season 3 is a guided pageant journey for grooming, visibility, national pathways and a titleholder year with purpose.</p>
               <p className="mt-4 text-xs uppercase tracking-[.26em] text-blush-accent">Auditions / grooming / finale night</p>
               <div className="mt-9 flex flex-wrap gap-4">
                 <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Start application</button>
@@ -72,22 +72,42 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           </button>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          {latestNews.slice(0, 3).map((item) => (
-            <button
-              key={item.title}
-              type="button"
-              onClick={() => navigate("press")}
-              className="reveal group border gold-divider bg-[#061122]/76 p-6 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
-            >
+        <div className="grid gap-5 lg:grid-cols-[1.2fr_.8fr]">
+          <button
+            type="button"
+            onClick={() => navigate("press")}
+            className="reveal group overflow-hidden border gold-divider bg-[#061122]/76 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
+          >
+            <YouTubePreview src={latestNews[0].src} title={latestNews[0].title} feature={latestNews[0].feature} className="aspect-video" />
+            <div className="p-6 md:p-8">
               <div className="mb-4 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
-                <span>{item.date}</span>
-                <span>{item.feature}</span>
+                <span>Featured</span>
+                <span>{latestNews[0].date}</span>
               </div>
-              <h3 className="font-display text-3xl leading-tight text-blush-ink transition group-hover:text-blush-accent">{item.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-blush-body">{item.summary}</p>
-            </button>
-          ))}
+              <h3 className="font-display text-[clamp(2.2rem,4vw,4.8rem)] leading-none text-blush-ink transition group-hover:text-blush-accent">{latestNews[0].title}</h3>
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-blush-body">{latestNews[0].summary}</p>
+            </div>
+          </button>
+          <div className="grid gap-4">
+            {latestNews.slice(1, 3).map((item) => (
+              <button
+                key={item.title}
+                type="button"
+                onClick={() => navigate("press")}
+                className="reveal group grid overflow-hidden border gold-divider bg-[#061122]/76 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent sm:grid-cols-[180px_1fr] lg:grid-cols-1 xl:grid-cols-[180px_1fr]"
+              >
+                <YouTubePreview src={item.src} title={item.title} feature={item.feature} className="aspect-video h-full" />
+                <div className="p-5">
+                  <div className="mb-3 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                    <span>{item.date}</span>
+                    <span>{item.feature}</span>
+                  </div>
+                  <h3 className="font-display text-2xl leading-tight text-blush-ink transition group-hover:text-blush-accent">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-blush-body">{item.summary}</p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -101,8 +121,11 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               crown pathway.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base font-light leading-7 text-blush-body">
-              Miss Maharashtra and Mrs. Maharashtra are separate titles with shared grooming, shared finale production and distinct onward national opportunities.
+              Two separate titles. One shared standard for grooming, finale production and titleholder presence.
             </p>
+            <button onClick={() => navigate("categories")} className="mt-6 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
+              Not sure? Compare categories
+            </button>
           </div>
         }
       >
@@ -120,11 +143,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 {idx === 0 ? "Title 01" : "Title 02"}
               </div>
               <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(18px,2.4vw,28px)]">
-                <p className="eyebrow mb-3 max-w-xl text-blush-accent">{cat.pathway}</p>
+                <p className="eyebrow mb-3 max-w-xl text-blush-accent">{idx === 0 ? "Single applicants" : "Married applicants"}</p>
                 <h3 className="luxury-hover-title font-display text-[clamp(28px,3vw,44px)] leading-none">{cat.title}</h3>
-                <p className="mt-3 max-w-lg text-sm leading-6 text-white/75">
-                  {idx === 0 ? "For unmarried women ready to build confidence, visibility and stage presence." : "For married women, mothers and second-act leaders ready for a titleholder platform."}
-                </p>
                 <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
                   <ArrowRight size={15} />
                 </span>
@@ -176,38 +196,14 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   <h3 className="mt-2 font-display text-4xl leading-none text-white">Mrs. Zoya Siraj Sheikh</h3>
                 </div>
               </div>
-              <div className="mt-3 grid border gold-divider bg-[#061122]/72 sm:grid-cols-3">
-                {[
-                  ["2022", "Mrs. Maharashtra"],
-                  ["3rd", "Runner-up, Mrs. Universe"],
-                  ["Open", "Season 3 auditions"],
-                ].map(([value, label]) => (
-                  <div key={label} className="border-r gold-divider px-5 py-5">
-                    <div className="font-display text-[clamp(2.2rem,3vw,3.8rem)] leading-none text-blush-ink">{value}</div>
-                    <div className="mt-3 text-[10px] uppercase tracking-[.24em] text-blush-accent">{label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="overflow-hidden border-b gold-divider bg-[#061122]/88 py-5">
-        <div className="marquee-track flex w-max gap-10 text-xs uppercase tracking-[.34em] text-blush-accent">
-          {Array.from({ length: 2 }).map((_, repeat) => (
-            <div key={repeat} className="flex gap-10">
-              {["MISS MAHARASHTRA", "MRS MAHARASHTRA", "RUNWAY", "GROOMING", "NATIONAL PATHWAY", "NAGPUR FINALE"].map((item) => (
-                <span key={`${repeat}-${item}`} className="whitespace-nowrap">{item}</span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
       <Section className="cinematic-band gold-lift !py-[clamp(42px,5vw,72px)]">
-        <div className="grid gap-10 lg:grid-cols-[.82fr_1fr] lg:items-center">
-          <div className="editorial-image luxury-hover-card reveal mx-auto aspect-[4/5] w-full max-w-[520px]">
+        <div className="grid gap-12 lg:grid-cols-[1fr_.9fr] lg:items-center">
+          <div className="reveal relative mx-auto aspect-[5/4] w-full max-w-[680px] overflow-hidden bg-[#061122] shadow-[0_34px_110px_rgba(0,0,0,.3)]">
             <img
               src={imageRoles.brandProof}
               alt="Miss and Mrs Maharashtra crowned contestants on stage"
@@ -223,7 +219,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               </span>
             </div>
           </div>
-          <div className="reveal max-w-2xl">
+          <div className="reveal max-w-xl">
             <div className="eyebrow mb-5">The pageant</div>
             <h2 className="display-title mb-7">More than a pageant night.</h2>
             <p className="text-lg font-light leading-8 text-blush-body">The season is designed around preparation: grooming, runway discipline, interview readiness, media visibility and a titleholder year that continues after the crown is placed.</p>
@@ -275,12 +271,12 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   <ArrowRight size={15} />
                 </span>
               </div>
-              <span className="hidden border-b border-blush-accent pb-2 text-[10px] uppercase tracking-[.24em] text-blush-accent sm:block">Auditions open</span>
+              <span className="hidden border-b border-blush-accent pb-2 text-[10px] uppercase tracking-[.24em] text-blush-accent sm:block">Slots under review</span>
             </div>
           </div>
         </div>
 
-        <div className="reveal beam-frame beam-frame-strong mx-auto mt-5 grid max-w-6xl border gold-divider bg-[#061122]/72 sm:grid-cols-4">
+        <div className="reveal mx-auto mt-5 grid max-w-6xl border gold-divider bg-[#061122]/72 sm:grid-cols-4">
           {countdown.map((item) => (
             <div key={item.l} className="border-r gold-divider px-6 py-5">
               <div className="font-display text-[clamp(2.3rem,3.3vw,4rem)] leading-none text-blush-ink">{item.v}</div>
@@ -340,7 +336,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             <p data-beat="1" className="mt-7 max-w-2xl font-display text-2xl leading-snug text-blush-ink transition duration-700">"A title year shaped by confidence, service, visibility and presence."</p>
             <p data-beat="2" className="mt-6 max-w-xl font-light leading-8 text-blush-body transition duration-700">From the runway to public appearances, each titleholder carries the platform into schools, shoots, designer showcases, media moments and national pathways.</p>
             <div data-beat="3" className="mt-8 grid gap-1 border gold-divider bg-[#061122]/72 transition duration-700 sm:grid-cols-3">
-              {[["14", "Appearances"], ["9", "Schools reached"], ["1", "National entry"]].map(([n, label]) => (
+              {[["Media", "Coverage"], ["Public", "Appearances"], ["National", "Pathway"]].map(([n, label]) => (
                 <div key={label} className="border-r hairline p-6"><div className="font-display text-4xl text-blush-ink">{n}</div><div className="mt-2 text-[10px] uppercase tracking-[.24em] text-blush-accent">{label}</div></div>
               ))}
             </div>
@@ -367,8 +363,6 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <button onClick={() => navigate("press")} className="mt-8 w-fit border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">View season coverage</button>
       </ScrollExpandMedia>
 
-      <VideoBento />
-
       <Section className="cinematic-band gold-lift !py-0">
         <ImageGallery />
       </Section>
@@ -386,7 +380,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           </div>
           <div className="reveal flex flex-col gap-5 lg:items-end">
             <div className="grid w-full grid-cols-2 border gold-divider bg-[#020817]/84">
-              {[["1,000", "Gala audience"], ["120+", "Contestants"], ["3", "Audition cities"], ["40+", "Guests & jury"]].map(([n, label]) => (
+              {[["1,000", "Finale guests"], ["120+", "Contestants"], ["3", "Audition cities"], ["40+", "Guests & jury"]].map(([n, label]) => (
                 <div key={label} className="border-r border-t gold-divider p-5">
                   <div className="font-display text-4xl text-blush-ink">{n}</div>
                   <div className="mt-2 text-[10px] uppercase tracking-[.24em] text-blush-accent">{label}</div>
@@ -403,18 +397,15 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       <Section className="cinematic-band scroll-mt-28">
         <div id="tickets" />
         <SectionHeader eyebrow="The Grand Finale" title="Choose your finale night experience." body="Reserve your place in the room for the coronation, designer runway and titleholder crowning." />
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div className="grid gap-1 bg-blush-ink/10">
+        <div className="grid gap-5 lg:grid-cols-3">
             {tickets.map((ticket) => (
-              <div key={ticket.name} className="reveal hover-nudge grid grid-cols-[1fr_auto] gap-5 bg-[#061122]/76 p-6">
-                <div><h3 className="font-display text-2xl">{ticket.name}</h3><p className="text-sm text-blush-body">{ticket.perk}</p></div>
-                <strong>{ticket.price}</strong>
+              <div key={ticket.name} className="reveal border gold-divider bg-[#061122]/76 p-7">
+                <div className="text-[10px] uppercase tracking-[.26em] text-blush-accent">Finale pass</div>
+                <h3 className="mt-5 font-display text-4xl leading-none text-blush-ink">{ticket.name}</h3>
+                <p className="mt-5 min-h-14 text-sm leading-7 text-blush-body">{ticket.perk}</p>
+                <strong className="mt-7 block font-display text-3xl font-normal text-blush-accent">{ticket.price}</strong>
               </div>
             ))}
-          </div>
-          <div className="grid grid-cols-2 gap-1 bg-blush-ink/10">
-            {sponsorNames.map((name) => <div key={name} className="reveal grid min-h-28 place-items-center bg-[#061122]/76 p-5 text-center font-display text-2xl transition hover:text-blush-accent">{name}</div>)}
-          </div>
         </div>
       </Section>
 

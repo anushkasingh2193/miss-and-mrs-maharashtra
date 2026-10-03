@@ -109,17 +109,17 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
             <div className="mx-auto mb-6 grid size-14 place-items-center rounded-full bg-blush-accent text-[#020817]">
               <Check />
             </div>
-            <div className="eyebrow mb-5">Application received</div>
+            <div className="eyebrow mb-5">Interest form received</div>
             <h2 className="font-display text-[clamp(2.5rem,5vw,5rem)] leading-none text-blush-ink">Thank you, {form.name || "Applicant"}.</h2>
             <p className="mx-auto mt-6 max-w-xl text-sm leading-8 text-blush-body">
-              Your application for {cat === "miss" ? "Miss Maharashtra" : "Mrs. Maharashtra"} has been saved for {form.city}. The audition team will contact shortlisted applicants.
+              Your interest form for {cat === "miss" ? "Miss Maharashtra" : "Mrs. Maharashtra"} has been saved for {form.city}. The audition team will contact shortlisted applicants.
             </p>
             <button
               type="button"
               onClick={() => setSubmitted(false)}
               className="mt-8 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent"
             >
-              Edit my application
+              Edit my interest form
             </button>
           </div>
         ) : (
@@ -128,6 +128,13 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
               <div className="mb-8">
                 <div className="eyebrow mb-3">Application form</div>
                 <h2 className="font-display text-[clamp(2.1rem,3.8vw,4rem)] leading-none text-blush-ink">Which crown path fits you?</h2>
+                <div className="mt-6 grid gap-2 text-[10px] uppercase tracking-[.2em] text-blush-accent sm:grid-cols-3">
+                  {["Choose title", "Share details", "Team review"].map((step, index) => (
+                    <span key={step} className="border gold-divider px-4 py-3">
+                      {String(index + 1).padStart(2, "0")} / {step}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="mb-8 grid gap-3 md:grid-cols-2">
@@ -199,7 +206,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
               </button>
             </form>
 
-            <aside className="grid gap-6">
+            <aside className="grid content-start gap-4">
               <InfoPanel title="Before you start" items={documents} />
               <InfoPanel title="Eligibility" items={eligibility} />
               <InfoPanel title="What you receive" items={receives} />

@@ -50,6 +50,7 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
               <div className="eyebrow mb-5">{tier.slots}</div>
               <h3 className="font-display text-4xl text-blush-ink">{tier.tier}</h3>
               <div className="mt-4 text-2xl text-blush-accent">{tier.price}</div>
+              <p className="mt-5 min-h-14 text-sm leading-7 text-blush-body">{tier.bestFor}</p>
               <ul className="mt-8 grid gap-4 text-sm leading-7 text-blush-body">
                 {tier.perks.map((perk) => (
                   <li key={perk} className="border-b gold-divider pb-3">{perk}</li>

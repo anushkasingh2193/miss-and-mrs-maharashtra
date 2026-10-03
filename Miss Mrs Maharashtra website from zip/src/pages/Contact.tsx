@@ -34,7 +34,6 @@ export function Contact({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
               <div className="eyebrow mb-5">Contact</div>
-              <div className="mb-4 font-marathi text-2xl text-blush-accent/80">संपर्क</div>
               <h1 className="hero-title max-w-4xl text-blush-ink">Talk to the office.</h1>
               <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
                 Auditions, sponsorship, tickets, media accreditation and contestant support are handled by the Nagpur season office.
@@ -88,7 +87,7 @@ export function Contact({ navigate }: { navigate: (page: PageKey) => void }) {
           </div>
           <div className="overflow-hidden border gold-divider bg-[#061122]">
             <iframe
-              className="min-h-[460px] w-full grayscale invert-[.88] contrast-125"
+              className="min-h-[460px] w-full grayscale-[.25] contrast-105"
               src={mapUrl}
               loading="lazy"
               title="Kara Zoya office map"

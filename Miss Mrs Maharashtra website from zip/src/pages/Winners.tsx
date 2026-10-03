@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { ArrowRight, X } from "lucide-react";
 import { imageRoles, mAndMWinnerImages, titleholders, winnerSeasonGroups, type PageKey } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
-import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel";
 import { cn } from "@/lib/utils";
 
 export function Winners(_: { navigate: (page: PageKey) => void }) {
@@ -10,19 +9,6 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
   const [activeSeason, setActiveSeason] = useState(0);
   const [showFullArchive, setShowFullArchive] = useState(false);
 
-  const carouselImages = useMemo(
-    () => {
-      const seasonHighlights = winnerSeasonGroups.flatMap((season) => {
-        const middleIndex = Math.floor(season.images.length / 2);
-        return [season.images[0], season.images[middleIndex], season.images[season.images.length - 1]];
-      });
-
-      return [...mAndMWinnerImages, ...titleholders.map((winner) => winner.bg), ...seasonHighlights].filter(
-        (image, index, images): image is string => Boolean(image) && images.indexOf(image) === index,
-      );
-    },
-    [],
-  );
   const selectedSeason = winnerSeasonGroups[activeSeason] ?? winnerSeasonGroups[0];
   const visibleSeasonImages = selectedSeason.images.slice(0, showFullArchive ? 18 : 8);
   const featuredImage = selectedSeason.images[0] ?? titleholders[0]?.bg;
@@ -72,8 +58,30 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
             </div>
           </button>
         </div>
-        <div className="relative z-10 mt-10">
-          <ThreeDPhotoCarousel images={carouselImages} />
+        <div className="content-wrap relative z-10 mt-10 grid gap-3 px-[clamp(20px,4vw,42px)] pb-[clamp(42px,5vw,72px)] md:grid-cols-6">
+          {mAndMWinnerImages.slice(0, 6).map((image, index) => (
+            <button
+              key={image}
+              type="button"
+              onClick={() => setLightbox(image)}
+              className={cn(
+                "group relative overflow-hidden border gold-divider bg-[#061122] focus:outline-none focus:ring-2 focus:ring-blush-accent",
+                index === 0 ? "aspect-[4/5] md:col-span-2 md:row-span-2" : "aspect-[3/4] md:col-span-1",
+                index === 5 && "md:col-span-2",
+              )}
+            >
+              <img
+                src={image}
+                alt={`Miss and Mrs Maharashtra winner archive ${index + 1}`}
+                className="h-full w-full object-cover object-[50%_18%] transition duration-700 group-hover:scale-105"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+              <span className="absolute left-3 top-3 bg-[#020817]/82 px-3 py-2 text-[9px] uppercase tracking-[.2em] text-blush-accent">
+                Archive {String(index + 1).padStart(2, "0")}
+              </span>
+            </button>
+          ))}
         </div>
       </section>
 

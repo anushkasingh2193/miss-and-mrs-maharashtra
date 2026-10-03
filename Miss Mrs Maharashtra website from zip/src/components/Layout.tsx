@@ -46,7 +46,7 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
               </button>
             ))}
           </nav>
-          <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 px-5 py-2.5 text-[10px] uppercase tracking-[.2em] sm:inline-flex">
+          <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 whitespace-nowrap px-5 py-2.5 text-[10px] uppercase tracking-[.18em] sm:inline-flex">
             Start application <ArrowRight size={15} />
           </button>
           <button className="lg:hidden" onClick={() => setMenu((v) => !v)} aria-label="Toggle menu">
@@ -81,11 +81,11 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
 
       <footer className="footer-cinema relative overflow-hidden border-t hairline bg-[#061122] px-[clamp(20px,4vw,42px)]">
         <div className="content-wrap relative z-10 py-[clamp(58px,7vw,110px)]">
-          <div className="beam-frame beam-frame-strong grid gap-10 border gold-divider bg-[#061122]/72 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+          <div className="grid gap-8 border gold-divider bg-[#061122]/72 p-[clamp(26px,4vw,52px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
               <div className="eyebrow mb-5">Season three</div>
-              <h2 className="font-display text-[clamp(2.8rem,5.8vw,6.6rem)] leading-[.9] text-blush-ink">Your crown journey starts here.</h2>
-              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">Tell us your category, city and story. The season office will guide shortlisted applicants through auditions, grooming and finale preparation.</p>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,5.6rem)] leading-[.92] text-blush-ink">Ready for Season 3?</h2>
+              <p className="mt-6 max-w-xl text-base font-light leading-8 text-blush-body">Choose your category, speak to the season office, or start the contestant application flow.</p>
             </div>
             <div className="flex flex-col gap-4 lg:items-end">
               <button onClick={() => go("register")} className="gold-cta inline-flex w-fit items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
@@ -95,18 +95,6 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
                 Speak to the team <ArrowRight size={15} />
               </button>
             </div>
-          </div>
-        </div>
-
-        <div className="relative z-10 -mx-[clamp(20px,4vw,42px)] overflow-hidden border-y gold-divider py-5">
-          <div className="marquee-track flex w-max gap-10 text-xs uppercase tracking-[.34em] text-blush-accent">
-            {Array.from({ length: 2 }).map((_, repeat) => (
-              <div key={repeat} className="flex gap-10">
-                {["MISS MAHARASHTRA", "MRS MAHARASHTRA", "RUNWAY", "GROOMING", "CROWN", "NATIONAL PATHWAY", "NAGPUR FINALE"].map((item) => (
-                  <span key={`${repeat}-${item}`} className="whitespace-nowrap">{item}</span>
-                ))}
-              </div>
-            ))}
           </div>
         </div>
 
