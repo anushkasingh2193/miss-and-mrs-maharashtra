@@ -12,13 +12,13 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
           <div>
             <div className="eyebrow mb-4">Winners</div>
             <h2 className="font-display text-[clamp(3rem,6vw,7rem)] leading-[.88] text-blush-ink">
-              The titleholders in motion.
+              Proof that the pathway creates titleholders.
             </h2>
           </div>
           <div className="winner-marquee-copy">
             <p>
-              A continuous winner slider inspired by the official archive, pairing titleholder portraits
-              with names, placements and category details.
+              Past winners and runner-ups make the promise visible: applicants enter a structured
+              season, then leave with a public identity, portfolio moments and a crown story.
             </p>
             <button type="button" onClick={onViewGallery} className="winner-inline-link">
               View full gallery <ArrowRight size={15} />
@@ -49,11 +49,11 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
           <div className="winner-video-intro">
             <div className="eyebrow mb-3">Video coverage</div>
             <h3 className="font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none text-blush-ink">
-              Watch the pageant moments.
+              Watch the stage before you enter it.
             </h3>
             <p className="mt-4 text-sm leading-7 text-blush-body">
-              Embedded from the official reference site: stage coverage, contestant moments,
-              application stories and season highlights.
+              Official video coverage helps applicants, guests and partners understand the scale,
+              energy and visibility of the season.
             </p>
           </div>
           <div className="winner-video-grid">

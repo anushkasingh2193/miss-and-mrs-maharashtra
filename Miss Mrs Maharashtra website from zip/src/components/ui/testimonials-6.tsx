@@ -65,10 +65,10 @@ export function TestimonialsSection() {
       <div className="content-wrap">
         <div className="mx-auto flex max-w-xl flex-col items-center justify-center gap-4 text-center">
           <div className="eyebrow">In their words</div>
-          <h2 className="display-title">Judged by names that matter</h2>
+          <h2 className="display-title">Trusted by mentors, titleholders and partners.</h2>
           <p className="text-sm leading-7 text-blush-muted">
-            Season juries, mentors and titleholder voices reflect the confidence,
-            craft and presence expected on the Miss & Mrs. Maharashtra stage.
+            Real voices from the pageant ecosystem show what the platform is known for:
+            confidence, preparation, visibility and stage discipline.
           </p>
         </div>
 
