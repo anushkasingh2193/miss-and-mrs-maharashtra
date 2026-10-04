@@ -58,7 +58,7 @@ select:focus-visible {
 }
 
 .page-transition {
-  animation: pageEnter 0.72s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: pageEnter 0.82s cubic-bezier(0.16, 1, 0.3, 1) both;
   transform-origin: center top;
 }
 
@@ -129,6 +129,61 @@ select:focus-visible {
     radial-gradient(circle at 50% 0%, rgba(214, 174, 79, var(--stats-glow)), transparent 52%),
     linear-gradient(90deg, rgba(214, 174, 79, 0.12), rgba(214, 174, 79, 0.035) 18%, rgba(214, 174, 79, 0.035) 82%, rgba(214, 174, 79, 0.12)),
     rgba(2, 8, 23, 0.82);
+}
+
+.category-cinema {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(214, 174, 79, 0.11), transparent 27%),
+    linear-gradient(130deg, #020817 0%, #061122 38%, #0d1830 100%);
+}
+
+.category-cinema::before {
+  content: "MISS   MRS   MAHARASHTRA";
+  position: absolute;
+  left: -4vw;
+  right: -4vw;
+  top: 18%;
+  pointer-events: none;
+  color: rgba(238, 246, 255, 0.035);
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(4rem, 12vw, 13rem);
+  letter-spacing: 0.08em;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+
+.category-panel {
+  border: 1px solid rgba(214, 174, 79, 0.22);
+  box-shadow: 0 30px 110px rgba(0, 0, 0, 0.28);
+}
+
+.category-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 22%, transparent 78%, rgba(214, 174, 79, 0.08)),
+    radial-gradient(circle at var(--cursor-x, 50%) var(--cursor-y, 42%), rgba(238, 246, 255, 0.13), transparent 28%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.category-panel:hover::after,
+.category-panel:focus-visible::after {
+  opacity: 1;
+}
+
+.category-chip {
+  border: 1px solid rgba(214, 174, 79, 0.35);
+  background: rgba(2, 8, 23, 0.42);
+  padding: 7px 10px;
+  color: rgba(238, 246, 255, 0.72);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .stat-item {
@@ -275,6 +330,83 @@ select:focus-visible {
   background:
     linear-gradient(135deg, rgba(238, 246, 255, 0.045), transparent 34%),
     linear-gradient(180deg, #061122 0%, #0a172b 48%, #020817 100%);
+}
+
+.register-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(214, 174, 79, 0.15), transparent 28%),
+    linear-gradient(180deg, #061122, #020817);
+}
+
+.register-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgba(214, 174, 79, 0.08));
+}
+
+.registration-progress {
+  position: relative;
+}
+
+.registration-progress-line {
+  height: 2px;
+  overflow: hidden;
+  background: rgba(214, 174, 79, 0.16);
+}
+
+.registration-progress-line span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #d6ae4f, #fff0b8);
+  transition: width 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.registration-step-pill {
+  border: 1px solid rgba(214, 174, 79, 0.18);
+  padding: 12px 14px;
+  color: rgba(238, 246, 255, 0.46);
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+
+.registration-step-pill.is-active {
+  border-color: rgba(214, 174, 79, 0.62);
+  background: rgba(214, 174, 79, 0.08);
+  color: #d6ae4f;
+}
+
+.register-flow-section {
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(238, 246, 255, 0.035), transparent 32%),
+    linear-gradient(180deg, #020817, #071426 58%, #020817);
+}
+
+.register-form-panel,
+.register-success {
+  border: 1px solid rgba(214, 174, 79, 0.22);
+  background:
+    linear-gradient(180deg, rgba(238, 246, 255, 0.045), rgba(2, 8, 23, 0.76)),
+    #061122;
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.28);
+}
+
+.register-choice-card {
+  border: 1px solid rgba(214, 174, 79, 0.18);
+  background: rgba(11, 26, 48, 0.6);
+  padding: 20px;
+}
+
+.register-choice-card.is-selected {
+  border-color: rgba(214, 174, 79, 0.8);
+  background:
+    linear-gradient(135deg, rgba(214, 174, 79, 0.14), rgba(11, 26, 48, 0.72)),
+    #0b1a30;
+  box-shadow: inset 0 0 0 1px rgba(214, 174, 79, 0.12);
 }
 
 .news-article-card {

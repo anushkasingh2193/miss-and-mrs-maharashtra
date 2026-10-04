@@ -53,6 +53,9 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
   }, [form, cat]);
 
   const wordCount = useMemo(() => form.statement.trim().split(/\s+/).filter(Boolean).length, [form.statement]);
+  const filledCoreFields = [form.name, form.dob, form.email, form.phone, form.occupation].filter((value) => value.trim().length > 1).length;
+  const activeStep = submitted ? 4 : form.statement.trim() || form.consent ? 3 : filledCoreFields > 1 ? 2 : 1;
+  const progress = submitted ? 100 : activeStep === 3 ? 78 : activeStep === 2 ? 48 : 18;
 
   const setField = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((current) => ({ ...current, [key]: value }));
@@ -80,7 +83,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
 
   return (
     <>
-      <section className="cinematic-band border-b gold-divider px-[clamp(20px,4vw,42px)] py-[clamp(72px,9vw,118px)]">
+      <section className="register-hero border-b gold-divider px-[clamp(20px,4vw,42px)] py-[clamp(72px,9vw,118px)]">
         <div className="content-wrap">
           <div className="eyebrow mb-5">Season 3 · Contestant interest</div>
           <h1 className="hero-title max-w-4xl text-blush-ink">Start your crown journey.</h1>
@@ -100,12 +103,24 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
               </span>
             ))}
           </div>
+          <div className="registration-progress mt-10 max-w-3xl">
+            <div className="registration-progress-line">
+              <span style={{ width: `${progress}%` }} />
+            </div>
+            <div className="mt-5 grid gap-3 text-[10px] uppercase tracking-[.2em] text-blush-accent sm:grid-cols-4">
+              {["Choose title", "Details", "Story", "Review"].map((step, index) => (
+                <span key={step} className={cn("registration-step-pill", activeStep >= index + 1 && "is-active")}>
+                  {String(index + 1).padStart(2, "0")} / {step}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <Section className="cinematic-band">
+      <Section className="register-flow-section">
         {submitted ? (
-          <div className="mx-auto max-w-3xl border gold-divider bg-[#061122]/76 p-8 text-center md:p-12">
+          <div className="register-success mx-auto max-w-3xl p-8 text-center md:p-12">
             <div className="mx-auto mb-6 grid size-14 place-items-center rounded-full bg-blush-accent text-[#020817]">
               <Check />
             </div>
@@ -124,17 +139,11 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
           </div>
         ) : (
           <div className="grid gap-10 lg:grid-cols-[1.2fr_.8fr]">
-            <form onSubmit={submit} className="border gold-divider bg-[#061122]/76 p-6 md:p-10">
+            <form onSubmit={submit} className="register-form-panel p-6 md:p-10">
               <div className="mb-8">
                 <div className="eyebrow mb-3">Application form</div>
                 <h2 className="font-display text-[clamp(2.1rem,3.8vw,4rem)] leading-none text-blush-ink">Which crown path fits you?</h2>
-                <div className="mt-6 grid gap-2 text-[10px] uppercase tracking-[.2em] text-blush-accent sm:grid-cols-3">
-                  {["Choose title", "Share details", "Team review"].map((step, index) => (
-                    <span key={step} className="border gold-divider px-4 py-3">
-                      {String(index + 1).padStart(2, "0")} / {step}
-                    </span>
-                  ))}
-                </div>
+                <p className="mt-4 max-w-xl text-sm leading-7 text-blush-body">A short guided form for category, city, basic details and your titleholder story.</p>
               </div>
 
               <div className="mb-8 grid gap-3 md:grid-cols-2">
@@ -144,8 +153,8 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
                     type="button"
                     onClick={() => setCat(item.key)}
                     className={cn(
-                      "border gold-divider bg-[#0B1A30]/72 p-5 text-left transition hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent",
-                      cat === item.key && "border-blush-accent bg-blush-accent/10",
+                      "register-choice-card text-left transition focus:outline-none focus:ring-2 focus:ring-blush-accent",
+                      cat === item.key && "is-selected",
                     )}
                   >
                     <h3 className="font-display text-3xl text-blush-ink">{item.title}</h3>
@@ -154,7 +163,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
                 ))}
               </div>
 
-              <div className="grid gap-6">
+              <div className="register-field-grid grid gap-6">
                 <div className="grid gap-5 md:grid-cols-2">
                   <Field label="Full name" error={errors.name}>
                     <input className="form-field" aria-invalid={!!errors.name} placeholder="As on your ID" value={form.name} onChange={(e) => setField("name", e.target.value)} />

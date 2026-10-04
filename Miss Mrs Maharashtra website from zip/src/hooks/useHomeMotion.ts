@@ -126,6 +126,14 @@ export function useHomeMotion() {
     };
 
     const onMove = (event: PointerEvent) => {
+      document.querySelectorAll<HTMLElement>(".category-panel").forEach((panel) => {
+        const rect = panel.getBoundingClientRect();
+        const inside = event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
+        if (!inside) return;
+        panel.style.setProperty("--cursor-x", `${event.clientX - rect.left}px`);
+        panel.style.setProperty("--cursor-y", `${event.clientY - rect.top}px`);
+      });
+
       const spot = document.getElementById("spot");
       if (!spot) return;
       const rect = spot.getBoundingClientRect();

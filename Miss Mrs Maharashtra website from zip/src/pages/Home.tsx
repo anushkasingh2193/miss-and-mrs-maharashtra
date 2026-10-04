@@ -146,7 +146,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <Section className="cinematic-band">
+      <Section className="category-cinema">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
             eyebrow="Choose your crown"
@@ -157,12 +157,12 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             Compare categories <ArrowRight size={15} />
           </button>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="category-cinema-grid grid gap-5 md:grid-cols-2">
           {categories.map((cat, idx) => (
             <button
               key={cat.key}
               onClick={() => navigate("categories")}
-              className="group luxury-hover-card reveal relative aspect-[4/5] overflow-hidden text-left text-white focus:outline-none focus:ring-2 focus:ring-blush-accent"
+              className="group category-panel luxury-hover-card reveal relative aspect-[4/5] overflow-hidden text-left text-white focus:outline-none focus:ring-2 focus:ring-blush-accent"
             >
               <img
                 src={idx === 0 ? imageRoles.titleMiss : imageRoles.titleMrs}
@@ -179,6 +179,11 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <p className="eyebrow mb-3 max-w-xl text-blush-accent">{cat.pathway}</p>
                 <h3 className="luxury-hover-title font-display text-[clamp(2.6rem,4vw,5rem)] leading-none">{cat.title}</h3>
                 <p className="mt-4 max-w-xl text-sm leading-6 text-white/76">{cat.who}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {(idx === 0 ? ["Confidence", "Stage walk", "National route"] : ["Purpose", "Presence", "Title year"]).map((tag) => (
+                    <span key={tag} className="category-chip">{tag}</span>
+                  ))}
+                </div>
                 <span className="luxury-hover-arrow mt-5 text-blush-accent" aria-hidden="true"><ArrowRight size={15} /></span>
               </div>
             </button>
