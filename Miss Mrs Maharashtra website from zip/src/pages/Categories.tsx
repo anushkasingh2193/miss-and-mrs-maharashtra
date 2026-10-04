@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Crown, Scale, Sparkles } from "lucide-react";
 import { categories, imageRoles, scoring, type PageKey } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
 
@@ -12,6 +12,8 @@ const categoryDetails = [
     image: imageRoles.titleMiss,
     position: "50% 18%",
     facts: ["Shared grooming", "Finale runway", "Portfolio shoot", "National pathway"],
+    bestFor: ["Single applicants", "Campus and early-career voices", "Women building public presence"],
+    notBasedOn: ["Height", "Weight", "Complexion"],
   },
   {
     key: "mrs",
@@ -22,14 +24,35 @@ const categoryDetails = [
     image: imageRoles.titleMrs,
     position: "50% 20%",
     facts: ["Shared grooming", "Finale runway", "Portfolio shoot", "Titleholder year"],
+    bestFor: ["Married applicants", "Mothers and second-act leaders", "Women with a public purpose"],
+    notBasedOn: ["Height", "Weight", "Complexion"],
   },
 ] as const;
+
+const decisionSteps = [
+  {
+    icon: Crown,
+    title: "Start with your eligibility",
+    body: "Miss is for single and unmarried applicants. Mrs. is for married, divorced, widowed women and single mothers.",
+  },
+  {
+    icon: Sparkles,
+    title: "Then look at your title goal",
+    body: "Both categories share grooming and finale quality, but each title leads to a different national pathway.",
+  },
+  {
+    icon: Scale,
+    title: "Scoring stays separate",
+    body: "Applicants compete within their own title category, so the comparison stays fair and relevant.",
+  },
+];
 
 const comparisonRows = [
   ["Eligibility", "Unmarried women and girls", "Married, divorced, widowed women and single mothers"],
   ["Pathway", "Miss Supraglobal, Miss Summit International", "Mrs. India Supranational, Women of the Universe"],
   ["Judging", "Separate category scoring", "Separate category scoring"],
   ["Finale", "Shared national-standard runway", "Shared national-standard runway"],
+  ["Not required", "No height, weight or complexion criterion", "No height, weight or complexion criterion"],
 ];
 
 export function Categories({ navigate }: { navigate: (page: PageKey) => void }) {
@@ -40,10 +63,15 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
         <div className="content-wrap relative z-10 grid min-h-[calc(82vh-var(--header-height))] gap-10 px-[clamp(20px,4vw,42px)] py-[clamp(56px,7vw,96px)] lg:grid-cols-[.92fr_1.08fr] lg:items-center">
           <div className="reveal max-w-4xl">
             <div className="eyebrow mb-5">Categories</div>
-            <h1 className="hero-title max-w-4xl">Choose the crown that matches your story.</h1>
+            <h1 className="hero-title max-w-4xl">Choose the right crown before you apply.</h1>
             <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-              Miss Maharashtra and Mrs. Maharashtra are judged separately, with shared grooming, shared production standards and distinct national pathways after the finale.
+              Miss Maharashtra and Mrs. Maharashtra are judged separately, with shared grooming standards, separate eligibility and distinct national pathways after the finale.
             </p>
+            <div className="category-hero-proof mt-8 grid gap-3 sm:grid-cols-3">
+              {["2 title categories", "Separate scoring", "Same finale standard"].map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
             <div className="mt-9 flex flex-wrap items-center gap-5">
               <button onClick={() => navigate("register")} className="gold-cta inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
                 Start application <ArrowRight size={15} />
@@ -96,6 +124,37 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
         </div>
       </Section>
 
+      <Section className="category-guidance-section">
+        <div className="grid gap-8 lg:grid-cols-[.78fr_1fr] lg:items-start">
+          <div className="reveal max-w-xl">
+            <div className="eyebrow mb-5">Decision guide</div>
+            <h2 className="display-title">Which category should you enter?</h2>
+            <p className="mt-6 text-[17px] font-light leading-8 text-blush-body">
+              The choice is simple when you start with eligibility. After that, the pageant team looks at preparation, communication, advocacy, talent and stage presence.
+            </p>
+            <button onClick={() => navigate("contact")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
+              Ask the season office <ArrowRight size={15} />
+            </button>
+          </div>
+          <div className="grid gap-4">
+            {decisionSteps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <article key={step.title} className="category-decision-card reveal">
+                  <div className="category-decision-icon" aria-hidden="true">
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-3xl leading-tight text-blush-ink">{step.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-blush-body">{step.body}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </Section>
+
       <Section className="cinematic-band">
         <SectionHeader eyebrow="Choose your crown" title="The right category, clearly defined." body="Both titles share the same stage quality, grooming season and finale discipline. Eligibility and onward pathways stay distinct so every applicant enters the correct lane." />
         <div className="grid gap-5 lg:grid-cols-2">
@@ -128,6 +187,30 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
                   <p className="mt-7 text-sm leading-7 text-blush-body">
                     There is no minimum height, weight or complexion requirement. Applicants are assessed on preparation, communication, advocacy, talent and stage presence.
                   </p>
+                  <div className="mt-7 grid gap-5 md:grid-cols-2">
+                    <div>
+                      <div className="text-[10px] uppercase tracking-[.24em] text-blush-accent">Best for</div>
+                      <ul className="mt-4 grid gap-3 text-sm leading-6 text-blush-body">
+                        {detail.bestFor.map((item) => (
+                          <li key={item} className="flex gap-3">
+                            <CheckCircle2 className="mt-1 shrink-0 text-blush-accent" size={14} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="text-[10px] uppercase tracking-[.24em] text-blush-accent">Never judged on</div>
+                      <ul className="mt-4 grid gap-3 text-sm leading-6 text-blush-body">
+                        {detail.notBasedOn.map((item) => (
+                          <li key={item} className="flex gap-3">
+                            <CheckCircle2 className="mt-1 shrink-0 text-blush-accent" size={14} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                   <button onClick={() => navigate("register")} className="gold-cta mt-8 inline-flex items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.24em]">
                     Start {cat.title} form <ArrowRight size={15} />
                   </button>
@@ -140,14 +223,14 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
 
       <Section id="compare-categories" className="cinematic-band gold-lift">
         <SectionHeader eyebrow="Compare" title="Different eligibility. Same stage standard." />
-        <div className="overflow-hidden border gold-divider bg-[#020817]/78">
-          <div className="grid grid-cols-[.72fr_1fr_1fr] border-b gold-divider px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">
+        <div className="category-compare-table overflow-hidden border gold-divider bg-[#020817]/78">
+          <div className="category-compare-row category-compare-head border-b gold-divider px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">
             <span>Criteria</span>
             <span>Miss Maharashtra</span>
             <span>Mrs. Maharashtra</span>
           </div>
           {comparisonRows.map(([label, miss, mrs]) => (
-            <div key={label} className="reveal grid gap-4 border-b gold-divider px-5 py-5 text-sm leading-7 text-blush-body md:grid-cols-[.72fr_1fr_1fr]">
+            <div key={label} className="category-compare-row reveal gap-4 border-b gold-divider px-5 py-5 text-sm leading-7 text-blush-body">
               <strong className="font-display text-2xl font-normal text-blush-ink">{label}</strong>
               <span>{miss}</span>
               <span>{mrs}</span>
@@ -160,7 +243,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
         <SectionHeader eyebrow="Scoring" title="Transparent criteria for every finalist." body="Contestants are assessed on preparation, communication, advocacy, talent and stage presence, with category-specific judgment applied fairly." />
         <div className="grid gap-4 md:grid-cols-5">
           {scoring.map((s) => (
-            <article key={s.no} className="reveal border gold-divider bg-[#020817]/78 p-6">
+            <article key={s.no} className="category-score-card reveal border gold-divider bg-[#020817]/78 p-6">
               <div className="flex items-start justify-between gap-4">
                 <span className="text-[10px] uppercase tracking-[.26em] text-blush-accent">{s.no}</span>
                 <strong className="font-display text-4xl font-normal leading-none text-blush-ink">{s.weight}</strong>
@@ -169,6 +252,26 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
               <p className="mt-4 text-sm leading-7 text-blush-body">{s.note}</p>
             </article>
           ))}
+        </div>
+      </Section>
+
+      <Section className="category-final-cta">
+        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="reveal max-w-3xl">
+            <div className="eyebrow mb-5">Ready to choose?</div>
+            <h2 className="display-title">Apply in the category that reflects your current life stage.</h2>
+            <p className="mt-6 text-[17px] font-light leading-8 text-blush-body">
+              If you are still unsure, submit your interest or contact the season office. The team can guide you before your application moves forward.
+            </p>
+          </div>
+          <div className="reveal flex flex-wrap gap-4">
+            <button onClick={() => navigate("register")} className="gold-cta inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
+              Start application <ArrowRight size={15} />
+            </button>
+            <button onClick={() => navigate("contact")} className="inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
+              Ask a question <ArrowRight size={15} />
+            </button>
+          </div>
         </div>
       </Section>
     </div>
