@@ -457,11 +457,33 @@ select:focus-visible {
 }
 
 .winner-reel-scene {
+  position: relative;
+  overflow: hidden;
   min-height: 245vh;
   padding: 0 clamp(20px, 4vw, 42px);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(214, 174, 79, 0.12), transparent 28%),
+    radial-gradient(circle at 92% 22%, rgba(238, 246, 255, 0.07), transparent 30%),
+    linear-gradient(180deg, #020817 0%, #061122 42%, #020817 100%);
+}
+
+.winner-reel-scene::before {
+  content: "TITLEHOLDER PORTFOLIO";
+  position: absolute;
+  left: -2vw;
+  right: -2vw;
+  top: 12vh;
+  pointer-events: none;
+  color: rgba(238, 246, 255, 0.035);
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(4rem, 10vw, 12rem);
+  letter-spacing: 0.08em;
+  line-height: 0.86;
+  white-space: nowrap;
 }
 
 .winner-reel-sticky {
+  isolation: isolate;
   position: sticky;
   top: var(--header-height);
   overflow: hidden;
@@ -469,7 +491,35 @@ select:focus-visible {
   padding-block: clamp(42px, 5vw, 74px);
 }
 
+.winner-portfolio-intro {
+  position: relative;
+  z-index: 1;
+}
+
+.winner-feature-panel {
+  border: 1px solid rgba(214, 174, 79, 0.22);
+  background:
+    linear-gradient(145deg, rgba(238, 246, 255, 0.055), rgba(2, 8, 23, 0.72)),
+    rgba(6, 17, 34, 0.82);
+  padding: clamp(22px, 3vw, 34px);
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(16px);
+}
+
+.winner-feature-chip,
+.winner-archive-chip {
+  border: 1px solid rgba(214, 174, 79, 0.22);
+  background: rgba(2, 8, 23, 0.42);
+  padding: 10px 12px;
+  color: rgba(238, 246, 255, 0.72);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 .winner-reel-viewport {
+  position: relative;
+  z-index: 1;
   overflow: visible;
   width: 100%;
 }
@@ -487,10 +537,70 @@ select:focus-visible {
   height: clamp(390px, 48vh, 560px);
   width: clamp(220px, 25vw, 360px);
   flex: 0 0 auto;
+  border-color: rgba(214, 174, 79, 0.24);
+  background: #020817;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
 }
 
 .winner-reel-card.is-active {
   width: clamp(260px, 32vw, 430px);
+  border-color: rgba(214, 174, 79, 0.62);
+}
+
+.winner-reel-card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  z-index: 2;
+  pointer-events: none;
+  border: 1px solid rgba(238, 246, 255, 0.1);
+  opacity: 0.72;
+  transition: opacity 0.35s ease, border-color 0.35s ease;
+}
+
+.winner-reel-card:hover::before,
+.winner-reel-card:focus-visible::before,
+.winner-reel-card.is-active::before {
+  border-color: rgba(214, 174, 79, 0.36);
+  opacity: 1;
+}
+
+.winner-card-overlay {
+  background:
+    linear-gradient(180deg, rgba(2, 8, 23, 0.1), transparent 28%),
+    linear-gradient(0deg, rgba(2, 8, 23, 0.94), rgba(2, 8, 23, 0.1) 58%, rgba(2, 8, 23, 0.18));
+  opacity: 0.92;
+}
+
+.winner-card-content {
+  z-index: 3;
+}
+
+.winner-card-number {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  z-index: 3;
+  color: rgba(238, 246, 255, 0.7);
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.2rem, 4vw, 4.8rem);
+  line-height: 0.8;
+  text-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
+}
+
+.winner-card-tag {
+  position: absolute;
+  right: 22px;
+  top: 24px;
+  z-index: 3;
+  border: 1px solid rgba(214, 174, 79, 0.3);
+  background: rgba(2, 8, 23, 0.44);
+  padding: 9px 10px;
+  color: rgba(238, 246, 255, 0.7);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
 }
 
 .winner-reel-end {
@@ -500,8 +610,12 @@ select:focus-visible {
   flex-direction: column;
   justify-content: center;
   border: 1px solid rgba(214, 174, 79, 0.18);
-  background: rgba(2, 8, 23, 0.78);
+  background:
+    radial-gradient(circle at 78% 16%, rgba(214, 174, 79, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(238, 246, 255, 0.05), rgba(2, 8, 23, 0.82)),
+    rgba(2, 8, 23, 0.78);
   padding: clamp(26px, 4vw, 48px);
+  box-shadow: 0 28px 95px rgba(0, 0, 0, 0.3);
 }
 
 .premium-panel {

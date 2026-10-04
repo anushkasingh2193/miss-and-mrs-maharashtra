@@ -48,12 +48,12 @@ export const mAndMWinnerImages = [
 ];
 
 export const mAndMWinnerPortfolio = [
-  { image: mAndMWinnerImages[0], eyebrow: "M&M / Season 3", name: "Crowned Portrait", title: "Mrs. Maharashtra stage" },
-  { image: mAndMWinnerImages[1], eyebrow: "M&M / Season 3", name: "Blue Gown Crown", title: "Winner portrait" },
-  { image: mAndMWinnerImages[2], eyebrow: "M&M / Season 3", name: "Final Walk", title: "Titleholder moment" },
-  { image: mAndMWinnerImages[3], eyebrow: "M&M / Season 3", name: "Silver Crown", title: "Winner portrait" },
-  { image: mAndMWinnerImages[5], eyebrow: "M&M / Season 3", name: "Coronation Frame", title: "Stage portrait" },
-  { image: mAndMWinnerImages[10], eyebrow: "M&M / Season 3", name: "Winner Lineup", title: "Group coverage" },
+  { image: mAndMWinnerImages[0], eyebrow: "M&M / Season 3", name: "Sash & Crown Study", title: "Mrs. Maharashtra titleholder portrait" },
+  { image: mAndMWinnerImages[1], eyebrow: "M&M / Season 3", name: "Blue Gown Portrait", title: "Winner portfolio frame" },
+  { image: mAndMWinnerImages[2], eyebrow: "M&M / Season 3", name: "Finale Walk", title: "Stage presence moment" },
+  { image: mAndMWinnerImages[3], eyebrow: "M&M / Season 3", name: "Silver Crown Moment", title: "Titleholder editorial" },
+  { image: mAndMWinnerImages[5], eyebrow: "M&M / Season 3", name: "Coronation Portrait", title: "Winner stage feature" },
+  { image: mAndMWinnerImages[10], eyebrow: "M&M / Season 3", name: "Titleholder Lineup", title: "Finale group coverage" },
 ];
 
 export const imageRoles = {
