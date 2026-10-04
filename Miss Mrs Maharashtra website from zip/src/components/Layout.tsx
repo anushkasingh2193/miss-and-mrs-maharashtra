@@ -46,9 +46,11 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
               </button>
             ))}
           </nav>
-          <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 whitespace-nowrap px-5 py-2.5 text-[10px] uppercase tracking-[.18em] sm:inline-flex">
-            Start application <ArrowRight size={15} />
-          </button>
+          {page !== "home" ? (
+            <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 whitespace-nowrap px-5 py-2.5 text-[10px] uppercase tracking-[.18em] xl:inline-flex">
+              Start application <ArrowRight size={15} />
+            </button>
+          ) : null}
           <button className="lg:hidden" onClick={() => setMenu((v) => !v)} aria-label="Toggle menu">
             {menu ? <X /> : <Menu />}
           </button>
@@ -68,7 +70,7 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
 
       <main key={page} className={cn("page-transition", page !== "register" && "pb-20 sm:pb-0")}>{children}</main>
 
-      {sticky && page !== "register" ? (
+      {sticky && page !== "register" && page !== "home" ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t gold-divider bg-blush-page/92 px-5 py-3 backdrop-blur-xl sm:py-4">
           <div className="content-wrap flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm text-blush-body">{countdown[0].v} days to finale week. Audition interest is still being reviewed.</p>

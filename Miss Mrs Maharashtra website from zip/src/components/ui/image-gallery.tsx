@@ -41,7 +41,7 @@ export default function Example({ onViewGallery }: { onViewGallery?: () => void 
                   decoding="async"
                 />
                 <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/88 via-[#061122]/10 to-transparent opacity-86 transition" />
-                <div className="luxury-hover-content absolute inset-x-0 bottom-0 translate-y-3 p-5 text-white opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="luxury-hover-content absolute inset-x-0 bottom-0 translate-y-0 p-5 text-white opacity-100 transition duration-500 md:translate-y-3 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100">
                   <div className="text-[10px] uppercase tracking-[.24em] text-white/70">
                     {winner.eyebrow}
                   </div>
@@ -55,7 +55,7 @@ export default function Example({ onViewGallery }: { onViewGallery?: () => void 
                     <ArrowRight size={15} />
                   </span>
                 </div>
-                <div className="absolute left-4 top-4 text-[10px] uppercase tracking-[.24em] text-white [writing-mode:vertical-rl] group-hover:hidden">
+                <div className="absolute left-4 top-4 hidden text-[10px] uppercase tracking-[.24em] text-white [writing-mode:vertical-rl] md:block md:group-hover:hidden">
                   {String(idx + 1).padStart(2, "0")}
                 </div>
               </button>

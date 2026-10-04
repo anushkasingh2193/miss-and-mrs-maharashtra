@@ -466,6 +466,27 @@ export const latestNews = [
   },
 ];
 
+export const newsroomArticles = [
+  {
+    type: "Announcement",
+    date: "Aug 2026",
+    title: "Season 3 auditions open with three city access points",
+    summary: "The new season creates a clearer route for applicants from Nagpur, Pune and Mumbai, with category guidance before slot confirmation.",
+  },
+  {
+    type: "Contestant story",
+    date: "Jul 2026",
+    title: "From first walk to confident stage presence",
+    summary: "A closer look at how grooming, interview preparation and runway practice help first-time contestants prepare for the finale.",
+  },
+  {
+    type: "Media feature",
+    date: "Jun 2026",
+    title: "Inside the titleholder year after coronation night",
+    summary: "Public appearances, shoots, advocacy moments and national pathways shape the months that follow the crown.",
+  },
+];
+
 export const press = [
   { outlet: "Official release", head: "Season 3 auditions open across Nagpur, Pune and Mumbai", date: "Jul 2026" },
   { outlet: "Pageant desk", head: "Miss & Mrs. Maharashtra announces expanded city auditions", date: "Jul 2026" },

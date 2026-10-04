@@ -270,6 +270,60 @@ select:focus-visible {
   border-color: rgba(214, 174, 79, 0.18);
 }
 
+.newsroom-band {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(238, 246, 255, 0.045), transparent 34%),
+    linear-gradient(180deg, #061122 0%, #0a172b 48%, #020817 100%);
+}
+
+.news-article-card {
+  display: block;
+  min-height: 100%;
+  border-top: 1px solid rgba(214, 174, 79, 0.45);
+  background:
+    linear-gradient(180deg, rgba(238, 246, 255, 0.055), rgba(238, 246, 255, 0.018)),
+    rgba(2, 8, 23, 0.52);
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.news-article-card:hover {
+  background:
+    linear-gradient(180deg, rgba(214, 174, 79, 0.09), rgba(238, 246, 255, 0.02)),
+    rgba(2, 8, 23, 0.58);
+}
+
+.sponsor-editorial {
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(214, 174, 79, 0.11), transparent 28%),
+    linear-gradient(180deg, #071426, #020817);
+}
+
+.sponsor-editorial > .content-wrap > div {
+  border-block: 1px solid rgba(214, 174, 79, 0.18);
+}
+
+.finale-cta-section {
+  position: relative;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(214, 174, 79, 0.14), transparent 28%),
+    linear-gradient(180deg, #0a172b, #020817);
+}
+
+.ticket-card {
+  border: 1px solid rgba(214, 174, 79, 0.22);
+  background:
+    linear-gradient(180deg, rgba(214, 174, 79, 0.075), rgba(2, 8, 23, 0.78)),
+    #061122;
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.ticket-card:hover {
+  border-color: rgba(214, 174, 79, 0.58);
+  transform: translateY(-4px);
+}
+
 .winner-reel-scene {
   min-height: 245vh;
   padding: 0 clamp(20px, 4vw, 42px);

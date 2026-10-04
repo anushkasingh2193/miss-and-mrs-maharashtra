@@ -1,6 +1,6 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { auditionCities, categories, gallery, imageRoles, latestNews, pillars, stats, tickets, type PageKey } from "@/data/site";
+import { auditionCities, categories, gallery, imageRoles, latestNews, newsroomArticles, pillars, stats, tickets, type PageKey } from "@/data/site";
 import { useCountdown } from "@/hooks/useCountdown";
 import { useHomeMotion } from "@/hooks/useHomeMotion";
 import { Section, SectionHeader } from "@/components/Section";
@@ -11,21 +11,61 @@ import { YouTubePreview } from "@/components/VideoBento";
 
 export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
   const countdown = useCountdown();
+  const heroVideoRef = useRef<HTMLVideoElement | null>(null);
+  const [heroPaused, setHeroPaused] = useState(false);
   useHomeMotion();
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      video.pause();
+      setHeroPaused(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (heroPaused) return;
+        if (entry.isIntersecting) void video.play().catch(() => undefined);
+        else video.pause();
+      },
+      { threshold: 0.18 },
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [heroPaused]);
+
+  const toggleHeroVideo = () => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      void video.play().catch(() => undefined);
+      setHeroPaused(false);
+    } else {
+      video.pause();
+      setHeroPaused(true);
+    }
+  };
 
   return (
     <div className="home-cinema">
       <section id="shot1" className="relative bg-blush-page">
         <div className="relative h-[calc(100vh-var(--header-height))] min-h-[640px] overflow-hidden">
           <video
+            ref={heroVideoRef}
             id="hero-img"
             className="absolute inset-[-8%_0] h-[116%] w-full object-cover object-center will-change-transform"
             src="/missmrs-assets/videos/contestants-runway-hero.mp4"
+            poster={imageRoles.homeHeroPoster}
             autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(213,168,75,.08),rgba(7,6,7,.2)_42%,rgba(7,6,7,.76)_100%)]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#061122]/78 via-[#061122]/24 to-transparent" />
@@ -49,6 +89,15 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">Choose category</button>
               </div>
             </div>
+            <button
+              type="button"
+              onClick={toggleHeroVideo}
+              className="absolute bottom-8 left-[clamp(20px,4vw,42px)] inline-flex items-center gap-2 border border-white/22 bg-[#020817]/54 px-4 py-3 text-[10px] uppercase tracking-[.22em] text-white/78 backdrop-blur transition hover:border-blush-accent hover:text-blush-accent"
+              aria-label={heroPaused ? "Play hero video" : "Pause hero video"}
+            >
+              {heroPaused ? <Play size={13} /> : <Pause size={13} />}
+              {heroPaused ? "Play" : "Pause"}
+            </button>
             <span className="shimmer absolute bottom-8 right-[clamp(20px,4vw,42px)] text-[10px] uppercase tracking-[.3em] text-white/55">Scroll</span>
           </div>
         </div>
@@ -322,7 +371,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
 
       <TestimonialsSection />
 
-      <Section className="cinematic-band border-b gold-divider">
+      <Section className="newsroom-band border-b gold-divider">
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
             eyebrow="Latest news"
@@ -371,10 +420,31 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             ))}
           </div>
         </div>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {newsroomArticles.map((article) => (
+            <button
+              key={article.title}
+              type="button"
+              onClick={() => navigate("press")}
+              className="news-article-card reveal text-left transition focus:outline-none focus:ring-2 focus:ring-blush-accent"
+            >
+              <div className="flex items-center justify-between gap-4 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                <span>{article.type}</span>
+                <span>{article.date}</span>
+              </div>
+              <h3 className="mt-5 font-display text-3xl leading-tight text-blush-ink">{article.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-blush-body">{article.summary}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[.22em] text-blush-accent">
+                Read brief <ArrowRight size={14} />
+              </span>
+            </button>
+          ))}
+        </div>
       </Section>
 
-      <Section className="cinematic-band gold-lift">
-        <div className="grid gap-10 border gold-divider bg-[#020817]/76 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
+      <Section className="sponsor-editorial gold-lift">
+        <div className="grid gap-10 p-[clamp(28px,5vw,64px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
           <div className="reveal">
             <div className="eyebrow mb-5">Become a sponsor</div>
             <h2 className="display-title max-w-3xl">Put your brand beside the crown journey.</h2>
@@ -398,18 +468,27 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <Section className="cinematic-band scroll-mt-28">
+      <Section className="finale-cta-section scroll-mt-28">
         <div id="tickets" />
         <SectionHeader eyebrow="The Grand Finale" title="Choose your finale night experience." body="Reserve your place in the room for the coronation, designer runway and titleholder crowning." />
         <div className="grid gap-5 lg:grid-cols-3">
           {tickets.map((ticket) => (
-            <div key={ticket.name} className="reveal border gold-divider bg-[#061122]/76 p-7">
+            <div key={ticket.name} className="ticket-card reveal p-7">
               <div className="text-[10px] uppercase tracking-[.26em] text-blush-accent">Finale pass</div>
               <h3 className="mt-5 font-display text-4xl leading-none text-blush-ink">{ticket.name}</h3>
               <p className="mt-5 min-h-14 text-sm leading-7 text-blush-body">{ticket.perk}</p>
               <strong className="mt-7 block font-display text-3xl font-normal text-blush-accent">{ticket.price}</strong>
+              <button onClick={() => navigate("contact")} className="mt-7 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.22em] text-blush-accent transition hover:text-blush-hover">
+                Request booking <ArrowRight size={14} />
+              </button>
             </div>
           ))}
+        </div>
+        <div className="reveal mt-8 flex flex-col gap-4 border-t gold-divider pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-2xl text-sm leading-7 text-blush-body">Need a group table, sponsor block or media pass? The season office can coordinate seating and access.</p>
+          <button onClick={() => navigate("contact")} className="gold-cta inline-flex w-fit items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.22em]">
+            Speak to ticket desk <ArrowRight size={15} />
+          </button>
         </div>
       </Section>
     </div>

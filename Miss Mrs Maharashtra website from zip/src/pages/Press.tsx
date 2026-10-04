@@ -1,5 +1,5 @@
 import { ArrowRight, CalendarDays, ExternalLink, Newspaper, PlayCircle } from "lucide-react";
-import { gallery, latestNews, press, pressKit, type PageKey, youtubeChannelUrl } from "@/data/site";
+import { gallery, latestNews, newsroomArticles, press, pressKit, type PageKey, youtubeChannelUrl } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
 import { YouTubePreview } from "@/components/VideoBento";
 
@@ -166,6 +166,25 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
             </article>
           ))}
           </div>
+        </div>
+      </Section>
+      <Section className="newsroom-band">
+        <SectionHeader
+          eyebrow="Editorial desk"
+          title="Articles, announcements and contestant stories."
+          body="A newsroom should be easy to scan even before a visitor watches video coverage. These briefs give partners, applicants and media teams clear written updates."
+        />
+        <div className="grid gap-4 md:grid-cols-3">
+          {newsroomArticles.map((article) => (
+            <article key={article.title} className="news-article-card reveal">
+              <div className="flex items-center justify-between gap-4 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                <span>{article.type}</span>
+                <span>{article.date}</span>
+              </div>
+              <h3 className="mt-5 font-display text-3xl leading-tight text-blush-ink">{article.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-blush-body">{article.summary}</p>
+            </article>
+          ))}
         </div>
       </Section>
       <Section tone="tint">
