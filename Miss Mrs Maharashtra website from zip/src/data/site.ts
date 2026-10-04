@@ -56,6 +56,16 @@ export const mAndMWinnerPortfolio = [
   { image: mAndMWinnerImages[10], eyebrow: "M&M / Season 3", name: "Titleholder Lineup", title: "Finale group coverage" },
 ];
 
+export const homepageWinnerSlider = [
+  { image: `${LOCAL}testimonial/DSC00076.JPG`, name: "Sneha Kalbhor", place: "Winner", title: "Mrs Maharashtra 2025" },
+  { image: `${LOCAL}testimonial/DSC00092.JPG`, name: "Apoorva Shirbhate", place: "1st Runner-Up", title: "Mrs Maharashtra 2025" },
+  { image: `${LOCAL}testimonial/DSC00097.JPG`, name: "Archana Kamble", place: "2nd Runner-Up", title: "Mrs Maharashtra 2025" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/Khushi-Chawre-Image-min.png", name: "Khushi Chawre", place: "Winner", title: "Miss category" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/1st-runner-up-mrs-category-Mrs-Trupti-Apreja-scaled.jpg", name: "Trupti Apreja", place: "1st Runner-Up", title: "Mrs category" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/2nd-runner-up-miss-category-Miss-Sonali-Bisen-scaled.jpg", name: "Sonali Bisen", place: "2nd Runner-Up", title: "Miss category" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/2ns-runner-up-mrs-category-Mrs-Anita-Nandanwar-scaled.jpg", name: "Anita Nandanwar", place: "2nd Runner-Up", title: "Mrs category" },
+];
+
 export const imageRoles = {
   homeHeroPoster: `${CURATED}sneha-kalbhor.jpg`,
   brandProof: mAndMWinnerImages[10],
@@ -427,10 +437,10 @@ export const policies = [
 ];
 
 export const videos = [
-  { src: "https://www.youtube.com/embed/PYnB3zn4LvA", title: "Miss & Mrs. Maharashtra channel feature", feature: "Main stage" },
-  { src: "https://www.youtube.com/embed/GfzDzPJ1wZg", title: "Contestant moments and pageant coverage", feature: "Spotlight" },
-  { src: "https://www.youtube.com/embed/Q0F9Arci1Eg", title: "Contestants on why they applied", feature: "Stories" },
-  { src: "https://www.youtube.com/embed/fmAKStRvZ8s", title: "Behind the crown, season coverage", feature: "Backstage" },
+  { src: "https://www.youtube.com/embed/8kqrAmJsu84?si=0q2cbPQ75TgxnMLb", title: "Miss & Mrs. Maharashtra stage coverage", feature: "Main stage" },
+  { src: "https://www.youtube.com/embed/KRnhxxDhM-8?si=X33TbI2ChdzX3or2", title: "Titleholder and contestant moments", feature: "Spotlight" },
+  { src: "https://www.youtube.com/embed/Q0F9Arci1Eg?si=tob9obbRXQynS2jY", title: "Contestants on why they applied", feature: "Stories" },
+  { src: "https://www.youtube.com/embed/TrnZrtVOJw0", title: "Season coverage and pageant highlights", feature: "Backstage" },
 ];
 
 export const youtubeChannelUrl = "https://youtube.com/@missmrs.maharashtra?si=hPMFhDSZFTgQF2f0";

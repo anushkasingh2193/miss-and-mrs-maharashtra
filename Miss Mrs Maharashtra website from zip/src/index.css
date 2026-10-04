@@ -618,6 +618,232 @@ select:focus-visible {
   box-shadow: 0 28px 95px rgba(0, 0, 0, 0.3);
 }
 
+.winner-marquee-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(214, 174, 79, 0.14), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(238, 246, 255, 0.08), transparent 30%),
+    linear-gradient(180deg, #020817 0%, #071426 48%, #020817 100%);
+}
+
+.winner-marquee-section::before {
+  content: "WINNERS";
+  position: absolute;
+  right: -2vw;
+  top: 7%;
+  pointer-events: none;
+  color: rgba(238, 246, 255, 0.035);
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(6rem, 18vw, 18rem);
+  letter-spacing: 0.08em;
+  line-height: 0.75;
+}
+
+.winner-marquee-header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(24px, 5vw, 72px);
+  align-items: end;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.62fr);
+}
+
+.winner-marquee-copy {
+  border-left: 1px solid rgba(214, 174, 79, 0.28);
+  padding-left: clamp(18px, 3vw, 34px);
+  color: rgba(238, 246, 255, 0.7);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.winner-inline-link {
+  margin-top: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(214, 174, 79, 0.76);
+  padding-bottom: 8px;
+  color: #d6ae4f;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: gap 0.3s ease;
+}
+
+.winner-inline-link:hover,
+.winner-inline-link:focus-visible {
+  gap: 18px;
+}
+
+.winner-slider-frame {
+  position: relative;
+  z-index: 1;
+  margin-inline: calc(clamp(20px, 4vw, 42px) * -1);
+  overflow: hidden;
+  padding-block: 10px;
+}
+
+.winner-slider-frame::before,
+.winner-slider-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  width: clamp(70px, 12vw, 180px);
+  pointer-events: none;
+}
+
+.winner-slider-frame::before {
+  left: 0;
+  background: linear-gradient(90deg, #020817, transparent);
+}
+
+.winner-slider-frame::after {
+  right: 0;
+  background: linear-gradient(270deg, #020817, transparent);
+}
+
+.winner-slider-track {
+  display: flex;
+  width: max-content;
+  gap: clamp(16px, 2vw, 28px);
+  animation: winnerSlider 42s linear infinite;
+  will-change: transform;
+}
+
+.winner-slider-frame:hover .winner-slider-track,
+.winner-slider-frame:focus-within .winner-slider-track {
+  animation-play-state: paused;
+}
+
+.winner-slider-card {
+  position: relative;
+  width: clamp(250px, 24vw, 360px);
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(214, 174, 79, 0.22);
+  background: #020817;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+}
+
+.winner-slider-image {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.winner-slider-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  transform: scale(1.02);
+  transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s ease;
+}
+
+.winner-slider-card:hover .winner-slider-image img {
+  transform: scale(1.08);
+  filter: saturate(1.04) contrast(1.04);
+}
+
+.winner-slider-caption {
+  position: absolute;
+  inset-inline: 14px;
+  bottom: 14px;
+  border: 1px solid rgba(214, 174, 79, 0.24);
+  background: rgba(2, 8, 23, 0.78);
+  padding: 16px;
+  backdrop-filter: blur(14px);
+}
+
+.winner-slider-caption span {
+  color: #d6ae4f;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.winner-slider-caption h3 {
+  margin-top: 7px;
+  color: #eef6ff;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(1.7rem, 2.4vw, 2.4rem);
+  line-height: 0.96;
+}
+
+.winner-slider-caption p {
+  margin-top: 8px;
+  color: rgba(238, 246, 255, 0.7);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.winner-video-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: minmax(260px, 0.52fr) 1fr;
+  align-items: start;
+  border: 1px solid rgba(214, 174, 79, 0.18);
+  background:
+    linear-gradient(135deg, rgba(238, 246, 255, 0.05), rgba(2, 8, 23, 0.7)),
+    rgba(6, 17, 34, 0.72);
+  padding: clamp(22px, 4vw, 46px);
+  box-shadow: 0 28px 95px rgba(0, 0, 0, 0.26);
+}
+
+.winner-video-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.winner-video-card {
+  overflow: hidden;
+  border: 1px solid rgba(214, 174, 79, 0.18);
+  background: rgba(2, 8, 23, 0.76);
+}
+
+.winner-video-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.winner-video-caption {
+  padding: 14px 15px 16px;
+}
+
+.winner-video-caption span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #d6ae4f;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.winner-video-caption h4 {
+  margin-top: 8px;
+  color: #eef6ff;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+@keyframes winnerSlider {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(calc(-50% - clamp(8px, 1vw, 14px)), 0, 0);
+  }
+}
+
 .premium-panel {
   border: 1px solid rgba(214, 174, 79, 0.18);
   background: rgba(2, 8, 23, 0.7);
@@ -1153,6 +1379,26 @@ select:focus-visible {
   .winner-reel-card.is-active {
     width: min(76vw, 330px);
   }
+
+  .winner-marquee-header,
+  .winner-video-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .winner-marquee-copy {
+    border-left: 0;
+    border-top: 1px solid rgba(214, 174, 79, 0.22);
+    padding-left: 0;
+    padding-top: 22px;
+  }
+
+  .winner-slider-card {
+    width: min(78vw, 330px);
+  }
+
+  .winner-video-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1204,8 +1450,10 @@ select:focus-visible {
   .founder-quote-word,
   #founder-photo-img,
   #pageant-intro-img,
-  .winner-reel-track {
+  .winner-reel-track,
+  .winner-slider-track {
     opacity: 1 !important;
+    animation: none !important;
     filter: none !important;
     transform: none !important;
   }
