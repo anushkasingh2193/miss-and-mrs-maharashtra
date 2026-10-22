@@ -29,7 +29,7 @@ export function Mentors(_: { navigate: (page: PageKey) => void }) {
                 src={imageRoles.mentorHero}
                 alt="Miss and Mrs Maharashtra mentor guidance"
                 className="h-full w-full object-cover"
-                style={{ objectPosition: "50% 30%" }}
+                style={{ objectPosition: "50% 8%" }}
                 loading="eager"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_34%,rgba(4,4,4,.78)),radial-gradient(circle_at_50%_14%,rgba(214,174,79,.12),transparent_36%)]" />
@@ -45,13 +45,13 @@ export function Mentors(_: { navigate: (page: PageKey) => void }) {
       <Section className="cinematic-band">
         <SectionHeader eyebrow="Mentors" title="The season faculty." />
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {mentors.map((m) => <ImageTile key={m.name} image={m.bg} title={m.name} meta={m.role} body={m.bio} />)}
+          {mentors.map((m) => <ImageTile key={m.name} image={m.bg} title={m.name} meta={m.role} body={m.bio} position={m.position} />)}
         </div>
       </Section>
       <Section className="cinematic-band">
         <SectionHeader eyebrow="Guest jury" title="Faces from stage, screen and pageantry." />
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {jury.map((j) => <ImageTile key={j.name} image={j.bg} title={j.name} meta={j.role} />)}
+          {jury.map((j) => <ImageTile key={j.name} image={j.bg} title={j.name} meta={j.role} position={j.position} />)}
         </div>
       </Section>
     </div>

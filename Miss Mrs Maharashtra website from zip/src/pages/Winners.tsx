@@ -43,7 +43,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
               <img
                 src={mAndMWinnerImages[0]}
                 alt="M&M crowned winner portrait"
-                className="luxury-hover-image h-full w-full object-cover object-[50%_14%] transition duration-700"
+                className="luxury-hover-image h-full w-full object-cover object-[50%_6%] transition duration-700"
                 loading="eager"
                 decoding="async"
               />
@@ -73,7 +73,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
               <img
                 src={image}
                 alt={`Miss and Mrs Maharashtra winner archive ${index + 1}`}
-                className="h-full w-full object-cover object-[50%_18%] transition duration-700 group-hover:scale-105"
+                className="h-full w-full object-cover object-[50%_6%] transition duration-700 group-hover:scale-105"
                 loading={index === 0 ? "eager" : "lazy"}
                 decoding="async"
               />
@@ -121,7 +121,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
               className="group luxury-hover-card reveal overflow-hidden border gold-divider bg-blush-page text-left transition duration-300 hover:border-blush-accent/55 focus:outline-none focus:ring-2 focus:ring-blush-accent"
             >
               <div className="luxury-hover-media relative aspect-[4/5] overflow-hidden bg-blush-wash">
-                <img src={w.bg} alt={w.name} className="luxury-hover-image absolute inset-0 h-full w-full object-cover object-[50%_18%] transition duration-700" loading="lazy" decoding="async" />
+                <img src={w.bg} alt={w.name} className="luxury-hover-image absolute inset-0 h-full w-full object-cover object-[50%_6%] transition duration-700" loading="lazy" decoding="async" />
                 <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/86 via-transparent to-transparent" />
                 <div className="absolute left-0 top-0 bg-blush-page px-4 py-3 text-[10px] uppercase tracking-[.26em] text-blush-accent">{w.plate}</div>
                 <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-6 text-white">
@@ -177,7 +177,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
               <img
                 src={featuredImage}
                 alt={`${selectedSeason.title} featured portrait`}
-                className="luxury-hover-image absolute inset-0 h-full w-full object-cover object-[50%_18%] transition duration-700"
+                className="luxury-hover-image absolute inset-0 h-full w-full object-cover object-[50%_6%] transition duration-700"
                 loading="lazy"
                 decoding="async"
               />
@@ -212,7 +212,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
                     <img
                       src={image}
                       alt={`${selectedSeason.title} archive portrait ${idx + 1}`}
-                      className="luxury-hover-image h-full w-full object-cover object-[50%_18%] transition duration-500"
+                      className="luxury-hover-image h-full w-full object-cover object-[50%_6%] transition duration-500"
                       loading="lazy"
                       decoding="async"
                     />

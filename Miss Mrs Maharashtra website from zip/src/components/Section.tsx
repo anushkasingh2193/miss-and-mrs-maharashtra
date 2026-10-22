@@ -26,7 +26,7 @@ export function Hero({ eyebrow, title, body, image }: { eyebrow: string; title: 
       <img
         src={image}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-70"
+        className="absolute inset-0 h-full w-full object-cover object-[50%_8%] opacity-70"
         loading="eager"
         decoding="async"
         fetchPriority="high"
@@ -41,14 +41,15 @@ export function Hero({ eyebrow, title, body, image }: { eyebrow: string; title: 
   );
 }
 
-export function ImageTile({ image, title, meta, body, className = "" }: { image: string; title: string; meta?: string; body?: string; className?: string }) {
+export function ImageTile({ image, title, meta, body, position = "50% 8%", className = "" }: { image: string; title: string; meta?: string; body?: string; position?: string; className?: string }) {
   return (
     <div className={cn("group reveal image-card luxury-hover-card overflow-hidden bg-blush-wash", className)}>
       <div className="image-clip luxury-hover-media aspect-[4/5] overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="image-settle luxury-hover-image h-full w-full object-cover object-center"
+          className="image-settle luxury-hover-image h-full w-full object-cover"
+          style={{ objectPosition: position }}
           loading="lazy"
           decoding="async"
         />

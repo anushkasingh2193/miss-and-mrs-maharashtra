@@ -215,7 +215,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 src={idx === 0 ? imageRoles.titleMiss : imageRoles.titleMrs}
                 alt={cat.title}
                 className="luxury-hover-image h-full w-full object-cover transition duration-700"
-                style={{ objectPosition: idx === 0 ? "50% 34%" : "50% 22%" }}
+                style={{ objectPosition: "50% 8%" }}
                 loading="lazy"
               />
               <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/38 to-transparent" />
@@ -304,7 +304,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <img
                   src={encodeURI(p.bg)}
                   alt={p.title}
-                  className="luxury-hover-image h-full w-full object-cover transition duration-700"
+                  className="luxury-hover-image h-full w-full object-contain transition duration-700"
                   style={{ objectPosition: p.position }}
                   loading="lazy"
                 />
@@ -377,8 +377,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 id="shot6img"
                 src={imageRoles.titleholderSpotlight}
                 alt="Mrs. Maharashtra titleholder on stage"
-                className="aspect-[4/5] h-auto w-full object-cover will-change-transform"
-                style={{ objectPosition: "50% 20%" }}
+                className="aspect-[4/5] h-auto w-full object-cover object-[50%_8%] will-change-transform"
                 loading="lazy"
               />
             </div>

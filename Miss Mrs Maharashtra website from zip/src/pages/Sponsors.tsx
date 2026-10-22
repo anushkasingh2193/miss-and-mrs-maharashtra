@@ -13,7 +13,7 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
   return (
     <div className="home-cinema">
       <section className="relative min-h-[72vh] overflow-hidden border-b gold-divider bg-[#020817] text-white">
-        <img src={imageRoles.sponsorHero} alt="" className="absolute inset-0 h-full w-full object-cover object-[50%_24%] opacity-70" loading="eager" decoding="async" fetchPriority="high" />
+        <img src={imageRoles.sponsorHero} alt="" className="absolute inset-0 h-full w-full object-cover object-[50%_8%] opacity-70" loading="eager" decoding="async" fetchPriority="high" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_22%,rgba(214,174,79,.16),transparent_30%),linear-gradient(90deg,rgba(4,4,4,.95),rgba(4,4,4,.56)_52%,rgba(4,4,4,.88))]" />
         <div className="content-wrap relative z-10 flex min-h-[72vh] flex-col justify-end px-[clamp(20px,4vw,42px)] pb-[clamp(72px,9vw,120px)] pt-24">
           <div className="eyebrow mb-5">Become a sponsor</div>
@@ -67,7 +67,7 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
       <Section className="cinematic-band gold-lift">
         <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div className="editorial-image reveal aspect-[4/5]">
-            <img src={imageRoles.sponsorProof} alt="Makeover partner and pageant backstage moment" className="h-full w-full object-cover" loading="lazy" />
+            <img src={imageRoles.sponsorProof} alt="Makeover partner and pageant backstage moment" className="h-full w-full object-cover object-[50%_6%]" loading="lazy" />
             <div className="absolute bottom-6 left-6 z-10">
               <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Partner proof</p>
               <h3 className="mt-2 font-display text-4xl text-white">Visibility beyond the finale.</h3>

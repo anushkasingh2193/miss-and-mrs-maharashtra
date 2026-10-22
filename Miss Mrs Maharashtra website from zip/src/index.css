@@ -870,7 +870,7 @@ select:focus-visible {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  object-position: 50% 18%;
+  object-position: 50% 6%;
   transform: scale(1.02);
   transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s ease;
 }

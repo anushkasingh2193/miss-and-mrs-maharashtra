@@ -143,7 +143,7 @@ const Carousel = memo(function Carousel({
               src={encodeURI(imgUrl)}
               alt={`Winner portrait ${i + 1}`}
               layoutId={`carousel-img-${i}`}
-              className="pointer-events-none h-full w-full border border-blush-accent/25 object-cover shadow-[0_20px_70px_rgba(0,0,0,.45)]"
+              className="pointer-events-none h-full w-full border border-blush-accent/25 object-cover object-[50%_6%] shadow-[0_20px_70px_rgba(0,0,0,.45)]"
               initial={{ filter: "blur(4px)" }}
               animate={{ filter: "blur(0px)" }}
               transition={transition}
@@ -185,7 +185,7 @@ function ThreeDPhotoCarousel({ images }: { images?: string[] }) {
               onClick={() => handleClick(imgUrl, index)}
               className="aspect-[3/4] overflow-hidden border border-blush-accent/20 bg-[#020817]"
             >
-              <img src={encodeURI(imgUrl)} alt={`Winner portrait ${index + 1}`} className="h-full w-full object-cover" loading="lazy" decoding="async" />
+              <img src={encodeURI(imgUrl)} alt={`Winner portrait ${index + 1}`} className="h-full w-full object-cover object-[50%_6%]" loading="lazy" decoding="async" />
             </button>
           ))}
         </div>

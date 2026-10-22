@@ -13,7 +13,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
         <img
           src={gallery[3]}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-[50%_24%] opacity-54"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_12%] opacity-54"
           loading="eager"
           decoding="async"
           fetchPriority="high"

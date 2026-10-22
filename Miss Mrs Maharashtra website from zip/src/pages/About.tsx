@@ -21,13 +21,13 @@ const leadershipCards = [
     name: "Zoya Siraj Sheikh",
     role: "Founder Chairman",
     image: imageRoles.founderPortrait,
-    position: "50% 12%",
+    position: "50% 6%",
   },
   {
     name: "Siraj Sheikh",
     role: "Chairman",
     image: "/missmrs-assets/mentor/mentor_siraz_sheikh-1367x2048.jpg",
-    position: "50% 14%",
+    position: "50% 0%",
   },
 ];
 

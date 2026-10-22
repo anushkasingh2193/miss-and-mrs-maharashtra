@@ -28,7 +28,7 @@ export function YouTubePreview({ src, title, feature, className = "" }: { src: s
           className="absolute inset-0 h-full w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blush-accent"
           aria-label={`Play ${title}`}
         >
-          {thumbnail ? <img src={thumbnail} alt="" className="luxury-hover-image h-full w-full object-cover opacity-82 transition duration-700 group-hover:opacity-100" loading="lazy" decoding="async" /> : null}
+          {thumbnail ? <img src={thumbnail} alt="" className="luxury-hover-image h-full w-full object-cover object-[50%_8%] opacity-82 transition duration-700 group-hover:opacity-100" loading="lazy" decoding="async" /> : null}
           <span className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817] via-[#020817]/28 to-[#020817]/20" />
           <span className="absolute left-5 top-5 grid size-12 place-items-center rounded-full border border-blush-accent/55 bg-[#020817]/72 text-blush-accent backdrop-blur">
             <Play size={17} fill="currentColor" />
