@@ -13,7 +13,7 @@ export function Mentors(_: { navigate: (page: PageKey) => void }) {
               Expert mentorship across grooming, public speaking, styling, runway presence and social advocacy.
             </p>
             <div className="mt-10 grid max-w-xl grid-cols-3 border gold-divider bg-[#020817]/72">
-              {[["6", "Mentors"], ["8", "Jury voices"], ["3", "Cities"]].map(([value, label]) => (
+              {[[mentors.length, "Mentors"], [jury.length, "Jury voices"], ["3", "Cities"]].map(([value, label]) => (
                 <div key={label} className="border-r gold-divider p-5">
                   <div className="font-display text-4xl text-blush-ink">{value}</div>
                   <div className="mt-2 text-[10px] uppercase tracking-[.24em] text-blush-accent">{label}</div>
