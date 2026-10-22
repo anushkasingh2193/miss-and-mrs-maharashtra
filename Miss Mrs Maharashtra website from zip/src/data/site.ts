@@ -67,7 +67,7 @@ export const homepageWinnerSlider = [
 ];
 
 export const imageRoles = {
-  homeHeroPoster: `${CURATED}sneha-kalbhor.jpg`,
+  homeHeroPoster: `${LOCAL}videos/contestants-runway-hero-poster.jpg`,
   brandProof: mAndMWinnerImages[10],
   founderPortrait: `${FAST}zoya.jpg`,
   titleMiss: `${LOCAL}featured/title-miss-maharashtra.jpg`,
