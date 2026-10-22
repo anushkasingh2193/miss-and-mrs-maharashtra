@@ -6,7 +6,6 @@ dist
 *.tsbuildinfo
 server.err.log
 server.out.log
-components/
 Miss Mrs Maharashtra website/
 Miss Mrs Maharashtra website from zip/node_modules/
 Miss Mrs Maharashtra website from zip/dist/
