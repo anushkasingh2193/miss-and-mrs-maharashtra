@@ -94,22 +94,21 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="absolute inset-0 bg-gradient-to-r from-[#061122]/78 via-[#061122]/24 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/72 to-transparent" />
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full flex-col justify-end px-[clamp(20px,4vw,42px)] pb-20 will-change-transform">
-            <div className="max-w-3xl text-white">
-              <div className="eyebrow mb-5 text-blush-accent">Miss & Mrs. Maharashtra Season 3</div>
-              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]" aria-label="Maharashtra's stage for women ready for a national crown.">
-                {["Maharashtra's", "stage", "for", "a", "national", "crown."].map((word, index) => (
+            <div className="max-w-2xl text-white">
+              <div className="eyebrow mb-4 text-blush-accent">Season 3 applications</div>
+              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]" aria-label="Step into your crown.">
+                {["Step", "into", "your", "crown."].map((word, index) => (
                   <span key={`${word}-${index}`} className="hero-word-reveal" style={{ animationDelay: `${220 + index * 95}ms` }}>
                     {word}
                   </span>
                 ))}
               </h1>
-              <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">
-                A state pageant platform for women who want grooming, stage confidence, media visibility and a credible pathway to national representation.
+              <p className="mt-5 max-w-lg text-base font-light leading-7 text-blush-body">
+                Pageant grooming, stage confidence and a national pathway for women across Maharashtra.
               </p>
-              <p className="mt-4 text-xs uppercase tracking-[.26em] text-blush-accent">Apply / Prepare / Compete / Represent</p>
-              <div className="mt-9 flex flex-wrap gap-4">
-                <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Start application</button>
-                <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">Choose category</button>
+              <div className="mt-7 flex flex-wrap gap-4">
+                <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Apply for Season 3</button>
+                <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">Compare Miss &amp; Mrs.</button>
               </div>
             </div>
             <button
@@ -187,7 +186,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               Miss & Mrs. Maharashtra brings applicants through grooming, runway discipline, interview readiness, media exposure and a finale experience built to feel credible, visible and professionally produced.
             </p>
             <button onClick={() => navigate("about")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
-              Understand the platform <ArrowRight size={15} />
+              Discover the pageant <ArrowRight size={15} />
             </button>
           </div>
         </div>
@@ -201,7 +200,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             body="Miss Maharashtra and Mrs. Maharashtra are separate crowns with shared grooming, shared production standards and distinct expectations for single and married applicants."
           />
           <button onClick={() => navigate("categories")} className="reveal inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
-            Compare categories <ArrowRight size={15} />
+            Compare Miss &amp; Mrs. <ArrowRight size={15} />
           </button>
         </div>
         <div className="category-cinema-grid grid gap-5 md:grid-cols-2">
@@ -231,7 +230,9 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                     <span key={tag} className="category-chip">{tag}</span>
                   ))}
                 </div>
-                <span className="luxury-hover-arrow mt-5 text-blush-accent" aria-hidden="true"><ArrowRight size={15} /></span>
+                <span className="luxury-hover-arrow mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                  Explore {idx === 0 ? "Miss" : "Mrs."} category <ArrowRight size={15} aria-hidden="true" />
+                </span>
               </div>
             </button>
           ))}
@@ -258,7 +259,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 ))}
               </div>
               <button onClick={() => navigate("register")} className="gold-cta mt-9 inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Submit interest <ArrowRight size={15} />
+                Apply for auditions <ArrowRight size={15} />
               </button>
             </div>
           </div>
@@ -347,7 +348,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   </span>
                 ))}
               </p>
-              <button onClick={() => navigate("about")} className="mt-8 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Founder story</button>
+              <button onClick={() => navigate("about")} className="mt-8 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Meet the founder</button>
             </div>
             <div className="founder-photo-column">
               <div className="beam-frame beam-frame-soft relative mx-auto h-[clamp(330px,36vw,450px)] max-w-[460px] overflow-hidden border gold-divider bg-[#061122] shadow-[0_34px_110px_rgba(0,0,0,.38)]">
@@ -413,7 +414,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <p className="mt-7 max-w-xl text-lg font-light leading-8 text-blush-body">
           Watch the stage, lights and titleholder moments that show what contestants prepare for across the season.
         </p>
-        <button onClick={() => navigate("press")} className="mt-8 w-fit border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">View season coverage</button>
+        <button onClick={() => navigate("press")} className="mt-8 w-fit border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Watch pageant highlights</button>
       </ScrollExpandMedia>
 
       <Section className="cinematic-band gold-lift !py-0">
@@ -430,7 +431,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             body="Follow season announcements, contestant stories, media features and verified coverage from the Miss & Mrs. Maharashtra stage."
           />
           <button onClick={() => navigate("press")} className="reveal inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
-            View all news <ArrowRight size={15} />
+            Read season news <ArrowRight size={15} />
           </button>
         </div>
 
@@ -513,7 +514,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               ))}
             </div>
             <button onClick={() => navigate("sponsors")} className="gold-cta inline-flex w-fit items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-              Explore partnership <ArrowRight size={15} />
+              Become a sponsor <ArrowRight size={15} />
             </button>
           </div>
         </div>
@@ -530,7 +531,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               <p className="mt-5 min-h-14 text-sm leading-7 text-blush-body">{ticket.perk}</p>
               <strong className="mt-7 block font-display text-3xl font-normal text-blush-accent">{ticket.price}</strong>
               <button onClick={() => navigate("contact")} className="mt-7 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.22em] text-blush-accent transition hover:text-blush-hover">
-                Request booking <ArrowRight size={14} />
+                Book {ticket.name} pass <ArrowRight size={14} />
               </button>
             </div>
           ))}
@@ -538,7 +539,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="reveal mt-8 flex flex-col gap-4 border-t gold-divider pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-2xl text-sm leading-7 text-blush-body">Need a group table, sponsor block or media pass? The season office can coordinate seating and access.</p>
           <button onClick={() => navigate("contact")} className="gold-cta inline-flex w-fit items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.22em]">
-            Speak to ticket desk <ArrowRight size={15} />
+            Contact the ticket desk <ArrowRight size={15} />
           </button>
         </div>
       </Section>

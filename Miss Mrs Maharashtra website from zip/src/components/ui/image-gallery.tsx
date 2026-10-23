@@ -21,7 +21,7 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
               season, then leave with a public identity, portfolio moments and a crown story.
             </p>
             <button type="button" onClick={onViewGallery} className="winner-inline-link">
-              View full gallery <ArrowRight size={15} />
+              Meet the winners <ArrowRight size={15} />
             </button>
           </div>
         </div>
