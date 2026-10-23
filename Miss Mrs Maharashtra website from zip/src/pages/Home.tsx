@@ -1,4 +1,4 @@
-import { ArrowRight, Pause, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { auditionCities, categories, gallery, imageRoles, latestNews, newsroomArticles, pillars, stats, tickets, type PageKey } from "@/data/site";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -35,7 +35,6 @@ const homepageJourney = [
 export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
   const countdown = useCountdown();
   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
-  const [heroPaused, setHeroPaused] = useState(false);
   useHomeMotion();
 
   useEffect(() => {
@@ -45,13 +44,11 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) {
       video.pause();
-      setHeroPaused(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (heroPaused) return;
         if (entry.isIntersecting) void video.play().catch(() => undefined);
         else video.pause();
       },
@@ -60,19 +57,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
 
     observer.observe(video);
     return () => observer.disconnect();
-  }, [heroPaused]);
-
-  const toggleHeroVideo = () => {
-    const video = heroVideoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      void video.play().catch(() => undefined);
-      setHeroPaused(false);
-    } else {
-      video.pause();
-      setHeroPaused(true);
-    }
-  };
+  }, []);
 
   return (
     <div className="home-cinema">
@@ -91,35 +76,23 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             preload="metadata"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(213,168,75,.08),rgba(7,6,7,.2)_42%,rgba(7,6,7,.76)_100%)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061122]/78 via-[#061122]/24 to-transparent" />
+          <div className="absolute inset-0 bg-[#020817]/30" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/72 to-transparent" />
-          <div id="hero-copy" className="content-wrap relative z-10 flex h-full flex-col justify-end px-[clamp(20px,4vw,42px)] pb-20 will-change-transform">
-            <div className="max-w-2xl text-white">
-              <div className="eyebrow mb-4 text-blush-accent">Season 3 applications</div>
-              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.32)]" aria-label="Step into your crown.">
-                {["Step", "into", "your", "crown."].map((word, index) => (
+          <div id="hero-copy" className="content-wrap relative z-10 flex h-full items-center justify-center px-[clamp(20px,4vw,42px)] text-center will-change-transform">
+            <div className="max-w-3xl text-white">
+              <div className="eyebrow mb-4 text-blush-accent">Miss &amp; Mrs. Maharashtra</div>
+              <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.42)]" aria-label="Own the stage.">
+                {["Own", "the", "stage."].map((word, index) => (
                   <span key={`${word}-${index}`} className="hero-word-reveal" style={{ animationDelay: `${220 + index * 95}ms` }}>
                     {word}
                   </span>
                 ))}
               </h1>
-              <p className="mt-5 max-w-lg text-base font-light leading-7 text-blush-body">
-                Pageant grooming, stage confidence and a national pathway for women across Maharashtra.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-4">
-                <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Apply for Season 3</button>
-                <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">Compare Miss &amp; Mrs.</button>
+              <div className="mt-7 flex flex-wrap justify-center gap-5">
+                <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Apply now</button>
+                <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">View categories</button>
               </div>
             </div>
-            <button
-              type="button"
-              onClick={toggleHeroVideo}
-              className="absolute bottom-8 left-[clamp(20px,4vw,42px)] inline-flex items-center gap-2 border border-white/22 bg-[#020817]/54 px-4 py-3 text-[10px] uppercase tracking-[.22em] text-white/78 backdrop-blur transition hover:border-blush-accent hover:text-blush-accent"
-              aria-label={heroPaused ? "Play hero video" : "Pause hero video"}
-            >
-              {heroPaused ? <Play size={13} /> : <Pause size={13} />}
-              {heroPaused ? "Play" : "Pause"}
-            </button>
             <span className="shimmer absolute bottom-8 right-[clamp(20px,4vw,42px)] text-[10px] uppercase tracking-[.3em] text-white/55">Scroll</span>
           </div>
         </div>
