@@ -124,11 +124,25 @@ select:focus-visible {
 }
 
 .stat-strip {
-  --stats-glow: 0.2;
+  --stats-glow: 0.22;
+  position: relative;
+  overflow: hidden;
+  border-block: 1px solid rgba(80, 169, 255, 0.24);
   background:
-    radial-gradient(circle at 50% 0%, rgba(214, 174, 79, var(--stats-glow)), transparent 52%),
-    linear-gradient(90deg, rgba(214, 174, 79, 0.12), rgba(214, 174, 79, 0.035) 18%, rgba(214, 174, 79, 0.035) 82%, rgba(214, 174, 79, 0.12)),
-    rgba(2, 8, 23, 0.82);
+    radial-gradient(circle at 50% -35%, rgba(55, 150, 255, var(--stats-glow)), transparent 55%),
+    linear-gradient(105deg, rgba(20, 74, 135, 0.28), rgba(5, 19, 40, 0.64) 38%, rgba(3, 12, 28, 0.9) 68%, rgba(18, 77, 142, 0.24)),
+    #030d1d;
+  box-shadow: inset 0 1px rgba(183, 224, 255, 0.08), 0 24px 70px rgba(0, 32, 72, 0.28);
+}
+
+.stat-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 20%, rgba(130, 203, 255, 0.08) 46%, transparent 72%);
+  transform: translateX(-42%);
+  animation: stats-sheen 8s ease-in-out infinite;
 }
 
 .category-cinema {
@@ -321,6 +335,22 @@ select:focus-visible {
 
 .stat-item {
   position: relative;
+  isolation: isolate;
+  transition: background-color 0.35s ease;
+}
+
+.stat-item:hover {
+  background: rgba(73, 164, 255, 0.055);
+}
+
+.stat-value {
+  color: #f4f9ff;
+  font-variant-numeric: tabular-nums lining-nums;
+  text-shadow: 0 0 28px rgba(83, 177, 255, 0.2);
+}
+
+.stat-label {
+  color: #75c5ff;
 }
 
 .stat-item::after {
@@ -330,11 +360,31 @@ select:focus-visible {
   top: 28%;
   bottom: 28%;
   width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(214, 174, 79, 0.45), transparent);
+  background: linear-gradient(180deg, transparent, rgba(90, 181, 255, 0.48), transparent);
 }
 
 .stat-item:last-child::after {
   display: none;
+}
+
+@keyframes stats-sheen {
+  0%, 100% {
+    transform: translateX(-42%);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateX(42%);
+    opacity: 0.72;
+  }
+}
+
+@media (max-width: 767px) {
+  .stat-item::after {
+    inset: auto 14% 0;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(90, 181, 255, 0.4), transparent);
+  }
 }
 
 .editorial-image {

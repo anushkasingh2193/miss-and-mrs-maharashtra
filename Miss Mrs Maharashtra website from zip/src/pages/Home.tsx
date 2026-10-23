@@ -99,13 +99,13 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       </section>
 
       <Section id="stats-film" className="cinematic-band !py-0">
-        <div className="stat-strip grid border-b gold-divider md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="stat-item reveal px-8 py-8 text-center md:py-9">
-              <div className="font-display text-[clamp(2.4rem,3.8vw,4.3rem)] leading-none text-blush-ink">
-                <CountUpValue value={s.n} />
+        <div className="stat-strip grid md:grid-cols-4">
+          {stats.map((s, index) => (
+            <div key={s.label} className="stat-item reveal px-8 py-8 text-center md:py-10">
+              <div className="stat-value font-display text-[clamp(2.5rem,3.8vw,4.4rem)] leading-none">
+                <CountUpValue value={s.n} delay={index * 140} />
               </div>
-              <div className="mt-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">{s.label}</div>
+              <div className="stat-label mt-4 text-[10px] uppercase tracking-[.28em]">{s.label}</div>
             </div>
           ))}
         </div>
@@ -520,7 +520,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
   );
 }
 
-function CountUpValue({ value }: { value: string }) {
+function CountUpValue({ value, delay = 0 }: { value: string; delay?: number }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [shown, setShown] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
@@ -532,7 +532,10 @@ function CountUpValue({ value }: { value: string }) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setHasStarted(true);
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+          observer.disconnect();
+        }
       },
       { threshold: 0.45 },
     );
@@ -544,23 +547,27 @@ function CountUpValue({ value }: { value: string }) {
   useEffect(() => {
     if (!hasStarted) return;
 
-    const duration = 1400;
-    const start = performance.now();
+    const duration = 1800;
+    const start = performance.now() + delay;
     let frame = 0;
 
     const tick = (now: number) => {
+      if (now < start) {
+        frame = requestAnimationFrame(tick);
+        return;
+      }
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const eased = 1 - Math.pow(1 - progress, 4);
       setShown(Math.round(parsed.number * eased));
       if (progress < 1) frame = requestAnimationFrame(tick);
     };
 
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [hasStarted, parsed.number]);
+  }, [delay, hasStarted, parsed.number]);
 
   return (
-    <span ref={ref}>
+    <span ref={ref} className="tabular-nums" aria-label={value}>
       {parsed.prefix}
       {shown.toLocaleString("en-IN")}
       {parsed.suffix}
