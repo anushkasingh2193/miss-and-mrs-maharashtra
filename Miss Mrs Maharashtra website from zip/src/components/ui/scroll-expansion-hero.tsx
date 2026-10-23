@@ -41,7 +41,7 @@ export default function ScrollExpandMedia({
   return (
     <section className="relative overflow-hidden border-y gold-divider bg-[#061122] px-[clamp(20px,4vw,42px)] py-[clamp(38px,5vw,68px)]">
       <div className="relative overflow-hidden py-2">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(213,168,75,.16),transparent_24%),linear-gradient(180deg,rgba(7,6,7,.98),rgba(16,14,11,.82)_48%,rgba(7,6,7,.98))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(74,169,255,.16),transparent_24%),linear-gradient(180deg,rgba(7,6,7,.98),rgba(16,14,11,.82)_48%,rgba(7,6,7,.98))]" />
         <div className="content-wrap relative z-10">
           <div className="mx-auto mb-7 max-w-3xl text-center text-white">
             {eyebrow ? <div className="eyebrow mb-5 text-blush-accent">{eyebrow}</div> : null}

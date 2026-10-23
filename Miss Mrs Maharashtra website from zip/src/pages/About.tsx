@@ -54,7 +54,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
   return (
     <div className="home-cinema">
       <section className="relative overflow-hidden border-b gold-divider bg-[#031026] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_28%,rgba(214,174,79,.16),transparent_28%),radial-gradient(circle_at_18%_70%,rgba(214,174,79,.08),transparent_34%),linear-gradient(180deg,#031026,#0b0907_52%,#031026)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_28%,rgba(74,169,255,.16),transparent_28%),radial-gradient(circle_at_18%_70%,rgba(74,169,255,.08),transparent_34%),linear-gradient(180deg,#031026,#061122_52%,#031026)]" />
         <div className="content-wrap relative z-10 grid min-h-[calc(82vh-var(--header-height))] gap-10 px-[clamp(20px,4vw,42px)] py-[clamp(56px,7vw,100px)] lg:grid-cols-[1.02fr_.82fr] lg:items-center">
           <div className="reveal max-w-4xl">
             <div className="eyebrow mb-5 text-blush-accent">About the platform</div>
@@ -186,7 +186,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
         <SectionHeader eyebrow="Platform" title="Clear purpose. Real preparation." body="The pageant experience is structured around outcomes contestants can carry beyond one evening on stage." />
         <div className="grid gap-1 bg-blush-ink/10 md:grid-cols-4">
           {platformPillars.map((pillar) => (
-            <article key={pillar.title} className="reveal bg-[#061122]/78 p-7 transition hover:bg-[#11100c]">
+            <article key={pillar.title} className="reveal bg-[#061122]/78 p-7 transition hover:bg-[#0e2746]">
               <h3 className="font-display text-3xl text-blush-ink">{pillar.title}</h3>
               <p className="mt-5 text-sm leading-7 text-blush-body">{pillar.body}</p>
             </article>

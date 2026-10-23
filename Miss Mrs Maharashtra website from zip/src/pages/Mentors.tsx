@@ -32,7 +32,7 @@ export function Mentors(_: { navigate: (page: PageKey) => void }) {
                 style={{ objectPosition: "50% 8%" }}
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_34%,rgba(4,4,4,.78)),radial-gradient(circle_at_50%_14%,rgba(214,174,79,.12),transparent_36%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_34%,rgba(4,4,4,.78)),radial-gradient(circle_at_50%_14%,rgba(74,169,255,.12),transparent_36%)]" />
               <div className="absolute bottom-7 left-7 right-7">
                 <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Season faculty</p>
                 <h2 className="mt-3 font-display text-[clamp(2.3rem,4vw,4.8rem)] leading-none text-white">Mentorship with presence.</h2>

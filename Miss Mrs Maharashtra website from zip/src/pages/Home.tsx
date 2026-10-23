@@ -75,7 +75,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             playsInline
             preload="metadata"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(213,168,75,.08),rgba(7,6,7,.2)_42%,rgba(7,6,7,.76)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(74,169,255,.08),rgba(7,6,7,.2)_42%,rgba(7,6,7,.76)_100%)]" />
           <div className="absolute inset-0 bg-[#020817]/30" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/72 to-transparent" />
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full items-center justify-center px-[clamp(20px,4vw,42px)] text-center will-change-transform">
