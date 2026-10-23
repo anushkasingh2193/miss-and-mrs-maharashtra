@@ -46,7 +46,7 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
         />
         <div className="grid gap-5 lg:grid-cols-3">
           {tiers.map((tier) => (
-            <article key={tier.tier} className={`reveal border bg-[#020817]/76 p-7 ${tier.featured ? "border-blush-accent shadow-[0_24px_80px_rgba(74,169,255,.1)]" : "border-blush-accent/15"}`}>
+            <article key={tier.tier} className={`reveal border bg-[#020817]/76 p-7 ${tier.featured ? "border-blush-accent shadow-[0_24px_80px_rgba(214,174,79,.1)]" : "border-blush-accent/15"}`}>
               <div className="eyebrow mb-5">{tier.slots}</div>
               <h3 className="font-display text-4xl text-blush-ink">{tier.tier}</h3>
               <div className="mt-4 text-2xl text-blush-accent">{tier.price}</div>

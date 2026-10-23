@@ -13,8 +13,8 @@ const config: Config = {
           ink: "#EEF6FF",
           body: "#C7D6E8",
           muted: "#8FA6C3",
-          accent: "#4AA9FF",
-          hover: "#78C7FF",
+          accent: "#D6AE4F",
+          hover: "#E1BC62",
         },
       },
       fontFamily: {

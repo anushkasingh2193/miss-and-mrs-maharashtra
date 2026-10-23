@@ -186,7 +186,7 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
         <SectionHeader eyebrow="Platform" title="Clear purpose. Real preparation." body="The pageant experience is structured around outcomes contestants can carry beyond one evening on stage." />
         <div className="grid gap-1 bg-blush-ink/10 md:grid-cols-4">
           {platformPillars.map((pillar) => (
-            <article key={pillar.title} className="reveal bg-[#061122]/78 p-7 transition hover:bg-[#0e2746]">
+            <article key={pillar.title} className="reveal bg-[#061122]/78 p-7 transition hover:bg-[#11100c]">
               <h3 className="font-display text-3xl text-blush-ink">{pillar.title}</h3>
               <p className="mt-5 text-sm leading-7 text-blush-body">{pillar.body}</p>
             </article>
