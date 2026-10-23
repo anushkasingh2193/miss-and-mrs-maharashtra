@@ -57,13 +57,13 @@ export const mAndMWinnerPortfolio = [
 ];
 
 export const homepageWinnerSlider = [
-  { image: `${LOCAL}testimonial/DSC00076.JPG`, name: "Sneha Kalbhor", place: "Winner", title: "Mrs Maharashtra 2025" },
-  { image: `${LOCAL}testimonial/DSC00092.JPG`, name: "Apoorva Shirbhate", place: "1st Runner-Up", title: "Mrs Maharashtra 2025" },
-  { image: `${LOCAL}testimonial/DSC00097.JPG`, name: "Archana Kamble", place: "2nd Runner-Up", title: "Mrs Maharashtra 2025" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/Khushi-Chawre-Image-min.png", name: "Khushi Chawre", place: "Winner", title: "Miss category" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/1st-runner-up-mrs-category-Mrs-Trupti-Apreja-scaled.jpg", name: "Trupti Apreja", place: "1st Runner-Up", title: "Mrs category" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/2nd-runner-up-miss-category-Miss-Sonali-Bisen-scaled.jpg", name: "Sonali Bisen", place: "2nd Runner-Up", title: "Miss category" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/2ns-runner-up-mrs-category-Mrs-Anita-Nandanwar-scaled.jpg", name: "Anita Nandanwar", place: "2nd Runner-Up", title: "Mrs category" },
+  { image: `${LOCAL}testimonial/DSC00076.JPG`, name: "Sneha Kalbhor", place: "Winner", title: "Winner / Mrs. Maharashtra / Season 2" },
+  { image: `${LOCAL}testimonial/DSC00092.JPG`, name: "Apoorva Shirbhate", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 2" },
+  { image: `${LOCAL}testimonial/DSC00097.JPG`, name: "Archana Kamble", place: "2nd Runner-Up", title: "2nd Runner-Up / Mrs. Maharashtra / Season 2" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/Khushi-Chawre-Image-min.png", name: "Khushi Chawre", place: "Winner", title: "Winner / Miss Maharashtra / Season 1" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/1st-runner-up-mrs-category-Mrs-Trupti-Apreja-scaled.jpg", name: "Trupti Apreja", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 1" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/2nd-runner-up-miss-category-Miss-Sonali-Bisen-scaled.jpg", name: "Sonali Bisen", place: "2nd Runner-Up", title: "2nd Runner-Up / Miss Maharashtra / Season 1" },
+  { image: "https://missandmrsmaharashtra.org/public/images/winners/2ns-runner-up-mrs-category-Mrs-Anita-Nandanwar-scaled.jpg", name: "Anita Nandanwar", place: "2nd Runner-Up", title: "2nd Runner-Up / Mrs. Maharashtra / Season 1" },
 ];
 
 export const imageRoles = {
@@ -275,7 +275,7 @@ export const winnerSeasonGroups = [
 
 export const stats = [
   { n: "120+", label: "Women trained" },
-  { n: "1,000", label: "Finale audience" },
+  { n: "1,000", label: "Finale guests" },
   { n: "18", label: "Designer looks" },
   { n: "40+", label: "Mentors, jury & guests" },
 ];
@@ -289,9 +289,9 @@ export const journey = [
 ];
 
 export const auditionCities = [
-  { city: "Nagpur", date: "3 October 2026", venue: "Chitnavis Centre, Civil Lines" },
-  { city: "Pune", date: "10 October 2026", venue: "Conrad, Bund Garden Road" },
-  { city: "Mumbai", date: "17 October 2026", venue: "Sun-n-Sand, Juhu" },
+  { city: "Nagpur", date: "3 October 2026", dateIso: "2026-10-03T23:59:59+05:30", venue: "Chitnavis Centre, Civil Lines" },
+  { city: "Pune", date: "10 October 2026", dateIso: "2026-10-10T23:59:59+05:30", venue: "Conrad, Bund Garden Road" },
+  { city: "Mumbai", date: "17 October 2026", dateIso: "2026-10-17T23:59:59+05:30", venue: "Sun-n-Sand, Juhu" },
 ];
 
 export const categories = [
@@ -395,6 +395,15 @@ export const tickets = [
 
 export const sponsorNames = ["Beauty & Makeup", "Designer Wardrobe", "Hospitality", "Media Coverage", "Wellness Partner", "Gifting Partner"];
 
+export const homepageSponsors = [
+  { name: "Prime White", logo: `${WEBSITE_ZIP}M&M/sponsor/PRIME WHITE.png` },
+  { name: "Norbexi", logo: `${WEBSITE_ZIP}M&M/sponsor/Norbexi PNG Logo  (1).png` },
+  { name: "Karan Kothari", logo: `${WEBSITE_ZIP}M&M/sponsor/Karan Kothari Logo.png` },
+  { name: "C9 Beverages", logo: `${WEBSITE_ZIP}M&M/sponsor/C9 beverages logo.png` },
+  { name: "BTP Group", logo: `${WEBSITE_ZIP}M&M/sponsor/btp group.png` },
+  { name: "GB", logo: `${WEBSITE_ZIP}M&M/sponsor/gb-logo (1).png` },
+];
+
 export const tiers = [
   { tier: "Associate", price: "Rs. 1.5L", slots: "Six slots per season", bestFor: "Local visibility during auditions and finale week", perks: ["Logo on stage backdrop", "Four gala passes", "Social media feature post", "Programme half-page"] },
   { tier: "Powered By", price: "Rs. 6L", slots: "Two slots per season", bestFor: "Brands that want category-level presence", featured: true, perks: ["Category naming rights", "Ten gala passes", "Jury-round branding", "Titleholder appearance days x3"] },
@@ -453,21 +462,21 @@ export const latestNews = [
   {
     src: videos[0].src,
     feature: "Main stage",
-    date: "Aug 2026",
-    title: "Season 3 expands to Nagpur, Pune and Mumbai",
-    summary: "A wider audition pathway gives more women access to grooming, portfolio building and the Miss & Mrs. Maharashtra finale stage.",
+    date: "Oct 2026",
+    title: "Season 3 enters finale preparation",
+    summary: "With all three city auditions complete, selected contestants move into grooming, portfolio and finale-week preparation.",
   },
   {
     src: videos[1].src,
     feature: "Spotlight",
-    date: "Jul 2026",
+    date: "Oct 2026",
     title: "Inside the crown pathway",
     summary: "Contestants prepare for ramp, advocacy, interviews and the titleholder responsibilities that continue after coronation night.",
   },
   {
     src: videos[2].src,
     feature: "Stories",
-    date: "Jul 2026",
+    date: "Sep 2026",
     title: "Why women choose the pageant stage",
     summary: "Personal voices on confidence, representation, visibility and the decision to step into a public platform.",
   },

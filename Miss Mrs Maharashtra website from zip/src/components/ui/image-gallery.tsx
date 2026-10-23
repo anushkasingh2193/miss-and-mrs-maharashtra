@@ -1,80 +1,71 @@
+import { useRef, useState } from "react";
 import { homepageWinnerSlider, videos } from "@/data/site";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { YouTubePreview } from "@/components/VideoBento";
 
-const sliderItems = [...homepageWinnerSlider, ...homepageWinnerSlider];
 const featuredVideos = videos.slice(0, 4);
 
 export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => void }) {
+  const winnerRail = useRef<HTMLDivElement | null>(null);
+  const [activeVideo, setActiveVideo] = useState(0);
+  const scrollWinners = (direction: number) => {
+    winnerRail.current?.scrollBy({ left: direction * 360, behavior: "smooth" });
+  };
+
   return (
     <section className="winner-marquee-section w-full px-[clamp(20px,4vw,42px)] py-[clamp(72px,8vw,118px)]">
       <div className="content-wrap">
         <div className="winner-marquee-header">
           <div>
             <div className="eyebrow mb-4">Winners</div>
-            <h2 className="font-display text-[clamp(3rem,6vw,7rem)] leading-[.88] text-blush-ink">
-              Proof that the pathway creates titleholders.
-            </h2>
+            <h2 className="font-display text-[clamp(3rem,6vw,6rem)] leading-[.9] text-blush-ink">Proof that the pathway creates titleholders.</h2>
           </div>
           <div className="winner-marquee-copy">
-            <p>
-              Past winners and runner-ups make the promise visible: applicants enter a structured
-              season, then leave with a public identity, portfolio moments and a crown story.
-            </p>
-            <button type="button" onClick={onViewGallery} className="winner-inline-link">
-              Meet the winners <ArrowRight size={15} />
-            </button>
+            <p>Past winners make the promise visible: a structured season becomes a public identity, professional portfolio and crown story.</p>
+            <button type="button" onClick={onViewGallery} className="winner-inline-link">Meet the winners <ArrowRight size={15} /></button>
           </div>
+        </div>
+
+        <div className="mt-10 flex items-center justify-end gap-2">
+          <button type="button" onClick={() => scrollWinners(-1)} className="winner-rail-control" aria-label="Previous winners"><ChevronLeft size={18} /></button>
+          <button type="button" onClick={() => scrollWinners(1)} className="winner-rail-control" aria-label="Next winners"><ChevronRight size={18} /></button>
         </div>
       </div>
 
-      <div className="winner-slider-frame mt-12" aria-label="Winner titleholder slider">
-        <div className="winner-slider-track">
-          {sliderItems.map((winner, index) => (
-            <article className="winner-slider-card" key={`${winner.name}-${index}`}>
-              <div className="winner-slider-image">
-                <img src={winner.image} alt={`${winner.name} ${winner.place}`} loading="lazy" decoding="async" />
-              </div>
-              <div className="winner-slider-caption">
-                <span>{winner.place}</span>
-                <h3>{winner.name}</h3>
-                <p>{winner.title}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+      <div ref={winnerRail} className="winner-slider-frame winner-slider-rail mt-5" role="region" aria-label="Winner titleholder gallery" tabIndex={0}>
+        {homepageWinnerSlider.map((winner) => (
+          <article className="winner-slider-card" key={winner.name}>
+            <div className="winner-slider-image"><img src={winner.image} alt={`${winner.name}, ${winner.title}`} loading="lazy" decoding="async" /></div>
+            <div className="winner-slider-caption"><span>{winner.place}</span><h3>{winner.name}</h3><p>{winner.title}</p></div>
+          </article>
+        ))}
       </div>
 
       <div className="content-wrap mt-14">
         <div className="winner-video-panel">
           <div className="winner-video-intro">
             <div className="eyebrow mb-3">Video coverage</div>
-            <h3 className="font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none text-blush-ink">
-              Watch the stage before you enter it.
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-blush-body">
-              Official video coverage helps applicants, guests and partners understand the scale,
-              energy and visibility of the season.
-            </p>
+            <h3 className="font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none text-blush-ink">Watch the stage before you enter it.</h3>
+            <p className="mt-4 text-sm leading-7 text-blush-body">Choose a film, then press play. The YouTube player loads only when you ask for it.</p>
           </div>
-          <div className="winner-video-grid">
-            {featuredVideos.map((video) => (
-              <article className="winner-video-card" key={video.src}>
-                <iframe
-                  src={`${video.src}${video.src.includes("?") ? "&" : "?"}rel=0`}
-                  title={video.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-                <div className="winner-video-caption">
-                  <span><Play size={12} /> {video.feature}</span>
-                  <h4>{video.title}</h4>
-                </div>
-              </article>
-            ))}
+          <div className="winner-video-feature">
+            <YouTubePreview key={featuredVideos[activeVideo].src} {...featuredVideos[activeVideo]} className="aspect-video" />
+            <div className="winner-video-thumbs" aria-label="Choose a pageant film">
+              {featuredVideos.map((video, index) => (
+                <button key={video.src} type="button" onClick={() => setActiveVideo(index)} aria-pressed={activeVideo === index} className="winner-video-thumb">
+                  <img src={youtubeThumbnail(video.src)} alt="" loading="lazy" decoding="async" />
+                  <span><Play size={11} /> {video.feature}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
+}
+
+function youtubeThumbnail(src: string) {
+  const id = src.match(/embed\/([^?]+)/)?.[1];
+  return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
 }

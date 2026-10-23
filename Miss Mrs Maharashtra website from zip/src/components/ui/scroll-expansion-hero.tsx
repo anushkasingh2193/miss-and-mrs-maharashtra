@@ -3,6 +3,7 @@ import { ReactNode, useState } from "react";
 type HeroClip = {
   src: string;
   label: string;
+  duration?: string;
   objectPosition?: string;
   poster?: string;
 };
@@ -31,10 +32,11 @@ export default function ScrollExpandMedia({
   children,
 }: ScrollExpandMediaProps) {
   const [activeClip, setActiveClip] = useState<HeroClip | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(1);
   const cornerClips = clips.slice(0, 2);
   const reelClips: HeroClip[] = [
     cornerClips[0],
-    { src: mediaSrc, label: scrollToExpand, objectPosition: "50% 30%", poster: posterSrc },
+    { src: mediaSrc, label: scrollToExpand, duration: "00:16", objectPosition: "50% 30%", poster: posterSrc },
     cornerClips[1],
   ].filter(Boolean) as HeroClip[];
 
@@ -54,7 +56,11 @@ export default function ScrollExpandMedia({
                 key={`${clip.src}-${index}`}
                 clip={clip}
                 featured={index === 1}
-                onOpen={() => setActiveClip(clip)}
+                selected={selectedIndex === index}
+                onOpen={() => {
+                  setSelectedIndex(index);
+                  setActiveClip(clip);
+                }}
               />
             ))}
           </div>
@@ -88,13 +94,14 @@ export default function ScrollExpandMedia({
   );
 }
 
-function PortraitVideoCard({ clip, featured = false, onOpen }: { clip: HeroClip; featured?: boolean; onOpen: () => void }) {
+function PortraitVideoCard({ clip, featured = false, selected = false, onOpen }: { clip: HeroClip; featured?: boolean; selected?: boolean; onOpen: () => void }) {
   return (
     <button
       type="button"
       onClick={onOpen}
       aria-label={`Open ${clip.label} reel`}
-      className={`group luxury-hover-card overflow-hidden border bg-[#061122] p-1.5 text-left shadow-[0_20px_70px_rgba(0,0,0,.32)] transition hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent ${featured ? "border-blush-accent/45 sm:translate-y-6" : "border-blush-accent/25"}`}
+      aria-pressed={selected}
+      className={`group luxury-hover-card overflow-hidden border bg-[#061122] p-1.5 text-left shadow-[0_20px_70px_rgba(0,0,0,.32)] transition hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent ${selected ? "border-blush-accent ring-1 ring-blush-accent/35" : featured ? "border-blush-accent/45 sm:translate-y-6" : "border-blush-accent/25"}`}
     >
       <div className="luxury-hover-media relative aspect-[9/16] overflow-hidden">
         <video
@@ -115,6 +122,7 @@ function PortraitVideoCard({ clip, featured = false, onOpen }: { clip: HeroClip;
         <div className="luxury-hover-content absolute bottom-3 left-3 text-[9px] uppercase tracking-[.24em] text-blush-accent">
           <span className="luxury-hover-title">{clip.label}</span>
         </div>
+        <span className="absolute bottom-3 right-3 text-[9px] tabular-nums tracking-[.18em] text-white/72">{clip.duration}</span>
       </div>
     </button>
   );

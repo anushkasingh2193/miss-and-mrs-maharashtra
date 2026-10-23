@@ -46,9 +46,9 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
               </button>
             ))}
           </nav>
-          {page !== "home" ? (
-            <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 whitespace-nowrap px-5 py-2.5 text-[10px] uppercase tracking-[.18em] xl:inline-flex">
-              Start application <ArrowRight size={15} />
+          {page !== "register" ? (
+            <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 whitespace-nowrap px-5 py-2.5 text-[10px] uppercase tracking-[.18em] lg:inline-flex">
+              Apply <ArrowRight size={15} />
             </button>
           ) : null}
           <button className="lg:hidden" onClick={() => setMenu((v) => !v)} aria-label="Toggle menu">
@@ -85,13 +85,13 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
         <div className="content-wrap relative z-10 py-[clamp(58px,7vw,110px)]">
           <div className="grid gap-8 border gold-divider bg-[#061122]/72 p-[clamp(26px,4vw,52px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
-              <div className="eyebrow mb-5">Season three</div>
-              <h2 className="font-display text-[clamp(2.5rem,5vw,5.6rem)] leading-[.92] text-blush-ink">Ready for Season 3?</h2>
-              <p className="mt-6 max-w-xl text-base font-light leading-8 text-blush-body">Choose your category, speak to the season office, or start the contestant application flow.</p>
+              <div className="eyebrow mb-5">Choose with confidence</div>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,5.6rem)] leading-[.92] text-blush-ink">Need help choosing your crown?</h2>
+              <p className="mt-6 max-w-xl text-base font-light leading-8 text-blush-body">Compare eligibility first, then speak with the season office if you still need guidance.</p>
             </div>
             <div className="flex flex-col gap-4 lg:items-end">
-              <button onClick={() => go("register")} className="gold-cta inline-flex w-fit items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Start application <ArrowRight size={16} />
+              <button onClick={() => go("categories")} className="gold-cta inline-flex w-fit items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
+                Compare categories <ArrowRight size={16} />
               </button>
               <button onClick={() => go("contact")} className="inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">
                 Speak to the team <ArrowRight size={15} />
@@ -114,9 +114,16 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
           <div>
             <h3 className="eyebrow mb-4">Contact</h3>
             <div className="grid gap-4 text-sm leading-6 text-blush-body">
-              <FooterContact icon={<MapPin size={15} />} text={contactRows[0]?.v || "Nagpur, Maharashtra"} />
-              <FooterContact icon={<Mail size={15} />} text={contactRows[1]?.v || "info@missandmrsmaharashtra.org"} />
-              <FooterContact icon={<Phone size={15} />} text={contactRows[2]?.v || "+91 93227 10192"} />
+              <FooterContact icon={<MapPin size={15} />} text={contactRows[0]?.v || "Nagpur, Maharashtra"} href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contactRows[0]?.v || "Nagpur, Maharashtra")}`} />
+              <FooterContact icon={<Mail size={15} />} text={contactRows[1]?.v || "info@missandmrsmaharashtra.org"} href={`mailto:${contactRows[1]?.v || "info@missandmrsmaharashtra.org"}`} />
+              <div className="flex gap-3">
+                <span className="mt-1 text-blush-accent"><Phone size={15} /></span>
+                <span className="flex flex-wrap gap-x-2">
+                  {(contactRows[2]?.v || "+91 93227 10192").split("·").map((phone) => (
+                    <a key={phone} href={`tel:${phone.trim().replace(/\s/g, "")}`} className="transition hover:text-blush-accent">{phone.trim()}</a>
+                  ))}
+                </span>
+              </div>
             </div>
             <a className="mt-6 inline-flex items-center gap-2 text-sm text-blush-accent transition hover:text-blush-hover" href="https://www.instagram.com/missandmrsmaharashtraofficial/" target="_blank" rel="noreferrer">
               <Instagram size={16} /> Instagram
@@ -133,11 +140,11 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
   );
 }
 
-function FooterContact({ icon, text }: { icon: ReactNode; text: string }) {
+function FooterContact({ icon, text, href }: { icon: ReactNode; text: string; href?: string }) {
   return (
     <div className="flex gap-3">
       <span className="mt-1 text-blush-accent">{icon}</span>
-      <span>{text}</span>
+      {href ? <a href={href} className="transition hover:text-blush-accent">{text}</a> : <span>{text}</span>}
     </div>
   );
 }
