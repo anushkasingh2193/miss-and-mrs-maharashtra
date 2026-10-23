@@ -79,7 +79,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="absolute inset-0 bg-[#020817]/30" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/72 to-transparent" />
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full items-center justify-center px-[clamp(20px,4vw,42px)] text-center will-change-transform">
-            <div className="max-w-2xl -translate-y-8 text-white sm:-translate-y-10">
+            <div className="max-w-2xl translate-y-10 text-white sm:translate-y-14">
               <div className="eyebrow mb-3 text-blush-accent">Miss &amp; Mrs. Maharashtra</div>
               <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.42)]" aria-label="Own the stage.">
                 {["Own", "the", "stage."].map((word, index) => (
