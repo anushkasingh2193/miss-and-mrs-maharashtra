@@ -1312,7 +1312,7 @@ select:focus-visible {
 
 .hero-title {
   font-family: "Bodoni Moda", serif;
-  font-size: clamp(40px, 4.8vw, 76px);
+  font-size: clamp(34px, 3.8vw, 58px);
   line-height: 0.98;
   letter-spacing: 0;
 }
@@ -1544,7 +1544,7 @@ select:focus-visible {
 
 @media (max-width: 640px) {
   .hero-title {
-    font-size: clamp(36px, 11vw, 52px);
+    font-size: clamp(32px, 9vw, 42px);
   }
 
   .display-title {

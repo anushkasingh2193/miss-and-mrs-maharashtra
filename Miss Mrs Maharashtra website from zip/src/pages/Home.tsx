@@ -79,8 +79,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="absolute inset-0 bg-[#020817]/30" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/72 to-transparent" />
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full items-center justify-center px-[clamp(20px,4vw,42px)] text-center will-change-transform">
-            <div className="max-w-3xl text-white">
-              <div className="eyebrow mb-4 text-blush-accent">Miss &amp; Mrs. Maharashtra</div>
+            <div className="max-w-2xl -translate-y-8 text-white sm:-translate-y-10">
+              <div className="eyebrow mb-3 text-blush-accent">Miss &amp; Mrs. Maharashtra</div>
               <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.42)]" aria-label="Own the stage.">
                 {["Own", "the", "stage."].map((word, index) => (
                   <span key={`${word}-${index}`} className="hero-word-reveal" style={{ animationDelay: `${220 + index * 95}ms` }}>
@@ -88,8 +88,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   </span>
                 ))}
               </h1>
-              <div className="mt-7 flex flex-wrap justify-center gap-5">
-                <button onClick={() => navigate("register")} className="gold-cta px-8 py-4 text-xs uppercase tracking-[.24em]">Apply now</button>
+              <div className="mt-5 flex flex-wrap justify-center gap-4">
+                <button onClick={() => navigate("register")} className="gold-cta px-7 py-3.5 text-xs uppercase tracking-[.24em]">Apply now</button>
                 <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.24em] text-white transition hover:border-blush-accent hover:text-blush-accent">View categories</button>
               </div>
             </div>
