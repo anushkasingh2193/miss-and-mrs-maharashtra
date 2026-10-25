@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Check } from "lucide-react";
-import { auditionCities, categories, documents, eligibility, receives, type PageKey } from "@/data/site";
+import { categories, documents, eligibility, interestCities, receives, type PageKey } from "@/data/site";
 import { Section } from "@/components/Section";
 import { cn } from "@/lib/utils";
 
@@ -22,13 +22,13 @@ const initialForm: FormState = {
   dob: "",
   email: "",
   phone: "",
-  city: "Nagpur - 3 October 2026",
+  city: "Nagpur",
   occupation: "",
   statement: "",
   consent: false,
 };
 
-const feeNotes = ["Interest form is free", "Rs. 2,500 only after slot confirmation", "Team follow-up for shortlisted applicants"];
+const feeNotes = ["Interest form is free", "No audition fee until dates are announced", "Team follow-up for eligible applicants"];
 
 export function Register(_: { navigate: (page: PageKey) => void }) {
   const [cat, setCat] = useState<"miss" | "mrs">("miss");
@@ -127,7 +127,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
             <div className="eyebrow mb-5">Interest form received</div>
             <h2 className="font-display text-[clamp(2.5rem,5vw,5rem)] leading-none text-blush-ink">Thank you, {form.name || "Applicant"}.</h2>
             <p className="mx-auto mt-6 max-w-xl text-sm leading-8 text-blush-body">
-              Your interest form for {cat === "miss" ? "Miss Maharashtra" : "Mrs. Maharashtra"} has been saved for {form.city}. The audition team will contact shortlisted applicants.
+              Your interest form for {cat === "miss" ? "Miss Maharashtra" : "Mrs. Maharashtra"} has been saved with {form.city} as your preferred city. The team will contact eligible applicants when next-season dates are announced.
             </p>
             <button
               type="button"
@@ -181,10 +181,10 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
                   </Field>
                 </div>
                 <div className="grid gap-5 md:grid-cols-2">
-                  <Field label="Audition city">
+                  <Field label="Preferred city">
                     <select className="form-field" value={form.city} onChange={(e) => setField("city", e.target.value)}>
-                      {auditionCities.map((city) => (
-                        <option key={city.city}>{city.city} - {city.date}</option>
+                      {interestCities.map((city) => (
+                        <option key={city}>{city}</option>
                       ))}
                     </select>
                   </Field>

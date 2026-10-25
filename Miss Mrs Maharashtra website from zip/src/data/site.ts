@@ -288,11 +288,7 @@ export const journey = [
   { no: "05", title: "Own finale night", body: "Four rounds before guests, press and jury, followed by a titleholder year with appearances and national pathway consideration." },
 ];
 
-export const auditionCities = [
-  { city: "Nagpur", date: "3 October 2026", dateIso: "2026-10-03T23:59:59+05:30", venue: "Chitnavis Centre, Civil Lines" },
-  { city: "Pune", date: "10 October 2026", dateIso: "2026-10-10T23:59:59+05:30", venue: "Conrad, Bund Garden Road" },
-  { city: "Mumbai", date: "17 October 2026", dateIso: "2026-10-17T23:59:59+05:30", venue: "Sun-n-Sand, Juhu" },
-];
+export const interestCities = ["Nagpur", "Pune", "Mumbai", "Other Maharashtra city"];
 
 export const categories = [
   {
@@ -493,8 +489,8 @@ export const newsroomArticles = [
   {
     type: "Announcement",
     date: "Aug 2026",
-    title: "Season 3 auditions open with three city access points",
-    summary: "The new season creates a clearer route for applicants from Nagpur, Pune and Mumbai, with category guidance before slot confirmation.",
+    title: "Season 3 audition tour completed across three cities",
+    summary: "Nagpur, Pune and Mumbai hosted the Season 3 selection tour before contestants moved into finale preparation.",
   },
   {
     type: "Contestant story",
@@ -511,8 +507,8 @@ export const newsroomArticles = [
 ];
 
 export const press = [
-  { outlet: "Official release", head: "Season 3 auditions open across Nagpur, Pune and Mumbai", date: "Jul 2026" },
-  { outlet: "Pageant desk", head: "Miss & Mrs. Maharashtra announces expanded city auditions", date: "Jul 2026" },
+  { outlet: "Official release", head: "Season 3 completes auditions across Nagpur, Pune and Mumbai", date: "Oct 2026" },
+  { outlet: "Pageant desk", head: "Miss & Mrs. Maharashtra moves into finale preparation", date: "Oct 2026" },
   { outlet: "Season coverage", head: "Coronation night brings finalists, designers and jury voices to Nagpur", date: "Dec 2025" },
   { outlet: "Titleholder update", head: "Mrs. Maharashtra titleholder pathway continues beyond the finale", date: "Dec 2025" },
 ];
@@ -529,7 +525,7 @@ export const faqs = [
   { q: "Is there a height or weight requirement?", a: "None. There is no minimum height, weight band or complexion criterion." },
   { q: "Can I apply if I have children?", a: "Yes. In the Mrs. category, mothers are explicitly welcome." },
   { q: "What does the Rs. 2,500 application fee cover?", a: "The city audition, grooming day and administrative processing. It does not guarantee selection." },
-  { q: "Where are the auditions held?", a: "Nagpur on 3 October, Pune on 10 October and Mumbai on 17 October 2026." },
+  { q: "When are the next auditions?", a: "Season 3 auditions are complete. Register your interest and the team will share next-season cities and dates when they are announced." },
   { q: "How long is the finale commitment?", a: "Four days in Nagpur, 18-21 November 2026." },
   { q: "What happens after I win?", a: "The title runs for a full year with public appearances, community programmes, content opportunities and national platform consideration." },
 ];

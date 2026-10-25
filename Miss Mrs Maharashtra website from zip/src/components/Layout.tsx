@@ -1,14 +1,12 @@
 import { ArrowRight, Instagram, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import { contactRows, navItems, type PageKey } from "@/data/site";
-import { useCountdown } from "@/hooks/useCountdown";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 
 export function Layout({ page, navigate, children }: { page: PageKey; navigate: (page: PageKey) => void; children: ReactNode }) {
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
-  const countdown = useCountdown();
   useScrollReveal();
 
   useEffect(() => {
@@ -48,7 +46,7 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
           </nav>
           {page !== "register" ? (
             <button onClick={() => go("register")} className="gold-cta hidden items-center gap-2 whitespace-nowrap px-5 py-2.5 text-[10px] uppercase tracking-[.18em] lg:inline-flex">
-              Apply <ArrowRight size={15} />
+              Next season <ArrowRight size={15} />
             </button>
           ) : null}
           <button className="lg:hidden" onClick={() => setMenu((v) => !v)} aria-label="Toggle menu">
@@ -73,9 +71,9 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
       {sticky && page !== "register" && page !== "home" ? (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t gold-divider bg-blush-page/92 px-5 py-3 backdrop-blur-xl sm:py-4">
           <div className="content-wrap flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-blush-body">{countdown[0].v} days to finale week. Audition interest is still being reviewed.</p>
+            <p className="text-sm text-blush-body">Season 3 auditions are complete. Be first to hear when the next season opens.</p>
             <button onClick={() => go("register")} className="gold-cta inline-flex items-center justify-center gap-2 px-5 py-3 text-[11px] uppercase tracking-[.2em]">
-              Submit interest <ArrowRight size={15} />
+              Register interest for the next season. <ArrowRight size={15} />
             </button>
           </div>
         </div>
