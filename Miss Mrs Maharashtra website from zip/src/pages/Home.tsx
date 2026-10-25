@@ -167,20 +167,21 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <Section className="cinematic-band gold-lift">
+      <Section className="finalist-benefits-section cinematic-band gold-lift">
         <div data-home-section>
           <SectionHeader eyebrow="The crown pathway" title="What finalists actually receive." body="Focused preparation for the runway, camera, interviews and titleholder responsibilities." />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="finalist-benefits-grid reveal grid overflow-hidden md:grid-cols-2 xl:grid-cols-4">
             {pillars.map((pillar) => (
-              <article key={pillar.title} className="luxury-hover-card reveal group overflow-hidden border gold-divider bg-[#020817]/72 transition duration-300 hover:border-blush-accent/55">
-                <div className="luxury-hover-media relative aspect-[3/4] overflow-hidden bg-blush-wash">
-                  <img src={encodeURI(pillar.bg)} alt={pillar.title} className="luxury-hover-image h-full w-full object-contain transition duration-700" style={{ objectPosition: pillar.position }} loading="lazy" />
-                  <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122]/20 via-transparent to-transparent" />
+              <article key={pillar.title} className="finalist-benefit-card group flex min-w-0 flex-col bg-[#061122]">
+                <div className="finalist-benefit-media relative aspect-[4/3] overflow-hidden">
+                  <img src={encodeURI(pillar.bg)} alt={pillar.title} className="finalist-benefit-image h-full w-full object-cover transition duration-700" style={{ objectPosition: pillar.position }} loading="lazy" decoding="async" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#061122]/72 via-transparent to-[#020817]/10" />
+                  <div className="absolute inset-x-0 bottom-0 px-6 pb-5 text-[10px] uppercase tracking-[.22em] text-white/78">{pillar.caption}</div>
                 </div>
-                <div className="luxury-hover-content p-6">
-                  <div className="text-[10px] uppercase tracking-[.24em] text-blush-muted">{pillar.caption}</div>
-                  <h3 className="luxury-hover-title mt-4 font-display text-3xl leading-tight text-blush-ink">{pillar.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-blush-body">{pillar.body}</p>
+                <div className="finalist-benefit-content flex flex-1 flex-col p-6 lg:p-7">
+                  <h3 className="font-display text-[clamp(2rem,2.5vw,2.8rem)] leading-[1.02] text-blush-ink">{pillar.title}</h3>
+                  <div className="mt-5 h-px w-10 bg-blush-accent/80 transition-all duration-500 group-hover:w-20" aria-hidden="true" />
+                  <p className="mt-5 text-sm leading-7 text-blush-body">{pillar.body}</p>
                 </div>
               </article>
             ))}

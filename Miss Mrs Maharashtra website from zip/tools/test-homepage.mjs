@@ -28,6 +28,10 @@ assert.match(home, /TestimonialsSection/, "homepage should include the animated 
 assert.match(home, /founder-line-mask/, "homepage should use the original founder reveal layout");
 assert.match(home, /founder-quote-word/, "original founder quote treatment should be restored");
 assert.match(home, /id="founder-photo-img"/, "original founder portrait treatment should be restored");
+assert.match(home, /finalist-benefits-grid/, "finalist benefits should use the polished editorial grid");
+assert.match(home, /finalist-benefit-card/, "finalist benefits should use purpose-built cards");
+assert.match(home, /finalist-benefit-image h-full w-full object-cover/, "finalist benefit imagery should fill its frame without empty letterboxing");
+assert.doesNotMatch(home, /luxury-hover-media relative aspect-\[3\/4\][\s\S]*?pillar\.bg[\s\S]*?object-contain/, "finalist benefit images should not use tall object-contain frames");
 assert.match(videoBento, /return \(\s*<div className=/, "YouTube preview should use a non-interactive outer container");
 assert.doesNotMatch(videoBento, /return \(\s*<button/, "YouTube preview must not wrap its play button in another button");
 assert.match(home, /data-hero-video[\s\S]*?preload="auto"/, "hero video should preload for the clearest immediate playback");

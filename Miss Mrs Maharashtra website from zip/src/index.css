@@ -513,6 +513,61 @@ select:focus-visible {
   transition: transform 0.35s ease;
 }
 
+.finalist-benefits-grid {
+  border: 1px solid rgba(137, 184, 229, 0.18);
+  background: rgba(137, 184, 229, 0.18);
+  gap: 1px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.24);
+}
+
+.finalist-benefit-card {
+  position: relative;
+  transition: background-color 0.35s ease;
+}
+
+.finalist-benefit-card:hover,
+.finalist-benefit-card:focus-within {
+  background: #0a172b;
+}
+
+.finalist-benefit-media {
+  background: #0a172b;
+}
+
+.finalist-benefit-image {
+  filter: saturate(0.94) contrast(1.04);
+  transform: scale(1.01);
+  transition: transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.45s ease;
+  will-change: transform;
+}
+
+.finalist-benefit-card:hover .finalist-benefit-image,
+.finalist-benefit-card:focus-within .finalist-benefit-image {
+  filter: saturate(1.05) contrast(1.05);
+  transform: scale(1.055);
+}
+
+.finalist-benefit-content {
+  min-height: 244px;
+}
+
+@media (max-width: 767px) {
+  .finalist-benefits-grid {
+    gap: 12px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .finalist-benefit-card {
+    border: 1px solid rgba(137, 184, 229, 0.18);
+  }
+
+  .finalist-benefit-content {
+    min-height: auto;
+  }
+}
+
 .luxury-hover-card:hover .luxury-hover-arrow,
 .luxury-hover-card:focus-visible .luxury-hover-arrow,
 .luxury-hover-card:focus-within .luxury-hover-arrow {
