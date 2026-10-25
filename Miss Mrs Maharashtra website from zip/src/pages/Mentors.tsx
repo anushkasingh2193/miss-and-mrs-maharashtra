@@ -1,16 +1,30 @@
+import { type CSSProperties } from "react";
 import { ArrowRight } from "lucide-react";
 import { imageRoles, jury, mentors, type PageKey } from "@/data/site";
 
-type Profile = (typeof mentors)[number];
+type Profile = (typeof mentors)[number] & { zoom?: number; origin?: string };
+
+type PortraitStyle = CSSProperties & {
+  "--portrait-zoom": number;
+  "--portrait-hover-zoom": number;
+};
 
 function MentorProfile({ profile, featured = false }: { profile: Profile; featured?: boolean }) {
+  const zoom = profile.zoom ?? 1.002;
+  const portraitStyle: PortraitStyle = {
+    objectPosition: profile.position,
+    transformOrigin: profile.origin ?? "50% 50%",
+    "--portrait-zoom": zoom,
+    "--portrait-hover-zoom": zoom + 0.033,
+  };
+
   return (
     <article className={`mentor-profile reveal${featured ? " mentor-profile--lead" : ""}`}>
       <div className="mentor-profile__portrait">
         <img
           src={profile.bg}
           alt={`${profile.name}, ${profile.role}`}
-          style={{ objectPosition: profile.position }}
+          style={portraitStyle}
           loading="lazy"
           decoding="async"
         />

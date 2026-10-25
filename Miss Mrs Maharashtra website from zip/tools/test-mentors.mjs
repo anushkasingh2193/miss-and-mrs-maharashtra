@@ -26,10 +26,13 @@ for (const [name, role] of expectedMentors) {
 }
 
 assert.equal((mentorBlock[1].match(/\{ name:/g) ?? []).length, 10, "mentor roster should contain ten profiles");
-assert.match(mentorBlock[1], /mentor\/dr-girish-chhabrani-provisional\.jpeg/);
-assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-provisional\.png/);
-assert.match(mentorBlock[1], /mentor\/soniya-khatri-provisional\.png/);
-assert.match(mentorBlock[1], /mentor\/dr-shivangi-garg-provisional\.png/);
+assert.match(mentorBlock[1], /mentor\/megha-kapoor-amesar-verified\.jpg/);
+assert.match(mentorBlock[1], /mentor\/dr-girish-chhabrani-verified\.webp/);
+assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-verified\.jpg/);
+assert.match(mentorBlock[1], /mentor\/soniya-khatri-verified\.jpg/);
+assert.match(mentorBlock[1], /mentor\/dr-shivangi-garg-verified\.webp/);
+assert.match(mentorBlock[1], /name: "Dr\. Shivangi Garg"[\s\S]*?zoom: 2\.1[\s\S]*?origin: "50% 20%"/);
+assert.doesNotMatch(mentorBlock[1], /provisional/, "verified mentor portraits should replace provisional images");
 assert.match(siteSource, /mentorHero: `\$\{LOCAL\}mentor\/kavita-kharayat\.webp`/);
 assert.match(mentorBlock[1], /mentor\/kavita-kharayat\.webp/);
 assert.match(siteSource, /mentor\/img_9410-optimized\.webp/);
@@ -43,4 +46,4 @@ assert.match(mentorsPageSource, /mentor-faculty-grid/, "mentors page should use 
 assert.match(mentorsPageSource, /mentor-jury-grid/, "guest jury should use a dedicated editorial layout");
 assert.match(mentorsPageSource, /Meet the people behind the preparation\./, "mentors page should explain the faculty section");
 
-console.log("Mentor roster test passed: 10 profiles with current roles and provisional assets.");
+console.log("Mentor roster test passed: 10 profiles with current roles and verified assets.");

@@ -348,13 +348,13 @@ export const mentors = [
   { name: "Mrs. Zoya Siraj Sheikh", role: "Founder & Chairman", bio: "Interior designer, Founder and MD of Kara Zoya Pvt Ltd. Mrs. Maharashtra 2022 and 3rd Runner-up at Mrs. Universe.", bg: `${FAST}zoya.jpg`, position: "50% 8%" },
   { name: "Mr. Siraj Sheikh", role: "Chairman", bio: "Founder of BTP Group. Leads production, partnerships and the titleholder pathway.", bg: `${LOCAL}mentor/mentor_siraz_sheikh-1367x2048.jpg`, position: "50% 0%" },
   { name: "Mrs. Kavita Kharayat", role: "Fashion Grooming & Stylist Expert", bio: "Guides contestants in styling, posture, pacing and confident runway presence.", bg: `${LOCAL}mentor/kavita-kharayat.webp`, position: "50% 4%" },
-  { name: "Megha Kapoor Amesar", role: "Makeover Expert", bio: "Heads hair and makeup for all rounds, and teaches contestants to create polished looks with confidence.", bg: `${FAST}makeup.jpg`, position: "50% 4%" },
+  { name: "Megha Kapoor Amesar", role: "Makeover Expert", bio: "Heads hair and makeup for all rounds, and teaches contestants to create polished looks with confidence.", bg: `${LOCAL}mentor/megha-kapoor-amesar-verified.jpg`, position: "50% 12%" },
   { name: "Mrs. Sonali Nakshine", role: "Voice Modulation Expert", bio: "Prepares contestants for interviews, public speaking and live on-stage questions.", bg: `${LOCAL}mentor/WhatsApp-Image-2024-01-02-at-5.24.03-PM.jpeg`, position: "50% 4%" },
   { name: "Miss Mohini Sharma", role: "Mentor, Season 1", bio: "Mentored Season 1 titleholder Zoya Siraj Sheikh.", bg: `${LOCAL}mentor/img_9412-optimized.webp`, position: "50% 8%" },
-  { name: "Dr. Girish Chhabrani", role: "Smile Expert", bio: "Guides contestants on smile aesthetics, oral presentation and confident stage-ready expression.", bg: `${LOCAL}mentor/dr-girish-chhabrani-provisional.jpeg`, position: "50% 4%" },
-  { name: "Dr. Anshul Jain", role: "Skin Expert", bio: "Shares practical skin-care guidance for healthy, camera-ready confidence throughout the season.", bg: `${LOCAL}mentor/dr-anshul-jain-provisional.png`, position: "50% 0%" },
-  { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-provisional.png`, position: "50% 0%" },
-  { name: "Dr. Shivangi Garg", role: "Mental Health Expert", bio: "Helps contestants build resilience, emotional balance and calm confidence under pressure.", bg: `${LOCAL}mentor/dr-shivangi-garg-provisional.png`, position: "50% 0%" },
+  { name: "Dr. Girish Chhabrani", role: "Smile Expert", bio: "Guides contestants on smile aesthetics, oral presentation and confident stage-ready expression.", bg: `${LOCAL}mentor/dr-girish-chhabrani-verified.webp`, position: "50% 18%" },
+  { name: "Dr. Anshul Jain", role: "Skin Expert", bio: "Shares practical skin-care guidance for healthy, camera-ready confidence throughout the season.", bg: `${LOCAL}mentor/dr-anshul-jain-verified.jpg`, position: "50% 14%" },
+  { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-verified.jpg`, position: "50% 24%" },
+  { name: "Dr. Shivangi Garg", role: "Mental Health Expert", bio: "Helps contestants build resilience, emotional balance and calm confidence under pressure.", bg: `${LOCAL}mentor/dr-shivangi-garg-verified.webp`, position: "50% 17%", zoom: 2.1, origin: "50% 20%" },
 ];
 
 export const jury = [
