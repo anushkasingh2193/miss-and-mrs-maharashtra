@@ -14,7 +14,7 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
         <div className="winner-marquee-header">
           <div>
             <div className="eyebrow mb-4">Winners</div>
-            <h2 className="font-display text-[clamp(3rem,6vw,6rem)] leading-[.9] text-blush-ink">Proof that the pathway creates titleholders.</h2>
+            <h2 className="winner-showcase-title font-display text-blush-ink">Proof that the pathway creates titleholders.</h2>
           </div>
           <div className="winner-marquee-copy">
             <p>Past winners make the promise visible: a structured season becomes a public identity, professional portfolio and crown story.</p>
@@ -60,8 +60,16 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
 function WinnerCard({ winner }: { winner: (typeof homepageWinnerSlider)[number] }) {
   return (
     <article className="winner-slider-card">
-      <div className="winner-slider-image"><img src={winner.image} alt={`${winner.name}, ${winner.title}`} loading="lazy" decoding="async" /></div>
-      <div className="winner-slider-caption"><span>{winner.place}</span><h3>{winner.name}</h3><p>{winner.title}</p></div>
+      <div className="winner-slider-image">
+        <img src={winner.image} alt={`${winner.name}, ${winner.title}`} loading="lazy" decoding="async" />
+        <div className="winner-slider-scrim" aria-hidden="true" />
+      </div>
+      <div className="winner-slider-caption">
+        <span>{winner.place}</span>
+        <div className="winner-card-rule" aria-hidden="true" />
+        <h3>{winner.name}</h3>
+        <p>{winner.title}</p>
+      </div>
     </article>
   );
 }

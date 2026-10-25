@@ -41,6 +41,9 @@ assert.match(layout, /href=\{`tel:/, "footer phone must be clickable");
 assert.match(gallery, /winner-slider-track/, "winner gallery should use the continuous slider track");
 assert.match(gallery, /aria-hidden="true"/, "visual duplicate winner cards must be hidden from assistive technology");
 assert.doesNotMatch(gallery, /Previous winners|Next winners|winner-slider-rail/, "continuous winner slider should not expose manual rail controls");
+assert.match(gallery, /winner-showcase-title/, "winner showcase should use the refined editorial title treatment");
+assert.match(gallery, /winner-slider-scrim/, "winner cards should integrate captions over a readable image scrim");
+assert.match(gallery, /winner-card-rule/, "winner cards should use the restrained accent rule");
 for (const portrait of ["sneha-kalbhor.jpg", "apoorva-shirbhate.jpg", "archana-kamble.jpg"]) {
   assert.ok(existsSync(resolve(root, "public/missmrs-assets/curated", portrait)), `homepage winner portrait must exist: ${portrait}`);
   assert.match(data, new RegExp(`CURATED}\\$?${portrait.replace(".", "\\.")}`), `homepage winner slider should use curated portrait: ${portrait}`);
