@@ -354,7 +354,7 @@ export const mentors = [
   { name: "Dr. Girish Chhabrani", role: "Smile Expert", bio: "Guides contestants on smile aesthetics, oral presentation and confident stage-ready expression.", bg: `${LOCAL}mentor/dr-girish-chhabrani-verified.webp`, position: "50% 18%" },
   { name: "Dr. Anshul Jain", role: "Skin Expert", bio: "Shares practical skin-care guidance for healthy, camera-ready confidence throughout the season.", bg: `${LOCAL}mentor/dr-anshul-jain-verified.jpg`, position: "50% 14%" },
   { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-verified.jpg`, position: "50% 24%" },
-  { name: "Dr. Shivangi Garg", role: "Mental Health Expert", bio: "Helps contestants build resilience, emotional balance and calm confidence under pressure.", bg: `${LOCAL}mentor/dr-shivangi-garg-verified.webp`, position: "50% 17%", zoom: 2.1, origin: "50% 20%" },
+  { name: "Dr. Shivangi Garg", role: "Mental Health Expert", bio: "Helps contestants build resilience, emotional balance and calm confidence under pressure.", bg: `${LOCAL}mentor/dr-shivangi-garg-confirmed.webp`, position: "50% 8%" },
 ];
 
 export const jury = [
