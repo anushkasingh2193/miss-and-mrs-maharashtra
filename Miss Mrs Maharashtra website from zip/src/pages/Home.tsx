@@ -4,6 +4,7 @@ import { categories, imageRoles, interestCities, pillars, stats, type PageKey } 
 import { useHomeMotion } from "@/hooks/useHomeMotion";
 import { Section, SectionHeader } from "@/components/Section";
 import ImageGallery from "@/components/ui/image-gallery";
+import { TestimonialsSection } from "@/components/ui/testimonials-6";
 
 const homepageJourney = [
   { step: "Apply", title: "Share your interest", body: "Choose your crown and send the essentials for an eligibility review." },
@@ -187,32 +188,40 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <Section className="founder-reveal-section cinematic-band">
-        <div data-home-section className="grid gap-6 lg:grid-cols-2">
-          <article className="reveal grid gap-6 border gold-divider bg-[#061122]/58 p-4 sm:grid-cols-[.8fr_1fr] sm:items-center sm:p-6">
-            <img src={imageRoles.founderPortrait} alt="Zoya Siraj Sheikh" className="aspect-[4/5] h-full w-full object-cover object-[50%_12%]" loading="lazy" />
-            <div className="p-2">
-              <p className="text-xs uppercase tracking-[.22em] text-blush-accent">Founder</p>
-              <h2 className="mt-4 font-display text-[clamp(2.7rem,4vw,4.8rem)] leading-none text-blush-ink">Zoya Siraj Sheikh.</h2>
-              <p className="mt-5 text-sm leading-7 text-blush-body">A platform built around credible grooming, visibility and representation beyond coronation night.</p>
-              <button onClick={() => navigate("about")} className="mt-7 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.2em] text-blush-accent">Meet the founder</button>
+      <section data-home-section id="founder-reveal" className="founder-reveal-section cinematic-band px-[clamp(20px,4vw,42px)] py-[clamp(52px,7vw,104px)]">
+        <div className="content-wrap">
+          <div className="grid gap-10 lg:grid-cols-[1fr_.92fr] lg:items-center">
+            <div className="relative z-10">
+              <div className="founder-line-mask mb-3"><div className="founder-reveal-line eyebrow" data-founder-line style={{ transitionDelay: "0ms" }}>Founder</div></div>
+              <h2 className="font-display text-[clamp(3rem,5.4vw,7rem)] leading-[.9] text-blush-ink">
+                <span className="founder-line-mask"><span className="founder-reveal-line block" data-founder-line style={{ transitionDelay: "90ms" }}>Zoya Siraj</span></span>
+                <span className="founder-line-mask"><span className="founder-reveal-line block" data-founder-line style={{ transitionDelay: "170ms" }}>Sheikh.</span></span>
+              </h2>
+              <p className="mt-4 text-xs uppercase tracking-[.24em] text-blush-accent">Mrs. Maharashtra 2022 / 3rd Runner-up, Mrs. Universe</p>
+              <p className="mt-5 max-w-xl text-base font-light leading-8 text-blush-body">Zoya founded the platform to give women in Maharashtra structured grooming, credible stage preparation and a visible path beyond coronation night.</p>
+              <p className="founder-quote mt-6 max-w-md font-display text-[clamp(1.55rem,2.4vw,2.9rem)] leading-tight text-blush-ink" aria-label="A platform where confidence becomes preparation, and preparation becomes representation.">
+                {["A", "platform", "where", "confidence", "becomes", "preparation,", "and", "preparation", "becomes", "representation."].map((word, index) => (
+                  <span key={`${word}-${index}`} className="founder-quote-word" data-founder-word style={{ transitionDelay: `${260 + index * 46}ms` }}>{index === 0 ? '"' : ""}{word}{index === 9 ? '"' : ""}</span>
+                ))}
+              </p>
+              <button onClick={() => navigate("about")} className="mt-8 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent">Meet the founder</button>
             </div>
-          </article>
-          <article className="reveal grid gap-6 border gold-divider bg-[#061122]/58 p-4 sm:grid-cols-[.8fr_1fr] sm:items-center sm:p-6">
-            <img src={imageRoles.titleholderSpotlight} alt="Sneha Kalbhor, Mrs Maharashtra 2025" className="aspect-[4/5] h-full w-full object-cover object-[50%_8%]" loading="lazy" />
-            <div className="p-2">
-              <p className="text-xs uppercase tracking-[.22em] text-blush-accent">Titleholder spotlight</p>
-              <h2 className="mt-4 font-display text-[clamp(2.7rem,4vw,4.8rem)] leading-none text-blush-ink">Sneha Kalbhor.</h2>
-              <p className="mt-5 text-sm leading-7 text-blush-body">Mrs. Maharashtra 2025, continuing through campaign imagery, public appearances and titleholder representation.</p>
-              <button onClick={() => navigate("winners")} className="mt-7 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.2em] text-blush-accent">Meet the winners</button>
+            <div className="founder-photo-column">
+              <div className="beam-frame beam-frame-soft relative mx-auto h-[clamp(330px,36vw,450px)] max-w-[460px] overflow-hidden border gold-divider bg-[#061122] shadow-[0_34px_110px_rgba(0,0,0,.38)]">
+                <img id="founder-photo-img" src={imageRoles.founderPortrait} alt="Zoya Siraj Sheikh" className="h-full w-full object-cover object-[50%_12%] will-change-transform" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/16 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6"><p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Founder &amp; Chairman / Nagpur</p></div>
+              </div>
             </div>
-          </article>
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <Section className="cinematic-band gold-lift !py-0">
+      <Section className="!py-0">
         <div data-home-section><ImageGallery onViewGallery={() => navigate("winners")} /></div>
       </Section>
+
+      <div data-home-section><TestimonialsSection /></div>
     </div>
   );
 }

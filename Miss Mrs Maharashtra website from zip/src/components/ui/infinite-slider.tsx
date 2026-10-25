@@ -1,4 +1,4 @@
-import { animate, motion, useMotionValue } from "motion/react";
+import { animate, motion, useMotionValue, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
 import { cn } from "@/lib/utils";
@@ -23,13 +23,14 @@ export function InfiniteSlider({
   className,
 }: InfiniteSliderProps) {
   const [currentSpeed, setCurrentSpeed] = useState(speed);
+  const shouldReduceMotion = useReducedMotion();
   const [ref, { width, height }] = useMeasure();
   const translation = useMotionValue(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const size = direction === "horizontal" ? width : height;
-    if (!size) return;
+    if (!size || shouldReduceMotion) return;
 
     const contentSize = size + gap;
     const from = reverse ? -contentSize / 2 : 0;
@@ -52,7 +53,7 @@ export function InfiniteSlider({
         });
 
     return controls.stop;
-  }, [translation, currentSpeed, width, height, gap, isTransitioning, direction, reverse]);
+  }, [translation, currentSpeed, width, height, gap, isTransitioning, direction, reverse, shouldReduceMotion]);
 
   const hoverProps = speedOnHover
     ? {
@@ -80,7 +81,7 @@ export function InfiniteSlider({
         {...hoverProps}
       >
         {children}
-        {children}
+        {!shouldReduceMotion && <div className="contents" aria-hidden="true">{children}</div>}
       </motion.div>
     </div>
   );

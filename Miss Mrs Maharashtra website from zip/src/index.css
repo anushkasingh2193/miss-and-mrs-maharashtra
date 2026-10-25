@@ -867,21 +867,11 @@ select:focus-visible {
 .winner-marquee-section {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 14% 12%, rgba(74, 169, 255, 0.14), transparent 28%),
-    radial-gradient(circle at 88% 18%, rgba(238, 246, 255, 0.08), transparent 30%),
-    linear-gradient(180deg, #020817 0%, #071426 48%, #020817 100%);
+  background: transparent;
 }
 
 .winner-marquee-section::before {
-  content: "WINNERS";
-  position: absolute;
-  right: -2vw;
-  top: 7%;
-  pointer-events: none;
-  color: rgba(238, 246, 255, 0.035);
-  font-family: "Bodoni Moda", serif;
-  font-size: clamp(6rem, 18vw, 18rem);
+  content: none;
   letter-spacing: 0.08em;
   line-height: 0.75;
 }
@@ -970,13 +960,7 @@ select:focus-visible {
 
 .winner-slider-frame::before,
 .winner-slider-frame::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 3;
-  width: clamp(70px, 12vw, 180px);
-  pointer-events: none;
+  content: none;
 }
 
 .winner-slider-frame::before {
