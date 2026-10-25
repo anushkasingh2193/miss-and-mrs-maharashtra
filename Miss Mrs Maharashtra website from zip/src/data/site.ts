@@ -57,9 +57,9 @@ export const mAndMWinnerPortfolio = [
 ];
 
 export const homepageWinnerSlider = [
-  { image: `${LOCAL}testimonial/DSC00076.JPG`, name: "Sneha Kalbhor", place: "Winner", title: "Winner / Mrs. Maharashtra / Season 2" },
-  { image: `${LOCAL}testimonial/DSC00092.JPG`, name: "Apoorva Shirbhate", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 2" },
-  { image: `${LOCAL}testimonial/DSC00097.JPG`, name: "Archana Kamble", place: "2nd Runner-Up", title: "2nd Runner-Up / Mrs. Maharashtra / Season 2" },
+  { image: `${CURATED}sneha-kalbhor.jpg`, name: "Sneha Kalbhor", place: "Winner", title: "Winner / Mrs. Maharashtra / Season 2" },
+  { image: `${CURATED}apoorva-shirbhate.jpg`, name: "Apoorva Shirbhate", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 2" },
+  { image: `${CURATED}archana-kamble.jpg`, name: "Archana Kamble", place: "2nd Runner-Up", title: "2nd Runner-Up / Mrs. Maharashtra / Season 2" },
   { image: "https://missandmrsmaharashtra.org/public/images/winners/Khushi-Chawre-Image-min.png", name: "Khushi Chawre", place: "Winner", title: "Winner / Miss Maharashtra / Season 1" },
   { image: "https://missandmrsmaharashtra.org/public/images/winners/1st-runner-up-mrs-category-Mrs-Trupti-Apreja-scaled.jpg", name: "Trupti Apreja", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 1" },
   { image: "https://missandmrsmaharashtra.org/public/images/winners/2nd-runner-up-miss-category-Miss-Sonali-Bisen-scaled.jpg", name: "Sonali Bisen", place: "2nd Runner-Up", title: "2nd Runner-Up / Miss Maharashtra / Season 1" },

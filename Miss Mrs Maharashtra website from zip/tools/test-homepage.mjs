@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
@@ -37,6 +37,11 @@ assert.match(layout, /href=\{`tel:/, "footer phone must be clickable");
 assert.match(gallery, /winner-slider-track/, "winner gallery should use the continuous slider track");
 assert.match(gallery, /aria-hidden="true"/, "visual duplicate winner cards must be hidden from assistive technology");
 assert.doesNotMatch(gallery, /Previous winners|Next winners|winner-slider-rail/, "continuous winner slider should not expose manual rail controls");
+for (const portrait of ["sneha-kalbhor.jpg", "apoorva-shirbhate.jpg", "archana-kamble.jpg"]) {
+  assert.ok(existsSync(resolve(root, "public/missmrs-assets/curated", portrait)), `homepage winner portrait must exist: ${portrait}`);
+  assert.match(data, new RegExp(`CURATED}\\$?${portrait.replace(".", "\\.")}`), `homepage winner slider should use curated portrait: ${portrait}`);
+}
+assert.doesNotMatch(data, /testimonial\/DSC000(?:76|97)\.JPG/, "homepage winner slider must not reference missing testimonial images");
 assert.match(testimonials, /InfiniteSlider/, "testimonial section should be animated");
 assert.match(testimonials, /direction="vertical"/, "testimonial cards should use continuous vertical motion");
 assert.match(styles, /\.winner-marquee-section\s*\{[\s\S]*?background:\s*transparent;/, "winner section should not paint a decorative background");
