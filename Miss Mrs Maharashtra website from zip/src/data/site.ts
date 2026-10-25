@@ -72,7 +72,7 @@ export const imageRoles = {
   founderPortrait: `${FAST}zoya.jpg`,
   titleMiss: `${LOCAL}featured/title-miss-maharashtra.jpg`,
   titleMrs: `${LOCAL}featured/title-mrs-maharashtra.jpg`,
-  mentorHero: `${LOCAL}mentor/mentor_kavita-1367x2048.jpg`,
+  mentorHero: `${LOCAL}mentor/kavita-kharayat.webp`,
   sponsorHero: `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s3 winners/TS102046.jpg`,
   sponsorProof: stock.makeup,
   titleholderSpotlight: mAndMWinnerImages[0],
@@ -347,10 +347,10 @@ export const scoring = [
 export const mentors = [
   { name: "Mrs. Zoya Siraj Sheikh", role: "Founder & Chairman", bio: "Interior designer, Founder and MD of Kara Zoya Pvt Ltd. Mrs. Maharashtra 2022 and 3rd Runner-up at Mrs. Universe.", bg: `${FAST}zoya.jpg`, position: "50% 8%" },
   { name: "Mr. Siraj Sheikh", role: "Chairman", bio: "Founder of BTP Group. Leads production, partnerships and the titleholder pathway.", bg: `${LOCAL}mentor/mentor_siraz_sheikh-1367x2048.jpg`, position: "50% 0%" },
-  { name: "Mrs. Kavita Kharayat", role: "Fashion Grooming & Stylist Expert", bio: "Guides contestants in styling, posture, pacing and confident runway presence.", bg: `${LOCAL}mentor/mentor_kavita-1367x2048.jpg`, position: "50% 4%" },
+  { name: "Mrs. Kavita Kharayat", role: "Fashion Grooming & Stylist Expert", bio: "Guides contestants in styling, posture, pacing and confident runway presence.", bg: `${LOCAL}mentor/kavita-kharayat.webp`, position: "50% 4%" },
   { name: "Megha Kapoor Amesar", role: "Makeover Expert", bio: "Heads hair and makeup for all rounds, and teaches contestants to create polished looks with confidence.", bg: `${FAST}makeup.jpg`, position: "50% 4%" },
   { name: "Mrs. Sonali Nakshine", role: "Voice Modulation Expert", bio: "Prepares contestants for interviews, public speaking and live on-stage questions.", bg: `${LOCAL}mentor/WhatsApp-Image-2024-01-02-at-5.24.03-PM.jpeg`, position: "50% 4%" },
-  { name: "Miss Mohini Sharma", role: "Mentor, Season 1", bio: "Mentored Season 1 titleholder Zoya Siraj Sheikh.", bg: `${LOCAL}testimonial/IMG_9412.JPG.jpeg`, position: "50% 8%" },
+  { name: "Miss Mohini Sharma", role: "Mentor, Season 1", bio: "Mentored Season 1 titleholder Zoya Siraj Sheikh.", bg: `${LOCAL}mentor/img_9412-optimized.webp`, position: "50% 8%" },
   { name: "Dr. Girish Chhabrani", role: "Smile Expert", bio: "Guides contestants on smile aesthetics, oral presentation and confident stage-ready expression.", bg: `${LOCAL}mentor/dr-girish-chhabrani-provisional.jpeg`, position: "50% 4%" },
   { name: "Dr. Anshul Jain", role: "Skin Expert", bio: "Shares practical skin-care guidance for healthy, camera-ready confidence throughout the season.", bg: `${LOCAL}mentor/dr-anshul-jain-provisional.png`, position: "50% 0%" },
   { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-provisional.png`, position: "50% 0%" },
@@ -358,14 +358,14 @@ export const mentors = [
 ];
 
 export const jury = [
-  { name: "Shreyas Talpade", role: "Actor, Jury S1", bg: `${LOCAL}testimonial/IMG_9410.JPG.jpeg`, position: "50% 6%" },
-  { name: "Sonal Naik", role: "Actress, Jury S1", bg: `${LOCAL}testimonial/IMG_9413.JPG.jpeg`, position: "50% 6%" },
+  { name: "Shreyas Talpade", role: "Actor, Jury S1", bg: `${LOCAL}mentor/img_9410-optimized.webp`, position: "50% 6%" },
+  { name: "Sonal Naik", role: "Actress, Jury S1", bg: `${LOCAL}mentor/img_9413-optimized.webp`, position: "50% 6%" },
   { name: "Neha Dhupia", role: "Judge, Supranational", bg: `${LOCAL}testimonial/image-1757942830364-104750829.jpg`, position: "50% 6%" },
   { name: "Terence Lewis", role: "Special Guest S2", bg: `${LOCAL}testimonial/image-1757942638238-755557391.jpg`, position: "50% 6%" },
   { name: "Sandhya Shetty", role: "Anchor, Season 1", bg: `${CURATED}sandhya-shetty.jpg`, position: "50% 6%" },
-  { name: "Mr. & Mrs. Kothari", role: "Jury, Season 1", bg: `${LOCAL}testimonial/IMG_9411.JPG.jpeg`, position: "50% 6%" },
+  { name: "Mr. & Mrs. Kothari", role: "Jury, Season 1", bg: `${LOCAL}mentor/img_9411-optimized.webp`, position: "50% 6%" },
   { name: "Anjali Rathee", role: "Mrs. India 2024", bg: `${CURATED}anjali-rathee.jpg`, position: "50% 6%" },
-  { name: "Shweta Pote", role: "Guest, Season 1", bg: `${LOCAL}testimonial/IMG_9414.JPG.jpeg`, position: "50% 6%" },
+  { name: "Shweta Pote", role: "Guest, Season 1", bg: `${LOCAL}mentor/img_9414-optimized.webp`, position: "50% 6%" },
 ];
 
 export const titleholders = [

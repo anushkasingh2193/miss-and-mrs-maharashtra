@@ -30,6 +30,17 @@ assert.match(mentorBlock[1], /mentor\/dr-girish-chhabrani-provisional\.jpeg/);
 assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-provisional\.png/);
 assert.match(mentorBlock[1], /mentor\/soniya-khatri-provisional\.png/);
 assert.match(mentorBlock[1], /mentor\/dr-shivangi-garg-provisional\.png/);
+assert.match(siteSource, /mentorHero: `\$\{LOCAL\}mentor\/kavita-kharayat\.webp`/);
+assert.match(mentorBlock[1], /mentor\/kavita-kharayat\.webp/);
+assert.match(siteSource, /mentor\/img_9410-optimized\.webp/);
+assert.match(siteSource, /mentor\/img_9411-optimized\.webp/);
+assert.match(siteSource, /mentor\/img_9412-optimized\.webp/);
+assert.match(siteSource, /mentor\/img_9413-optimized\.webp/);
+assert.match(siteSource, /mentor\/img_9414-optimized\.webp/);
 assert.match(mentorsPageSource, /\[mentors\.length, "Mentors"\]/, "mentor count should follow the roster data");
+assert.match(mentorsPageSource, /mentor-leadership-grid/, "mentors page should distinguish the leadership team");
+assert.match(mentorsPageSource, /mentor-faculty-grid/, "mentors page should use a dedicated faculty layout");
+assert.match(mentorsPageSource, /mentor-jury-grid/, "guest jury should use a dedicated editorial layout");
+assert.match(mentorsPageSource, /Meet the people behind the preparation\./, "mentors page should explain the faculty section");
 
 console.log("Mentor roster test passed: 10 profiles with current roles and provisional assets.");

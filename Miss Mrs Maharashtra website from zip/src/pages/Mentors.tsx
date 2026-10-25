@@ -1,59 +1,151 @@
+import { ArrowRight } from "lucide-react";
 import { imageRoles, jury, mentors, type PageKey } from "@/data/site";
-import { ImageTile, Section, SectionHeader } from "@/components/Section";
 
-export function Mentors(_: { navigate: (page: PageKey) => void }) {
+type Profile = (typeof mentors)[number];
+
+function MentorProfile({ profile, featured = false }: { profile: Profile; featured?: boolean }) {
   return (
-    <div className="home-cinema">
-      <section className="cinematic-band relative overflow-hidden border-b gold-divider px-[clamp(20px,4vw,42px)] py-[clamp(64px,8vw,120px)] text-white">
-        <div className="content-wrap grid min-h-[calc(78vh-var(--header-height))] gap-12 lg:grid-cols-[.92fr_1.08fr] lg:items-center">
-          <div className="reveal max-w-4xl">
-            <div className="eyebrow mb-5">Jury & mentors</div>
-            <h1 className="hero-title max-w-4xl">Guidance for every stage.</h1>
-            <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-              Expert mentorship across grooming, public speaking, styling, runway presence and social advocacy.
+    <article className={`mentor-profile reveal${featured ? " mentor-profile--lead" : ""}`}>
+      <div className="mentor-profile__portrait">
+        <img
+          src={profile.bg}
+          alt={`${profile.name}, ${profile.role}`}
+          style={{ objectPosition: profile.position }}
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="mentor-profile__shade" aria-hidden="true" />
+      </div>
+      <div className="mentor-profile__content">
+        <p className="mentor-profile__role">{profile.role}</p>
+        <h3>{profile.name}</h3>
+        <p className="mentor-profile__bio">{profile.bio}</p>
+      </div>
+    </article>
+  );
+}
+
+export function Mentors({ navigate }: { navigate: (page: PageKey) => void }) {
+  const leadership = mentors.slice(0, 2);
+  const faculty = mentors.slice(2);
+
+  return (
+    <div className="mentor-page">
+      <section className="mentor-hero">
+        <div className="content-wrap mentor-hero__inner">
+          <div className="mentor-hero__copy reveal">
+            <p className="mentor-hero__label">Season faculty and guest jury</p>
+            <h1>Guidance for every stage.</h1>
+            <p className="mentor-hero__intro">
+              Expert preparation in presentation, wellbeing, voice, styling and stage confidence from first briefing to finale night.
             </p>
-            <div className="mt-10 grid max-w-xl grid-cols-3 border gold-divider bg-[#020817]/72">
-              {[[mentors.length, "Mentors"], [jury.length, "Jury voices"], ["3", "Cities"]].map(([value, label]) => (
-                <div key={label} className="border-r gold-divider p-5">
-                  <div className="font-display text-4xl text-blush-ink">{value}</div>
-                  <div className="mt-2 text-[10px] uppercase tracking-[.24em] text-blush-accent">{label}</div>
+            <dl className="mentor-hero__facts" aria-label="Mentorship programme at a glance">
+              {[[mentors.length, "Mentors"], [jury.length, "Jury voices"], ["3", "Audition cities"]].map(([value, label]) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
 
-          <div className="reveal relative mx-auto w-full max-w-[620px]">
-            <div className="absolute -inset-5 rounded-t-full border border-blush-accent/20" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-t-full border gold-divider bg-[#020817] shadow-[0_36px_110px_rgba(0,0,0,.42)]">
+          <figure className="mentor-hero__visual reveal">
+            <div className="mentor-hero__frame">
               <img
                 src={imageRoles.mentorHero}
-                alt="Miss and Mrs Maharashtra mentor guidance"
-                className="h-full w-full object-cover"
+                alt="Mrs. Kavita Kharayat, fashion grooming and stylist expert"
                 style={{ objectPosition: "50% 8%" }}
                 loading="eager"
+                decoding="async"
+                fetchPriority="high"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_34%,rgba(4,4,4,.78)),radial-gradient(circle_at_50%_14%,rgba(74,169,255,.12),transparent_36%)]" />
-              <div className="absolute bottom-7 left-7 right-7">
-                <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">Season faculty</p>
-                <h2 className="mt-3 font-display text-[clamp(2.3rem,4vw,4.8rem)] leading-none text-white">Mentorship with presence.</h2>
-              </div>
+              <div className="mentor-hero__shade" aria-hidden="true" />
+              <figcaption>
+                <span>Season faculty</span>
+                <strong>Mentorship with presence.</strong>
+              </figcaption>
             </div>
+          </figure>
+        </div>
+      </section>
+
+      <section className="mentor-roster section-pad">
+        <div className="content-wrap">
+          <header className="mentor-section-heading reveal">
+            <div>
+              <p>Leadership and faculty</p>
+              <h2>Meet the people behind the preparation.</h2>
+            </div>
+            <p>
+              A multidisciplinary team helps contestants build the composure, clarity and professional habits expected of a titleholder.
+            </p>
+          </header>
+
+          <div className="mentor-leadership-grid">
+            {leadership.map((profile) => (
+              <MentorProfile key={profile.name} profile={profile} featured />
+            ))}
+          </div>
+
+          <div className="mentor-subsection-title reveal">
+            <h2>Specialist faculty</h2>
+            <span>{faculty.length} experts</span>
+          </div>
+          <div className="mentor-faculty-grid">
+            {faculty.map((profile) => (
+              <MentorProfile key={profile.name} profile={profile} />
+            ))}
           </div>
         </div>
       </section>
 
-      <Section className="cinematic-band">
-        <SectionHeader eyebrow="Mentors" title="The season faculty." />
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {mentors.map((m) => <ImageTile key={m.name} image={m.bg} title={m.name} meta={m.role} body={m.bio} position={m.position} />)}
+      <section className="mentor-jury-section section-pad">
+        <div className="content-wrap">
+          <header className="mentor-section-heading mentor-section-heading--jury reveal">
+            <div>
+              <p>Guest jury</p>
+              <h2>Perspective from stage, screen and pageantry.</h2>
+            </div>
+            <p>Artists, titleholders and industry guests bring an experienced outside eye to the Maharashtra stage.</p>
+          </header>
+
+          <div className="mentor-jury-grid">
+            {jury.map((member) => (
+              <article key={member.name} className="mentor-jury-card reveal">
+                <img
+                  src={member.bg}
+                  alt={`${member.name}, ${member.role}`}
+                  style={{ objectPosition: member.position }}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="mentor-jury-card__shade" aria-hidden="true" />
+                <div className="mentor-jury-card__caption">
+                  <p>{member.role}</p>
+                  <h3>{member.name}</h3>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
-      </Section>
-      <Section className="cinematic-band">
-        <SectionHeader eyebrow="Guest jury" title="Faces from stage, screen and pageantry." />
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {jury.map((j) => <ImageTile key={j.name} image={j.bg} title={j.name} meta={j.role} position={j.position} />)}
+      </section>
+
+      <section className="mentor-cta section-pad">
+        <div className="content-wrap mentor-cta__inner reveal">
+          <div>
+            <p>Prepare with purpose</p>
+            <h2>Ready to begin your titleholder journey?</h2>
+          </div>
+          <div className="mentor-cta__actions">
+            <button type="button" className="gold-cta" onClick={() => navigate("register")}>
+              Register interest <ArrowRight size={16} aria-hidden="true" />
+            </button>
+            <button type="button" className="mentor-cta__secondary" onClick={() => navigate("contact")}>
+              Meet the team
+            </button>
+          </div>
         </div>
-      </Section>
+      </section>
     </div>
   );
 }
