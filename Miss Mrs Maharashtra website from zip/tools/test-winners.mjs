@@ -58,18 +58,28 @@ try {
     "each season should expose one curated portrait per person",
   );
 
+  assert.deepEqual(
+    ["Miss Maharashtra", "Mrs. Maharashtra"].map((category) => winnerSeasonGroups.filter((season) => season.eyebrow === category).length),
+    [2, 3],
+    "Miss and Mrs categories should expose their own season collections",
+  );
+
   const html = renderToStaticMarkup(createElement(Winners, { navigate: () => {} }));
 
-  assert.equal((html.match(/role="tab"/g) ?? []).length, 6, "all six season tabs should render");
-  assert.equal((html.match(/data-winner-portrait="true"/g) ?? []).length, 4, "the default season should render four unique portraits");
-  assert.match(html, /role="tablist"/, "season controls should be exposed as a tab list");
+  assert.equal((html.match(/data-winner-category-tab="true"/g) ?? []).length, 2, "two winner category tabs should render");
+  assert.equal((html.match(/data-winner-season-tab="true"/g) ?? []).length, 2, "the default Miss category should render two season tabs");
+  assert.equal((html.match(/data-winner-portrait="true"/g) ?? []).length, 3, "the default Miss season should render three unique portraits");
+  assert.match(html, /aria-label="Winner categories"/, "Miss and Mrs controls should be exposed as a category tab list");
+  assert.match(html, /aria-label="Miss Maharashtra seasons"/, "season controls should follow the active category");
   assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
   assert.match(html, /data-winners-hero="split"/, "winners page should retain the split editorial hero");
   assert.match(html, /Crowned on stage\./, "featured winner portrait should carry its hero caption");
+  assert.match(html, /Miss Maharashtra · Season 3 · 2nd Runner-Up/, "hero caption should identify the featured titleholder result");
   assert.match(html, /\/missmrs-assets\/drive-mm\/DSC00068\.jpg/, "hero should feature the selected blue-crown portrait");
+  assert.doesNotMatch(html, /Miss Supraglobal/, "the Maharashtra category tabs should not mix in the companion crown pathway");
   assert.doesNotMatch(html, /View full season|Featured titleholders|M&amp;M gallery|Featured frame/, "removed archive sections should not render");
 
-  console.log("Winners gallery test passed: six season tabs and one curated portrait per person.");
+  console.log("Winners gallery test passed: separate Miss and Mrs tabs with category-specific seasons.");
 } finally {
   await vite.close();
 }
