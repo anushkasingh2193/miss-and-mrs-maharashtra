@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import { imageRoles, winnerSeasonGroups, type PageKey } from "@/data/site";
+import { winnerSeasonGroups, type PageKey } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
 import { cn } from "@/lib/utils";
 
@@ -24,13 +24,13 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
     <>
       <section data-winners-hero="full-bleed" className="relative grid min-h-[clamp(560px,76svh,760px)] place-items-center overflow-hidden border-b gold-divider bg-[#061122] text-white">
         <img
-          src={imageRoles.galleryHero}
-          alt="Miss and Mrs. Maharashtra finale stage gathering"
-          className="absolute inset-0 h-full w-full object-cover object-center brightness-[.62] saturate-[.88]"
+          src="/missmrs-assets/featured/newsroom-titleholders-cutout.png"
+          alt="Miss and Mrs. Maharashtra crowned titleholders"
+          className="absolute inset-0 h-full w-full object-contain object-bottom px-[clamp(8px,3vw,48px)] pt-[clamp(96px,11vw,140px)] opacity-70 brightness-[.72]"
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-[#020817]/38" />
+        <div className="absolute inset-0 bg-[#020817]/24" />
         <h1 className="relative z-10 px-6 text-center font-display text-[clamp(4rem,9vw,8rem)] leading-none text-white [text-shadow:0_3px_28px_rgba(0,0,0,.72)]">
           Winners Gallery
         </h1>
