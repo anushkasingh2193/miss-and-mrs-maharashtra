@@ -545,7 +545,7 @@ export const contactRows = [
   { k: "Office", v: "Kara Zoya Pvt Ltd, 3rd Floor, Sumit Apartments, Plot 493, Professor's Colony, Hanuman Nagar, Nagpur, Maharashtra 440024" },
   { k: "Email", v: "info@missandmrsmaharashtra.org" },
   { k: "Phone", v: "+91 93227 10192 · +91 75063 12201" },
-  { k: "Hours", v: "Monday to Friday, 8:00 - 16:00 IST" },
+  { k: "Hours", v: "Available all time" },
 ];
 
 export const mapUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29773.42880645608!2d79.104182!3d21.125376!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c177501de04d%3A0xddc79fbb0639764a!2sKara%20Zoya%20Pvt%20Ltd.!5e0!3m2!1sen!2sus!4v1762935048528!5m2!1sen!2sus";
