@@ -1,73 +1,81 @@
 import { ArrowRight, CalendarDays, ExternalLink, Newspaper, PlayCircle } from "lucide-react";
-import { gallery, latestNews, newsroomArticles, press, pressKit, type PageKey, youtubeChannelUrl } from "@/data/site";
+import { latestNews, newsroomArticles, press, pressKit, type PageKey, youtubeChannelUrl } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
 import { YouTubePreview } from "@/components/VideoBento";
 
 export function Press(_: { navigate: (page: PageKey) => void }) {
   const leadNews = latestNews[0];
   const secondaryNews = latestNews.slice(1);
+  const leadVideoId = leadNews.src.match(/embed\/([^?]+)/)?.[1];
+  const leadVideoUrl = leadVideoId ? `https://www.youtube.com/watch?v=${leadVideoId}` : youtubeChannelUrl;
 
   return (
     <>
-      <section className="relative overflow-hidden border-b gold-divider bg-[#061122] text-white">
-        <img
-          src={gallery[3]}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover object-[50%_12%] opacity-54"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#061122] via-[#061122]/68 to-[#061122]/88" />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122] to-transparent" />
-        <div className="content-wrap relative z-10 grid min-h-[68vh] gap-10 px-[clamp(20px,4vw,42px)] pb-[clamp(48px,7vw,88px)] pt-[clamp(112px,12vw,156px)] lg:grid-cols-[.92fr_.72fr] lg:items-end">
-          <div className="max-w-3xl">
-            <div className="eyebrow mb-5 text-blush-accent">Official newsroom</div>
-            <h1 className="font-display text-[clamp(4.4rem,11vw,9.5rem)] leading-[.86] text-blush-ink">
-              News & coverage.
-            </h1>
-            <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-              Follow official announcements, contestant stories, stage highlights and media-ready updates from the Miss & Mrs. Maharashtra season.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#latest-news"
-                className="inline-flex items-center gap-3 bg-blush-accent px-6 py-4 text-xs font-semibold uppercase tracking-[.2em] text-black transition hover:bg-blush-hover"
-              >
-                Read latest updates <ArrowRight size={16} />
-              </a>
-              <a
-                href={youtubeChannelUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-3 border border-blush-wash/30 px-6 py-4 text-xs font-semibold uppercase tracking-[.2em] text-blush-wash transition hover:border-blush-accent hover:text-blush-accent"
-              >
-                Watch video coverage <ExternalLink size={15} />
-              </a>
+      <section data-press-hero="editorial" className="overflow-hidden border-b gold-divider bg-[#061122] text-white">
+        <div className="grid lg:min-h-[clamp(620px,78svh,760px)] lg:grid-cols-[.78fr_1.22fr]">
+          <div className="relative flex min-h-[500px] items-end border-b gold-divider px-[clamp(24px,5vw,84px)] pb-[clamp(48px,7vw,84px)] pt-[clamp(128px,15vw,168px)] lg:min-h-0 lg:border-b-0 lg:border-r">
+            <div className="max-w-xl">
+              <div className="eyebrow mb-6 text-blush-accent">Official newsroom</div>
+              <h1 className="font-display text-[clamp(4rem,7vw,6.8rem)] leading-[.9] text-blush-ink">
+                Newsroom.
+              </h1>
+              <p className="mt-7 max-w-lg text-[17px] font-light leading-8 text-blush-body">
+                Official announcements, contestant stories and verified coverage from the Maharashtra stage.
+              </p>
+              <div className="mt-9 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+                <a
+                  href="#latest-news"
+                  className="inline-flex items-center gap-3 bg-blush-accent px-6 py-4 text-xs font-semibold uppercase tracking-[.2em] text-black transition hover:bg-blush-hover"
+                >
+                  Read latest updates <ArrowRight size={16} />
+                </a>
+                <a
+                  href={youtubeChannelUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 border-b border-blush-wash/35 pb-2 text-xs font-semibold uppercase tracking-[.2em] text-blush-wash transition hover:border-blush-accent hover:text-blush-accent"
+                >
+                  YouTube channel <ExternalLink size={14} />
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="reveal hidden border gold-divider bg-[#061122]/86 shadow-2xl shadow-black/30 backdrop-blur lg:block">
-            <YouTubePreview
-              src={leadNews.src}
-              title={leadNews.title}
-              feature={leadNews.feature}
-              className="aspect-video"
-            />
-            <div className="p-6">
-              <div className="mb-3 flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
-                <span>Featured</span>
+          <figure className="grid min-h-[600px] grid-rows-[1fr_auto] bg-[#020817] lg:min-h-0">
+            <a
+              href={leadVideoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="group relative block min-h-[390px] overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blush-accent lg:min-h-0"
+              aria-label={`Watch ${leadNews.title}`}
+            >
+              <img
+                src="/missmrs-assets/featured/mrs-group-runway.jpg"
+                alt="Miss and Mrs. Maharashtra titleholders on the finale runway"
+                className="h-full w-full object-cover object-center opacity-90 transition duration-700 group-hover:scale-[1.015] group-hover:opacity-100"
+                loading="eager"
+                decoding="async"
+              />
+              <span className="absolute left-6 top-6 grid size-14 place-items-center rounded-full border border-blush-accent/70 bg-[#061122]/90 text-blush-accent sm:left-8 sm:top-8">
+                <PlayCircle size={23} />
+              </span>
+              <span className="absolute bottom-6 right-6 bg-[#061122]/92 px-4 py-3 text-[10px] font-semibold uppercase tracking-[.2em] text-blush-wash sm:bottom-8 sm:right-8">
+                Watch coverage
+              </span>
+            </a>
+            <figcaption className="border-t gold-divider bg-[#04101f] px-[clamp(24px,4vw,56px)] py-[clamp(28px,4vw,44px)]">
+              <div className="flex flex-wrap gap-3 text-[10px] uppercase tracking-[.22em] text-blush-accent">
+                <span>Featured story</span>
+                <span aria-hidden="true">/</span>
                 <span>{leadNews.date}</span>
+                <span aria-hidden="true">/</span>
+                <span>{leadNews.feature}</span>
               </div>
-              <h2 className="font-display text-3xl leading-tight text-blush-ink">{leadNews.title}</h2>
-              <a
-                href="#latest-news"
-                className="mt-5 inline-flex items-center gap-3 border-t gold-divider pt-4 text-xs font-semibold uppercase tracking-[.2em] text-blush-accent transition hover:text-blush-hover"
-              >
-                View full newsroom <ArrowRight size={15} />
-              </a>
-            </div>
-          </div>
+              <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.2rem,4vw,4rem)] leading-[.98] text-blush-ink">
+                {leadNews.title}
+              </h2>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
