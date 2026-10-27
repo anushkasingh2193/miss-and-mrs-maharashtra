@@ -64,6 +64,9 @@ try {
   assert.equal((html.match(/data-winner-portrait="true"/g) ?? []).length, 4, "the default season should render four unique portraits");
   assert.match(html, /role="tablist"/, "season controls should be exposed as a tab list");
   assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
+  assert.match(html, /data-winners-hero="split"/, "winners page should retain the split editorial hero");
+  assert.match(html, /Crowned on stage\./, "featured winner portrait should carry its hero caption");
+  assert.match(html, /\/missmrs-assets\/drive-mm\/DSC00068\.jpg/, "hero should feature the selected blue-crown portrait");
   assert.doesNotMatch(html, /View full season|Featured titleholders|M&amp;M gallery|Featured frame/, "removed archive sections should not render");
 
   console.log("Winners gallery test passed: six season tabs and one curated portrait per person.");
