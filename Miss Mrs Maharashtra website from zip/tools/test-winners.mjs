@@ -1,0 +1,72 @@
+import assert from "node:assert/strict";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { createServer } from "vite";
+
+const expectedSeasonPortraits = [
+  [
+    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/AKAL3979.jpg",
+    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/AKAL4002.jpg",
+    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/DSC_6501.jpg",
+    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/DSC_6792.jpg",
+  ],
+  [
+    "/missmrs-assets/curated/sneha-kalbhor.jpg",
+    "/missmrs-assets/curated/apoorva-shirbhate.jpg",
+    "/missmrs-assets/curated/archana-kamble.jpg",
+  ],
+  [
+    "/missmrs-assets/drive-mm/DSC00068.jpg",
+    "/missmrs-assets/drive-mm/DSC00076.jpg",
+    "/missmrs-assets/drive-mm/DSC00092.jpg",
+    "/missmrs-assets/drive-mm/DSC00097.jpg",
+  ],
+  [
+    "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/navdeep.jpg",
+    "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/ZOHR2080.jpg",
+    "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/ZOHR2090.jpg",
+  ],
+  [
+    "/missmrs-assets/website-zip-portrait/MIS/s3 winners/TS102124.jpg",
+    "/missmrs-assets/website-zip-portrait/MIS/s3 winners/TS102129.jpg",
+    "/missmrs-assets/website-zip-portrait/MIS/s3 winners/TS102142.jpg",
+  ],
+  [
+    "/missmrs-assets/website-zip-portrait/MS/winners/TS100950.jpg",
+    "/missmrs-assets/website-zip-portrait/MS/winners/TS102272.jpg",
+    "/missmrs-assets/website-zip-portrait/MS/winners/TS102292.jpg",
+    "/missmrs-assets/website-zip-portrait/MS/winners/TS102311.jpg",
+    "/missmrs-assets/website-zip-portrait/MS/winners/TS102338.jpg",
+  ],
+];
+
+const vite = await createServer({
+  appType: "custom",
+  logLevel: "silent",
+  server: { middlewareMode: true },
+});
+
+try {
+  const [{ Winners }, { winnerSeasonGroups }] = await Promise.all([
+    vite.ssrLoadModule("/src/pages/Winners.tsx"),
+    vite.ssrLoadModule("/src/data/site.ts"),
+  ]);
+
+  assert.deepEqual(
+    winnerSeasonGroups.map((season) => season.images),
+    expectedSeasonPortraits,
+    "each season should expose one curated portrait per person",
+  );
+
+  const html = renderToStaticMarkup(createElement(Winners, { navigate: () => {} }));
+
+  assert.equal((html.match(/role="tab"/g) ?? []).length, 6, "all six season tabs should render");
+  assert.equal((html.match(/data-winner-portrait="true"/g) ?? []).length, 4, "the default season should render four unique portraits");
+  assert.match(html, /role="tablist"/, "season controls should be exposed as a tab list");
+  assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
+  assert.doesNotMatch(html, /View full season|Featured titleholders|M&amp;M gallery|Featured frame/, "removed archive sections should not render");
+
+  console.log("Winners gallery test passed: six season tabs and one curated portrait per person.");
+} finally {
+  await vite.close();
+}

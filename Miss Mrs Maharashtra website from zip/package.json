@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test": "node tools/test-mentors.mjs && node tools/test-homepage.mjs",
+    "test": "node tools/test-mentors.mjs && node tools/test-homepage.mjs && node tools/test-winners.mjs",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

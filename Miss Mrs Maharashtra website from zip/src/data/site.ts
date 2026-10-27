@@ -217,59 +217,70 @@ export const winnersGallery = [
   `${LOCAL}mentor/WhatsApp-Image-2024-01-02-at-5.24.03-PM.jpeg`,
 ];
 
-const excludedWinnerFrames = [
-  "DSC09998.jpg",
-  "TS101775.jpg",
-  "TS101776.jpg",
-  "TS101964.jpg",
-  "TS101968.jpg",
-  "TS108536.jpg",
-  "TS108538.jpg",
-];
-
-const zipFolder = (folder: string) =>
-  portraitZipWinnerGallery.filter(
-    (image) =>
-      image.startsWith(`${PORTRAIT_WEBSITE_ZIP}${folder}/`) &&
-      !excludedWinnerFrames.some((fileName) => image.endsWith(fileName)),
-  );
-
 export const winnerSeasonGroups = [
   {
     eyebrow: "Mrs. Maharashtra",
     title: "Season 1 Winners",
     note: "The first titleholder archive from the Miss & Mrs. Maharashtra stage.",
-    images: zipFolder("M&M/M&M s1 winners"),
+    images: [
+      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/AKAL3979.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/AKAL4002.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/DSC_6501.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/DSC_6792.jpg`,
+    ],
   },
   {
     eyebrow: "Mrs. Maharashtra",
     title: "Season 2 Winners",
     note: "Crowning portraits, runway frames and titleholder moments from Season 2.",
-    images: zipFolder("M&M/M&M s2 winners"),
+    images: [
+      `${CURATED}sneha-kalbhor.jpg`,
+      `${CURATED}apoorva-shirbhate.jpg`,
+      `${CURATED}archana-kamble.jpg`,
+    ],
   },
   {
     eyebrow: "Mrs. Maharashtra",
     title: "Season 3 Winners",
     note: "A full season gallery of finalists, winners and coronation night highlights.",
-    images: [...mAndMWinnerImages, ...zipFolder("M&M/M&M s3 winners")],
+    images: [
+      `${DRIVE_MM}DSC00068.jpg`,
+      `${DRIVE_MM}DSC00076.jpg`,
+      `${DRIVE_MM}DSC00092.jpg`,
+      `${DRIVE_MM}DSC00097.jpg`,
+    ],
   },
   {
     eyebrow: "Miss Maharashtra",
     title: "Season 2 Winners",
     note: "Miss category titleholder images from the Season 2 winner archive.",
-    images: zipFolder("MIS/s2 Winners"),
+    images: [
+      `${PORTRAIT_WEBSITE_ZIP}MIS/s2 Winners/navdeep.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MIS/s2 Winners/ZOHR2080.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MIS/s2 Winners/ZOHR2090.jpg`,
+    ],
   },
   {
     eyebrow: "Miss Maharashtra",
     title: "Season 3 Winners",
     note: "Season 3 Miss Maharashtra winners and runway portraits.",
-    images: zipFolder("MIS/s3 winners"),
+    images: [
+      `${PORTRAIT_WEBSITE_ZIP}MIS/s3 winners/TS102124.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MIS/s3 winners/TS102129.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MIS/s3 winners/TS102142.jpg`,
+    ],
   },
   {
     eyebrow: "Miss Supraglobal",
     title: "Winner Gallery",
     note: "Featured winner portraits from the companion crown pathway.",
-    images: zipFolder("MS/winners"),
+    images: [
+      `${PORTRAIT_WEBSITE_ZIP}MS/winners/TS100950.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MS/winners/TS102272.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MS/winners/TS102292.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MS/winners/TS102311.jpg`,
+      `${PORTRAIT_WEBSITE_ZIP}MS/winners/TS102338.jpg`,
+    ],
   },
 ];
 
