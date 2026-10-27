@@ -19,7 +19,7 @@ const testimonials: Testimonial[] = [
   })),
   { quote: "The pageant celebrates beauty, confidence, talent and empowerment on one stage.", image: "/missmrs-assets/curated/sandhya-shetty.jpg", name: "Sandhya Shetty", role: "Anchor, Season 1" },
   { quote: "A beautiful celebration of womanhood, bringing together confident and inspiring women.", image: "/missmrs-assets/curated/anjali-rathee.jpg", name: "Anjali Rathee", role: "Mrs. India 2024" },
-  { quote: "The mentoring journey helps contestants find presence, voice and purpose before they reach the runway.", image: "/missmrs-assets/mentor/Megha-kapoor-amesar-1367x2048.jpg", name: "Megha Kapoor Amesar", role: "Makeover Partner" },
+  { quote: "The mentoring journey helps contestants find presence, voice and purpose before they reach the runway.", image: "/missmrs-assets/mentor/megha-kapoor-amesar-drive.webp", name: "Megha Kapoor Amesar", role: "Makeover Partner" },
   { quote: "Every finalist leaves with more than photos: she leaves with confidence, discipline and a stronger public voice.", image: "/missmrs-assets/mentor/Zoya-sheikh--scaled.jpg", name: "Zoya Siraj Sheikh", role: "Founder & Chairman" },
   { quote: "Season 3 brings the same serious standard to more cities, more contestants and a larger finale stage.", image: "/missmrs-assets/images/TS101966.JPG", name: "Season Office", role: "Kara Zoya Pvt Ltd" },
   { quote: "A state platform with national ambition, built for women ready to represent Maharashtra with grace.", image: "/missmrs-assets/gallery/TS101989.JPG", name: "Miss & Mrs. Maharashtra", role: "Season 3" },

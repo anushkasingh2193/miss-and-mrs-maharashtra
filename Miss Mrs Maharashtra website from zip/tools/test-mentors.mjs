@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 
 const siteSource = readFileSync(new URL("../src/data/site.ts", import.meta.url), "utf8");
 const mentorsPageSource = readFileSync(new URL("../src/pages/Mentors.tsx", import.meta.url), "utf8");
+const testimonialsSource = readFileSync(new URL("../src/components/ui/testimonials-6.tsx", import.meta.url), "utf8");
 const mentorBlock = siteSource.match(/export const mentors = \[([\s\S]*?)\n\];\n\nexport const jury/);
 
 assert.ok(mentorBlock, "mentor roster should be exported before the jury roster");
@@ -11,6 +12,7 @@ const expectedMentors = [
   ["Mrs. Zoya Siraj Sheikh", "Founder & Chairman"],
   ["Mr. Siraj Sheikh", "Chairman"],
   ["Mrs. Kavita Kharayat", "Fashion Grooming & Stylist Expert"],
+  ["Mr. Sunny Kamble", "Show Choreographer & Ramp Walk Trainer"],
   ["Megha Kapoor Amesar", "Makeover Expert"],
   ["Mrs. Sonali Nakshine", "Voice Modulation Expert"],
   ["Miss Mohini Sharma", "Mentor, Season 1"],
@@ -25,8 +27,10 @@ for (const [name, role] of expectedMentors) {
   assert.match(mentorBlock[1], new RegExp(`role: "${role.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`));
 }
 
-assert.equal((mentorBlock[1].match(/\{ name:/g) ?? []).length, 10, "mentor roster should contain ten profiles");
-assert.match(mentorBlock[1], /mentor\/megha-kapoor-amesar-verified\.jpg/);
+assert.equal((mentorBlock[1].match(/\{ name:/g) ?? []).length, 11, "mentor roster should contain eleven profiles");
+assert.match(mentorBlock[1], /mentor\/sunny-kamble-drive\.webp/);
+assert.match(mentorBlock[1], /mentor\/megha-kapoor-amesar-drive\.webp/);
+assert.match(mentorBlock[1], /mentor\/sonali-nakshine-drive\.webp/);
 assert.match(mentorBlock[1], /mentor\/dr-girish-chhabrani-verified\.webp/);
 assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-verified\.jpg/);
 assert.match(mentorBlock[1], /mentor\/soniya-khatri-verified\.jpg/);
@@ -45,5 +49,6 @@ assert.match(mentorsPageSource, /mentor-leadership-grid/, "mentors page should d
 assert.match(mentorsPageSource, /mentor-faculty-grid/, "mentors page should use a dedicated faculty layout");
 assert.match(mentorsPageSource, /mentor-jury-grid/, "guest jury should use a dedicated editorial layout");
 assert.match(mentorsPageSource, /Meet the people behind the preparation\./, "mentors page should explain the faculty section");
+assert.match(testimonialsSource, /mentor\/megha-kapoor-amesar-drive\.webp/, "Megha's confirmed portrait should be used consistently on the homepage");
 
-console.log("Mentor roster test passed: 10 profiles with current roles and verified assets.");
+console.log("Mentor roster test passed: 11 profiles with current roles and confirmed assets.");
