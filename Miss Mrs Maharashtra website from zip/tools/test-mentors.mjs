@@ -15,7 +15,6 @@ const expectedMentors = [
   ["Mr. Sunny Kamble", "Show Choreographer & Ramp Walk Trainer"],
   ["Megha Kapoor Amesar", "Makeover Expert"],
   ["Mrs. Sonali Nakshine", "Voice Modulation Expert"],
-  ["Miss Mohini Sharma", "Mentor, Season 1"],
   ["Dr. Girish Chhabrani", "Smile Expert"],
   ["Dr. Anshul Jain", "Skin Expert"],
   ["Mrs. Soniya Khatri", "Diet Expert"],
@@ -27,7 +26,8 @@ for (const [name, role] of expectedMentors) {
   assert.match(mentorBlock[1], new RegExp(`role: "${role.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`));
 }
 
-assert.equal((mentorBlock[1].match(/\{ name:/g) ?? []).length, 11, "mentor roster should contain eleven profiles");
+assert.equal((mentorBlock[1].match(/\{ name:/g) ?? []).length, 10, "mentor roster should contain ten profiles");
+assert.doesNotMatch(mentorBlock[1], /Miss Mohini Sharma/, "removed mentor profiles should not remain in the roster");
 assert.match(mentorBlock[1], /mentor\/sunny-kamble-drive\.webp/);
 assert.match(mentorBlock[1], /mentor\/megha-kapoor-amesar-drive\.webp/);
 assert.match(mentorBlock[1], /mentor\/sonali-nakshine-drive\.webp/);
@@ -41,7 +41,6 @@ assert.match(siteSource, /mentorHero: `\$\{LOCAL\}mentor\/kavita-kharayat\.webp`
 assert.match(mentorBlock[1], /mentor\/kavita-kharayat\.webp/);
 assert.match(siteSource, /mentor\/img_9410-optimized\.webp/);
 assert.match(siteSource, /mentor\/img_9411-optimized\.webp/);
-assert.match(siteSource, /mentor\/img_9412-optimized\.webp/);
 assert.match(siteSource, /mentor\/img_9413-optimized\.webp/);
 assert.match(siteSource, /mentor\/img_9414-optimized\.webp/);
 assert.match(mentorsPageSource, /\[mentors\.length, "Mentors"\]/, "mentor count should follow the roster data");
@@ -51,4 +50,4 @@ assert.match(mentorsPageSource, /mentor-jury-grid/, "guest jury should use a ded
 assert.match(mentorsPageSource, /Meet the people behind the preparation\./, "mentors page should explain the faculty section");
 assert.match(testimonialsSource, /mentor\/megha-kapoor-amesar-drive\.webp/, "Megha's confirmed portrait should be used consistently on the homepage");
 
-console.log("Mentor roster test passed: 11 profiles with current roles and confirmed assets.");
+console.log("Mentor roster test passed: 10 profiles with current roles and confirmed assets.");
