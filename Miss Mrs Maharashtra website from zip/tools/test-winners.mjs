@@ -72,10 +72,10 @@ try {
   assert.match(html, /aria-label="Winner categories"/, "Miss and Mrs controls should be exposed as a category tab list");
   assert.match(html, /aria-label="Miss Maharashtra seasons"/, "season controls should follow the active category");
   assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
-  assert.match(html, /data-winners-hero="split"/, "winners page should retain the split editorial hero");
-  assert.match(html, /Crowned on stage\./, "featured winner portrait should carry its hero caption");
-  assert.match(html, /Miss Maharashtra · Season 3 · 2nd Runner-Up/, "hero caption should identify the featured titleholder result");
-  assert.match(html, /\/missmrs-assets\/drive-mm\/DSC00068\.jpg/, "hero should feature the selected blue-crown portrait");
+  assert.match(html, /data-winners-hero="full-bleed"/, "winners page should use one full-width photographic hero");
+  assert.match(html, /Winners Gallery/, "winners hero should contain only the centered gallery title");
+  assert.match(html, /\/missmrs-assets\/drive-mm\/DSC09813\.jpg/, "winners hero should use the wide finale stage photograph");
+  assert.doesNotMatch(html, /Crowned on stage\.|Hall of fame/, "the former split-hero labels should not render");
   assert.doesNotMatch(html, /Miss Supraglobal/, "the Maharashtra category tabs should not mix in the companion crown pathway");
   assert.doesNotMatch(html, /View full season|Featured titleholders|M&amp;M gallery|Featured frame/, "removed archive sections should not render");
 

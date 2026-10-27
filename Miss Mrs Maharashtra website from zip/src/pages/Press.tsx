@@ -46,20 +46,20 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
               href={leadVideoUrl}
               target="_blank"
               rel="noreferrer"
-              className="group relative block min-h-[390px] overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blush-accent lg:min-h-0"
+              className="group relative block min-h-[390px] overflow-hidden bg-[#07152b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-blush-accent lg:min-h-0"
               aria-label={`Watch ${leadNews.title}`}
             >
               <img
-                src="/missmrs-assets/featured/mrs-group-runway.jpg"
+                src="/missmrs-assets/featured/newsroom-titleholders-cutout.png"
                 alt="Miss and Mrs. Maharashtra titleholders on the finale runway"
-                className="h-full w-full object-cover object-center opacity-90 transition duration-700 group-hover:scale-[1.015] group-hover:opacity-100"
+                className="h-full w-full object-contain object-bottom px-[clamp(10px,2vw,28px)] pt-16 transition duration-700 group-hover:scale-[1.015]"
                 loading="eager"
                 decoding="async"
               />
               <span className="absolute left-6 top-6 grid size-14 place-items-center rounded-full border border-blush-accent/70 bg-[#061122]/90 text-blush-accent sm:left-8 sm:top-8">
                 <PlayCircle size={23} />
               </span>
-              <span className="absolute bottom-6 right-6 bg-[#061122]/92 px-4 py-3 text-[10px] font-semibold uppercase tracking-[.2em] text-blush-wash sm:bottom-8 sm:right-8">
+              <span className="absolute right-6 top-7 border-b border-blush-accent/60 pb-2 text-[10px] font-semibold uppercase tracking-[.2em] text-blush-wash sm:right-8 sm:top-9">
                 Watch coverage
               </span>
             </a>

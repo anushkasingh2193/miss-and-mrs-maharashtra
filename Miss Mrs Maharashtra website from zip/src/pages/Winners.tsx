@@ -22,47 +22,18 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
 
   return (
     <>
-      <section data-winners-hero="split" className="overflow-hidden border-b gold-divider bg-[#061122] text-white">
-        <div className="grid lg:min-h-[clamp(620px,78svh,760px)] lg:grid-cols-[1.04fr_.96fr]">
-          <div className="relative flex min-h-[440px] items-end overflow-hidden px-[clamp(24px,6vw,88px)] py-[clamp(52px,7vw,88px)] lg:min-h-0">
-            <img
-              src={imageRoles.galleryHero}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover object-[52%_38%] opacity-[.16]"
-              loading="eager"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#020817]/94 via-[#061122]/86 to-[#061122]/72" />
-
-            <div className="relative z-10 max-w-2xl">
-              <div className="eyebrow mb-6 text-blush-accent">Hall of fame</div>
-              <h1 className="font-display text-[clamp(4rem,7vw,7.25rem)] leading-[.86] text-blush-ink">
-                Winners<br />gallery.
-              </h1>
-              <p className="mt-7 max-w-xl text-base font-light leading-8 text-blush-body sm:text-lg">
-                Crown portraits and titleholder moments, season by season.
-              </p>
-            </div>
-          </div>
-
-          <figure className="grid min-h-[68svh] grid-rows-[1fr_auto] overflow-hidden border-t gold-divider bg-[#020817] lg:min-h-0 lg:border-l lg:border-t-0">
-            <div className="relative min-h-[54svh] overflow-hidden lg:min-h-0">
-              <img
-                src={imageRoles.titleholderSpotlight}
-                alt="Miss Maharashtra Season 3 titleholder wearing her crown and blue gown"
-                className="absolute inset-0 h-full w-full object-cover object-[50%_6%] brightness-[.92] saturate-[.92]"
-                loading="eager"
-                decoding="async"
-              />
-            </div>
-            <figcaption className="border-t gold-divider bg-[#04101f] px-[clamp(24px,4vw,48px)] py-6 sm:py-7">
-              <span className="block text-[10px] uppercase tracking-[.22em] text-blush-accent">Miss Maharashtra · Season 3 · 2nd Runner-Up</span>
-              <strong className="mt-2 block font-display text-[clamp(2rem,3vw,3.6rem)] font-normal leading-none text-white">
-                Crowned on stage.
-              </strong>
-            </figcaption>
-          </figure>
-        </div>
+      <section data-winners-hero="full-bleed" className="relative grid min-h-[clamp(560px,76svh,760px)] place-items-center overflow-hidden border-b gold-divider bg-[#061122] text-white">
+        <img
+          src={imageRoles.galleryHero}
+          alt="Miss and Mrs. Maharashtra finale stage gathering"
+          className="absolute inset-0 h-full w-full object-cover object-center brightness-[.62] saturate-[.88]"
+          loading="eager"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-[#020817]/38" />
+        <h1 className="relative z-10 px-6 text-center font-display text-[clamp(4rem,9vw,8rem)] leading-none text-white [text-shadow:0_3px_28px_rgba(0,0,0,.72)]">
+          Winners Gallery
+        </h1>
       </section>
 
       <Section className="cinematic-band">

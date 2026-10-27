@@ -16,6 +16,7 @@ try {
   assert.match(html, /data-press-hero="editorial"/, "press page should use the editorial split hero");
   assert.match(html, /Newsroom\./, "press hero should use a concise newsroom heading");
   assert.match(html, /Official announcements, contestant stories and verified coverage/, "press hero copy should stay concise");
+  assert.match(html, /newsroom-titleholders-cutout\.png/, "press hero should use the transparent titleholder cutout");
   assert.match(html, /href="#latest-news"/, "press hero should link directly to the latest stories");
   assert.match(html, /id="latest-news"/, "the latest-news target should remain available");
   assert.doesNotMatch(html, /News &amp; coverage\./, "the oversized legacy heading should be removed");
