@@ -16,10 +16,9 @@ const expectedSeasonPortraits = [
     "/missmrs-assets/curated/archana-kamble.jpg",
   ],
   [
-    "/missmrs-assets/drive-mm/DSC00068.jpg",
-    "/missmrs-assets/drive-mm/DSC00076.jpg",
-    "/missmrs-assets/drive-mm/DSC00092.jpg",
-    "/missmrs-assets/drive-mm/DSC00097.jpg",
+    "/missmrs-assets/season-3-winners/mrs-maharashtra-winner.jpg",
+    "/missmrs-assets/season-3-winners/mrs-maharashtra-first-runner-up.jpg",
+    "/missmrs-assets/season-3-winners/mrs-maharashtra-second-runner-up.jpg",
   ],
   [
     "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/navdeep.jpg",
@@ -27,9 +26,9 @@ const expectedSeasonPortraits = [
     "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/ZOHR2090.jpg",
   ],
   [
-    "/missmrs-assets/website-zip-portrait/MIS/s3 winners/TS102124.jpg",
-    "/missmrs-assets/website-zip-portrait/MIS/s3 winners/TS102129.jpg",
-    "/missmrs-assets/website-zip-portrait/MIS/s3 winners/TS102142.jpg",
+    "/missmrs-assets/season-3-winners/miss-supraglobal-india.jpg",
+    "/missmrs-assets/season-3-winners/miss-maharashtra-first-runner-up.jpg",
+    "/missmrs-assets/season-3-winners/miss-maharashtra-second-runner-up.jpg",
   ],
   [
     "/missmrs-assets/website-zip-portrait/MS/winners/TS100950.jpg",
@@ -62,6 +61,13 @@ try {
     ["Miss Maharashtra", "Mrs. Maharashtra"].map((category) => winnerSeasonGroups.filter((season) => season.eyebrow === category).length),
     [2, 3],
     "Miss and Mrs categories should expose their own season collections",
+  );
+
+  const seasonThreeGroups = winnerSeasonGroups.filter((season) => season.title === "Season 3 Winners");
+  assert.deepEqual(
+    seasonThreeGroups.map((season) => season.images.length),
+    [3, 3],
+    "each Season 3 category should contain its three sash-matched titleholders",
   );
 
   const html = renderToStaticMarkup(createElement(Winners, { navigate: () => {} }));

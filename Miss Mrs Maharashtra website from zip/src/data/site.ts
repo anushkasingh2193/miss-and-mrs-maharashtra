@@ -16,6 +16,7 @@ const WEBSITE_ZIP = `${LOCAL}website-zip/`;
 const PORTRAIT_WEBSITE_ZIP = `${LOCAL}website-zip-portrait/`;
 const CURATED = `${LOCAL}curated/`;
 const DRIVE_MM = `${LOCAL}drive-mm/`;
+const SEASON_3_WINNERS = `${LOCAL}season-3-winners/`;
 
 const stock = {
   runway: `${FAST}runway.jpg`,
@@ -242,12 +243,11 @@ export const winnerSeasonGroups = [
   {
     eyebrow: "Mrs. Maharashtra",
     title: "Season 3 Winners",
-    note: "A full season gallery of finalists, winners and coronation night highlights.",
+    note: "Mrs. Maharashtra winner, first runner-up and second runner-up from Season 3.",
     images: [
-      `${DRIVE_MM}DSC00068.jpg`,
-      `${DRIVE_MM}DSC00076.jpg`,
-      `${DRIVE_MM}DSC00092.jpg`,
-      `${DRIVE_MM}DSC00097.jpg`,
+      `${SEASON_3_WINNERS}mrs-maharashtra-winner.jpg`,
+      `${SEASON_3_WINNERS}mrs-maharashtra-first-runner-up.jpg`,
+      `${SEASON_3_WINNERS}mrs-maharashtra-second-runner-up.jpg`,
     ],
   },
   {
@@ -263,11 +263,11 @@ export const winnerSeasonGroups = [
   {
     eyebrow: "Miss Maharashtra",
     title: "Season 3 Winners",
-    note: "Season 3 Miss Maharashtra winners and runway portraits.",
+    note: "Miss category titleholder, first runner-up and second runner-up from Season 3.",
     images: [
-      `${PORTRAIT_WEBSITE_ZIP}MIS/s3 winners/TS102124.jpg`,
-      `${PORTRAIT_WEBSITE_ZIP}MIS/s3 winners/TS102129.jpg`,
-      `${PORTRAIT_WEBSITE_ZIP}MIS/s3 winners/TS102142.jpg`,
+      `${SEASON_3_WINNERS}miss-supraglobal-india.jpg`,
+      `${SEASON_3_WINNERS}miss-maharashtra-first-runner-up.jpg`,
+      `${SEASON_3_WINNERS}miss-maharashtra-second-runner-up.jpg`,
     ],
   },
   {
