@@ -60,7 +60,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
     <div className="home-cinema">
       <section className="relative overflow-hidden border-b gold-divider bg-[#031026] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_26%,rgba(74,169,255,.15),transparent_30%),radial-gradient(circle_at_18%_74%,rgba(74,169,255,.08),transparent_32%),linear-gradient(180deg,#031026,#061122_54%,#031026)]" />
-        <div className="content-wrap relative z-10 grid min-h-[calc(82vh-var(--header-height))] gap-10 px-[clamp(20px,4vw,42px)] py-[clamp(56px,7vw,96px)] lg:grid-cols-[.92fr_1.08fr] lg:items-center">
+        <div className="content-wrap relative z-10 grid min-h-[calc(82vh-var(--header-height))] gap-10 px-[clamp(20px,4vw,42px)] py-[clamp(56px,7vw,96px)] xl:grid-cols-[.92fr_1.08fr] xl:items-center">
           <div className="reveal max-w-4xl">
             <div className="eyebrow mb-5">Categories</div>
             <h1 className="hero-title max-w-4xl">Choose the right crown before you apply.</h1>
@@ -82,12 +82,12 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
             </div>
           </div>
 
-          <div className="reveal grid gap-3 sm:grid-cols-2">
+          <div className="reveal mx-auto grid w-full max-w-5xl gap-4 md:grid-cols-2 xl:max-w-none">
             {categoryDetails.map((item) => (
               <button
                 key={item.key}
                 onClick={() => navigate("register")}
-                className="group luxury-hover-card relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122] text-left text-white shadow-[0_24px_90px_rgba(0,0,0,.34)] transition hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent"
+                className="group luxury-hover-card relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122] text-left text-white shadow-[0_24px_90px_rgba(0,0,0,.34)] transition [container-type:inline-size] hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent"
               >
                 <img
                   src={item.image}
@@ -99,9 +99,9 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
                 />
                 <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#031026] via-[#031026]/30 to-transparent" />
                 <div className="absolute left-0 top-0 bg-[#031026]/88 px-5 py-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">{item.label}</div>
-                <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-6">
-                  <p className="text-[10px] uppercase tracking-[.26em] text-blush-accent">{item.pathway}</p>
-                  <h2 className="luxury-hover-title mt-3 font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none">{item.key === "miss" ? "Miss" : "Mrs."} Maharashtra</h2>
+                <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(20px,6cqw,28px)]">
+                  <p className="max-w-[34ch] text-[10px] uppercase tracking-[.22em] text-blush-accent">{item.pathway}</p>
+                  <h2 className="luxury-hover-title mt-3 max-w-full text-balance font-display text-[clamp(2rem,13cqw,4rem)] leading-[.92]">{item.key === "miss" ? "Miss" : "Mrs."} Maharashtra</h2>
                   <p className="mt-4 text-sm leading-6 text-white/78">{item.promise}</p>
                   <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
                     <ArrowRight size={15} />

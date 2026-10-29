@@ -38,6 +38,8 @@ assert.ok(existsSync(resolve(root, "public/missmrs-assets/season-3-winners/miss-
 assert.match(categoriesPage, /aspect-\[2\/3\][\s\S]*?lg:min-h-\[720px\]/, "category profiles should preserve full-length portrait proportions");
 assert.match(categoriesPage, /lg:grid-cols-\[minmax\(340px,\.8fr\)_minmax\(0,1\.2fr\)\]/, "category profiles should reserve professional desktop width for each portrait");
 assert.match(categoriesPage, /luxury-hover-content min-w-0/, "category copy should not force portrait columns into narrow strips");
+assert.match(categoriesPage, /xl:grid-cols-\[\.92fr_1\.08fr\]/, "category hero should not enter its split layout at cramped laptop widths");
+assert.match(categoriesPage, /\[container-type:inline-size\][\s\S]*?text-\[clamp\(2rem,13cqw,4rem\)\]/, "category hero titles should scale to their portrait card width");
 assert.match(videoBento, /return \(\s*<div className=/, "YouTube preview should use a non-interactive outer container");
 assert.doesNotMatch(videoBento, /return \(\s*<button/, "YouTube preview must not wrap its play button in another button");
 assert.match(home, /data-hero-video[\s\S]*?preload="auto"/, "hero video should preload for the clearest immediate playback");
