@@ -364,7 +364,7 @@ export const mentors = [
   { name: "Mrs. Sonali Nakshine", role: "Voice Modulation Expert", bio: "Prepares contestants for interviews, public speaking and live on-stage questions.", bg: `${LOCAL}mentor/sonali-nakshine-drive.webp`, position: "50% 5%" },
   { name: "Dr. Girish Chabrani", role: "Smile Expert", bio: "Guides contestants on smile aesthetics, oral presentation and confident stage-ready expression.", bg: `${LOCAL}mentor/dr-girish-chabrani-confirmed.png`, position: "50% 50%" },
   { name: "Dr. Anshul Jain", role: "Skin Expert", bio: "Shares practical skin-care guidance for healthy, camera-ready confidence throughout the season.", bg: `${LOCAL}mentor/dr-anshul-jain-confirmed.png`, position: "50% 10%" },
-  { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-verified.jpg`, position: "50% 24%" },
+  { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-confirmed.png`, position: "50% 8%" },
   { name: "Dr. Shivangi Garg", role: "Mental Health Expert", bio: "Helps contestants build resilience, emotional balance and calm confidence under pressure.", bg: `${LOCAL}mentor/dr-shivangi-garg-confirmed.webp`, position: "50% 8%" },
 ];
 
