@@ -15,7 +15,7 @@ const expectedMentors = [
   ["Mr. Sunny Kamble", "Show Choreographer & Ramp Walk Trainer"],
   ["Megha Kapoor Amesar", "Makeover Expert"],
   ["Mrs. Sonali Nakshine", "Voice Modulation Expert"],
-  ["Dr. Girish Chhabrani", "Smile Expert"],
+  ["Dr. Girish Chabrani", "Smile Expert"],
   ["Dr. Anshul Jain", "Skin Expert"],
   ["Mrs. Soniya Khatri", "Diet Expert"],
   ["Dr. Shivangi Garg", "Mental Health Expert"],
@@ -31,8 +31,10 @@ assert.doesNotMatch(mentorBlock[1], /Miss Mohini Sharma/, "removed mentor profil
 assert.match(mentorBlock[1], /mentor\/sunny-kamble-drive\.webp/);
 assert.match(mentorBlock[1], /mentor\/megha-kapoor-amesar-drive\.webp/);
 assert.match(mentorBlock[1], /mentor\/sonali-nakshine-drive\.webp/);
-assert.match(mentorBlock[1], /mentor\/dr-girish-chhabrani-verified\.webp/);
-assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-verified\.jpg/);
+assert.match(mentorBlock[1], /mentor\/dr-girish-chabrani-confirmed\.png/);
+assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-confirmed\.png/);
+assert.match(mentorBlock[1], /name: "Dr\. Girish Chabrani"[\s\S]*?position: "50% 50%"/);
+assert.match(mentorBlock[1], /name: "Dr\. Anshul Jain"[\s\S]*?position: "50% 10%"/);
 assert.match(mentorBlock[1], /mentor\/soniya-khatri-verified\.jpg/);
 assert.match(mentorBlock[1], /mentor\/dr-shivangi-garg-confirmed\.webp/);
 assert.match(mentorBlock[1], /name: "Dr\. Shivangi Garg"[\s\S]*?position: "50% 8%"/);
