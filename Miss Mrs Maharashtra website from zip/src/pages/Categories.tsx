@@ -96,7 +96,6 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
                   style={{ objectPosition: item.position }}
                   loading="eager"
                   decoding="async"
-                  fetchPriority="high"
                 />
                 <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#031026] via-[#031026]/30 to-transparent" />
                 <div className="absolute left-0 top-0 bg-[#031026]/88 px-5 py-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">{item.label}</div>
@@ -157,13 +156,16 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
 
       <Section className="cinematic-band">
         <SectionHeader eyebrow="Choose your crown" title="The right category, clearly defined." body="Both titles share the same stage quality, grooming season and finale discipline. Eligibility and onward pathways stay distinct so every applicant enters the correct lane." />
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-8">
           {categories.map((cat, idx) => {
             const detail = categoryDetails[idx];
 
             return (
-              <article key={cat.key} className="luxury-hover-card reveal grid overflow-hidden border gold-divider bg-[#020817]/76 lg:grid-cols-[.82fr_1fr]">
-                <div className="luxury-hover-media relative aspect-[4/5] overflow-hidden bg-[#061122] lg:aspect-auto">
+              <article
+                key={cat.key}
+                className="luxury-hover-card reveal grid overflow-hidden border gold-divider bg-[#020817]/76 lg:min-h-[720px] lg:grid-cols-[minmax(340px,.8fr)_minmax(0,1.2fr)] xl:grid-cols-[minmax(430px,.86fr)_minmax(0,1.14fr)]"
+              >
+                <div className="luxury-hover-media relative aspect-[2/3] min-w-0 overflow-hidden bg-[#061122] lg:aspect-auto lg:min-h-[720px]">
                   <img
                     src={detail.image}
                     alt={`${cat.title} applicant pathway`}
@@ -175,16 +177,16 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
                   <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/86 via-transparent to-transparent" />
                   <div className="absolute bottom-5 left-5 text-[10px] uppercase tracking-[.28em] text-blush-accent">{detail.label}</div>
                 </div>
-                <div className="luxury-hover-content p-[clamp(24px,3.5vw,44px)]">
+                <div className="luxury-hover-content min-w-0 self-center p-[clamp(28px,4vw,64px)]">
                   <div className="eyebrow mb-5">{cat.pathway}</div>
-                  <h2 className="luxury-hover-title font-display text-[clamp(2.8rem,4.8vw,5.8rem)] leading-none text-blush-ink">{cat.title}</h2>
-                  <p className="mt-6 text-lg font-light leading-8 text-blush-body">{detail.eligibility}</p>
+                  <h2 className="luxury-hover-title max-w-[12ch] text-balance font-display text-[clamp(2.8rem,4.2vw,5rem)] leading-[.94] text-blush-ink">{cat.title}</h2>
+                  <p className="mt-6 max-w-[60ch] text-lg font-light leading-8 text-blush-body">{detail.eligibility}</p>
                   <div className="mt-7 grid gap-3 sm:grid-cols-2">
                     {detail.facts.map((fact) => (
                       <div key={fact} className="border-b gold-divider pb-3 text-xs uppercase tracking-[.2em] text-blush-accent">{fact}</div>
                     ))}
                   </div>
-                  <p className="mt-7 text-sm leading-7 text-blush-body">
+                  <p className="mt-7 max-w-[68ch] text-sm leading-7 text-blush-body">
                     There is no minimum height, weight or complexion requirement. Applicants are assessed on preparation, communication, advocacy, talent and stage presence.
                   </p>
                   <div className="mt-7 grid gap-5 md:grid-cols-2">
