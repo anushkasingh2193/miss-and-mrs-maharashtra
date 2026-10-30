@@ -171,49 +171,67 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <section data-home-section className="relative overflow-hidden border-y gold-divider bg-[#020817] text-white">
-        <div className="content-wrap grid min-h-[clamp(620px,78svh,820px)] lg:grid-cols-[.9fr_1.1fr] lg:items-stretch">
-          <div className="reveal relative z-10 flex flex-col justify-center px-[clamp(22px,5vw,76px)] py-[clamp(64px,8vw,112px)]">
-            <h2 className="max-w-xl font-display text-[clamp(4rem,8vw,6rem)] leading-[.84] text-blush-ink">
-              Junior<br />India.
+      <section data-home-section className="relative isolate overflow-hidden border-y gold-divider bg-[#020817] text-white">
+        <img
+          src="/missmrs-assets/videos/junior-india-home-poster.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-30 h-full w-full object-cover object-center opacity-[.09] brightness-[.4] saturate-[.7]"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#020817_0%,rgba(2,8,23,.96)_46%,rgba(2,8,23,.72)_100%)]" />
+        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[8%] -z-10 overflow-hidden whitespace-nowrap text-center font-display text-[clamp(5rem,15vw,14rem)] leading-none text-white/[.035]">
+          JUNIOR INDIA
+        </div>
+
+        <div className="content-wrap relative grid min-h-[clamp(700px,88svh,900px)] gap-12 px-[clamp(22px,5vw,76px)] py-[clamp(64px,7vw,96px)] lg:grid-cols-[minmax(0,1fr)_minmax(360px,.72fr)] lg:items-center lg:gap-[clamp(48px,7vw,112px)]">
+          <div className="reveal relative z-10 max-w-3xl">
+            <h2 className="font-display text-[clamp(4rem,8vw,6rem)] leading-[.84] text-blush-ink">
+              Junior India.
+              <span className="mt-5 block text-[clamp(2rem,4vw,3.7rem)] leading-[.94] text-blush-accent">Our newest title.</span>
             </h2>
-            <p className="mt-7 max-w-lg text-base font-light leading-8 text-blush-body sm:text-lg">
-              Discover the Junior India title and meet the contestants as official profiles are announced.
+            <div className="mt-8 h-px w-24 bg-blush-accent" aria-hidden="true" />
+            <p className="mt-7 max-w-xl text-base font-light leading-8 text-blush-body sm:text-lg">
+              A new generation steps onto the stage. Discover the title and meet the contestants as official profiles are announced.
             </p>
             <button
               type="button"
               onClick={() => navigate("junior-india")}
-              className="mt-9 inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-[11px] uppercase tracking-[.22em] text-blush-accent transition hover:text-blush-hover"
+              className="gold-cta mt-10 inline-flex items-center gap-3 px-7 py-4 text-[11px] uppercase tracking-[.22em]"
             >
-              Explore Junior India <ArrowRight size={15} aria-hidden="true" />
+              Enter Junior India <ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>
 
-          <div className="reveal relative flex min-h-[560px] items-center justify-center overflow-hidden px-6 py-10 lg:min-h-0 lg:px-10 lg:py-12">
-            <img
-              src="/missmrs-assets/videos/junior-india-home-poster.jpg"
-              alt=""
-              aria-hidden="true"
-              className="absolute inset-0 h-full w-full scale-105 object-cover opacity-20 brightness-[.55] saturate-[.8]"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,8,23,.92),rgba(2,8,23,.2)_40%,rgba(2,8,23,.5))]" />
-            <div className="relative aspect-[9/16] h-[min(68svh,680px)] max-h-[680px] overflow-hidden border border-white/15 bg-black shadow-[0_30px_90px_rgba(0,0,0,.52)]">
-              <video
-                ref={juniorIndiaVideoRef}
-                data-junior-india-video
-                className="h-full w-full object-cover"
-                poster="/missmrs-assets/videos/junior-india-home-poster.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Junior India runway highlights"
-              >
-                <source src="/missmrs-assets/videos/junior-india-home.mp4" type="video/mp4" />
-              </video>
+          <div className="reveal relative mx-auto w-full max-w-[460px] lg:mx-0 lg:justify-self-end">
+            <div className="absolute -left-5 top-12 hidden h-[calc(100%-6rem)] w-px bg-blush-accent/55 lg:block" aria-hidden="true" />
+            <div className="mb-4 flex items-center justify-between gap-6 text-[10px] uppercase tracking-[.26em] text-blush-accent">
+              <span>Official launch film</span>
+              <span className="h-px flex-1 bg-blush-accent/35" aria-hidden="true" />
             </div>
+            <figure className="relative bg-[#061122] shadow-[0_36px_100px_rgba(0,0,0,.58)]">
+              <div className="relative aspect-[9/16] overflow-hidden border border-white/15 bg-black">
+                <video
+                  ref={juniorIndiaVideoRef}
+                  data-junior-india-video
+                  className="h-full w-full object-cover"
+                  poster="/missmrs-assets/videos/junior-india-home-poster.jpg"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Junior India runway highlights"
+                >
+                  <source src="/missmrs-assets/videos/junior-india-home.mp4" type="video/mp4" />
+                </video>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#020817]/70 to-transparent" aria-hidden="true" />
+              </div>
+              <figcaption className="flex items-center justify-between gap-5 border-x border-b border-white/15 px-5 py-4">
+                <span className="font-display text-2xl leading-none text-blush-ink">The next crown begins.</span>
+                <span className="text-[9px] uppercase tracking-[.24em] text-blush-accent">Junior India</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
