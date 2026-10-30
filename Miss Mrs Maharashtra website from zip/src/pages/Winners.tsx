@@ -23,36 +23,35 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
   return (
     <>
       <section
-        data-winners-hero="full-bleed"
-        className="relative grid min-h-[clamp(520px,74svh,780px)] place-items-center overflow-hidden border-b gold-divider bg-[#020817] text-white sm:min-h-[clamp(600px,82svh,820px)]"
+        data-winners-hero="editorial-split"
+        className="section-pad relative overflow-hidden border-b gold-divider bg-[#020817] text-white"
       >
-        <img
-          src="/missmrs-assets/featured/winners-hero-lineup.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full scale-[1.035] object-cover object-center opacity-45 brightness-[.46] saturate-[.82]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,23,.82)_0%,rgba(2,8,23,.12)_34%,rgba(2,8,23,.18)_62%,rgba(2,8,23,.92)_100%)]" />
+        <div className="content-wrap grid min-h-[clamp(500px,70svh,720px)] items-center gap-10 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:gap-14 xl:gap-20">
+          <div className="max-w-xl py-2 lg:py-10">
+            <p className="eyebrow">Hall of Fame</p>
+            <h1 className="mt-5 max-w-[9ch] font-display text-[clamp(3.5rem,7vw,6rem)] leading-[.9] text-white">
+              Winners Gallery
+            </h1>
+            <div className="mt-8 h-px w-20 bg-blush-accent" aria-hidden="true" />
+            <p className="mt-6 max-w-md text-base font-light leading-8 text-blush-muted sm:text-lg">
+              Meet the titleholders from every Miss &amp; Mrs. Maharashtra season.
+            </p>
+          </div>
 
-        <div className="absolute inset-x-0 top-[clamp(72px,8vw,112px)] bottom-[clamp(56px,7vw,92px)] mx-auto max-w-[1600px]">
-          <img
-            src="/missmrs-assets/featured/winners-hero-lineup.jpg"
-            alt="Six Miss and Mrs. Maharashtra titleholders together on the finale runway"
-            className="h-full w-full object-contain object-center [filter:drop-shadow(0_24px_38px_rgba(0,0,0,.42))]"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-
-        <div className="pointer-events-none absolute inset-[clamp(14px,2vw,30px)] border border-white/15" aria-hidden="true" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[40%] bg-[linear-gradient(180deg,transparent,rgba(2,8,23,.88))]" aria-hidden="true" />
-
-        <div className="absolute inset-x-0 bottom-[clamp(44px,7vw,88px)] z-10 flex items-center justify-center gap-[clamp(14px,3vw,44px)] px-6">
-          <span className="h-px w-[clamp(28px,8vw,120px)] bg-white/35" aria-hidden="true" />
-          <h1 className="text-center font-display text-[clamp(3.25rem,7.5vw,6rem)] leading-none text-white [text-shadow:0_4px_28px_rgba(0,0,0,.82)]">
-            Winners Gallery
-          </h1>
-          <span className="h-px w-[clamp(28px,8vw,120px)] bg-white/35" aria-hidden="true" />
+          <figure className="w-full">
+            <div className="aspect-[3/2] overflow-hidden border gold-divider bg-[#061122]">
+              <img
+                src="/missmrs-assets/featured/winners-hero-lineup.jpg"
+                alt="Six Miss and Mrs. Maharashtra titleholders together on the finale runway"
+                className="h-full w-full object-cover object-center"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <figcaption className="mt-4 text-[10px] uppercase tracking-[.22em] text-blush-muted">
+              Finale runway · Miss &amp; Mrs. Maharashtra
+            </figcaption>
+          </figure>
         </div>
       </section>
 

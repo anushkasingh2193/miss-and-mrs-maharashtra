@@ -78,10 +78,19 @@ try {
   assert.match(html, /aria-label="Winner categories"/, "Miss and Mrs controls should be exposed as a category tab list");
   assert.match(html, /aria-label="Miss Maharashtra seasons"/, "season controls should follow the active category");
   assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
-  assert.match(html, /data-winners-hero="full-bleed"/, "winners page should use one full-width photographic hero");
-  assert.match(html, /Winners Gallery/, "winners hero should contain only the centered gallery title");
-  assert.match(html, /winners-hero-lineup\.jpg/, "winners hero should use the supplied six-titleholder runway photograph");
-  assert.doesNotMatch(html, /Crowned on stage\.|Hall of fame/, "the former split-hero labels should not render");
+  assert.match(html, /data-winners-hero="editorial-split"/, "winners page should use the approved editorial split hero");
+  assert.match(html, /Hall of Fame/, "winners hero should introduce the titleholder archive");
+  assert.match(html, /Winners Gallery/, "winners hero should retain the gallery title");
+  assert.equal(
+    (html.match(/winners-hero-lineup\.jpg/g) ?? []).length,
+    1,
+    "winners hero should render one clean lineup photograph without a duplicated backdrop",
+  );
+  assert.ok(
+    html.indexOf("Winners Gallery") < html.indexOf("winners-hero-lineup.jpg"),
+    "hero copy should precede the lineup photograph in the mobile reading order",
+  );
+  assert.doesNotMatch(html, /data-winners-hero="full-bleed"/, "the former layered full-bleed hero should not render");
   assert.doesNotMatch(html, /Miss Supraglobal/, "the Maharashtra category tabs should not mix in the companion crown pathway");
   assert.doesNotMatch(html, /View full season|Featured titleholders|M&amp;M gallery|Featured frame/, "removed archive sections should not render");
 
