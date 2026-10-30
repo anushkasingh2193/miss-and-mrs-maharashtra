@@ -4,6 +4,7 @@ export type PageKey =
   | "categories"
   | "register"
   | "mentors"
+  | "junior-india"
   | "winners"
   | "sponsors"
   | "press"
@@ -80,11 +81,20 @@ export const imageRoles = {
   galleryHero: mAndMWinnerImages[10],
 };
 
+export type JuniorIndiaContestant = {
+  name: string;
+  image: string;
+  descriptor?: string;
+};
+
+export const juniorIndiaContestants: JuniorIndiaContestant[] = [];
+
 export const navItems: Array<{ key: PageKey; label: string }> = [
   { key: "home", label: "Home" },
   { key: "about", label: "About" },
   { key: "categories", label: "Categories" },
   { key: "mentors", label: "Mentors" },
+  { key: "junior-india", label: "Junior India" },
   { key: "winners", label: "Winners" },
   { key: "press", label: "News" },
   { key: "contact", label: "Contact" },

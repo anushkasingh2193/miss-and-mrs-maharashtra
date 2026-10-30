@@ -4,6 +4,7 @@ import { About } from "@/pages/About";
 import { Categories } from "@/pages/Categories";
 import { Contact } from "@/pages/Contact";
 import { Home } from "@/pages/Home";
+import { JuniorIndia } from "@/pages/JuniorIndia";
 import { Mentors } from "@/pages/Mentors";
 import { Press } from "@/pages/Press";
 import { Register } from "@/pages/Register";
@@ -12,12 +13,13 @@ import { Winners } from "@/pages/Winners";
 import type { PageKey } from "@/data/site";
 import { useLuxuryHoverMotion } from "@/hooks/useLuxuryHoverMotion";
 
-const pages: Record<PageKey, React.ComponentType<{ navigate: (page: PageKey) => void }>> = {
+export const pages: Record<PageKey, React.ComponentType<{ navigate: (page: PageKey) => void }>> = {
   home: Home,
   about: About,
   categories: Categories,
   register: Register,
   mentors: Mentors,
+  "junior-india": JuniorIndia,
   winners: Winners,
   sponsors: Sponsors,
   press: Press,
