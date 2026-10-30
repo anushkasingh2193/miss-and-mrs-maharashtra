@@ -22,18 +22,38 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
 
   return (
     <>
-      <section data-winners-hero="full-bleed" className="relative grid min-h-[clamp(560px,76svh,760px)] place-items-center overflow-hidden border-b gold-divider bg-[#061122] text-white">
+      <section
+        data-winners-hero="full-bleed"
+        className="relative grid min-h-[clamp(520px,74svh,780px)] place-items-center overflow-hidden border-b gold-divider bg-[#020817] text-white sm:min-h-[clamp(600px,82svh,820px)]"
+      >
         <img
-          src="/missmrs-assets/featured/newsroom-titleholders-cutout.png"
-          alt="Miss and Mrs. Maharashtra crowned titleholders"
-          className="absolute inset-0 h-full w-full object-contain object-bottom px-[clamp(8px,3vw,48px)] pt-[clamp(96px,11vw,140px)] opacity-70 brightness-[.72]"
-          loading="eager"
-          decoding="async"
+          src="/missmrs-assets/featured/winners-hero-lineup.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full scale-[1.035] object-cover object-center opacity-45 brightness-[.46] saturate-[.82]"
         />
-        <div className="absolute inset-0 bg-[#020817]/24" />
-        <h1 className="relative z-10 px-6 text-center font-display text-[clamp(4rem,9vw,8rem)] leading-none text-white [text-shadow:0_3px_28px_rgba(0,0,0,.72)]">
-          Winners Gallery
-        </h1>
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(2,8,23,.82)_0%,rgba(2,8,23,.12)_34%,rgba(2,8,23,.18)_62%,rgba(2,8,23,.92)_100%)]" />
+
+        <div className="absolute inset-x-0 top-[clamp(72px,8vw,112px)] bottom-[clamp(56px,7vw,92px)] mx-auto max-w-[1600px]">
+          <img
+            src="/missmrs-assets/featured/winners-hero-lineup.jpg"
+            alt="Six Miss and Mrs. Maharashtra titleholders together on the finale runway"
+            className="h-full w-full object-contain object-center [filter:drop-shadow(0_24px_38px_rgba(0,0,0,.42))]"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+
+        <div className="pointer-events-none absolute inset-[clamp(14px,2vw,30px)] border border-white/15" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[40%] bg-[linear-gradient(180deg,transparent,rgba(2,8,23,.88))]" aria-hidden="true" />
+
+        <div className="absolute inset-x-0 bottom-[clamp(44px,7vw,88px)] z-10 flex items-center justify-center gap-[clamp(14px,3vw,44px)] px-6">
+          <span className="h-px w-[clamp(28px,8vw,120px)] bg-white/35" aria-hidden="true" />
+          <h1 className="text-center font-display text-[clamp(3.25rem,7.5vw,6rem)] leading-none text-white [text-shadow:0_4px_28px_rgba(0,0,0,.82)]">
+            Winners Gallery
+          </h1>
+          <span className="h-px w-[clamp(28px,8vw,120px)] bg-white/35" aria-hidden="true" />
+        </div>
       </section>
 
       <Section className="cinematic-band">

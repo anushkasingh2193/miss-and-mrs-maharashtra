@@ -80,7 +80,7 @@ try {
   assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
   assert.match(html, /data-winners-hero="full-bleed"/, "winners page should use one full-width photographic hero");
   assert.match(html, /Winners Gallery/, "winners hero should contain only the centered gallery title");
-  assert.match(html, /newsroom-titleholders-cutout\.png/, "winners hero should reuse the transparent crowned-titleholder group");
+  assert.match(html, /winners-hero-lineup\.jpg/, "winners hero should use the supplied six-titleholder runway photograph");
   assert.doesNotMatch(html, /Crowned on stage\.|Hall of fame/, "the former split-hero labels should not render");
   assert.doesNotMatch(html, /Miss Supraglobal/, "the Maharashtra category tabs should not mix in the companion crown pathway");
   assert.doesNotMatch(html, /View full season|Featured titleholders|M&amp;M gallery|Featured frame/, "removed archive sections should not render");
