@@ -17,7 +17,7 @@ const testimonials = read("src/components/ui/testimonials-6.tsx");
 const styles = read("src/index.css");
 
 assert.match(data, /label:\s*"Finale guests"/, "homepage statistics should consistently say Finale guests");
-assert.equal((home.match(/data-home-section\b/g) || []).length, 9, "homepage should include the restored testimonial section");
+assert.equal((home.match(/data-home-section\b/g) || []).length, 10, "homepage should include the Junior India feature and restored testimonial section");
 assert.match(home, /Register interest for the next season/, "homepage should use the next-season registration CTA");
 assert.match(layout, /Register interest for the next season/, "sticky CTA should use the next-season registration CTA");
 assert.doesNotMatch(home, /useCountdown|auditionCities|Apply for auditions|Until finale week|October 2026/, "homepage should not expose stale audition details");
@@ -26,6 +26,10 @@ assert.doesNotMatch(register, /3 October 2026|10 October 2026|17 October 2026|sl
 assert.match(register, /Preferred city/, "interest form should collect a city preference without an expired audition date");
 assert.doesNotMatch(home, /latestNews|YouTubePreview|homepageSponsors|tickets/, "secondary news, sponsor and ticket content should live off the homepage");
 assert.match(home, /TestimonialsSection/, "homepage should include the animated testimonial section");
+assert.match(home, /data-junior-india-video/, "homepage should feature the Junior India runway video");
+assert.match(home, /navigate\("junior-india"\)/, "Junior India homepage CTA should open the dedicated tab");
+assert.ok(existsSync(resolve(root, "public/missmrs-assets/videos/junior-india-home.mp4")), "optimized Junior India homepage video must exist");
+assert.ok(existsSync(resolve(root, "public/missmrs-assets/videos/junior-india-home-poster.jpg")), "Junior India homepage poster must exist");
 assert.match(home, /founder-line-mask/, "homepage should use the original founder reveal layout");
 assert.match(home, /founder-quote-word/, "original founder quote treatment should be restored");
 assert.match(home, /id="founder-photo-img"/, "original founder portrait treatment should be restored");
