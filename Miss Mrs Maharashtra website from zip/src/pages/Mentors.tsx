@@ -67,8 +67,8 @@ export function Mentors({ navigate }: { navigate: (page: PageKey) => void }) {
             <div className="mentor-hero__frame">
               <img
                 src={imageRoles.mentorHero}
-                alt="Mrs. Kavita Kharayat, fashion grooming and stylist expert"
-                style={{ objectPosition: "50% 8%" }}
+                alt="Mrs. Zoya Siraj Sheikh, founder and chairman"
+                style={{ objectPosition: "50% 16%" }}
                 loading="eager"
                 decoding="async"
                 fetchPriority="high"

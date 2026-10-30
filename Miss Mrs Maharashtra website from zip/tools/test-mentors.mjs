@@ -40,7 +40,7 @@ assert.match(mentorBlock[1], /name: "Mrs\. Soniya Khatri"[\s\S]*?position: "50% 
 assert.match(mentorBlock[1], /mentor\/dr-shivangi-garg-confirmed\.webp/);
 assert.match(mentorBlock[1], /name: "Dr\. Shivangi Garg"[\s\S]*?position: "50% 8%"/);
 assert.doesNotMatch(mentorBlock[1], /provisional/, "verified mentor portraits should replace provisional images");
-assert.match(siteSource, /mentorHero: `\$\{LOCAL\}mentor\/kavita-kharayat\.webp`/);
+assert.match(siteSource, /mentorHero: `\$\{FAST\}zoya\.jpg`/);
 assert.match(mentorBlock[1], /mentor\/kavita-kharayat\.webp/);
 assert.match(siteSource, /mentor\/img_9410-optimized\.webp/);
 assert.match(siteSource, /mentor\/img_9411-optimized\.webp/);

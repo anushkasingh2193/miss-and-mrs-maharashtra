@@ -74,7 +74,7 @@ export const imageRoles = {
   founderPortrait: `${FAST}zoya.jpg`,
   titleMiss: `${SEASON_3_WINNERS}miss-supraglobal-india.jpg`,
   titleMrs: `${LOCAL}featured/title-mrs-maharashtra.jpg`,
-  mentorHero: `${LOCAL}mentor/kavita-kharayat.webp`,
+  mentorHero: `${FAST}zoya.jpg`,
   sponsorHero: `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s3 winners/TS102046.jpg`,
   sponsorProof: stock.makeup,
   titleholderSpotlight: mAndMWinnerImages[0],
