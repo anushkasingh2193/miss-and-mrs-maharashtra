@@ -18,8 +18,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["Bodoni Moda", "serif"],
-        sans: ["Jost", "sans-serif"],
+        display: ["Playfair Display", "serif"],
+        sans: ["Manrope", "sans-serif"],
         marathi: ["Tiro Devanagari Marathi", "serif"],
       },
       keyframes: {
