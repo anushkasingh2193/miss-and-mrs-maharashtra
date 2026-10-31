@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { ArrowRight, Play, X } from "lucide-react";
 
 const FILM_SRC = "/missmrs-assets/videos/junior-india-home.mp4";
@@ -7,10 +13,41 @@ const FILM_POSTER = "/missmrs-assets/videos/junior-india-home-poster.jpg";
 
 export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
   const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+  const [canParallax, setCanParallax] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const previewRef = useRef<HTMLVideoElement | null>(null);
   const playButtonRef = useRef<HTMLButtonElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const filmY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion || !canParallax ? [0, 0] : [42, -42],
+  );
+  const wordmarkY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion || !canParallax ? [0, 0] : [-22, 22],
+  );
+  const copyY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    shouldReduceMotion || !canParallax ? [0, 0] : [8, -16],
+  );
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px) and (pointer: fine)");
+    const syncParallax = () => setCanParallax(query.matches);
+
+    syncParallax();
+    query.addEventListener("change", syncParallax);
+    return () => query.removeEventListener("change", syncParallax);
+  }, []);
 
   useEffect(() => {
     const preview = previewRef.current;
@@ -53,9 +90,19 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
   }, [isPlayerOpen]);
 
   return (
-    <section data-home-section data-junior-india-campaign className="junior-campaign">
+    <section ref={sectionRef} data-home-section data-junior-india-campaign className="junior-campaign">
       <div className="junior-campaign__stage">
-        <div className="junior-campaign__wordmark" aria-hidden="true">JUNIOR INDIA</div>
+        <motion.div
+          className="junior-campaign__wordmark"
+          aria-hidden="true"
+          style={{ y: wordmarkY }}
+          initial={shouldReduceMotion ? false : { clipPath: "inset(0 100% 0 0)" }}
+          whileInView={shouldReduceMotion ? undefined : { clipPath: "inset(0 0 0 0)" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
+        >
+          JUNIOR INDIA
+        </motion.div>
         <div className="junior-campaign__vertical" aria-hidden="true">A NEW GENERATION / A NEW LEGACY</div>
 
         <div className="junior-campaign__details" aria-label="Junior India official launch film">
@@ -63,18 +110,24 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
           <span>OFFICIAL LAUNCH</span>
         </div>
 
-        <div className="junior-campaign__message">
-          <h2>
+        <motion.div className="junior-campaign__message" style={{ y: copyY }}>
+          <motion.h2
+            initial={shouldReduceMotion ? false : { clipPath: "inset(0 0 100% 0)", y: 34 }}
+            whileInView={shouldReduceMotion ? undefined : { clipPath: "inset(0 0 0 0)", y: 0 }}
+            viewport={{ once: true, amount: 0.55 }}
+            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+          >
             <span>A New Generation.</span>
             <span>A New Legacy.</span>
-          </h2>
+          </motion.h2>
           <button type="button" onClick={onExplore} className="junior-campaign__cta">
             Explore Junior India <ArrowRight size={16} aria-hidden="true" />
           </button>
-        </div>
+        </motion.div>
 
         <motion.figure
           className="junior-campaign__film"
+          style={{ y: filmY }}
           initial={shouldReduceMotion ? false : { clipPath: "inset(0 0 100% 0)" }}
           whileInView={shouldReduceMotion ? undefined : { clipPath: "inset(0 0 0% 0)" }}
           viewport={{ once: true, amount: 0.2 }}
