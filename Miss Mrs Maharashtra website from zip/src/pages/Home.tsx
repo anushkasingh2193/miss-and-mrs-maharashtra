@@ -176,38 +176,29 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           className="absolute inset-0 -z-30 h-full w-full object-cover object-center opacity-[.09] brightness-[.4] saturate-[.7]"
           loading="lazy"
         />
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#020817_0%,rgba(2,8,23,.96)_46%,rgba(2,8,23,.72)_100%)]" />
-        <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[8%] -z-10 overflow-hidden whitespace-nowrap text-center font-display text-[clamp(5rem,15vw,14rem)] leading-none text-white/[.035]">
-          JUNIOR INDIA
-        </div>
+        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#020817_0%,rgba(2,8,23,.96)_55%,rgba(2,8,23,.78)_100%)]" />
 
-        <div className="content-wrap relative grid min-h-[clamp(700px,88svh,900px)] gap-12 px-[clamp(22px,5vw,76px)] py-[clamp(64px,7vw,96px)] lg:grid-cols-[minmax(0,1fr)_minmax(360px,.72fr)] lg:items-center lg:gap-[clamp(48px,7vw,112px)]">
-          <div className="reveal relative z-10 max-w-3xl">
-            <h2 className="font-display text-[clamp(4rem,8vw,6rem)] leading-[.84] text-blush-ink">
+        <div className="content-wrap relative grid gap-10 px-[clamp(22px,5vw,76px)] py-[clamp(48px,6vw,72px)] md:grid-cols-[minmax(0,1fr)_280px] md:items-center md:gap-[clamp(48px,7vw,96px)]">
+          <div className="reveal relative z-10 max-w-2xl">
+            <p className="text-[10px] uppercase tracking-[.28em] text-blush-accent">Introducing our newest title</p>
+            <h2 className="mt-4 font-display text-[clamp(3rem,5.5vw,4.8rem)] leading-[.88] text-blush-ink">
               Junior India.
-              <span className="mt-5 block text-[clamp(2rem,4vw,3.7rem)] leading-[.94] text-blush-accent">Our newest title.</span>
             </h2>
-            <div className="mt-8 h-px w-24 bg-blush-accent" aria-hidden="true" />
-            <p className="mt-7 max-w-xl text-base font-light leading-8 text-blush-body sm:text-lg">
-              Meet the next generation of titleholders.
+            <p className="mt-5 max-w-lg text-base font-light leading-7 text-blush-body">
+              A new stage for the next generation.
             </p>
             <button
               type="button"
               onClick={() => navigate("junior-india")}
-              className="gold-cta mt-10 inline-flex items-center gap-3 px-7 py-4 text-[11px] uppercase tracking-[.22em]"
+              className="gold-cta mt-7 inline-flex items-center gap-3 px-7 py-4 text-[11px] uppercase tracking-[.22em]"
             >
-              Enter Junior India <ArrowRight size={16} aria-hidden="true" />
+              Explore Junior India <ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>
 
-          <div className="reveal relative mx-auto w-full max-w-[460px] lg:mx-0 lg:justify-self-end">
-            <div className="absolute -left-5 top-12 hidden h-[calc(100%-6rem)] w-px bg-blush-accent/55 lg:block" aria-hidden="true" />
-            <div className="mb-4 flex items-center justify-between gap-6 text-[10px] uppercase tracking-[.26em] text-blush-accent">
-              <span>Official launch film</span>
-              <span className="h-px flex-1 bg-blush-accent/35" aria-hidden="true" />
-            </div>
-            <figure className="relative bg-[#061122] shadow-[0_36px_100px_rgba(0,0,0,.58)]">
-              <div className="relative aspect-[9/16] overflow-hidden border border-white/15 bg-black">
+          <div className="reveal mx-auto w-full max-w-[280px] md:mx-0 md:justify-self-end">
+            <figure className="relative border border-white/15 bg-[#061122] shadow-[0_24px_70px_rgba(0,0,0,.45)]">
+              <div className="relative aspect-[4/5] overflow-hidden bg-black">
                 <video
                   ref={juniorIndiaVideoRef}
                   data-junior-india-video
@@ -224,9 +215,9 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 </video>
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#020817]/70 to-transparent" aria-hidden="true" />
               </div>
-              <figcaption className="flex items-center justify-between gap-5 border-x border-b border-white/15 px-5 py-4">
-                <span className="font-display text-2xl leading-none text-blush-ink">The next crown begins.</span>
-                <span className="text-[9px] uppercase tracking-[.24em] text-blush-accent">Junior India</span>
+              <figcaption className="flex items-center justify-between gap-4 border-t border-white/15 px-4 py-3">
+                <span className="font-display text-lg leading-none text-blush-ink">Launch film</span>
+                <span className="text-[8px] uppercase tracking-[.2em] text-blush-accent">Junior India</span>
               </figcaption>
             </figure>
           </div>
