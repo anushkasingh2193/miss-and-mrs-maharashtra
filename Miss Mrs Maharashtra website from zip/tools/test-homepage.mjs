@@ -14,6 +14,7 @@ const register = read("src/pages/Register.tsx");
 const videoBento = read("src/components/VideoBento.tsx");
 const gallery = read("src/components/ui/image-gallery.tsx");
 const testimonials = read("src/components/ui/testimonials-6.tsx");
+const juniorCampaign = read("src/components/JuniorIndiaCampaign.tsx");
 const styles = read("src/index.css");
 
 assert.match(data, /label:\s*"Finale guests"/, "homepage statistics should consistently say Finale guests");
@@ -26,6 +27,12 @@ assert.doesNotMatch(register, /3 October 2026|10 October 2026|17 October 2026|sl
 assert.match(register, /Preferred city/, "interest form should collect a city preference without an expired audition date");
 assert.doesNotMatch(home, /latestNews|YouTubePreview|homepageSponsors|tickets/, "secondary news, sponsor and ticket content should live off the homepage");
 assert.match(home, /TestimonialsSection/, "homepage should include the animated testimonial section");
+assert.match(juniorCampaign, /junior-india-home\.mp4/, "Junior India campaign should use the existing launch film");
+assert.match(juniorCampaign, /role="dialog"/, "Junior India launch film should open in a dialog");
+assert.match(juniorCampaign, /aria-modal="true"/, "Junior India launch film dialog should be modal");
+assert.match(juniorCampaign, /Escape/, "Junior India launch film should close with Escape");
+assert.match(juniorCampaign, /document\.body\.style\.overflow/, "Junior India launch film should lock background scrolling");
+assert.match(juniorCampaign, /onExplore/, "Junior India campaign should preserve the dedicated page CTA");
 assert.match(home, /data-junior-india-video/, "homepage should feature the Junior India runway video");
 assert.match(home, /navigate\("junior-india"\)/, "Junior India homepage CTA should open the dedicated tab");
 assert.ok(existsSync(resolve(root, "public/missmrs-assets/videos/junior-india-home.mp4")), "optimized Junior India homepage video must exist");
