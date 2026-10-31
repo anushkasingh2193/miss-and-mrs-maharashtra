@@ -36,10 +36,6 @@ export function TestimonialsSection() {
         <div className="mx-auto flex max-w-xl flex-col items-center justify-center gap-4 text-center">
           <div className="eyebrow">In their words</div>
           <h2 className="display-title">Trusted by mentors, titleholders and partners.</h2>
-          <p className="text-sm leading-7 text-blush-muted">
-            Real voices from the pageant ecosystem show what the platform is known for:
-            confidence, preparation, visibility and stage discipline.
-          </p>
         </div>
 
         <div className={cn("mx-auto mt-10 flex h-[440px] justify-center gap-6 overflow-hidden", "[mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]")}>

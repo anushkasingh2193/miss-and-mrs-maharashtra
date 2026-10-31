@@ -1918,8 +1918,8 @@ select:focus-visible {
 .mentor-section-heading {
   display: grid;
   align-items: end;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.58fr);
-  gap: 72px;
+  grid-template-columns: 1fr;
+  gap: 0;
   margin-bottom: 54px;
   padding-bottom: 34px;
   border-bottom: 1px solid rgba(214, 174, 79, 0.22);
@@ -1957,10 +1957,15 @@ select:focus-visible {
 }
 
 .mentor-profile--lead {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1fr);
+  position: relative;
+  display: block;
+  overflow: hidden;
   border-block: 1px solid rgba(214, 174, 79, 0.22);
   background: rgba(7, 24, 47, 0.48);
+}
+
+.mentor-profile--lead .mentor-profile__portrait {
+  aspect-ratio: 4 / 5;
 }
 
 .mentor-profile__portrait {
@@ -1994,10 +1999,15 @@ select:focus-visible {
 }
 
 .mentor-profile--lead .mentor-profile__content {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
   padding: 36px;
+  background: linear-gradient(180deg, transparent, rgba(2, 8, 23, 0.92));
 }
 
 .mentor-profile__role,
@@ -2166,10 +2176,6 @@ select:focus-visible {
     gap: 16px;
   }
 
-  .mentor-profile--lead {
-    grid-template-columns: minmax(180px, 0.78fr) minmax(0, 1fr);
-  }
-
   .mentor-profile--lead .mentor-profile__content {
     padding: 26px;
   }
@@ -2211,10 +2217,6 @@ select:focus-visible {
 
   .mentor-leadership-grid {
     grid-template-columns: 1fr;
-  }
-
-  .mentor-profile--lead {
-    grid-template-columns: minmax(240px, 0.72fr) minmax(0, 1fr);
   }
 
   .mentor-faculty-grid,

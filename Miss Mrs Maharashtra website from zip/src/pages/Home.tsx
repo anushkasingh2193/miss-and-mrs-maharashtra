@@ -7,10 +7,10 @@ import ImageGallery from "@/components/ui/image-gallery";
 import { TestimonialsSection } from "@/components/ui/testimonials-6";
 
 const homepageJourney = [
-  { step: "Apply", title: "Share your interest", body: "Choose your crown and send the essentials for an eligibility review." },
-  { step: "Prepare", title: "Train for the stage", body: "Build runway, camera, voice, styling and interview confidence." },
-  { step: "Compete", title: "Enter the finale pathway", body: "Meet the jury and move through media, runway and finale rounds." },
-  { step: "Represent", title: "Carry the crown forward", body: "Continue into appearances, press and national opportunities." },
+  { step: "Apply", title: "Share your interest" },
+  { step: "Prepare", title: "Train for the stage" },
+  { step: "Compete", title: "Enter the finale" },
+  { step: "Represent", title: "Carry the crown" },
 ];
 
 export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
@@ -114,7 +114,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               <h2 className="absolute bottom-6 left-6 font-display text-[clamp(2rem,3vw,4rem)] leading-none text-white">Two seasons crowned.</h2>
             </div>
             <div className="reveal max-w-xl">
-              <h2 className="display-title mb-7">A state stage with a serious preparation standard.</h2>
+              <h2 className="display-title mb-7">A Maharashtra stage built to prepare.</h2>
               <p className="text-lg font-light leading-8 text-blush-body">More than 120 women trained across two seasons and three Maharashtra cities.</p>
               <button onClick={() => navigate("about")} className="mt-8 inline-flex items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.2em] text-blush-accent">Discover the pageant <ArrowRight size={15} /></button>
             </div>
@@ -126,7 +126,6 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <div data-home-section>
           <div className="reveal max-w-3xl">
             <h2 className="display-title">From first interest to titleholder year.</h2>
-            <p className="mt-6 max-w-2xl text-[17px] font-light leading-8 text-blush-body">Four clear stages turn ambition into prepared stage presence.</p>
           </div>
           <div className="journey-track mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {homepageJourney.map((item, index) => (
@@ -136,7 +135,6 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   <span className="font-display text-4xl leading-none text-blush-ink/35">{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <h3 className="mt-6 font-display text-3xl leading-tight text-blush-ink">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-blush-body">{item.body}</p>
               </article>
             ))}
           </div>
@@ -146,7 +144,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       <Section className="category-cinema">
         <div data-home-section>
           <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeader eyebrow="Choose your crown" title="Find the category that matches your life stage." body="Separate crowns for single and married applicants, with the same preparation standard and no minimum height." />
+            <SectionHeader eyebrow="Choose your crown" title="Find your category." />
             <button onClick={() => navigate("categories")} className="reveal inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.2em] text-blush-accent">Compare categories <ArrowRight size={15} /></button>
           </div>
           <div className="category-cinema-grid grid gap-5 md:grid-cols-2">
@@ -157,7 +155,6 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <div className="absolute left-0 top-0 bg-[#061122]/85 px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">{index === 0 ? "Single applicants" : "Married applicants"}</div>
                 <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(22px,3vw,34px)]">
                   <h3 className="luxury-hover-title font-display text-[clamp(2.6rem,4vw,5rem)] leading-none">{category.title}</h3>
-                  <p className="mt-4 max-w-xl text-sm leading-6 text-white/76">{category.who}</p>
                   <dl className="mt-5 grid grid-cols-3 gap-2 border-y border-white/14 py-4 text-[10px] uppercase tracking-[.14em] text-white/72">
                     {(index === 0 ? [["Status", "Single"], ["Height", "No minimum"], ["Home", "Maharashtra"]] : [["Status", "Married*"], ["Height", "No minimum"], ["Home", "Maharashtra"]]).map(([label, value]) => (
                       <div key={label}><dt className="text-blush-accent">{label}</dt><dd className="mt-1 text-white">{value}</dd></div>
@@ -192,7 +189,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             </h2>
             <div className="mt-8 h-px w-24 bg-blush-accent" aria-hidden="true" />
             <p className="mt-7 max-w-xl text-base font-light leading-8 text-blush-body sm:text-lg">
-              A new generation steps onto the stage. Discover the title and meet the contestants as official profiles are announced.
+              Meet the next generation of titleholders.
             </p>
             <button
               type="button"
@@ -240,7 +237,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         <div data-home-section className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_.82fr] lg:items-center">
           <div className="reveal">
             <h2 className="font-display text-[clamp(3rem,5vw,5.9rem)] leading-[.92] text-blush-ink">The next season starts with your interest.</h2>
-            <p className="mt-6 max-w-xl text-base font-light leading-8 text-blush-body">Season 3 auditions are complete. Tell us your preferred city and the team will contact you when new dates are announced.</p>
+            <p className="mt-6 max-w-xl text-base font-light leading-8 text-blush-body">Choose your city and hear when applications reopen.</p>
             <div className="mt-8 flex flex-wrap gap-3" aria-label="Preferred city options">
               {interestCities.map((city) => <span key={city} className="category-chip">{city}</span>)}
             </div>
@@ -256,7 +253,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
 
       <Section className="finalist-benefits-section cinematic-band gold-lift">
         <div data-home-section>
-          <SectionHeader eyebrow="The crown pathway" title="What finalists actually receive." body="Focused preparation for the runway, camera, interviews and titleholder responsibilities." />
+          <SectionHeader eyebrow="The crown pathway" title="What finalists receive." />
           <div className="finalist-benefits-grid reveal grid overflow-hidden md:grid-cols-2 xl:grid-cols-4">
             {pillars.map((pillar) => (
               <article key={pillar.title} className="finalist-benefit-card group flex min-w-0 flex-col bg-[#061122]">
@@ -268,7 +265,6 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <div className="finalist-benefit-content flex flex-1 flex-col p-6 lg:p-7">
                   <h3 className="font-display text-[clamp(2rem,2.5vw,2.8rem)] leading-[1.02] text-blush-ink">{pillar.title}</h3>
                   <div className="mt-5 h-px w-10 bg-blush-accent/80 transition-all duration-500 group-hover:w-20" aria-hidden="true" />
-                  <p className="mt-5 text-sm leading-7 text-blush-body">{pillar.body}</p>
                 </div>
               </article>
             ))}
@@ -286,7 +282,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <span className="founder-line-mask"><span className="founder-reveal-line block" data-founder-line style={{ transitionDelay: "170ms" }}>Sheikh.</span></span>
               </h2>
               <p className="mt-4 text-xs uppercase tracking-[.24em] text-blush-accent">Mrs. Maharashtra 2022 / 3rd Runner-up, Mrs. Universe</p>
-              <p className="mt-5 max-w-xl text-base font-light leading-8 text-blush-body">Zoya founded the platform to give women in Maharashtra structured grooming, credible stage preparation and a visible path beyond coronation night.</p>
+              <p className="mt-5 max-w-xl text-base font-light leading-8 text-blush-body">A Maharashtra platform for preparation, visibility and representation.</p>
               <p className="founder-quote mt-6 max-w-md font-display text-[clamp(1.55rem,2.4vw,2.9rem)] leading-tight text-blush-ink" aria-label="A platform where confidence becomes preparation, and preparation becomes representation.">
                 {["A", "platform", "where", "confidence", "becomes", "preparation,", "and", "preparation", "becomes", "representation."].map((word, index) => (
                   <span key={`${word}-${index}`} className="founder-quote-word" data-founder-word style={{ transitionDelay: `${260 + index * 46}ms` }}>{index === 0 ? '"' : ""}{word}{index === 9 ? '"' : ""}</span>

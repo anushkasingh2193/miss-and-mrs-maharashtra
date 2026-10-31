@@ -17,7 +17,6 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
             <h2 className="winner-showcase-title font-display text-blush-ink">Proof that the pathway creates titleholders.</h2>
           </div>
           <div className="winner-marquee-copy">
-            <p>Past winners make the promise visible: a structured season becomes a public identity, professional portfolio and crown story.</p>
             <button type="button" onClick={onViewGallery} className="winner-inline-link">Meet the winners <ArrowRight size={15} /></button>
           </div>
         </div>
@@ -38,7 +37,6 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
           <div className="winner-video-intro">
             <div className="eyebrow mb-3">Video coverage</div>
             <h3 className="font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none text-blush-ink">Watch the stage before you enter it.</h3>
-            <p className="mt-4 text-sm leading-7 text-blush-body">Choose a film, then press play. The YouTube player loads only when you ask for it.</p>
           </div>
           <div className="winner-video-feature">
             <YouTubePreview key={featuredVideos[activeVideo].src} {...featuredVideos[activeVideo]} className="aspect-video" />

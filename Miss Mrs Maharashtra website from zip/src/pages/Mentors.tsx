@@ -33,7 +33,6 @@ function MentorProfile({ profile, featured = false }: { profile: Profile; featur
       <div className="mentor-profile__content">
         <p className="mentor-profile__role">{profile.role}</p>
         <h3>{profile.name}</h3>
-        <p className="mentor-profile__bio">{profile.bio}</p>
       </div>
     </article>
   );
@@ -51,7 +50,7 @@ export function Mentors({ navigate }: { navigate: (page: PageKey) => void }) {
             <p className="mentor-hero__label">Season faculty and guest jury</p>
             <h1>Guidance for every stage.</h1>
             <p className="mentor-hero__intro">
-              Expert preparation in presentation, wellbeing, voice, styling and stage confidence from first briefing to finale night.
+              Expert guidance in styling, wellbeing, voice and stage presence.
             </p>
             <dl className="mentor-hero__facts" aria-label="Mentorship programme at a glance">
               {[[mentors.length, "Mentors"], [jury.length, "Jury voices"], ["3", "Audition cities"]].map(([value, label]) => (
@@ -90,9 +89,6 @@ export function Mentors({ navigate }: { navigate: (page: PageKey) => void }) {
               <p>Leadership and faculty</p>
               <h2>Meet the people behind the preparation.</h2>
             </div>
-            <p>
-              A multidisciplinary team helps contestants build the composure, clarity and professional habits expected of a titleholder.
-            </p>
           </header>
 
           <div className="mentor-leadership-grid">
@@ -120,7 +116,6 @@ export function Mentors({ navigate }: { navigate: (page: PageKey) => void }) {
               <p>Guest jury</p>
               <h2>Perspective from stage, screen and pageantry.</h2>
             </div>
-            <p>Artists, titleholders and industry guests bring an experienced outside eye to the Maharashtra stage.</p>
           </header>
 
           <div className="mentor-jury-grid">
