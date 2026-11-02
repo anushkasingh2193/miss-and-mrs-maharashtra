@@ -69,7 +69,12 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
               </h1>
               <div className="hero-actions mt-7 flex flex-wrap justify-center gap-5">
                 <button onClick={() => navigate("register")} className="gold-cta px-7 py-3.5 text-xs uppercase tracking-[.2em]">Register interest for the next season.</button>
-                <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.2em] text-white transition hover:border-blush-accent hover:text-blush-accent">View categories</button>
+                <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+                  <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.2em] text-white transition hover:border-blush-accent hover:text-blush-accent">View categories</button>
+                  <button onClick={() => navigate("junior-india")} className="inline-flex items-center gap-2 border-b border-blush-accent/80 pb-2 text-xs uppercase tracking-[.2em] text-blush-accent transition hover:border-white hover:text-white">
+                    Explore Junior India <ArrowRight size={14} aria-hidden="true" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

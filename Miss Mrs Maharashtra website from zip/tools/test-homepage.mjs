@@ -24,6 +24,7 @@ assert.equal(
   "homepage should include the Junior India feature and restored testimonial section",
 );
 assert.match(home, /Register interest for the next season/, "homepage should use the next-season registration CTA");
+assert.match(home, /navigate\("junior-india"\)[\s\S]*?Explore Junior India/, "homepage hero should expose a direct Junior India CTA");
 assert.match(layout, /Register interest for the next season/, "sticky CTA should use the next-season registration CTA");
 assert.doesNotMatch(home, /useCountdown|auditionCities|Apply for auditions|Until finale week|October 2026/, "homepage should not expose stale audition details");
 assert.doesNotMatch(layout, /useCountdown|days to finale week|still being reviewed/, "layout should not expose a stale countdown or review status");
