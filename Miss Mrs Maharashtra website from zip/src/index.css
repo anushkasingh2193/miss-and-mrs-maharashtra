@@ -2843,6 +2843,62 @@ select:focus-visible {
   border-color: #dcb34d;
 }
 
+@media (min-width: 1025px) {
+  .junior-campaign {
+    min-height: clamp(690px, 78svh, 800px);
+  }
+
+  .junior-campaign::before {
+    opacity: 0.24;
+  }
+
+  .junior-campaign__stage {
+    width: min(100%, 1480px);
+    padding: clamp(60px, 5vw, 76px) clamp(52px, 5vw, 82px) clamp(68px, 6vw, 92px);
+    column-gap: clamp(24px, 3vw, 48px);
+  }
+
+  .junior-campaign__wordmark {
+    top: 18px;
+    left: clamp(42px, 5vw, 82px);
+    color: rgba(245, 242, 234, 0.04);
+    font-size: clamp(7.25rem, 9vw, 10rem);
+    line-height: 0.86;
+    letter-spacing: -0.025em;
+  }
+
+  .junior-campaign__details {
+    grid-column: 1 / 7;
+  }
+
+  .junior-campaign__film {
+    grid-column: 8 / 12;
+    align-self: center;
+    width: min(100%, 360px);
+    max-height: 640px;
+  }
+
+  .junior-campaign__message {
+    grid-column: 1 / 8;
+    max-width: 720px;
+    margin-bottom: clamp(18px, 3vw, 42px);
+  }
+
+  .junior-campaign__message h2 {
+    clip-path: none !important;
+    font-size: clamp(3.6rem, 4.3vw, 4.8rem);
+    line-height: 0.9;
+  }
+
+  .junior-campaign__message h2 span:last-child {
+    margin-left: clamp(28px, 4vw, 68px);
+  }
+
+  .junior-campaign__vertical {
+    right: clamp(16px, 1.5vw, 28px);
+  }
+}
+
 @media (max-width: 1024px) {
   .junior-campaign__stage {
     padding-right: 48px;
