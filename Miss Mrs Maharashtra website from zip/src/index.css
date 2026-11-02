@@ -1263,9 +1263,28 @@ select:focus-visible {
 }
 
 .site-logo {
-  display: inline-grid;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(9px, 1vw, 14px);
+  min-width: clamp(210px, 20vw, 292px);
+}
+
+.site-logo-mark,
+.footer-logo-mark {
+  flex: 0 0 auto;
+  object-fit: cover;
+  border: 1px solid rgba(214, 174, 79, 0.34);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.site-logo-mark {
+  width: 46px;
+  height: 46px;
+}
+
+.site-logo-copy {
+  display: grid;
   gap: 3px;
-  min-width: clamp(168px, 17vw, 248px);
 }
 
 .site-logo-kicker {
@@ -1286,6 +1305,16 @@ select:focus-visible {
   line-height: 0.9;
   color: #EEF6FF;
   text-shadow: 0 1px 22px rgba(214, 174, 79, 0.08);
+}
+
+.homepage-brand-logo {
+  border: 1px solid rgba(214, 174, 79, 0.32);
+  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.4);
+}
+
+.footer-logo-mark {
+  width: 58px;
+  height: 58px;
 }
 
 .nav-link {
@@ -2445,15 +2474,32 @@ select:focus-visible {
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .site-logo {
-    min-width: 158px;
+    min-width: 48px;
+  }
+
+  .site-logo-copy {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-logo {
+    min-width: 0;
+  }
+
+  .site-logo-mark {
+    width: 42px;
+    height: 42px;
   }
 
   .site-logo-word {
-    font-size: 1.68rem;
+    font-size: clamp(1.24rem, 6.2vw, 1.68rem);
+    letter-spacing: 0.11em;
   }
 
   .site-logo-kicker {
-    font-size: 8px;
+    font-size: 7px;
+    letter-spacing: 0.3em;
   }
 }
 

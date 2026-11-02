@@ -1,4 +1,4 @@
-import { ArrowRight, Instagram, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
+import { ArrowRight, Instagram, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import { contactRows, navItems, type PageKey } from "@/data/site";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -30,8 +30,11 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
       <header className="site-header sticky top-0 z-50 border-b gold-divider backdrop-blur-2xl">
         <div className="content-wrap flex min-h-[var(--header-height)] items-center gap-5 px-[clamp(18px,3.6vw,38px)]">
           <button onClick={() => go("home")} className="site-logo mr-auto text-left text-blush-ink transition hover:text-blush-hover" aria-label="Go to home page">
-            <span className="site-logo-kicker">MISS &amp; MRS.</span>
-            <span className="site-logo-word">MAHARASHTRA</span>
+            <img className="site-logo-mark" src="/brand/miss-mrs-maharashtra-mark.jpg" alt="" width="192" height="192" />
+            <span className="site-logo-copy">
+              <span className="site-logo-kicker">MISS &amp; MRS.</span>
+              <span className="site-logo-word">MAHARASHTRA</span>
+            </span>
           </button>
           <nav className="hidden items-center gap-5 lg:flex" aria-label="Main navigation">
             {navItems.map((item) => (
@@ -100,8 +103,8 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
 
         <div className="content-wrap relative z-10 grid gap-10 py-12 md:grid-cols-[1.2fr_.7fr_.7fr_1fr]">
           <div>
-            <div className="flex items-center gap-3 text-blush-accent">
-              <Sparkles size={18} />
+            <div className="flex items-center gap-4 text-blush-accent">
+              <img className="footer-logo-mark" src="/brand/miss-mrs-maharashtra-mark.jpg" alt="" width="192" height="192" loading="lazy" />
               <span className="text-xs uppercase tracking-[.28em]">Miss & Mrs.</span>
             </div>
             <div className="mt-4 font-display text-4xl leading-none text-blush-ink">Maharashtra</div>

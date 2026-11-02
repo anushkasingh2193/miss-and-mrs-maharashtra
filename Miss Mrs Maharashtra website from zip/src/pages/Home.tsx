@@ -60,8 +60,15 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_56%,rgba(2,8,23,.08),rgba(2,8,23,.48)_52%,rgba(2,8,23,.72)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/62 to-transparent" />
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full items-center justify-center px-[clamp(20px,4vw,42px)] text-center will-change-transform">
-            <div className="max-w-2xl translate-y-10 text-white sm:translate-y-14">
-              <div className="eyebrow mb-3 text-blush-accent">Miss &amp; Mrs. Maharashtra</div>
+            <div className="max-w-2xl translate-y-4 text-white sm:translate-y-8">
+              <img
+                className="homepage-brand-logo mx-auto mb-4 w-[clamp(128px,16vw,176px)]"
+                src="/brand/miss-mrs-maharashtra-logo.jpg"
+                alt="Miss and Mrs Maharashtra"
+                width="384"
+                height="378"
+                fetchPriority="high"
+              />
               <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.5)]" aria-label="Own the stage.">
                 {["Own", "the", "stage."].map((word, index) => (
                   <span key={`${word}-${index}`} className="hero-word-reveal" style={{ animationDelay: `${220 + index * 95}ms` }}>{word}</span>
