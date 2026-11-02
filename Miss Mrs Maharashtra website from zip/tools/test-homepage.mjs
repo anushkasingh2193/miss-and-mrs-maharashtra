@@ -10,6 +10,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (path) => readFileSync(resolve(root, path), "utf8");
 
 const home = read("src/pages/Home.tsx");
+const about = read("src/pages/About.tsx");
 const categoriesPage = read("src/pages/Categories.tsx");
 const data = read("src/data/site.ts");
 const layout = read("src/components/Layout.tsx");
@@ -27,6 +28,9 @@ assert.equal(
   "homepage should include the Junior India feature and restored testimonial section",
 );
 assert.match(home, /Register interest for the next season/, "homepage should use the next-season registration CTA");
+assert.match(about, /Who we are · What we do/, "the About page should clearly introduce the organisation and its work");
+assert.match(about, /founded in Nagpur by Zoya and Siraj Sheikh/, "the About bio should identify the founders using established site facts");
+assert.match(about, /mentoring, grooming, runway, styling, voice, interview and portfolio preparation/, "the About bio should explain how the platform prepares applicants");
 assert.match(home, /navigate\("junior-india"\)[\s\S]*?Junior India Live Voting/, "homepage hero should expose Junior India live voting");
 assert.doesNotMatch(layout, /Season 3 auditions are complete|Register interest for the next season|inset-x-0 bottom-0 z-40/, "the global sticky registration banner should stay removed");
 assert.doesNotMatch(layout, /pb-20 sm:pb-0/, "pages should not reserve mobile space for the removed sticky banner");

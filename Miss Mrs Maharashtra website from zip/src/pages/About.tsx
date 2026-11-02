@@ -68,7 +68,6 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
                       style={{ objectPosition: leader.position }}
                       loading="eager"
                       decoding="async"
-                      fetchPriority="high"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/12 to-transparent" />
                     <div className="absolute bottom-5 left-5 right-5">
@@ -88,6 +87,25 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
           </div>
         </div>
       </section>
+
+      <Section className="cinematic-band !py-[clamp(54px,7vw,96px)]">
+        <div className="grid gap-10 border-y gold-divider py-[clamp(38px,5vw,64px)] lg:grid-cols-[.82fr_1.18fr] lg:items-start lg:gap-[clamp(56px,8vw,120px)]">
+          <div className="reveal">
+            <p className="text-[10px] uppercase tracking-[.28em] text-blush-accent">Who we are · What we do</p>
+            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.5rem,4.5vw,5rem)] leading-[.98] tracking-[-.02em] text-blush-ink">
+              We build the stage—and prepare women to own it.
+            </h2>
+          </div>
+          <div className="reveal border-t gold-divider pt-8 lg:border-l lg:border-t-0 lg:pl-[clamp(32px,5vw,72px)] lg:pt-0">
+            <p className="max-w-[68ch] text-[clamp(1.05rem,1.45vw,1.3rem)] font-light leading-8 text-blush-body">
+              Miss &amp; Mrs. Maharashtra is a titleholder-led pageant platform founded in Nagpur by Zoya and Siraj Sheikh. We create a serious state stage for Miss and Mrs. applicants from across Maharashtra, guiding them from their first audition to a professionally produced finale.
+            </p>
+            <p className="mt-6 max-w-[68ch] text-base font-light leading-8 text-blush-body">
+              Our work brings together mentoring, grooming, runway, styling, voice, interview and portfolio preparation. After the crown, titleholders continue into a year of public appearances and national platform consideration.
+            </p>
+          </div>
+        </div>
+      </Section>
 
       <Section className="cinematic-band">
         <SectionHeader eyebrow="Platform" title="Clear purpose. Real preparation." />
