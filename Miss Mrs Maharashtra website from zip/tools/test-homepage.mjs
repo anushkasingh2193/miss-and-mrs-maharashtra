@@ -68,11 +68,10 @@ assert.match(home, /finalist-benefit-image h-full w-full object-cover/, "finalis
 assert.doesNotMatch(home, /luxury-hover-media relative aspect-\[3\/4\][\s\S]*?pillar\.bg[\s\S]*?object-contain/, "finalist benefit images should not use tall object-contain frames");
 assert.match(data, /titleMiss:\s*`\$\{SEASON_3_WINNERS\}miss-supraglobal-india\.jpg`/, "Miss category cards should use the Season 3 titleholder portrait");
 assert.ok(existsSync(resolve(root, "public/missmrs-assets/season-3-winners/miss-supraglobal-india.jpg")), "Season 3 Miss titleholder portrait must exist");
-assert.match(categoriesPage, /aspect-\[2\/3\][\s\S]*?lg:min-h-\[720px\]/, "category profiles should preserve full-length portrait proportions");
-assert.match(categoriesPage, /lg:grid-cols-\[minmax\(340px,\.8fr\)_minmax\(0,1\.2fr\)\]/, "category profiles should reserve professional desktop width for each portrait");
-assert.match(categoriesPage, /luxury-hover-content min-w-0/, "category copy should not force portrait columns into narrow strips");
-assert.match(categoriesPage, /xl:grid-cols-\[\.92fr_1\.08fr\]/, "category hero should not enter its split layout at cramped laptop widths");
-assert.match(categoriesPage, /\[container-type:inline-size\][\s\S]*?text-\[clamp\(2rem,13cqw,4rem\)\]/, "category hero titles should scale to their portrait card width");
+assert.match(categoriesPage, /data-category-card="true"[\s\S]*?aspect-\[4\/5\]/, "category cards should preserve consistent portrait proportions");
+assert.match(categoriesPage, /md:grid-cols-2 xl:grid-cols-3/, "category cards should show all three categories together on wide screens");
+assert.match(categoriesPage, /luxury-hover-content flex flex-1 flex-col/, "category cards should keep their visible copy and actions aligned");
+assert.match(categoriesPage, /min-h-\[clamp\(460px,62svh,680px\)\]/, "the simplified category hero should remain compact and responsive");
 assert.match(videoBento, /return \(\s*<div className=/, "YouTube preview should use a non-interactive outer container");
 assert.doesNotMatch(videoBento, /return \(\s*<button/, "YouTube preview must not wrap its play button in another button");
 assert.match(home, /data-hero-video[\s\S]*?preload="auto"/, "hero video should preload for the clearest immediate playback");

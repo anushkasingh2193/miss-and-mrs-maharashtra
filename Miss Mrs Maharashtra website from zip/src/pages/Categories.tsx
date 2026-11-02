@@ -1,27 +1,56 @@
 import { ArrowRight } from "lucide-react";
-import { categories, imageRoles, scoring, type PageKey } from "@/data/site";
+import { imageRoles, scoring, type PageKey } from "@/data/site";
 import { Section, SectionHeader } from "@/components/Section";
 
 const categoryDetails = [
   {
     key: "miss",
+    title: "Miss Maharashtra",
     label: "Title 01",
-    eligibility: "Single and unmarried women and girls of Maharashtra.",
-    pathway: "Miss Supraglobal / Miss Summit International",
+    description: "For single and unmarried women and girls of Maharashtra.",
+    metaLabel: "National pathway",
+    meta: "Miss Supraglobal / Miss Summit International",
     image: imageRoles.titleMiss,
     position: "50% 8%",
-    facts: ["Shared grooming", "Finale runway", "Portfolio shoot", "National pathway"],
+    target: "register",
+    cta: "Apply for Miss Maharashtra",
   },
   {
     key: "mrs",
+    title: "Mrs. Maharashtra",
     label: "Title 02",
-    eligibility: "Married, divorced, widowed women, and single mothers.",
-    pathway: "Mrs. India Supranational / Women of the Universe",
+    description: "For married, divorced or widowed women, and single mothers.",
+    metaLabel: "National pathway",
+    meta: "Mrs. India Supranational / Women of the Universe",
     image: imageRoles.titleMrs,
     position: "50% 8%",
-    facts: ["Shared grooming", "Finale runway", "Portfolio shoot", "Titleholder year"],
+    target: "register",
+    cta: "Apply for Mrs. Maharashtra",
   },
-] as const;
+  {
+    key: "junior-india",
+    title: "Junior India",
+    label: "Youth category",
+    description: "A dedicated runway experience for young talent to shine with confidence and creativity.",
+    metaLabel: "Event date",
+    meta: "22 November 2026",
+    image: imageRoles.juniorIndiaCategory,
+    position: "50% 50%",
+    target: "junior-india",
+    cta: "Explore Junior India",
+  },
+] as const satisfies ReadonlyArray<{
+  key: string;
+  title: string;
+  label: string;
+  description: string;
+  metaLabel: string;
+  meta: string;
+  image: string;
+  position: string;
+  target: PageKey;
+  cta: string;
+}>;
 
 const comparisonRows = [
   ["Eligibility", "Unmarried women and girls", "Married, divorced, widowed women and single mothers"],
@@ -36,150 +65,78 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
     <div className="home-cinema">
       <section className="relative overflow-hidden border-b gold-divider bg-[#031026] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_26%,rgba(74,169,255,.15),transparent_30%),radial-gradient(circle_at_18%_74%,rgba(74,169,255,.08),transparent_32%),linear-gradient(180deg,#031026,#061122_54%,#031026)]" />
-        <div className="content-wrap relative z-10 grid min-h-[calc(82vh-var(--header-height))] gap-10 px-[clamp(20px,4vw,42px)] py-[clamp(56px,7vw,96px)] xl:grid-cols-[.92fr_1.08fr] xl:items-center">
-          <div className="reveal max-w-4xl">
+        <div className="content-wrap relative z-10 flex min-h-[clamp(460px,62svh,680px)] items-center px-[clamp(20px,4vw,42px)] py-[clamp(64px,8vw,112px)]">
+          <div className="reveal max-w-5xl">
             <div className="eyebrow mb-5">Categories</div>
-            <h1 className="hero-title max-w-4xl">Choose the right crown before you apply.</h1>
+            <h1 className="hero-title max-w-5xl">Three stages. One place to find yours.</h1>
+            <p className="mt-7 max-w-2xl text-base font-light leading-8 text-white/72 sm:text-lg">
+              Compare each category at a glance, then explore the pathway designed for your journey.
+            </p>
             <div className="category-hero-proof mt-8 grid gap-3 sm:grid-cols-3">
-              {["2 title categories", "Separate scoring", "Same finale standard"].map((item) => (
+              {["3 distinct categories", "Separate pathways", "One confident stage"].map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </div>
             <div className="mt-9 flex flex-wrap items-center gap-5">
-              <button onClick={() => navigate("register")} className="gold-cta inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Start application <ArrowRight size={15} />
-              </button>
+              <a href="#choose-category" className="gold-cta inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
+                Choose your category <ArrowRight size={15} />
+              </a>
               <a href="#compare-categories" className="border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent transition hover:text-blush-hover">
-                Compare categories
+                Compare adult titles
               </a>
             </div>
-          </div>
-
-          <div className="reveal mx-auto grid w-full max-w-5xl gap-4 md:grid-cols-2 xl:max-w-none">
-            {categoryDetails.map((item) => (
-              <button
-                key={item.key}
-                onClick={() => navigate("register")}
-                className="group luxury-hover-card relative aspect-[4/5] overflow-hidden border gold-divider bg-[#061122] text-left text-white shadow-[0_24px_90px_rgba(0,0,0,.34)] transition [container-type:inline-size] hover:border-blush-accent focus:outline-none focus:ring-2 focus:ring-blush-accent"
-              >
-                <img
-                  src={item.image}
-                  alt={`${item.key === "miss" ? "Miss" : "Mrs."} Maharashtra category`}
-                  className="luxury-hover-image h-full w-full object-cover transition duration-700"
-                  style={{ objectPosition: item.position }}
-                  loading="eager"
-                  decoding="async"
-                />
-                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#031026] via-[#031026]/30 to-transparent" />
-                <div className="absolute left-0 top-0 bg-[#031026]/88 px-5 py-4 text-[10px] uppercase tracking-[.28em] text-blush-accent">{item.label}</div>
-                <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(20px,6cqw,28px)]">
-                  <p className="max-w-[34ch] text-[10px] uppercase tracking-[.22em] text-blush-accent">{item.pathway}</p>
-                  <h2 className="luxury-hover-title mt-3 max-w-full text-balance font-display text-[clamp(2rem,13cqw,4rem)] leading-[.92]">{item.key === "miss" ? "Miss" : "Mrs."} Maharashtra</h2>
-                  <span className="luxury-hover-arrow mt-4 text-blush-accent" aria-hidden="true">
-                    <ArrowRight size={15} />
-                  </span>
-                </div>
-              </button>
-            ))}
           </div>
         </div>
       </section>
 
-      <Section className="cinematic-band !py-0">
-        <div className="grid border-y gold-divider bg-[#020817]/72 md:grid-cols-4">
-          {["No height requirement", "No weight requirement", "No complexion criterion", "Separate title scoring"].map((item) => (
-            <div key={item} className="border-r gold-divider px-6 py-6 text-[10px] uppercase tracking-[.24em] text-blush-accent">
-              {item}
-            </div>
+      <Section id="choose-category" className="cinematic-band gold-lift">
+        <SectionHeader eyebrow="Choose your category" title="Every stage, clearly presented." body="See the purpose and pathway of each category before choosing where to continue." />
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {categoryDetails.map((item) => (
+            <article
+              key={item.key}
+              data-category-card="true"
+              className="luxury-hover-card reveal flex h-full min-w-0 flex-col overflow-hidden border gold-divider bg-[#020817]/82"
+            >
+              <div className="luxury-hover-media relative aspect-[4/5] overflow-hidden bg-[#061122]">
+                <img
+                  src={item.image}
+                  alt={`${item.title} category`}
+                  className="luxury-hover-image h-full w-full object-cover transition duration-700"
+                  style={{ objectPosition: item.position }}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/70 via-transparent to-[#020817]/10" />
+                <span className="absolute left-5 top-5 border gold-divider bg-[#031026]/90 px-4 py-3 text-[10px] uppercase tracking-[.26em] text-blush-accent backdrop-blur-sm">
+                  {item.label}
+                </span>
+              </div>
+              <div className="luxury-hover-content flex flex-1 flex-col p-[clamp(24px,3vw,36px)]">
+                <h2 className="luxury-hover-title text-balance font-display text-[clamp(2.5rem,4vw,4.4rem)] leading-[.9] text-blush-ink">
+                  {item.title}
+                </h2>
+                <p className="mt-5 min-h-[4.5rem] text-sm font-light leading-7 text-blush-body sm:text-base">
+                  {item.description}
+                </p>
+                <div className="mt-6 border-y gold-divider py-4">
+                  <p className="text-[9px] uppercase tracking-[.26em] text-blush-accent">{item.metaLabel}</p>
+                  <p className="mt-2 text-sm leading-6 text-blush-ink">{item.meta}</p>
+                </div>
+                <button
+                  onClick={() => item.target === "junior-india" ? navigate("junior-india") : navigate("register")}
+                  className="gold-cta mt-7 inline-flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-[10px] uppercase tracking-[.2em] focus:outline-none focus:ring-2 focus:ring-blush-accent focus:ring-offset-2 focus:ring-offset-[#020817]"
+                >
+                  {item.cta} <ArrowRight size={15} aria-hidden="true" />
+                </button>
+              </div>
+            </article>
           ))}
         </div>
       </Section>
 
-      <Section className="cinematic-band">
-        <SectionHeader eyebrow="Choose your crown" title="The right category, clearly defined." />
-        <div className="grid gap-8">
-          {categories.map((cat, idx) => {
-            const detail = categoryDetails[idx];
-
-            return (
-              <article
-                key={cat.key}
-                className="luxury-hover-card reveal grid overflow-hidden border gold-divider bg-[#020817]/76 lg:min-h-[720px] lg:grid-cols-[minmax(340px,.8fr)_minmax(0,1.2fr)] xl:grid-cols-[minmax(430px,.86fr)_minmax(0,1.14fr)]"
-              >
-                <div className="luxury-hover-media relative aspect-[2/3] min-w-0 overflow-hidden bg-[#061122] lg:aspect-auto lg:min-h-[720px]">
-                  <img
-                    src={detail.image}
-                    alt={`${cat.title} applicant pathway`}
-                    className="luxury-hover-image h-full w-full object-cover transition duration-700"
-                    style={{ objectPosition: detail.position }}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/86 via-transparent to-transparent" />
-                  <div className="absolute bottom-5 left-5 text-[10px] uppercase tracking-[.28em] text-blush-accent">{detail.label}</div>
-                </div>
-                <div className="luxury-hover-content min-w-0 self-center p-[clamp(28px,4vw,64px)]">
-                  <div className="eyebrow mb-5">{cat.pathway}</div>
-                  <h2 className="luxury-hover-title max-w-[12ch] text-balance font-display text-[clamp(2.8rem,4.2vw,5rem)] leading-[.94] text-blush-ink">{cat.title}</h2>
-                  <p className="mt-6 max-w-[60ch] text-lg font-light leading-8 text-blush-body">{detail.eligibility}</p>
-                  <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                    {detail.facts.map((fact) => (
-                      <div key={fact} className="border-b gold-divider pb-3 text-xs uppercase tracking-[.2em] text-blush-accent">{fact}</div>
-                    ))}
-                  </div>
-                  <button onClick={() => navigate("register")} className="gold-cta mt-8 inline-flex items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.24em]">
-                    Start {cat.title} form <ArrowRight size={15} />
-                  </button>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </Section>
-
-      <Section className="cinematic-band gold-lift">
-        <article
-          data-category-section="junior-india"
-          className="luxury-hover-card reveal grid overflow-hidden border gold-divider bg-[#020817]/82 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,.95fr)]"
-        >
-          <div className="luxury-hover-media relative min-h-[520px] overflow-hidden bg-[#061122] sm:min-h-[640px] lg:min-h-[760px]">
-            <img
-              src={imageRoles.juniorIndiaCategory}
-              alt="Junior India participants walking together on the runway"
-              className="luxury-hover-image h-full w-full object-cover object-center transition duration-700"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/35 via-transparent to-[#020817]/10" />
-            <div className="absolute left-5 top-5 border gold-divider bg-[#031026]/90 px-5 py-3 text-[10px] uppercase tracking-[.28em] text-blush-accent backdrop-blur-sm">
-              Youth category
-            </div>
-          </div>
-
-          <div className="luxury-hover-content flex min-w-0 flex-col justify-center p-[clamp(30px,5vw,72px)]">
-            <div className="eyebrow mb-5">A separate stage for young talent</div>
-            <h2 className="luxury-hover-title max-w-[10ch] text-balance font-display text-[clamp(3.5rem,7vw,7.5rem)] leading-[.84] text-blush-ink">
-              Junior India
-            </h2>
-            <div className="mt-8 border-y gold-divider py-5">
-              <p className="text-[10px] uppercase tracking-[.28em] text-blush-accent">Event date</p>
-              <p className="mt-2 font-display text-[clamp(2rem,3.3vw,3.6rem)] leading-none text-blush-ink">22 November 2026</p>
-            </div>
-            <p className="mt-7 max-w-[48ch] text-base font-light leading-8 text-blush-body sm:text-lg">
-              A dedicated runway experience where young stars can step forward with confidence, creativity and stage presence.
-            </p>
-            <button
-              onClick={() => navigate("junior-india")}
-              className="gold-cta mt-8 inline-flex w-fit items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.24em]"
-            >
-              Discover Junior India <ArrowRight size={15} />
-            </button>
-          </div>
-        </article>
-      </Section>
-
       <Section id="compare-categories" className="cinematic-band gold-lift">
-        <SectionHeader eyebrow="Compare" title="Different eligibility. Same stage standard." />
+        <SectionHeader eyebrow="Adult title comparison" title="Different eligibility. Same stage standard." />
         <div className="category-compare-table overflow-hidden border gold-divider bg-[#020817]/78">
           <div className="category-compare-row category-compare-head border-b gold-divider px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">
             <span>Criteria</span>
@@ -197,7 +154,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
       </Section>
 
       <Section className="cinematic-band">
-        <SectionHeader eyebrow="Scoring" title="Transparent criteria for every finalist." />
+        <SectionHeader eyebrow="Miss & Mrs. title scoring" title="Transparent criteria for every adult finalist." />
         <div className="grid gap-4 md:grid-cols-5">
           {scoring.map((s) => (
             <article key={s.no} className="category-score-card reveal border gold-divider bg-[#020817]/78 p-6">
