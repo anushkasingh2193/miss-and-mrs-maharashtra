@@ -37,7 +37,6 @@ const homepageCategories = [
     key: "junior-india",
     title: "Junior India",
     kicker: "Youth category",
-    eventDate: "22 November 2026",
     image: imageRoles.juniorIndiaCategory,
     imagePosition: "50% 50%",
     target: "junior-india",
@@ -47,7 +46,6 @@ const homepageCategories = [
   key: string;
   title: string;
   kicker: string;
-  eventDate?: string;
   image: string;
   imagePosition: string;
   target: PageKey;
@@ -81,7 +79,6 @@ export function HomeCategorySelector({ navigate }: { navigate: (page: PageKey) =
           ) : null}
           <div className="absolute left-0 top-0 bg-[#061122]/90 px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent backdrop-blur-sm">
             <span className="block">{category.kicker}</span>
-            {"eventDate" in category ? <time dateTime="2026-11-22" className="mt-1.5 block text-[9px] tracking-[.16em] text-white/80">{category.eventDate}</time> : null}
           </div>
           <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(22px,3vw,34px)]">
             <h3 className="luxury-hover-title font-display text-[clamp(2.2rem,3.2vw,3.8rem)] leading-[.98]">{category.title}</h3>

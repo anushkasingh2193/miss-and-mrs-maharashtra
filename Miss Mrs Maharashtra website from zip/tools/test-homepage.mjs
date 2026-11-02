@@ -120,6 +120,12 @@ try {
   const navigations = [];
   const selector = HomeCategorySelector({ navigate: (target) => navigations.push(target) });
   const html = renderToStaticMarkup(selector);
+  const categoryButtons = collectButtons(selector).filter(
+    (button) => button.props["data-home-category-action"] === "true",
+  );
+  const juniorIndiaCard = categoryButtons.find((button) => button.props["aria-label"] === "Explore Junior India");
+  assert.ok(juniorIndiaCard, "homepage category selector should render the Junior India card");
+  const juniorIndiaHtml = renderToStaticMarkup(juniorIndiaCard);
 
   assert.equal(
     (html.match(/data-home-category-card="true"/g) ?? []).length,
@@ -127,16 +133,16 @@ try {
     "homepage category selector should render three equal category cards",
   );
   assert.match(html, /Junior India/, "homepage category selector should name Junior India");
-  assert.match(html, /22 November 2026/, "homepage Junior India card should show the event date");
+  assert.match(juniorIndiaHtml, /Youth category/, "homepage Junior India card should keep the category label");
+  assert.doesNotMatch(juniorIndiaHtml, /22 November 2026/, "homepage Junior India card should keep the portrait clear of the full event date");
+  assert.match(juniorIndiaHtml, /<dt[^>]*>Event<\/dt>/, "homepage Junior India card should retain the event fact label");
+  assert.match(juniorIndiaHtml, /22 Nov 2026/, "homepage Junior India card should retain the abbreviated event fact");
   assert.match(
     html,
     /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.png/,
     "homepage Junior India card should use the enhanced supplied runway picture",
   );
 
-  const categoryButtons = collectButtons(selector).filter(
-    (button) => button.props["data-home-category-action"] === "true",
-  );
   assert.deepEqual(
     categoryButtons.map((button) => button.props["aria-label"]),
     ["Explore Miss Maharashtra", "Explore Mrs. Maharashtra", "Explore Junior India"],
