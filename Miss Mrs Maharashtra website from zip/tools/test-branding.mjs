@@ -11,7 +11,7 @@ const markPath = resolve(root, "public/brand/miss-mrs-maharashtra-mark.jpg");
 const faviconPath = resolve(root, "public/favicon.png");
 const touchIconPath = resolve(root, "public/apple-touch-icon.png");
 
-assert.ok(existsSync(logoPath), "the supplied full logo should be shipped as a public brand asset");
+assert.ok(!existsSync(logoPath), "the full hero logo asset should be removed when no longer displayed");
 assert.ok(existsSync(markPath), "a compact logo mark should be available for shared navigation branding");
 assert.ok(existsSync(faviconPath), "a PNG favicon should be available at the public root");
 assert.ok(existsSync(touchIconPath), "a dedicated Apple touch icon should be available at the public root");
@@ -33,7 +33,7 @@ const layout = read("src/components/Layout.tsx");
 
 assert.match(index, /rel="icon"[^>]+href="\/favicon\.png"/, "document metadata should link the favicon");
 assert.match(index, /rel="apple-touch-icon"[^>]+href="\/apple-touch-icon\.png"/, "document metadata should link the dedicated touch icon");
-assert.match(home, /miss-mrs-maharashtra-logo\.jpg/, "homepage hero should display the optimized full logo");
+assert.doesNotMatch(home, /miss-mrs-maharashtra-logo\.jpg|homepage-brand-logo/, "homepage hero should not display the large centered logo");
 assert.equal((layout.match(/miss-mrs-maharashtra-mark\.jpg/g) || []).length, 2, "header and footer should both display the optimized compact logo mark");
 
 console.log("Brand logo and favicon checks passed.");

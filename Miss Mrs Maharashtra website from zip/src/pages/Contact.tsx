@@ -109,7 +109,7 @@ export function Contact({ navigate }: { navigate: (page: PageKey) => void }) {
                 onClick={() => setOpen(open === idx ? -1 : idx)}
                 className="grid w-full grid-cols-[1fr_auto] gap-5 py-6 text-left focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blush-accent"
               >
-                <span className="font-display text-[clamp(1.45rem,2.4vw,2.35rem)] leading-tight text-blush-ink">{faq.q}</span>
+                <span className="font-display text-[clamp(1.4rem,2.1vw,2.1rem)] leading-[1.15] text-blush-ink">{faq.q}</span>
                 <span className="text-2xl text-blush-accent">{open === idx ? "-" : "+"}</span>
               </button>
               {open === idx ? <p className="max-w-3xl pb-7 text-sm leading-8 text-blush-body">{faq.a}</p> : null}

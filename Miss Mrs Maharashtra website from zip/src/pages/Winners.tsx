@@ -29,7 +29,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
         <div className="content-wrap grid min-h-[clamp(500px,70svh,720px)] items-center gap-10 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:gap-14 xl:gap-20">
           <div className="max-w-xl py-2 lg:py-10">
             <p className="eyebrow">Hall of Fame</p>
-            <h1 className="mt-5 max-w-[9ch] font-display text-[clamp(3.5rem,7vw,6rem)] leading-[.9] text-white">
+            <h1 className="mt-5 max-w-[10ch] font-display text-[clamp(3rem,5.8vw,5rem)] leading-[.96] text-white">
               Winners Gallery
             </h1>
             <div className="mt-8 h-px w-20 bg-blush-accent" aria-hidden="true" />
@@ -127,7 +127,7 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
             <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="eyebrow">{selectedSeason.eyebrow}</p>
-                <h2 className="mt-3 font-display text-[clamp(2.4rem,5vw,5.2rem)] leading-none text-blush-ink">{selectedSeason.title}</h2>
+                <h2 className="mt-3 font-display text-[clamp(2.25rem,4.2vw,4.4rem)] leading-[1.02] text-blush-ink">{selectedSeason.title}</h2>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-blush-body">{selectedSeason.note}</p>
               </div>
               <p className="text-xs uppercase tracking-[.22em] text-blush-accent">

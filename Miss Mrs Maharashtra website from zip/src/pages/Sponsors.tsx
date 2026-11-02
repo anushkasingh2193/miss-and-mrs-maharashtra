@@ -31,7 +31,7 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
         <div className="stat-strip grid border-b gold-divider md:grid-cols-4">
           {sponsorReach.map(([n, label]) => (
             <div key={label} className="stat-item reveal px-8 py-9 text-center md:py-11">
-              <div className="font-display text-[clamp(3rem,4.6vw,5.2rem)] leading-none text-blush-ink">{n}</div>
+              <div className="font-display text-[clamp(2.6rem,4vw,4.4rem)] leading-none text-blush-ink">{n}</div>
               <div className="mt-4 text-[10px] uppercase tracking-[.34em] text-blush-accent">{label}</div>
             </div>
           ))}
@@ -75,7 +75,7 @@ export function Sponsors({ navigate }: { navigate: (page: PageKey) => void }) {
           </div>
           <div className="reveal">
             <div className="eyebrow mb-5">Partner proof</div>
-            <blockquote className="font-display text-[clamp(2.4rem,4.6vw,5.5rem)] leading-none text-blush-ink">"{partnerProof.quote}"</blockquote>
+            <blockquote className="font-display text-[clamp(2.25rem,4vw,4.6rem)] leading-[1.02] text-blush-ink">"{partnerProof.quote}"</blockquote>
             <p className="mt-7 text-blush-body">{partnerProof.name}, {partnerProof.role}</p>
             <button onClick={() => navigate("contact")} className="gold-cta mt-9 inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
               Request partner deck <ArrowRight size={15} />

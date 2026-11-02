@@ -36,7 +36,7 @@ export default function ImageGallery({ onViewGallery }: { onViewGallery?: () => 
         <div className="winner-video-panel">
           <div className="winner-video-intro">
             <div className="eyebrow mb-3">Video coverage</div>
-            <h3 className="font-display text-[clamp(2.4rem,4vw,4.8rem)] leading-none text-blush-ink">Watch the stage before you enter it.</h3>
+            <h3 className="font-display text-[clamp(2.25rem,3.5vw,4rem)] leading-[1.02] text-blush-ink">Watch the stage before you enter it.</h3>
           </div>
           <div className="winner-video-feature">
             <YouTubePreview key={featuredVideos[activeVideo].src} {...featuredVideos[activeVideo]} className="aspect-video" />

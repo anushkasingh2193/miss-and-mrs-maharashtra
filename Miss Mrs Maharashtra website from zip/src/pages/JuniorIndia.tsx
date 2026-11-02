@@ -18,7 +18,7 @@ export function JuniorIndia(_: { navigate: (page: PageKey) => void }) {
         <div className="content-wrap flex min-h-[clamp(560px,76svh,760px)] items-end px-[clamp(22px,5vw,72px)] py-[clamp(64px,8vw,108px)]">
           <div className="max-w-4xl">
             <div className="eyebrow mb-6 text-blush-accent">A new title begins</div>
-            <h1 className="font-display text-[clamp(4.4rem,11vw,10rem)] leading-[.78] tracking-[-.035em] text-blush-ink">
+            <h1 className="font-display text-[clamp(3.35rem,7vw,5.8rem)] leading-[.94] tracking-[-.02em] text-blush-ink">
               Junior<br />India.
             </h1>
             <p className="mt-8 max-w-2xl text-base font-light leading-8 text-blush-body sm:text-lg">
@@ -46,7 +46,7 @@ export function JuniorIndia(_: { navigate: (page: PageKey) => void }) {
             <div className="absolute inset-x-[12%] top-0 h-px bg-gradient-to-r from-transparent via-blush-accent to-transparent" />
             <Sparkles className="mx-auto text-blush-accent" size={28} aria-hidden="true" />
             <p className="eyebrow mt-6">Roster announcement</p>
-            <h2 className="mx-auto mt-5 max-w-3xl font-display text-[clamp(2.8rem,6vw,6rem)] leading-[.92] text-blush-ink">
+            <h2 className="mx-auto mt-5 max-w-3xl font-display text-[clamp(2.5rem,4.8vw,4.8rem)] leading-[.98] text-blush-ink">
               Contestant profiles are coming soon.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-sm leading-7 text-blush-body sm:text-base">

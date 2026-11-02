@@ -149,15 +149,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_56%,rgba(2,8,23,.08),rgba(2,8,23,.48)_52%,rgba(2,8,23,.72)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#061122]/62 to-transparent" />
           <div id="hero-copy" className="content-wrap relative z-10 flex h-full items-center justify-center px-[clamp(20px,4vw,42px)] text-center will-change-transform">
-            <div className="max-w-2xl translate-y-4 text-white sm:translate-y-8">
-              <img
-                className="homepage-brand-logo mx-auto mb-4 w-[clamp(128px,16vw,176px)]"
-                src="/brand/miss-mrs-maharashtra-logo.jpg"
-                alt="Miss and Mrs Maharashtra"
-                width="384"
-                height="378"
-                fetchPriority="high"
-              />
+            <div className="max-w-2xl translate-y-10 text-white sm:translate-y-14">
               <h1 className="hero-title text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.5)]" aria-label="Own the stage.">
                 {["Own", "the", "stage."].map((word, index) => (
                   <span key={`${word}-${index}`} className="hero-word-reveal" style={{ animationDelay: `${220 + index * 95}ms` }}>{word}</span>
@@ -181,7 +173,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="stat-strip grid md:grid-cols-4">
             {stats.map((stat, index) => (
               <div key={stat.label} className="stat-item reveal px-8 py-8 text-center md:py-10" aria-label={`${stat.n} ${stat.label}`}>
-                <div className="stat-value font-display text-[clamp(2.5rem,3.8vw,4.4rem)] leading-none"><span aria-hidden="true"><CountUpValue value={stat.n} delay={index * 140} /></span></div>
+                <div className="stat-value font-display text-[clamp(2.3rem,3.3vw,3.8rem)] leading-none"><span aria-hidden="true"><CountUpValue value={stat.n} delay={index * 140} /></span></div>
                 <div className="stat-label mt-4 text-[10px] uppercase tracking-[.28em]">{stat.label}</div>
               </div>
             ))}
@@ -190,7 +182,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             <div className="reveal relative mx-auto aspect-[5/4] w-full max-w-[700px] overflow-hidden bg-[#061122] shadow-[0_34px_110px_rgba(0,0,0,.3)]">
               <img src={imageRoles.brandProof} alt="Miss and Mrs Maharashtra crowned contestants on stage" className="h-full w-full object-cover object-[50%_20%]" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/82 via-[#020817]/10 to-transparent" />
-              <h2 className="absolute bottom-6 left-6 font-display text-[clamp(2rem,3vw,4rem)] leading-none text-white">Two seasons crowned.</h2>
+              <h2 className="absolute bottom-6 left-6 font-display text-[clamp(1.9rem,2.6vw,3.35rem)] leading-none text-white">Two seasons crowned.</h2>
             </div>
             <div className="reveal max-w-xl">
               <h2 className="display-title mb-7">A Maharashtra stage built to prepare.</h2>
@@ -235,7 +227,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       <Section className="cinematic-band !py-[clamp(44px,6vw,82px)] text-white">
         <div data-home-section className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_.82fr] lg:items-center">
           <div className="reveal">
-            <h2 className="font-display text-[clamp(3rem,5vw,5.9rem)] leading-[.92] text-blush-ink">The next season starts with your interest.</h2>
+            <h2 className="font-display text-[clamp(2.65rem,4.4vw,4.9rem)] leading-[.98] text-blush-ink">The next season starts with your interest.</h2>
             <p className="mt-6 max-w-xl text-base font-light leading-8 text-blush-body">Choose your city and hear when applications reopen.</p>
             <div className="mt-8 flex flex-wrap gap-3" aria-label="Preferred city options">
               {interestCities.map((city) => <span key={city} className="category-chip">{city}</span>)}
@@ -262,7 +254,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   <div className="absolute inset-x-0 bottom-0 px-6 pb-5 text-[10px] uppercase tracking-[.22em] text-white/78">{pillar.caption}</div>
                 </div>
                 <div className="finalist-benefit-content flex flex-1 flex-col p-6 lg:p-7">
-                  <h3 className="font-display text-[clamp(2rem,2.5vw,2.8rem)] leading-[1.02] text-blush-ink">{pillar.title}</h3>
+                  <h3 className="font-display text-[clamp(1.9rem,2.25vw,2.5rem)] leading-[1.05] text-blush-ink">{pillar.title}</h3>
                   <div className="mt-5 h-px w-10 bg-blush-accent/80 transition-all duration-500 group-hover:w-20" aria-hidden="true" />
                 </div>
               </article>
@@ -276,13 +268,13 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
           <div className="grid gap-10 lg:grid-cols-[1fr_.92fr] lg:items-center">
             <div className="relative z-10">
               <div className="founder-line-mask mb-3"><div className="founder-reveal-line eyebrow" data-founder-line style={{ transitionDelay: "0ms" }}>Founder</div></div>
-              <h2 className="font-display text-[clamp(3rem,5.4vw,7rem)] leading-[.9] text-blush-ink">
+              <h2 className="font-display text-[clamp(2.7rem,4.7vw,5.5rem)] leading-[.96] text-blush-ink">
                 <span className="founder-line-mask"><span className="founder-reveal-line block" data-founder-line style={{ transitionDelay: "90ms" }}>Zoya Siraj</span></span>
                 <span className="founder-line-mask"><span className="founder-reveal-line block" data-founder-line style={{ transitionDelay: "170ms" }}>Sheikh.</span></span>
               </h2>
               <p className="mt-4 text-xs uppercase tracking-[.24em] text-blush-accent">Mrs. Maharashtra 2022 / 3rd Runner-up, Mrs. Universe</p>
               <p className="mt-5 max-w-xl text-base font-light leading-8 text-blush-body">A Maharashtra platform for preparation, visibility and representation.</p>
-              <p className="founder-quote mt-6 max-w-md font-display text-[clamp(1.55rem,2.4vw,2.9rem)] leading-tight text-blush-ink" aria-label="A platform where confidence becomes preparation, and preparation becomes representation.">
+              <p className="founder-quote mt-6 max-w-md font-display text-[clamp(1.5rem,2.1vw,2.5rem)] leading-[1.12] text-blush-ink" aria-label="A platform where confidence becomes preparation, and preparation becomes representation.">
                 {["A", "platform", "where", "confidence", "becomes", "preparation,", "and", "preparation", "becomes", "representation."].map((word, index) => (
                   <span key={`${word}-${index}`} className="founder-quote-word" data-founder-word style={{ transitionDelay: `${260 + index * 46}ms` }}>{index === 0 ? '"' : ""}{word}{index === 9 ? '"' : ""}</span>
                 ))}

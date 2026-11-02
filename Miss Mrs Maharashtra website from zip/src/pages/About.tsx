@@ -73,14 +73,14 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/12 to-transparent" />
                     <div className="absolute bottom-5 left-5 right-5">
                       <p className="text-[10px] uppercase tracking-[.3em] text-blush-accent">{leader.role}</p>
-                      <h2 className="mt-2 font-display text-[clamp(1.9rem,3vw,3.6rem)] leading-none text-white">{leader.name}</h2>
+                      <h2 className="mt-2 font-display text-[clamp(1.85rem,2.7vw,3.25rem)] leading-[1.02] text-white">{leader.name}</h2>
                     </div>
                   </div>
                 ))}
               </div>
               <div className="border gold-divider bg-[#020817]/78 p-5">
                 <div className="eyebrow mb-3">Leadership</div>
-                <p className="font-display text-[clamp(1.8rem,3vw,3.4rem)] leading-tight text-blush-ink">
+                <p className="font-display text-[clamp(1.75rem,2.7vw,3.1rem)] leading-[1.12] text-blush-ink">
                   Presented by Zoya and Siraj Sheikh.
                 </p>
               </div>

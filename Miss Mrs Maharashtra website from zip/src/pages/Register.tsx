@@ -125,7 +125,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
               <Check />
             </div>
             <div className="eyebrow mb-5">Interest form received</div>
-            <h2 className="font-display text-[clamp(2.5rem,5vw,5rem)] leading-none text-blush-ink">Thank you, {form.name || "Applicant"}.</h2>
+            <h2 className="font-display text-[clamp(2.3rem,4.3vw,4.3rem)] leading-[1.02] text-blush-ink">Thank you, {form.name || "Applicant"}.</h2>
             <p className="mx-auto mt-6 max-w-xl text-sm leading-8 text-blush-body">
               Your interest form for {cat === "miss" ? "Miss Maharashtra" : "Mrs. Maharashtra"} has been saved with {form.city} as your preferred city. The team will contact eligible applicants when next-season dates are announced.
             </p>
@@ -142,7 +142,7 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
             <form onSubmit={submit} className="register-form-panel p-6 md:p-10">
               <div className="mb-8">
                 <div className="eyebrow mb-3">Application form</div>
-                <h2 className="font-display text-[clamp(2.1rem,3.8vw,4rem)] leading-none text-blush-ink">Which crown path fits you?</h2>
+                <h2 className="font-display text-[clamp(2rem,3.3vw,3.5rem)] leading-[1.02] text-blush-ink">Which crown path fits you?</h2>
                 <p className="mt-4 max-w-xl text-sm leading-7 text-blush-body">A short guided form for category, city, basic details and your titleholder story.</p>
               </div>
 

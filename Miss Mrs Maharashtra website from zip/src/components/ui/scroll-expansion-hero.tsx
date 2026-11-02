@@ -47,7 +47,7 @@ export default function ScrollExpandMedia({
         <div className="content-wrap relative z-10">
           <div className="mx-auto mb-7 max-w-3xl text-center text-white">
             {eyebrow ? <div className="eyebrow mb-5 text-blush-accent">{eyebrow}</div> : null}
-            <h2 className="font-display text-[clamp(2.8rem,5vw,5.8rem)] leading-[.92] text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.38)]">{title}</h2>
+            <h2 className="font-display text-[clamp(2.5rem,4.3vw,4.8rem)] leading-[.98] text-white drop-shadow-[0_18px_50px_rgba(0,0,0,.38)]">{title}</h2>
             {children}
           </div>
           <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-3">

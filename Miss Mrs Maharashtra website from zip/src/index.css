@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Tiro+Devanagari+Marathi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&family=Tiro+Devanagari+Marathi&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -25,9 +25,21 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
   background:
     radial-gradient(circle at 82% 10%, rgba(74, 169, 255, 0.12), transparent 28%),
     linear-gradient(180deg, #020817 0%, #071426 46%, #020817 100%);
+}
+
+.font-display {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.font-light {
+  font-weight: 400;
 }
 
 button,
@@ -158,7 +170,7 @@ select:focus-visible {
   top: 18%;
   pointer-events: none;
   color: rgba(238, 246, 255, 0.035);
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(4rem, 12vw, 13rem);
   letter-spacing: 0.08em;
   line-height: 0.8;
@@ -223,7 +235,7 @@ select:focus-visible {
   top: 12%;
   pointer-events: none;
   color: rgba(238, 246, 255, 0.035);
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(4rem, 12vw, 12rem);
   letter-spacing: 0.08em;
   line-height: 0.82;
@@ -297,7 +309,7 @@ select:focus-visible {
   top: 12%;
   pointer-events: none;
   color: rgba(238, 246, 255, 0.035);
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(4rem, 12vw, 12rem);
   letter-spacing: 0.08em;
   line-height: 0.82;
@@ -342,7 +354,7 @@ select:focus-visible {
   border: 1px solid rgba(214, 174, 79, 0.32);
   padding: 5px 7px;
   color: #eef6ff;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -776,7 +788,7 @@ select:focus-visible {
   top: 12vh;
   pointer-events: none;
   color: rgba(238, 246, 255, 0.035);
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(4rem, 10vw, 12rem);
   letter-spacing: 0.08em;
   line-height: 0.86;
@@ -883,7 +895,7 @@ select:focus-visible {
   top: 24px;
   z-index: 3;
   color: rgba(238, 246, 255, 0.7);
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(2.2rem, 4vw, 4.8rem);
   line-height: 0.8;
   text-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
@@ -1124,7 +1136,7 @@ select:focus-visible {
 .winner-slider-caption h3 {
   margin-top: 14px;
   color: #eef6ff;
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.65rem, 2vw, 2.15rem);
   line-height: 1;
 }
@@ -1201,7 +1213,7 @@ select:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 8px;
+  font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1290,26 +1302,21 @@ select:focus-visible {
 .site-logo-kicker {
   display: block;
   font-size: clamp(8px, 0.72vw, 10px);
-  font-weight: 600;
-  letter-spacing: 0.42em;
+  font-weight: 500;
+  letter-spacing: 0.34em;
   line-height: 1;
   color: #EEF6FF;
 }
 
 .site-logo-word {
   display: block;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(1.72rem, 2.75vw, 2.72rem);
-  font-weight: 400;
-  letter-spacing: 0.16em;
-  line-height: 0.9;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.62rem, 2.35vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  line-height: 0.94;
   color: #EEF6FF;
   text-shadow: 0 1px 22px rgba(214, 174, 79, 0.08);
-}
-
-.homepage-brand-logo {
-  border: 1px solid rgba(214, 174, 79, 0.32);
-  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.4);
 }
 
 .footer-logo-mark {
@@ -1612,23 +1619,25 @@ select:focus-visible {
 }
 
 .hero-title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(34px, 3.8vw, 58px);
-  line-height: 0.98;
-  letter-spacing: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 3.35vw, 52px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.015em;
 }
 
 .display-title {
-  font-family: "Playfair Display", serif;
-  font-size: clamp(34px, 3.8vw, 64px);
-  line-height: 1;
-  letter-spacing: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 3.5vw, 56px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
 }
 
 .eyebrow {
   color: #d6ae4f;
   font-size: 11px;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -1823,11 +1832,11 @@ select:focus-visible {
 .mentor-hero__copy h1 {
   max-width: 720px;
   margin: 0;
-  font-family: "Playfair Display", serif;
-  font-size: 5.4rem;
-  font-weight: 400;
-  line-height: 0.94;
-  letter-spacing: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(3.6rem, 5vw, 4.8rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
@@ -1836,7 +1845,7 @@ select:focus-visible {
   margin: 30px 0 0;
   color: rgba(213, 229, 246, 0.78);
   font-size: 1.08rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -1872,7 +1881,7 @@ select:focus-visible {
 .mentor-hero__facts dd {
   order: 1;
   margin: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 2.4rem;
   line-height: 1;
 }
@@ -1934,10 +1943,10 @@ select:focus-visible {
 .mentor-hero__frame figcaption strong {
   display: block;
   max-width: 420px;
-  font-family: "Playfair Display", serif;
-  font-size: 2.9rem;
-  font-weight: 400;
-  line-height: 1.02;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.65rem;
+  font-weight: 500;
+  line-height: 1.04;
 }
 
 .mentor-roster {
@@ -1958,11 +1967,11 @@ select:focus-visible {
 .mentor-cta__inner h2 {
   max-width: 850px;
   margin: 0;
-  font-family: "Playfair Display", serif;
-  font-size: 3.7rem;
-  font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.7rem, 3.4vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
@@ -1971,7 +1980,7 @@ select:focus-visible {
   margin: 0;
   color: rgba(213, 229, 246, 0.72);
   font-size: 0.96rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -2052,22 +2061,22 @@ select:focus-visible {
 .mentor-profile__content h3,
 .mentor-jury-card__caption h3 {
   margin: 0;
-  font-family: "Playfair Display", serif;
-  font-size: 1.72rem;
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.62rem;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
 }
 
 .mentor-profile--lead .mentor-profile__content h3 {
-  font-size: 2.35rem;
+  font-size: 2.15rem;
 }
 
 .mentor-profile__bio {
   margin: 17px 0 0;
   color: rgba(213, 229, 246, 0.7);
   font-size: 0.88rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.75;
 }
 
@@ -2083,9 +2092,9 @@ select:focus-visible {
 
 .mentor-subsection-title h2 {
   margin: 0;
-  font-family: "Playfair Display", serif;
-  font-size: 2.3rem;
-  font-weight: 400;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 500;
 }
 
 .mentor-subsection-title span {
@@ -2198,7 +2207,7 @@ select:focus-visible {
   }
 
   .mentor-hero__copy h1 {
-    font-size: 4.4rem;
+    font-size: 4rem;
   }
 
   .mentor-leadership-grid {
@@ -2228,7 +2237,7 @@ select:focus-visible {
 
   .mentor-hero__copy h1 {
     max-width: 640px;
-    font-size: 4rem;
+    font-size: 3.65rem;
   }
 
   .mentor-hero__visual {
@@ -2241,7 +2250,7 @@ select:focus-visible {
   }
 
   .mentor-section-heading h2 {
-    font-size: 3.1rem;
+    font-size: 2.85rem;
   }
 
   .mentor-leadership-grid {
@@ -2266,7 +2275,7 @@ select:focus-visible {
   }
 
   .mentor-hero__copy h1 {
-    font-size: 3.25rem;
+    font-size: 2.9rem;
   }
 
   .mentor-hero__intro {
@@ -2292,7 +2301,7 @@ select:focus-visible {
   }
 
   .mentor-hero__facts dt {
-    font-size: 0.54rem;
+    font-size: 0.6rem;
     letter-spacing: 0.13em;
   }
 
@@ -2312,7 +2321,7 @@ select:focus-visible {
   }
 
   .mentor-section-heading h2 {
-    font-size: 2.55rem;
+    font-size: 2.35rem;
   }
 
   .mentor-profile--lead {
@@ -2341,7 +2350,7 @@ select:focus-visible {
 
   .mentor-profile__role {
     min-height: 3em;
-    font-size: 0.55rem;
+    font-size: 0.6rem;
     letter-spacing: 0.14em;
   }
 
@@ -2362,7 +2371,7 @@ select:focus-visible {
 
   .mentor-jury-card__caption p {
     margin-bottom: 8px;
-    font-size: 0.52rem;
+    font-size: 0.58rem;
     letter-spacing: 0.12em;
   }
 
@@ -2371,7 +2380,7 @@ select:focus-visible {
   }
 
   .mentor-cta__inner h2 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 
   .mentor-cta__actions {
@@ -2447,11 +2456,11 @@ select:focus-visible {
   }
 
   .hero-title {
-    font-size: clamp(32px, 9vw, 42px);
+    font-size: clamp(30px, 8.6vw, 38px);
   }
 
   .display-title {
-    font-size: clamp(32px, 10vw, 48px);
+    font-size: clamp(30px, 9vw, 42px);
   }
 
   .winner-video-thumbs,
@@ -2498,7 +2507,7 @@ select:focus-visible {
   }
 
   .site-logo-kicker {
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 0.3em;
   }
 }
@@ -2632,7 +2641,7 @@ select:focus-visible {
   z-index: -1;
   max-width: none;
   color: rgba(245, 242, 234, 0.055);
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(8rem, 19vw, 19rem);
   font-weight: 500;
   line-height: 0.78;
@@ -2792,7 +2801,7 @@ select:focus-visible {
 
 .junior-campaign__event-date time {
   color: #f5f2ea;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(1.25rem, 1.8vw, 1.8rem);
   line-height: 1;
   letter-spacing: 0;
@@ -2803,7 +2812,7 @@ select:focus-visible {
   max-width: 100%;
   margin: 0;
   color: #f5f2ea;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(4rem, 7.5vw, 6rem);
   font-weight: 500;
   line-height: 0.82;
@@ -2935,7 +2944,7 @@ select:focus-visible {
     top: 18px;
     left: clamp(42px, 5vw, 82px);
     color: rgba(245, 242, 234, 0.04);
-    font-size: clamp(7.25rem, 9vw, 10rem);
+    font-size: clamp(6.5rem, 8vw, 8.5rem);
     line-height: 0.86;
     letter-spacing: -0.025em;
   }
@@ -2959,8 +2968,8 @@ select:focus-visible {
 
   .junior-campaign__message h2 {
     clip-path: none !important;
-    font-size: clamp(3.6rem, 4.3vw, 4.8rem);
-    line-height: 0.9;
+    font-size: clamp(3.2rem, 3.8vw, 4.2rem);
+    line-height: 0.94;
   }
 
   .junior-campaign__message h2 span:last-child {
@@ -3022,7 +3031,7 @@ select:focus-visible {
     flex-wrap: wrap;
     gap: 10px;
     width: calc(100% - 32px);
-    font-size: 8px;
+    font-size: 9px;
     line-height: 1.6;
   }
 
@@ -3033,7 +3042,7 @@ select:focus-visible {
   .junior-campaign__vertical {
     top: 48%;
     right: 9px;
-    font-size: 7px;
+    font-size: 8px;
     letter-spacing: 0.22em;
   }
 
@@ -3051,8 +3060,8 @@ select:focus-visible {
   }
 
   .junior-campaign__message h2 {
-    font-size: clamp(3.15rem, 15vw, 4.5rem);
-    line-height: 0.88;
+    font-size: clamp(2.8rem, 13vw, 3.8rem);
+    line-height: 0.94;
   }
 
   .junior-campaign__message h2 span:last-child {
@@ -3079,7 +3088,7 @@ select:focus-visible {
     right: 18px;
     bottom: 20px;
     left: 18px;
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .junior-film-dialog {
@@ -3096,7 +3105,7 @@ select:focus-visible {
     padding-right: 54px;
     flex-wrap: wrap;
     gap: 8px;
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .junior-film-dialog__meta span + span::before {

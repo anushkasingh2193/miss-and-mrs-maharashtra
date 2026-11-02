@@ -16,7 +16,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
           <div className="relative flex min-h-[500px] items-end border-b gold-divider px-[clamp(24px,5vw,84px)] pb-[clamp(48px,7vw,84px)] pt-[clamp(128px,15vw,168px)] lg:min-h-0 lg:border-b-0 lg:border-r">
             <div className="max-w-xl">
               <div className="eyebrow mb-6 text-blush-accent">Official newsroom</div>
-              <h1 className="font-display text-[clamp(4rem,7vw,6.8rem)] leading-[.9] text-blush-ink">
+              <h1 className="font-display text-[clamp(3.2rem,5.8vw,5.5rem)] leading-[.96] text-blush-ink">
                 Newsroom.
               </h1>
               <p className="mt-7 max-w-lg text-[17px] font-light leading-8 text-blush-body">
@@ -71,7 +71,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
                 <span aria-hidden="true">/</span>
                 <span>{leadNews.feature}</span>
               </div>
-              <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.2rem,4vw,4rem)] leading-[.98] text-blush-ink">
+              <h2 className="mt-4 max-w-3xl font-display text-[clamp(2.1rem,3.5vw,3.5rem)] leading-[1.02] text-blush-ink">
                 {leadNews.title}
               </h2>
             </figcaption>
@@ -128,7 +128,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
                 <span>{leadNews.date}</span>
                 <span>{leadNews.feature}</span>
               </div>
-              <h3 className="font-display text-[clamp(2.2rem,5vw,4.6rem)] leading-none text-blush-ink">{leadNews.title}</h3>
+              <h3 className="font-display text-[clamp(2.1rem,4.2vw,3.9rem)] leading-[1.02] text-blush-ink">{leadNews.title}</h3>
               <p className="mt-5 max-w-2xl text-base leading-8 text-blush-body">{leadNews.summary}</p>
               <a
                 href={youtubeChannelUrl}

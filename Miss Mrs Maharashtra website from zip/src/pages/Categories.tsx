@@ -113,7 +113,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
                 </span>
               </div>
               <div className="luxury-hover-content flex flex-1 flex-col p-[clamp(24px,3vw,36px)]">
-                <h2 className="luxury-hover-title text-balance font-display text-[clamp(2.5rem,4vw,4.4rem)] leading-[.9] text-blush-ink">
+                <h2 className="luxury-hover-title text-balance font-display text-[clamp(2.3rem,3.5vw,3.9rem)] leading-[.98] text-blush-ink">
                   {item.title}
                 </h2>
                 <p className="mt-5 min-h-[4.5rem] text-sm font-light leading-7 text-blush-body sm:text-base">

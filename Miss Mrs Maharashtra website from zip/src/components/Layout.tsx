@@ -87,7 +87,7 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
           <div className="grid gap-8 border gold-divider bg-[#061122]/72 p-[clamp(26px,4vw,52px)] lg:grid-cols-[1.1fr_.9fr] lg:items-end">
             <div>
               <div className="eyebrow mb-5">Choose with confidence</div>
-              <h2 className="font-display text-[clamp(2.5rem,5vw,5.6rem)] leading-[.92] text-blush-ink">Need help choosing your crown?</h2>
+              <h2 className="font-display text-[clamp(2.35rem,4.3vw,4.75rem)] leading-[.98] text-blush-ink">Need help choosing your crown?</h2>
               <p className="mt-6 max-w-xl text-base font-light leading-8 text-blush-body">Compare eligibility first, then speak with the season office if you still need guidance.</p>
             </div>
             <div className="flex flex-col gap-4 lg:items-end">

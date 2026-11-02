@@ -18,7 +18,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["Playfair Display", "serif"],
+        display: ["Cormorant Garamond", "Georgia", "serif"],
         sans: ["Manrope", "sans-serif"],
         marathi: ["Tiro Devanagari Marathi", "serif"],
       },
