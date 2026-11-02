@@ -1,8 +1,24 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
-import { createElement } from "react";
+import { isValidElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
+
+function elementText(node) {
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(elementText).join("");
+  if (isValidElement(node)) return elementText(node.props.children);
+  return "";
+}
+
+function collectButtons(node, buttons = []) {
+  if (Array.isArray(node)) {
+    node.forEach((child) => collectButtons(child, buttons));
+  } else if (isValidElement(node)) {
+    if (node.type === "button") buttons.push(node);
+    collectButtons(node.props.children, buttons);
+  }
+  return buttons;
+}
 
 const vite = await createServer({
   appType: "custom",
@@ -12,8 +28,9 @@ const vite = await createServer({
 
 try {
   const { Categories } = await vite.ssrLoadModule("/src/pages/Categories.tsx");
-  const html = renderToStaticMarkup(createElement(Categories, { navigate: () => {} }));
-  const source = readFileSync(new URL("../src/pages/Categories.tsx", import.meta.url), "utf8");
+  const navigations = [];
+  const page = Categories({ navigate: (target) => navigations.push(target) });
+  const html = renderToStaticMarkup(page);
 
   assert.equal(
     (html.match(/data-category-card="true"/g) ?? []).length,
@@ -31,8 +48,15 @@ try {
   assert.match(html, /Miss &amp; Mrs\. title scoring/, "the scoring section should be scoped to Miss and Mrs. titles");
   assert.doesNotMatch(html, /data-category-section="junior-india"/, "Junior India should not remain in a separate oversized panel");
   assert.doesNotMatch(html, /2 title categories/, "the old two-category proof point should be removed");
-  assert.match(source, /navigate\("register"\)/, "adult category cards should navigate to registration");
-  assert.match(source, /navigate\("junior-india"\)/, "the Junior India card should navigate to its dedicated page");
+
+  const categoryButtons = collectButtons(page).filter((button) => /^(Apply for|Explore)/.test(elementText(button)));
+  assert.equal(categoryButtons.length, 3, "each category card should expose one clear action");
+  categoryButtons.forEach((button) => button.props.onClick());
+  assert.deepEqual(
+    navigations,
+    ["register", "register", "junior-india"],
+    "Miss and Mrs. should open registration while Junior India opens its dedicated page",
+  );
 
   console.log("Categories test passed: the Equal Trio selector presents all three categories with correct routes and scoped details.");
 } finally {

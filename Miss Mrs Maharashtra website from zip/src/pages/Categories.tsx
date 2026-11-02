@@ -124,7 +124,7 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
                   <p className="mt-2 text-sm leading-6 text-blush-ink">{item.meta}</p>
                 </div>
                 <button
-                  onClick={() => item.target === "junior-india" ? navigate("junior-india") : navigate("register")}
+                  onClick={() => navigate(item.target)}
                   className="gold-cta mt-7 inline-flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-[10px] uppercase tracking-[.2em] focus:outline-none focus:ring-2 focus:ring-blush-accent focus:ring-offset-2 focus:ring-offset-[#020817]"
                 >
                   {item.cta} <ArrowRight size={15} aria-hidden="true" />
