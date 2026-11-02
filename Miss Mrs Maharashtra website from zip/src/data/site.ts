@@ -353,9 +353,9 @@ export const categories = [
 
 export const pillars = [
   { num: "01", title: "Runway training", body: "Learn posture, pacing, turns and camera awareness before stepping into designer-led finale rounds.", bg: `${LOCAL}pillars-upright/runway-royalty.jpg`, caption: "Opening walk, Season 3", position: "50% 18%" },
-  { num: "02", title: "Talent presentation", body: "Shape a ninety-second talent moment that feels confident, stage-ready and true to your story.", bg: `${LOCAL}pillars-upright/talent-showcase.jpg`, caption: "Showcase round, Nagpur", position: "48% 18%" },
-  { num: "03", title: "Advocacy voice", body: "Prepare the cause you want to carry as a titleholder, with guidance on clarity, confidence and public impact.", bg: `${LOCAL}pillars-upright/empowering-voices.jpg`, caption: "Advocacy briefing, backstage", position: "50% 18%" },
-  { num: "04", title: "Finale presence", body: "A polished coronation night with press, guests, jury and production standards built for a serious state stage.", bg: `${LOCAL}pillars-upright/evening-gala.jpg`, caption: "Coronation night, Civil Lines", position: "50% 18%" },
+  { num: "02", title: "Talent presentation", body: "Shape a ninety-second talent moment that feels confident, stage-ready and true to your story.", bg: `${LOCAL}pillars-upright/talent-presentation-2025-hd.webp`, caption: "Showcase round, Nagpur", position: "50% 20%" },
+  { num: "03", title: "Advocacy voice", body: "Prepare the cause you want to carry as a titleholder, with guidance on clarity, confidence and public impact.", bg: `${LOCAL}pillars-upright/advocacy-voice-2025-hd.webp`, caption: "Advocacy briefing, backstage", position: "50% 16%" },
+  { num: "04", title: "Finale presence", body: "A polished coronation night with press, guests, jury and production standards built for a serious state stage.", bg: `${LOCAL}pillars-upright/finale-presence-2025-hd.webp`, caption: "Coronation night, Civil Lines", position: "50% 18%" },
 ];
 
 export const timeline = [
