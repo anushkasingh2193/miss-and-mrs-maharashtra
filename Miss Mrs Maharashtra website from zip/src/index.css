@@ -2593,7 +2593,6 @@ select:focus-visible {
   letter-spacing: 0;
   white-space: nowrap;
   pointer-events: none;
-  will-change: transform;
 }
 
 .junior-campaign__details {
@@ -2645,7 +2644,6 @@ select:focus-visible {
   overflow: hidden;
   background: #061224;
   box-shadow: 0 48px 100px rgba(0, 0, 0, 0.42);
-  will-change: clip-path, transform;
 }
 
 .junior-campaign__preview {
@@ -2726,7 +2724,6 @@ select:focus-visible {
   align-self: end;
   max-width: 980px;
   margin-bottom: clamp(10px, 4vw, 64px);
-  will-change: transform;
 }
 
 .junior-campaign__message h2 {
