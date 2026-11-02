@@ -137,6 +137,47 @@ export function Categories({ navigate }: { navigate: (page: PageKey) => void }) 
         </div>
       </Section>
 
+      <Section className="cinematic-band gold-lift">
+        <article
+          data-category-section="junior-india"
+          className="luxury-hover-card reveal grid overflow-hidden border gold-divider bg-[#020817]/82 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,.95fr)]"
+        >
+          <div className="luxury-hover-media relative min-h-[520px] overflow-hidden bg-[#061122] sm:min-h-[640px] lg:min-h-[760px]">
+            <img
+              src={imageRoles.juniorIndiaCategory}
+              alt="Junior India participants walking together on the runway"
+              className="luxury-hover-image h-full w-full object-cover object-center transition duration-700"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/35 via-transparent to-[#020817]/10" />
+            <div className="absolute left-5 top-5 border gold-divider bg-[#031026]/90 px-5 py-3 text-[10px] uppercase tracking-[.28em] text-blush-accent backdrop-blur-sm">
+              Youth category
+            </div>
+          </div>
+
+          <div className="luxury-hover-content flex min-w-0 flex-col justify-center p-[clamp(30px,5vw,72px)]">
+            <div className="eyebrow mb-5">A separate stage for young talent</div>
+            <h2 className="luxury-hover-title max-w-[10ch] text-balance font-display text-[clamp(3.5rem,7vw,7.5rem)] leading-[.84] text-blush-ink">
+              Junior India
+            </h2>
+            <div className="mt-8 border-y gold-divider py-5">
+              <p className="text-[10px] uppercase tracking-[.28em] text-blush-accent">Event date</p>
+              <p className="mt-2 font-display text-[clamp(2rem,3.3vw,3.6rem)] leading-none text-blush-ink">22 November 2026</p>
+            </div>
+            <p className="mt-7 max-w-[48ch] text-base font-light leading-8 text-blush-body sm:text-lg">
+              A dedicated runway experience where young stars can step forward with confidence, creativity and stage presence.
+            </p>
+            <button
+              onClick={() => navigate("junior-india")}
+              className="gold-cta mt-8 inline-flex w-fit items-center gap-3 px-7 py-4 text-xs uppercase tracking-[.24em]"
+            >
+              Discover Junior India <ArrowRight size={15} />
+            </button>
+          </div>
+        </article>
+      </Section>
+
       <Section id="compare-categories" className="cinematic-band gold-lift">
         <SectionHeader eyebrow="Compare" title="Different eligibility. Same stage standard." />
         <div className="category-compare-table overflow-hidden border gold-divider bg-[#020817]/78">
