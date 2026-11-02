@@ -2726,6 +2726,33 @@ select:focus-visible {
   margin-bottom: clamp(10px, 4vw, 64px);
 }
 
+.junior-campaign__event-date {
+  display: flex;
+  width: fit-content;
+  margin-bottom: clamp(18px, 2.2vw, 30px);
+  padding-bottom: 10px;
+  align-items: baseline;
+  gap: 16px;
+  border-bottom: 1px solid rgba(220, 179, 77, 0.58);
+  color: #dcb34d;
+  text-transform: uppercase;
+}
+
+.junior-campaign__event-date span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+}
+
+.junior-campaign__event-date time {
+  color: #f5f2ea;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.8rem);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .junior-campaign__message h2 {
   max-width: 100%;
   margin: 0;
@@ -2968,6 +2995,13 @@ select:focus-visible {
     order: 2;
     max-width: 620px;
     margin: 90px 0 34px;
+  }
+
+  .junior-campaign__event-date {
+    margin-bottom: 22px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .junior-campaign__message h2 {
