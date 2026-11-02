@@ -14,11 +14,13 @@ const FILM_POSTER = "/missmrs-assets/videos/junior-india-home-poster.jpg";
 
 export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
   const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+  const [isPlayerMounted, setIsPlayerMounted] = useState(false);
   const [canParallax, setCanParallax] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
   const previewRef = useRef<HTMLVideoElement | null>(null);
   const playButtonRef = useRef<HTMLButtonElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
   const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
@@ -74,7 +76,7 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !isPlayerOpen) void preview.play().catch(() => undefined);
+        if (entry.isIntersecting && !isPlayerMounted) void preview.play().catch(() => undefined);
         else preview.pause();
       },
       { threshold: 0.32 },
@@ -82,17 +84,46 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
 
     observer.observe(preview);
     return () => observer.disconnect();
-  }, [isPlayerOpen, shouldReduceMotion]);
+  }, [isPlayerMounted, shouldReduceMotion]);
 
   useEffect(() => {
-    if (!isPlayerOpen) return;
+    if (!isPlayerMounted) return;
 
     const previousOverflow = document.body.style.overflow;
+    const appRoot = document.getElementById("root");
+    const previousInert = appRoot?.inert ?? false;
+    const previousAriaHidden = appRoot?.getAttribute("aria-hidden") ?? null;
     document.body.style.overflow = "hidden";
+    if (appRoot) {
+      appRoot.inert = true;
+      appRoot.setAttribute("aria-hidden", "true");
+    }
     previewRef.current?.pause();
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setIsPlayerOpen(false);
+      if (event.key === "Tab") {
+        const focusable = Array.from(
+          dialogRef.current?.querySelectorAll<HTMLElement>(
+            'button, [href], input, select, textarea, video[controls], [tabindex]:not([tabindex="-1"])',
+          ) ?? [],
+        ).filter((element) => !element.hasAttribute("disabled"));
+
+        if (focusable.length === 0) {
+          event.preventDefault();
+          return;
+        }
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -101,9 +132,19 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
+      if (appRoot) {
+        appRoot.inert = previousInert;
+        if (previousAriaHidden === null) appRoot.removeAttribute("aria-hidden");
+        else appRoot.setAttribute("aria-hidden", previousAriaHidden);
+      }
       playButtonRef.current?.focus();
     };
-  }, [isPlayerOpen]);
+  }, [isPlayerMounted]);
+
+  const openPlayer = () => {
+    setIsPlayerMounted(true);
+    setIsPlayerOpen(true);
+  };
 
   return (
     <section ref={sectionRef} data-home-section data-junior-india-campaign className="junior-campaign">
@@ -157,7 +198,7 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
             type="button"
             className="junior-campaign__play"
             aria-label="Play the Junior India launch film"
-            onClick={() => setIsPlayerOpen(true)}
+            onClick={openPlayer}
           >
             <Play size={25} fill="currentColor" aria-hidden="true" />
           </button>
@@ -169,52 +210,53 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
       </div>
 
       {createPortal(
-        <AnimatePresence>
+        <AnimatePresence onExitComplete={() => setIsPlayerMounted(false)}>
           {isPlayerOpen ? (
             <motion.div
-            className="junior-film-dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Junior India official launch film"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.35 }}
-            onPointerDown={(event) => {
-              if (event.target === event.currentTarget) setIsPlayerOpen(false);
-            }}
-          >
-            <motion.div
-              className="junior-film-dialog__frame"
-              initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.98, y: 10 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              ref={dialogRef}
+              className="junior-film-dialog"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Junior India official launch film"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.35 }}
+              onPointerDown={(event) => {
+                if (event.target === event.currentTarget) setIsPlayerOpen(false);
+              }}
             >
-              <div className="junior-film-dialog__meta" aria-hidden="true">
-                <span>FILM 001</span>
-                <span>JUNIOR INDIA / OFFICIAL LAUNCH</span>
-              </div>
-              <video
-                className="junior-film-dialog__video"
-                poster={FILM_POSTER}
-                controls
-                autoPlay
-                playsInline
-                preload="auto"
+              <motion.div
+                className="junior-film-dialog__frame"
+                initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.98, y: 10 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
-                <source src={FILM_SRC} type="video/mp4" />
-              </video>
-              <button
-                ref={closeButtonRef}
-                type="button"
-                className="junior-film-dialog__close"
-                aria-label="Close the Junior India launch film"
-                onClick={() => setIsPlayerOpen(false)}
-              >
-                <X size={24} aria-hidden="true" />
-              </button>
-            </motion.div>
+                <div className="junior-film-dialog__meta" aria-hidden="true">
+                  <span>FILM 001</span>
+                  <span>JUNIOR INDIA / OFFICIAL LAUNCH</span>
+                </div>
+                <video
+                  className="junior-film-dialog__video"
+                  poster={FILM_POSTER}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="auto"
+                >
+                  <source src={FILM_SRC} type="video/mp4" />
+                </video>
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  className="junior-film-dialog__close"
+                  aria-label="Close the Junior India launch film"
+                  onClick={() => setIsPlayerOpen(false)}
+                >
+                  <X size={24} aria-hidden="true" />
+                </button>
+              </motion.div>
             </motion.div>
           ) : null}
         </AnimatePresence>,

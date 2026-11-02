@@ -36,6 +36,9 @@ assert.match(juniorCampaign, /role="dialog"/, "Junior India launch film should o
 assert.match(juniorCampaign, /aria-modal="true"/, "Junior India launch film dialog should be modal");
 assert.match(juniorCampaign, /Escape/, "Junior India launch film should close with Escape");
 assert.match(juniorCampaign, /document\.body\.style\.overflow/, "Junior India launch film should lock background scrolling");
+assert.match(juniorCampaign, /\.inert\s*=\s*true/, "Junior India launch film should isolate the background from keyboard users");
+assert.match(juniorCampaign, /event\.key === "Tab"/, "Junior India launch film should trap Tab navigation");
+assert.match(juniorCampaign, /onExitComplete/, "Junior India launch film should restore focus after its exit animation");
 assert.match(juniorCampaign, /onExplore/, "Junior India campaign should preserve the dedicated page CTA");
 assert.match(juniorCampaign, /junior-campaign__wordmark/, "Junior India campaign should use its oversized editorial wordmark");
 assert.match(juniorCampaign, /useScroll/, "Junior India campaign should use restrained scroll-linked motion");
@@ -44,6 +47,7 @@ assert.match(styles, /\.junior-campaign\s*\{/, "Junior India campaign should hav
 assert.match(styles, /\.junior-campaign__film\s*\{/, "Junior India campaign film should have an editorial focal layout");
 assert.match(styles, /\.junior-film-dialog\s*\{/, "Junior India campaign should style its fullscreen player");
 assert.match(styles, /@media\s*\(max-width:\s*767px\)[\s\S]*?\.junior-campaign/, "Junior India campaign should adapt for mobile");
+assert.match(styles, /@media\s*\(max-width:\s*767px\)[\s\S]*?\.junior-campaign__film[\s\S]*?clip-path:\s*none\s*!important/, "Junior India campaign should disable clip reveals on narrow touch layouts");
 assert.match(styles, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.junior-campaign/, "Junior India campaign should provide a reduced-motion treatment");
 assert.match(home, /import \{ JuniorIndiaCampaign \}/, "homepage should import the dedicated Junior India campaign");
 assert.match(home, /<JuniorIndiaCampaign/, "homepage should render one dedicated Junior India campaign");
