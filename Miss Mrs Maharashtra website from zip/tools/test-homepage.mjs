@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
-import { isValidElement } from "react";
+import { Children, isValidElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
 
@@ -135,6 +135,11 @@ try {
   assert.match(html, /Junior India/, "homepage category selector should name Junior India");
   assert.match(juniorIndiaHtml, /Youth category/, "homepage Junior India card should keep the category label");
   assert.doesNotMatch(juniorIndiaHtml, /22 November 2026/, "homepage Junior India card should keep the portrait clear of the full event date");
+  assert.deepEqual(
+    categoryButtons.map((button) => Children.toArray(button.props.children).length),
+    [4, 4, 4],
+    "homepage category cards should share the same direct image, overlay, label, and content structure",
+  );
   assert.match(juniorIndiaHtml, /<dt[^>]*>Event<\/dt>/, "homepage Junior India card should retain the event fact label");
   assert.match(juniorIndiaHtml, /22 Nov 2026/, "homepage Junior India card should retain the abbreviated event fact");
   assert.match(

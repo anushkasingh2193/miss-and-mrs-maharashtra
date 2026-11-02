@@ -74,9 +74,6 @@ export function HomeCategorySelector({ navigate }: { navigate: (page: PageKey) =
             decoding="async"
           />
           <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/38 to-transparent" />
-          {category.key === "junior-india" ? (
-            <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-[#061122] via-[#061122] to-[#061122]/90" />
-          ) : null}
           <div className="absolute left-0 top-0 bg-[#061122]/90 px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent backdrop-blur-sm">
             <span className="block">{category.kicker}</span>
           </div>
