@@ -105,9 +105,20 @@ try {
 
   const seasonThreeGroups = winnerSeasonGroups.filter((season) => season.title === "Season 3 Winners");
   assert.deepEqual(
-    seasonThreeGroups.map((season) => season.images.length),
-    [3, 3],
-    "each Season 3 category should contain its three sash-matched titleholders",
+    seasonThreeGroups.map((season) => season.names),
+    [
+      ["Sneha Kalbhor", "Apoorva Wandile", "Archana Kamble"],
+      ["Shreyashi Walde", "Shruti Mishra", "Diksha Zade"],
+    ],
+    "Season 3 should use the confirmed winner names in podium order",
+  );
+  assert.deepEqual(
+    seasonThreeGroups.map((season) => season.placements),
+    [
+      ["Winner", "1st Runner-Up", "2nd Runner-Up"],
+      ["Winner", "1st Runner-Up", "2nd Runner-Up"],
+    ],
+    "Season 3 should label every titleholder placement",
   );
 
   const html = renderToStaticMarkup(createElement(Winners, { navigate: () => {} }));

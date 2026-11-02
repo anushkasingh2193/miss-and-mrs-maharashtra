@@ -61,13 +61,12 @@ export const mAndMWinnerPortfolio = [
 ];
 
 export const homepageWinnerSlider = [
-  { image: `${CURATED}sneha-kalbhor.jpg`, name: "Sneha Kalbhor", place: "Winner", title: "Winner / Mrs. Maharashtra / Season 2" },
-  { image: `${CURATED}apoorva-shirbhate.jpg`, name: "Apoorva Shirbhate", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 2" },
-  { image: `${CURATED}archana-kamble.jpg`, name: "Archana Kamble", place: "2nd Runner-Up", title: "2nd Runner-Up / Mrs. Maharashtra / Season 2" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/Khushi-Chawre-Image-min.png", name: "Khushi Chawre", place: "Winner", title: "Winner / Miss Maharashtra / Season 1" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/1st-runner-up-mrs-category-Mrs-Trupti-Apreja-scaled.jpg", name: "Trupti Apreja", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 1" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/2nd-runner-up-miss-category-Miss-Sonali-Bisen-scaled.jpg", name: "Sonali Bisen", place: "2nd Runner-Up", title: "2nd Runner-Up / Miss Maharashtra / Season 1" },
-  { image: "https://missandmrsmaharashtra.org/public/images/winners/2ns-runner-up-mrs-category-Mrs-Anita-Nandanwar-scaled.jpg", name: "Anita Nandanwar", place: "2nd Runner-Up", title: "2nd Runner-Up / Mrs. Maharashtra / Season 1" },
+  { image: `${SEASON_3_WINNERS}mrs-maharashtra-winner.jpg`, name: "Sneha Kalbhor", place: "Winner", title: "Winner / Mrs. Maharashtra / Season 3" },
+  { image: `${SEASON_3_WINNERS}mrs-maharashtra-first-runner-up.jpg`, name: "Apoorva Wandile", place: "1st Runner-Up", title: "1st Runner-Up / Mrs. Maharashtra / Season 3" },
+  { image: `${SEASON_3_WINNERS}mrs-maharashtra-second-runner-up.jpg`, name: "Archana Kamble", place: "2nd Runner-Up", title: "2nd Runner-Up / Mrs. Maharashtra / Season 3" },
+  { image: `${SEASON_3_WINNERS}miss-supraglobal-india.jpg`, name: "Shreyashi Walde", place: "Winner", title: "Winner / Miss Maharashtra / Season 3" },
+  { image: `${SEASON_3_WINNERS}miss-maharashtra-first-runner-up.jpg`, name: "Shruti Mishra", place: "1st Runner-Up", title: "1st Runner-Up / Miss Maharashtra / Season 3" },
+  { image: `${SEASON_3_WINNERS}miss-maharashtra-second-runner-up.jpg`, name: "Diksha Zade", place: "2nd Runner-Up", title: "2nd Runner-Up / Miss Maharashtra / Season 3" },
 ];
 
 export const imageRoles = {
@@ -264,6 +263,8 @@ export const winnerSeasonGroups = [
       `${SEASON_3_WINNERS}mrs-maharashtra-first-runner-up.jpg`,
       `${SEASON_3_WINNERS}mrs-maharashtra-second-runner-up.jpg`,
     ],
+    names: ["Sneha Kalbhor", "Apoorva Wandile", "Archana Kamble"],
+    placements: ["Winner", "1st Runner-Up", "2nd Runner-Up"],
   },
   {
     eyebrow: "Miss Maharashtra",
@@ -298,6 +299,8 @@ export const winnerSeasonGroups = [
       `${SEASON_3_WINNERS}miss-maharashtra-first-runner-up.jpg`,
       `${SEASON_3_WINNERS}miss-maharashtra-second-runner-up.jpg`,
     ],
+    names: ["Shreyashi Walde", "Shruti Mishra", "Diksha Zade"],
+    placements: ["Winner", "1st Runner-Up", "2nd Runner-Up"],
   },
   {
     eyebrow: "Miss Supraglobal",

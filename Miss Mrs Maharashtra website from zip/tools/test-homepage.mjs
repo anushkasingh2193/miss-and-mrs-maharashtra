@@ -82,9 +82,12 @@ assert.doesNotMatch(gallery, /Previous winners|Next winners|winner-slider-rail/,
 assert.match(gallery, /winner-showcase-title/, "winner showcase should use the refined editorial title treatment");
 assert.match(gallery, /winner-slider-scrim/, "winner cards should integrate captions over a readable image scrim");
 assert.match(gallery, /winner-card-rule/, "winner cards should use the restrained accent rule");
-for (const portrait of ["sneha-kalbhor.jpg", "apoorva-shirbhate.jpg", "archana-kamble.jpg"]) {
-  assert.ok(existsSync(resolve(root, "public/missmrs-assets/curated", portrait)), `homepage winner portrait must exist: ${portrait}`);
-  assert.match(data, new RegExp(`CURATED}\\$?${portrait.replace(".", "\\.")}`), `homepage winner slider should use curated portrait: ${portrait}`);
+for (const portrait of ["mrs-maharashtra-winner.jpg", "mrs-maharashtra-first-runner-up.jpg", "mrs-maharashtra-second-runner-up.jpg", "miss-supraglobal-india.jpg", "miss-maharashtra-first-runner-up.jpg", "miss-maharashtra-second-runner-up.jpg"]) {
+  assert.ok(existsSync(resolve(root, "public/missmrs-assets/season-3-winners", portrait)), `homepage Season 3 winner portrait must exist: ${portrait}`);
+  assert.match(data, new RegExp(`SEASON_3_WINNERS}\\$?${portrait.replace(".", "\\.")}`), `homepage winner slider should use the confirmed Season 3 portrait: ${portrait}`);
+}
+for (const name of ["Sneha Kalbhor", "Apoorva Wandile", "Archana Kamble", "Shreyashi Walde", "Shruti Mishra", "Diksha Zade"]) {
+  assert.match(data, new RegExp(`name: "${name}"`), `homepage winner slider should include ${name}`);
 }
 assert.doesNotMatch(data, /testimonial\/DSC000(?:76|97)\.JPG/, "homepage winner slider must not reference missing testimonial images");
 assert.match(testimonials, /InfiniteSlider/, "testimonial section should be animated");
