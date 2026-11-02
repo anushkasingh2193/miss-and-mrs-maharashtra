@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { categories, imageRoles, interestCities, pillars, stats, type PageKey } from "@/data/site";
+import { imageRoles, interestCities, pillars, stats, type PageKey } from "@/data/site";
 import { useHomeMotion } from "@/hooks/useHomeMotion";
 import { Section, SectionHeader } from "@/components/Section";
 import { JuniorIndiaCampaign } from "@/components/JuniorIndiaCampaign";
@@ -13,6 +13,95 @@ const homepageJourney = [
   { step: "Compete", title: "Enter the finale" },
   { step: "Represent", title: "Carry the crown" },
 ];
+
+const homepageCategories = [
+  {
+    key: "miss",
+    title: "Miss Maharashtra",
+    kicker: "Single applicants",
+    image: imageRoles.titleMiss,
+    imagePosition: "50% 8%",
+    target: "categories",
+    facts: [["Status", "Single"], ["Height", "No minimum"], ["Home", "Maharashtra"]],
+  },
+  {
+    key: "mrs",
+    title: "Mrs. Maharashtra",
+    kicker: "Married applicants",
+    image: imageRoles.titleMrs,
+    imagePosition: "50% 8%",
+    target: "categories",
+    facts: [["Status", "Married*"], ["Height", "No minimum"], ["Home", "Maharashtra"]],
+  },
+  {
+    key: "junior-india",
+    title: "Junior India",
+    kicker: "Youth category",
+    eventDate: "22 November 2026",
+    image: imageRoles.juniorIndiaCategory,
+    imagePosition: "50% 50%",
+    target: "junior-india",
+    facts: [["Event", "22 Nov 2026"], ["Stage", "Runway"], ["Reach", "India"]],
+  },
+] as const satisfies ReadonlyArray<{
+  key: string;
+  title: string;
+  kicker: string;
+  eventDate?: string;
+  image: string;
+  imagePosition: string;
+  target: PageKey;
+  facts: ReadonlyArray<readonly [string, string]>;
+}>;
+
+export function HomeCategorySelector({ navigate }: { navigate: (page: PageKey) => void }) {
+  return (
+    <div className="category-cinema-grid grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {homepageCategories.map((category) => (
+        <button
+          key={category.key}
+          type="button"
+          data-home-category-card="true"
+          data-home-category-action="true"
+          aria-label={`Explore ${category.title}`}
+          onClick={() => navigate(category.target)}
+          className="group category-panel luxury-hover-card reveal relative aspect-[4/5] overflow-hidden text-left text-white focus:outline-none focus:ring-2 focus:ring-blush-accent"
+        >
+          <img
+            src={category.image}
+            alt={`${category.title} category`}
+            className="luxury-hover-image h-full w-full object-cover transition duration-700"
+            style={{ objectPosition: category.imagePosition }}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/38 to-transparent" />
+          {category.key === "junior-india" ? (
+            <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-[#061122] via-[#061122] to-[#061122]/90" />
+          ) : null}
+          <div className="absolute left-0 top-0 bg-[#061122]/90 px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent backdrop-blur-sm">
+            <span className="block">{category.kicker}</span>
+            {"eventDate" in category ? <time dateTime="2026-11-22" className="mt-1.5 block text-[9px] tracking-[.16em] text-white/80">{category.eventDate}</time> : null}
+          </div>
+          <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(22px,3vw,34px)]">
+            <h3 className="luxury-hover-title font-display text-[clamp(2.2rem,3.2vw,3.8rem)] leading-[.98]">{category.title}</h3>
+            <dl className="mt-5 grid grid-cols-3 gap-2 border-y border-white/14 py-4 text-[9px] uppercase tracking-[.12em] text-white/72">
+              {category.facts.map(([label, value]) => (
+                <div key={label} className="min-w-0">
+                  <dt className="text-blush-accent">{label}</dt>
+                  <dd className="mt-1 break-words text-white">{value}</dd>
+                </div>
+              ))}
+            </dl>
+            <span className="luxury-hover-arrow mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[.2em] text-blush-accent">
+              Explore {category.title} <ArrowRight size={15} aria-hidden="true" />
+            </span>
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -137,24 +226,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
             <SectionHeader eyebrow="Choose your crown" title="Find your category." />
             <button onClick={() => navigate("categories")} className="reveal inline-flex w-fit items-center gap-3 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.2em] text-blush-accent">Compare categories <ArrowRight size={15} /></button>
           </div>
-          <div className="category-cinema-grid grid gap-5 md:grid-cols-2">
-            {categories.map((category, index) => (
-              <button key={category.key} onClick={() => navigate("categories")} className="group category-panel luxury-hover-card reveal relative aspect-[4/5] overflow-hidden text-left text-white focus:outline-none focus:ring-2 focus:ring-blush-accent">
-                <img src={index === 0 ? imageRoles.titleMiss : imageRoles.titleMrs} alt={category.title} className="luxury-hover-image h-full w-full object-cover object-[50%_8%] transition duration-700" loading="lazy" />
-                <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#061122] via-[#061122]/38 to-transparent" />
-                <div className="absolute left-0 top-0 bg-[#061122]/85 px-5 py-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">{index === 0 ? "Single applicants" : "Married applicants"}</div>
-                <div className="luxury-hover-content absolute inset-x-0 bottom-0 p-[clamp(22px,3vw,34px)]">
-                  <h3 className="luxury-hover-title font-display text-[clamp(2.6rem,4vw,5rem)] leading-none">{category.title}</h3>
-                  <dl className="mt-5 grid grid-cols-3 gap-2 border-y border-white/14 py-4 text-[10px] uppercase tracking-[.14em] text-white/72">
-                    {(index === 0 ? [["Status", "Single"], ["Height", "No minimum"], ["Home", "Maharashtra"]] : [["Status", "Married*"], ["Height", "No minimum"], ["Home", "Maharashtra"]]).map(([label, value]) => (
-                      <div key={label}><dt className="text-blush-accent">{label}</dt><dd className="mt-1 text-white">{value}</dd></div>
-                    ))}
-                  </dl>
-                  <span className="luxury-hover-arrow mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[.22em] text-blush-accent">Explore {category.title} <ArrowRight size={15} aria-hidden="true" /></span>
-                </div>
-              </button>
-            ))}
-          </div>
+          <HomeCategorySelector navigate={navigate} />
         </div>
       </Section>
 

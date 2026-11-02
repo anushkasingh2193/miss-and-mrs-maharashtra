@@ -2,6 +2,9 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import { isValidElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { createServer } from "vite";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (path) => readFileSync(resolve(root, path), "utf8");
@@ -95,5 +98,58 @@ assert.doesNotMatch(data, /testimonial\/DSC000(?:76|97)\.JPG/, "homepage winner 
 assert.match(testimonials, /InfiniteSlider/, "testimonial section should be animated");
 assert.match(testimonials, /direction="vertical"/, "testimonial cards should use continuous vertical motion");
 assert.match(styles, /\.winner-marquee-section\s*\{[\s\S]*?background:\s*transparent;/, "winner section should not paint a decorative background");
+
+function collectButtons(node, buttons = []) {
+  if (Array.isArray(node)) {
+    node.forEach((child) => collectButtons(child, buttons));
+  } else if (isValidElement(node)) {
+    if (node.type === "button") buttons.push(node);
+    collectButtons(node.props.children, buttons);
+  }
+  return buttons;
+}
+
+const vite = await createServer({
+  appType: "custom",
+  logLevel: "silent",
+  server: { middlewareMode: true },
+});
+
+try {
+  const { HomeCategorySelector } = await vite.ssrLoadModule("/src/pages/Home.tsx");
+  const navigations = [];
+  const selector = HomeCategorySelector({ navigate: (target) => navigations.push(target) });
+  const html = renderToStaticMarkup(selector);
+
+  assert.equal(
+    (html.match(/data-home-category-card="true"/g) ?? []).length,
+    3,
+    "homepage category selector should render three equal category cards",
+  );
+  assert.match(html, /Junior India/, "homepage category selector should name Junior India");
+  assert.match(html, /22 November 2026/, "homepage Junior India card should show the event date");
+  assert.match(
+    html,
+    /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.png/,
+    "homepage Junior India card should use the enhanced supplied runway picture",
+  );
+
+  const categoryButtons = collectButtons(selector).filter(
+    (button) => button.props["data-home-category-action"] === "true",
+  );
+  assert.deepEqual(
+    categoryButtons.map((button) => button.props["aria-label"]),
+    ["Explore Miss Maharashtra", "Explore Mrs. Maharashtra", "Explore Junior India"],
+    "homepage selector should expose one clear action for every category",
+  );
+  categoryButtons.forEach((button) => button.props.onClick());
+  assert.deepEqual(
+    navigations,
+    ["categories", "categories", "junior-india"],
+    "adult category cards should keep the comparison route while Junior India opens its dedicated page",
+  );
+} finally {
+  await vite.close();
+}
 
 console.log("Homepage content and accessibility checks passed.");
