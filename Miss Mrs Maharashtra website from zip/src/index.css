@@ -2705,40 +2705,6 @@ select:focus-visible {
   background: linear-gradient(180deg, rgba(2, 8, 23, 0.02) 48%, rgba(2, 8, 23, 0.82) 100%);
 }
 
-.junior-campaign__play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 3;
-  display: grid;
-  width: 92px;
-  height: 92px;
-  padding: 0;
-  color: #f5f2ea;
-  cursor: pointer;
-  background: rgba(2, 8, 23, 0.28);
-  border: 1px solid rgba(245, 242, 234, 0.68);
-  border-radius: 50%;
-  place-items: center;
-  transform: translate(-50%, -50%);
-  backdrop-filter: blur(6px);
-  transition: background-color 300ms ease, border-color 300ms ease, transform 300ms ease;
-}
-
-.junior-campaign__play:hover,
-.junior-campaign__play:focus-visible {
-  background: rgba(220, 179, 77, 0.2);
-  border-color: #dcb34d;
-  transform: translate(-50%, -50%) scale(1.08);
-}
-
-.junior-campaign__play svg {
-  width: 28px;
-  height: 28px;
-  margin-left: 4px;
-  fill: currentColor;
-}
-
 .junior-campaign__film figcaption {
   position: absolute;
   right: 28px;
@@ -2846,74 +2812,6 @@ select:focus-visible {
   transform: translateX(3px);
 }
 
-.junior-film-dialog {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: grid;
-  padding: clamp(18px, 4vw, 56px);
-  color: #f5f2ea;
-  background: rgba(1, 5, 15, 0.97);
-  place-items: center;
-}
-
-.junior-film-dialog__frame {
-  position: relative;
-  display: grid;
-  width: min(100%, 1180px);
-  height: min(88svh, 900px);
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 18px;
-}
-
-.junior-film-dialog__meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: #dcb34d;
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.junior-film-dialog__meta span + span::before {
-  margin-right: 16px;
-  color: rgba(245, 242, 234, 0.3);
-  content: "/";
-}
-
-.junior-film-dialog__video {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  object-fit: contain;
-  background: #000;
-}
-
-.junior-film-dialog__close {
-  position: absolute;
-  top: -10px;
-  right: 0;
-  z-index: 2;
-  display: grid;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  color: #f5f2ea;
-  cursor: pointer;
-  background: rgba(2, 8, 23, 0.58);
-  border: 1px solid rgba(245, 242, 234, 0.38);
-  border-radius: 50%;
-  place-items: center;
-}
-
-.junior-film-dialog__close:hover,
-.junior-film-dialog__close:focus-visible {
-  color: #dcb34d;
-  border-color: #dcb34d;
-}
-
 @media (min-width: 1025px) {
   .junior-campaign {
     min-height: clamp(690px, 78svh, 800px);
@@ -2943,10 +2841,12 @@ select:focus-visible {
   }
 
   .junior-campaign__film {
-    grid-column: 8 / 12;
+    grid-column: 7 / 12;
     align-self: center;
-    width: min(100%, 360px);
+    width: min(100%, 480px);
+    height: 640px;
     max-height: 640px;
+    aspect-ratio: auto;
   }
 
   .junior-campaign__message {
@@ -3068,11 +2968,6 @@ select:focus-visible {
     margin-left: auto;
   }
 
-  .junior-campaign__play {
-    width: 76px;
-    height: 76px;
-  }
-
   .junior-campaign__film figcaption {
     right: 18px;
     bottom: 20px;
@@ -3080,26 +2975,6 @@ select:focus-visible {
     font-size: 8px;
   }
 
-  .junior-film-dialog {
-    padding: 16px;
-  }
-
-  .junior-film-dialog__frame {
-    width: 100%;
-    height: min(92svh, 820px);
-    gap: 12px;
-  }
-
-  .junior-film-dialog__meta {
-    padding-right: 54px;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 8px;
-  }
-
-  .junior-film-dialog__meta span + span::before {
-    margin-right: 8px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
