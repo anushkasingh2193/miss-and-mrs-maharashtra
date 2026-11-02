@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Check } from "lucide-react";
-import { categories, documents, eligibility, interestCities, receives, type PageKey } from "@/data/site";
+import { categories, interestCities, type PageKey } from "@/data/site";
 import { Section } from "@/components/Section";
 import { cn } from "@/lib/utils";
 
@@ -28,8 +28,6 @@ const initialForm: FormState = {
   consent: false,
 };
 
-const feeNotes = ["Interest form is free", "No audition fee until dates are announced", "Team follow-up for eligible applicants"];
-
 export function Register(_: { navigate: (page: PageKey) => void }) {
   const [cat, setCat] = useState<"miss" | "mrs">("miss");
   const [form, setForm] = useState<FormState>(initialForm);
@@ -53,9 +51,6 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
   }, [form, cat]);
 
   const wordCount = useMemo(() => form.statement.trim().split(/\s+/).filter(Boolean).length, [form.statement]);
-  const filledCoreFields = [form.name, form.dob, form.email, form.phone, form.occupation].filter((value) => value.trim().length > 1).length;
-  const activeStep = submitted ? 4 : form.statement.trim() || form.consent ? 3 : filledCoreFields > 1 ? 2 : 1;
-  const progress = submitted ? 100 : activeStep === 3 ? 78 : activeStep === 2 ? 48 : 18;
 
   const setField = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setForm((current) => ({ ...current, [key]: value }));
@@ -82,86 +77,48 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
   };
 
   return (
-    <>
-      <section className="register-hero border-b gold-divider px-[clamp(20px,4vw,42px)] py-[clamp(72px,9vw,118px)]">
-        <div className="content-wrap">
-          <div className="eyebrow mb-5">Season 3 · Contestant interest</div>
-          <h1 className="hero-title max-w-4xl text-blush-ink">Start your crown journey.</h1>
-          <p className="mt-7 max-w-2xl text-lg font-light leading-8 text-blush-body">
-            Share your category, city and story. The season office reviews every interest form and contacts eligible applicants for the next audition step.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {feeNotes.map((note, idx) => (
-              <span
-                key={note}
-                className={cn(
-                  "border px-4 py-3 text-[10px] uppercase tracking-[.2em]",
-                  idx === 0 ? "border-blush-accent/70 text-blush-accent" : "border-blush-accent/20 text-blush-muted",
-                )}
-              >
-                {note}
-              </span>
-            ))}
-          </div>
-          <div className="registration-progress mt-10 max-w-3xl">
-            <div className="registration-progress-line">
-              <span style={{ width: `${progress}%` }} />
-            </div>
-            <div className="mt-5 grid gap-3 text-[10px] uppercase tracking-[.2em] text-blush-accent sm:grid-cols-4">
-              {["Choose title", "Details", "Story", "Review"].map((step, index) => (
-                <span key={step} className={cn("registration-step-pill", activeStep >= index + 1 && "is-active")}>
-                  {String(index + 1).padStart(2, "0")} / {step}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    <Section className="register-flow-section">
+      <h1 className="mx-auto text-center font-display text-[clamp(3rem,6vw,5.5rem)] leading-[.96] tracking-[-.03em] text-blush-ink">
+        Start your crown journey
+      </h1>
 
-      <Section className="register-flow-section">
-        {submitted ? (
-          <div className="register-success mx-auto max-w-3xl p-8 text-center md:p-12">
+      {submitted ? (
+          <div className="register-success mx-auto mt-10 max-w-3xl p-8 text-center md:p-12">
             <div className="mx-auto mb-6 grid size-14 place-items-center rounded-full bg-blush-accent text-[#020817]">
               <Check />
             </div>
-            <div className="eyebrow mb-5">Interest form received</div>
             <h2 className="font-display text-[clamp(2.3rem,4.3vw,4.3rem)] leading-[1.02] text-blush-ink">Thank you, {form.name || "Applicant"}.</h2>
-            <p className="mx-auto mt-6 max-w-xl text-sm leading-8 text-blush-body">
-              Your interest form for {cat === "miss" ? "Miss Maharashtra" : "Mrs. Maharashtra"} has been saved with {form.city} as your preferred city. The team will contact eligible applicants when next-season dates are announced.
+            <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-blush-body">
+              Your interest has been received. We’ll contact eligible applicants when dates are announced.
             </p>
             <button
               type="button"
               onClick={() => setSubmitted(false)}
               className="mt-8 border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent"
             >
-              Edit my interest form
+              Edit form
             </button>
           </div>
-        ) : (
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_.8fr]">
-            <form onSubmit={submit} className="register-form-panel p-6 md:p-10">
-              <div className="mb-8">
-                <div className="eyebrow mb-3">Application form</div>
-                <h2 className="font-display text-[clamp(2rem,3.3vw,3.5rem)] leading-[1.02] text-blush-ink">Which crown path fits you?</h2>
-                <p className="mt-4 max-w-xl text-sm leading-7 text-blush-body">A short guided form for category, city, basic details and your titleholder story.</p>
-              </div>
-
-              <div className="mb-8 grid gap-3 md:grid-cols-2">
-                {categories.map((item) => (
-                  <button
-                    key={item.key}
-                    type="button"
-                    onClick={() => setCat(item.key)}
-                    className={cn(
-                      "register-choice-card text-left transition focus:outline-none focus:ring-2 focus:ring-blush-accent",
-                      cat === item.key && "is-selected",
-                    )}
-                  >
-                    <h3 className="font-display text-3xl text-blush-ink">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-blush-body">{item.who}</p>
-                  </button>
-                ))}
-              </div>
+      ) : (
+        <form onSubmit={submit} className="register-form-panel mx-auto mt-10 max-w-4xl p-6 md:p-10">
+          <fieldset className="mb-8">
+            <legend className="mb-3 text-xs uppercase tracking-[.22em] text-blush-muted">Choose category</legend>
+            <div className="mb-8 grid gap-3 md:grid-cols-2">
+              {categories.map((item) => (
+                <button
+                  key={item.key}
+                  type="button"
+                  onClick={() => setCat(item.key)}
+                  className={cn(
+                    "register-choice-card text-left transition focus:outline-none focus:ring-2 focus:ring-blush-accent",
+                    cat === item.key && "is-selected",
+                  )}
+                >
+                  <span className="font-display text-3xl text-blush-ink">{item.title}</span>
+                </button>
+              ))}
+            </div>
+          </fieldset>
 
               <div className="register-field-grid grid gap-6">
                 <div className="grid gap-5 md:grid-cols-2">
@@ -198,14 +155,14 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
                     aria-invalid={!!errors.statement}
                     value={form.statement}
                     onChange={(e) => setField("statement", e.target.value)}
-                    placeholder="Tell the selection team about your confidence journey, ambition, advocacy idea or reason for stepping onto the stage."
+                    placeholder="Share your ambition in a few words."
                   />
                 </Field>
                 <p className="text-sm text-blush-muted">{wordCount} words</p>
                 <label className="grid cursor-pointer grid-cols-[28px_1fr] gap-4 text-left">
                   <input className="peer sr-only" type="checkbox" checked={form.consent} onChange={(event) => setField("consent", event.target.checked)} />
                   <span className={cn("grid size-7 place-items-center border border-blush-accent text-[#020817] peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-blush-accent", form.consent && "bg-blush-accent")}>{form.consent ? <Check size={15} /> : null}</span>
-                <span className="text-sm leading-7 text-blush-body">I confirm the information is accurate and I meet the eligibility criteria for the category I selected.</span>
+                  <span className="text-sm leading-7 text-blush-body">I confirm these details are accurate and I meet the selected category requirements.</span>
                 </label>
                 {errors.consent ? <p className="text-sm text-blush-accent">{errors.consent}</p> : null}
               </div>
@@ -213,17 +170,9 @@ export function Register(_: { navigate: (page: PageKey) => void }) {
               <button type="submit" className="gold-cta mt-9 px-8 py-4 text-xs uppercase tracking-[.24em]">
                 Submit interest form
               </button>
-            </form>
-
-            <aside className="grid content-start gap-4">
-              <InfoPanel title="Before you start" items={documents} />
-              <InfoPanel title="Eligibility" items={eligibility} />
-              <InfoPanel title="What you receive" items={receives} />
-            </aside>
-          </div>
-        )}
-      </Section>
-    </>
+        </form>
+      )}
+    </Section>
   );
 }
 
@@ -234,18 +183,5 @@ function Field({ label, error, children }: { label: string; error?: string; chil
       {children}
       {error ? <span className="mt-2 block text-sm text-blush-accent">{error}</span> : null}
     </label>
-  );
-}
-
-function InfoPanel({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div className="border gold-divider bg-[#061122]/58 p-6">
-      <h3 className="font-display text-3xl text-blush-ink">{title}</h3>
-      <ul className="mt-5 grid gap-3 text-sm leading-7 text-blush-body">
-        {items.map((item) => (
-          <li key={item} className="border-t gold-divider pt-3">{item}</li>
-        ))}
-      </ul>
-    </div>
   );
 }
