@@ -250,6 +250,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                 <div className="finalist-benefit-content flex flex-1 flex-col p-6 lg:p-7">
                   <h3 className="font-display text-[clamp(1.9rem,2.25vw,2.5rem)] leading-[1.05] text-blush-ink">{pillar.title}</h3>
                   <div className="mt-5 h-px w-10 bg-blush-accent/80 transition-all duration-500 group-hover:w-20" aria-hidden="true" />
+                  <p className="mt-5 max-w-[32ch] text-sm leading-6 text-blush-body">{pillar.body}</p>
                 </div>
               </article>
             ))}

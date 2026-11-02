@@ -549,7 +549,7 @@ select:focus-visible {
 }
 
 .finalist-benefit-content {
-  min-height: 244px;
+  min-height: 220px;
 }
 
 @media (max-width: 767px) {
