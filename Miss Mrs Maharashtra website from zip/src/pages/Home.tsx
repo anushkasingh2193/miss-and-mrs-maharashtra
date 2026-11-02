@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { categories, imageRoles, interestCities, pillars, stats, type PageKey } from "@/data/site";
 import { useHomeMotion } from "@/hooks/useHomeMotion";
 import { Section, SectionHeader } from "@/components/Section";
+import { JuniorIndiaCampaign } from "@/components/JuniorIndiaCampaign";
 import ImageGallery from "@/components/ui/image-gallery";
 import { TestimonialsSection } from "@/components/ui/testimonials-6";
 
@@ -15,7 +16,6 @@ const homepageJourney = [
 
 export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null);
-  const juniorIndiaVideoRef = useRef<HTMLVideoElement | null>(null);
   useHomeMotion();
 
   useEffect(() => {
@@ -33,27 +33,6 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         else video.pause();
       },
       { threshold: 0.18 },
-    );
-
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const video = juniorIndiaVideoRef.current;
-    if (!video) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      video.pause();
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) void video.play().catch(() => undefined);
-        else video.pause();
-      },
-      { threshold: 0.25 },
     );
 
     observer.observe(video);
@@ -168,61 +147,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <section data-home-section className="relative isolate overflow-hidden border-y gold-divider bg-[#020817] text-white">
-        <img
-          src="/missmrs-assets/videos/junior-india-home-poster.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-30 h-full w-full object-cover object-center opacity-[.09] brightness-[.4] saturate-[.7]"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#020817_0%,rgba(2,8,23,.96)_55%,rgba(2,8,23,.78)_100%)]" />
-
-        <div className="content-wrap relative grid gap-10 px-[clamp(22px,5vw,76px)] py-[clamp(48px,6vw,72px)] md:grid-cols-[minmax(0,1fr)_280px] md:items-center md:gap-[clamp(48px,7vw,96px)]">
-          <div className="reveal relative z-10 max-w-2xl">
-            <p className="text-[10px] uppercase tracking-[.28em] text-blush-accent">Introducing our newest title</p>
-            <h2 className="mt-4 font-display text-[clamp(3rem,5.5vw,4.8rem)] leading-[.88] text-blush-ink">
-              Junior India.
-            </h2>
-            <p className="mt-5 max-w-lg text-base font-light leading-7 text-blush-body">
-              A new stage for the next generation.
-            </p>
-            <button
-              type="button"
-              onClick={() => navigate("junior-india")}
-              className="gold-cta mt-7 inline-flex items-center gap-3 px-7 py-4 text-[11px] uppercase tracking-[.22em]"
-            >
-              Explore Junior India <ArrowRight size={16} aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="reveal mx-auto w-full max-w-[280px] md:mx-0 md:justify-self-end">
-            <figure className="relative border border-white/15 bg-[#061122] shadow-[0_24px_70px_rgba(0,0,0,.45)]">
-              <div className="relative aspect-[4/5] overflow-hidden bg-black">
-                <video
-                  ref={juniorIndiaVideoRef}
-                  data-junior-india-video
-                  className="h-full w-full object-cover"
-                  poster="/missmrs-assets/videos/junior-india-home-poster.jpg"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label="Junior India runway highlights"
-                >
-                  <source src="/missmrs-assets/videos/junior-india-home.mp4" type="video/mp4" />
-                </video>
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#020817]/70 to-transparent" aria-hidden="true" />
-              </div>
-              <figcaption className="flex items-center justify-between gap-4 border-t border-white/15 px-4 py-3">
-                <span className="font-display text-lg leading-none text-blush-ink">Launch film</span>
-                <span className="text-[8px] uppercase tracking-[.2em] text-blush-accent">Junior India</span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+      <JuniorIndiaCampaign onExplore={() => navigate("junior-india")} />
 
       <Section className="cinematic-band !py-[clamp(44px,6vw,82px)] text-white">
         <div data-home-section className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_.82fr] lg:items-center">

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   AnimatePresence,
   motion,
@@ -38,6 +39,21 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
     scrollYProgress,
     [0, 1],
     shouldReduceMotion || !canParallax ? [0, 0] : [8, -16],
+  );
+  const wordmarkClip = useTransform(
+    scrollYProgress,
+    [0.04, 0.24],
+    ["inset(0 18% 0 0)", "inset(0 0% 0 0)"],
+  );
+  const filmClip = useTransform(
+    scrollYProgress,
+    [0.06, 0.27],
+    ["inset(0 0 16% 0)", "inset(0 0 0% 0)"],
+  );
+  const headlineClip = useTransform(
+    scrollYProgress,
+    [0.1, 0.3],
+    ["inset(0 0 22% 0)", "inset(0 0 0% 0)"],
   );
 
   useEffect(() => {
@@ -95,11 +111,7 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
         <motion.div
           className="junior-campaign__wordmark"
           aria-hidden="true"
-          style={{ y: wordmarkY }}
-          initial={shouldReduceMotion ? false : { clipPath: "inset(0 100% 0 0)" }}
-          whileInView={shouldReduceMotion ? undefined : { clipPath: "inset(0 0 0 0)" }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
+          style={{ y: wordmarkY, clipPath: wordmarkClip }}
         >
           JUNIOR INDIA
         </motion.div>
@@ -111,12 +123,7 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
         </div>
 
         <motion.div className="junior-campaign__message" style={{ y: copyY }}>
-          <motion.h2
-            initial={shouldReduceMotion ? false : { clipPath: "inset(0 0 100% 0)", y: 34 }}
-            whileInView={shouldReduceMotion ? undefined : { clipPath: "inset(0 0 0 0)", y: 0 }}
-            viewport={{ once: true, amount: 0.55 }}
-            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <motion.h2 style={{ clipPath: headlineClip }}>
             <span>A New Generation.</span>
             <span>A New Legacy.</span>
           </motion.h2>
@@ -127,11 +134,7 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
 
         <motion.figure
           className="junior-campaign__film"
-          style={{ y: filmY }}
-          initial={shouldReduceMotion ? false : { clipPath: "inset(0 0 100% 0)" }}
-          whileInView={shouldReduceMotion ? undefined : { clipPath: "inset(0 0 0% 0)" }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
+          style={{ y: filmY, clipPath: filmClip }}
           whileHover={shouldReduceMotion ? undefined : { scale: 1.018 }}
         >
           <video
@@ -165,9 +168,10 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
         </motion.figure>
       </div>
 
-      <AnimatePresence>
-        {isPlayerOpen ? (
-          <motion.div
+      {createPortal(
+        <AnimatePresence>
+          {isPlayerOpen ? (
+            <motion.div
             className="junior-film-dialog"
             role="dialog"
             aria-modal="true"
@@ -211,9 +215,11 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
                 <X size={24} aria-hidden="true" />
               </button>
             </motion.div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>,
+        document.body,
+      )}
     </section>
   );
 }

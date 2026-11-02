@@ -18,7 +18,11 @@ const juniorCampaign = read("src/components/JuniorIndiaCampaign.tsx");
 const styles = read("src/index.css");
 
 assert.match(data, /label:\s*"Finale guests"/, "homepage statistics should consistently say Finale guests");
-assert.equal((home.match(/data-home-section\b/g) || []).length, 10, "homepage should include the Junior India feature and restored testimonial section");
+assert.equal(
+  (home.match(/data-home-section\b/g) || []).length + (juniorCampaign.match(/data-home-section\b/g) || []).length,
+  10,
+  "homepage should include the Junior India feature and restored testimonial section",
+);
 assert.match(home, /Register interest for the next season/, "homepage should use the next-season registration CTA");
 assert.match(layout, /Register interest for the next season/, "sticky CTA should use the next-season registration CTA");
 assert.doesNotMatch(home, /useCountdown|auditionCities|Apply for auditions|Until finale week|October 2026/, "homepage should not expose stale audition details");
@@ -41,8 +45,11 @@ assert.match(styles, /\.junior-campaign__film\s*\{/, "Junior India campaign film
 assert.match(styles, /\.junior-film-dialog\s*\{/, "Junior India campaign should style its fullscreen player");
 assert.match(styles, /@media\s*\(max-width:\s*767px\)[\s\S]*?\.junior-campaign/, "Junior India campaign should adapt for mobile");
 assert.match(styles, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.junior-campaign/, "Junior India campaign should provide a reduced-motion treatment");
-assert.match(home, /data-junior-india-video/, "homepage should feature the Junior India runway video");
-assert.match(home, /navigate\("junior-india"\)/, "Junior India homepage CTA should open the dedicated tab");
+assert.match(home, /import \{ JuniorIndiaCampaign \}/, "homepage should import the dedicated Junior India campaign");
+assert.match(home, /<JuniorIndiaCampaign/, "homepage should render one dedicated Junior India campaign");
+assert.match(home, /onExplore=\{\(\) => navigate\("junior-india"\)\}/, "Junior India homepage CTA should open the dedicated tab");
+assert.doesNotMatch(home, /juniorIndiaVideoRef|data-junior-india-video|junior-india-home\.mp4/, "homepage should not own the campaign video implementation");
+assert.match(juniorCampaign, /data-junior-india-video/, "Junior India campaign should own the runway video");
 assert.ok(existsSync(resolve(root, "public/missmrs-assets/videos/junior-india-home.mp4")), "optimized Junior India homepage video must exist");
 assert.ok(existsSync(resolve(root, "public/missmrs-assets/videos/junior-india-home-poster.jpg")), "Junior India homepage poster must exist");
 assert.match(home, /founder-line-mask/, "homepage should use the original founder reveal layout");
