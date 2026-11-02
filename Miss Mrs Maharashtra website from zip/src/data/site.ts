@@ -375,7 +375,7 @@ export const values = [
 
 export const archive = [
   { no: "I", title: "Backstage calm", image: gallery[0] },
-  { no: "II", title: "Runway light", image: gallery[5] },
+  { no: "II", title: "Runway light", image: stock.runway },
   { no: "III", title: "Coronation night", image: gallery[4] },
   { no: "IV", title: "Titleholder portrait", image: gallery[1] },
 ];
