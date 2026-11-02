@@ -28,7 +28,8 @@ assert.equal(
 );
 assert.match(home, /Register interest for the next season/, "homepage should use the next-season registration CTA");
 assert.match(home, /navigate\("junior-india"\)[\s\S]*?Junior India Live Voting/, "homepage hero should expose Junior India live voting");
-assert.match(layout, /Register interest for the next season/, "sticky CTA should use the next-season registration CTA");
+assert.doesNotMatch(layout, /Season 3 auditions are complete|Register interest for the next season|inset-x-0 bottom-0 z-40/, "the global sticky registration banner should stay removed");
+assert.doesNotMatch(layout, /pb-20 sm:pb-0/, "pages should not reserve mobile space for the removed sticky banner");
 assert.doesNotMatch(home, /useCountdown|auditionCities|Apply for auditions|Until finale week|October 2026/, "homepage should not expose stale audition details");
 assert.doesNotMatch(layout, /useCountdown|days to finale week|still being reviewed/, "layout should not expose a stale countdown or review status");
 assert.doesNotMatch(register, /3 October 2026|10 October 2026|17 October 2026|slot confirmation/, "interest form should not expose expired dates or slots");

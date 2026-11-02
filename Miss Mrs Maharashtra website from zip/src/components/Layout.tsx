@@ -6,20 +6,12 @@ import { cn } from "@/lib/utils";
 
 export function Layout({ page, navigate, children }: { page: PageKey; navigate: (page: PageKey) => void; children: ReactNode }) {
   const [menu, setMenu] = useState(false);
-  const [sticky, setSticky] = useState(false);
   useScrollReveal();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
     setMenu(false);
   }, [page]);
-
-  useEffect(() => {
-    const onScroll = () => setSticky(window.scrollY > 420);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const go = (target: PageKey) => {
     if (target !== page) navigate(target);
@@ -69,18 +61,7 @@ export function Layout({ page, navigate, children }: { page: PageKey; navigate: 
         ) : null}
       </header>
 
-      <main key={page} className={cn("page-transition", page !== "register" && "pb-20 sm:pb-0")}>{children}</main>
-
-      {sticky && page !== "register" && page !== "home" ? (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t gold-divider bg-blush-page/92 px-5 py-3 backdrop-blur-xl sm:py-4">
-          <div className="content-wrap flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-blush-body">Season 3 auditions are complete. Be first to hear when the next season opens.</p>
-            <button onClick={() => go("register")} className="gold-cta inline-flex items-center justify-center gap-2 px-5 py-3 text-[11px] uppercase tracking-[.2em]">
-              Register interest for the next season. <ArrowRight size={15} />
-            </button>
-          </div>
-        </div>
-      ) : null}
+      <main key={page} className="page-transition">{children}</main>
 
       <footer className="footer-cinema relative overflow-hidden border-t hairline bg-[#061122] px-[clamp(20px,4vw,42px)]">
         <div className="content-wrap relative z-10 py-[clamp(58px,7vw,110px)]">
