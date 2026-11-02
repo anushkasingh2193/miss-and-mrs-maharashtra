@@ -74,7 +74,7 @@ export function Mentors({ navigate }: { navigate: (page: PageKey) => void }) {
               />
               <div className="mentor-hero__shade" aria-hidden="true" />
               <figcaption>
-                <span>Season faculty</span>
+                <span>Founder</span>
                 <strong>Mentorship with presence.</strong>
               </figcaption>
             </div>
