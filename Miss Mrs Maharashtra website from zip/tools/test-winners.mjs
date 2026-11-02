@@ -11,9 +11,9 @@ const expectedSeasonPortraits = [
     "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/DSC_6792.jpg",
   ],
   [
-    "/missmrs-assets/curated/sneha-kalbhor.jpg",
-    "/missmrs-assets/curated/apoorva-shirbhate.jpg",
-    "/missmrs-assets/curated/archana-kamble.jpg",
+    "/missmrs-assets/season-2-winners/mrs-ashwini-rajput.webp",
+    "/missmrs-assets/season-2-winners/tripti-apreja.webp",
+    "/missmrs-assets/season-2-winners/anita-nandanwar.webp",
   ],
   [
     "/missmrs-assets/season-3-winners/mrs-maharashtra-winner.jpg",
@@ -21,9 +21,9 @@ const expectedSeasonPortraits = [
     "/missmrs-assets/season-3-winners/mrs-maharashtra-second-runner-up.jpg",
   ],
   [
-    "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/navdeep.jpg",
-    "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/ZOHR2080.jpg",
-    "/missmrs-assets/website-zip-portrait/MIS/s2 Winners/ZOHR2090.jpg",
+    "/missmrs-assets/season-2-winners/khushi-chaware.webp",
+    "/missmrs-assets/season-2-winners/trupti-wajurkar.webp",
+    "/missmrs-assets/season-2-winners/sonali-bisen.webp",
   ],
   [
     "/missmrs-assets/season-3-winners/miss-supraglobal-india.jpg",
@@ -63,6 +63,24 @@ try {
     "Miss and Mrs categories should expose their own season collections",
   );
 
+  const seasonTwoGroups = winnerSeasonGroups.filter((season) => season.title === "Season 2 Winners");
+  assert.deepEqual(
+    seasonTwoGroups.map((season) => season.names),
+    [
+      ["Mrs. Ashwini Rajput", "Tripti Apreja", "Anita Nandanwar"],
+      ["Khushi Chaware", "Trupti Wajurkar", "Sonali Bisen"],
+    ],
+    "Season 2 should use the supplied winner names in podium order",
+  );
+  assert.deepEqual(
+    seasonTwoGroups.map((season) => season.placements),
+    [
+      ["Winner", "1st Runner-Up", "2nd Runner-Up"],
+      ["Winner", "1st Runner-Up", "2nd Runner-Up"],
+    ],
+    "Season 2 should label every titleholder placement",
+  );
+
   const seasonThreeGroups = winnerSeasonGroups.filter((season) => season.title === "Season 3 Winners");
   assert.deepEqual(
     seasonThreeGroups.map((season) => season.images.length),
@@ -78,6 +96,10 @@ try {
   assert.match(html, /aria-label="Winner categories"/, "Miss and Mrs controls should be exposed as a category tab list");
   assert.match(html, /aria-label="Miss Maharashtra seasons"/, "season controls should follow the active category");
   assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
+  assert.match(html, /Khushi Chaware/, "the default Miss Season 2 grid should show the winner name");
+  assert.match(html, /Trupti Wajurkar/, "the default Miss Season 2 grid should show the first runner-up name");
+  assert.match(html, /Sonali Bisen/, "the default Miss Season 2 grid should show the second runner-up name");
+  assert.match(html, /1st Runner-Up/, "winner cards should show placement labels");
   assert.match(html, /data-winners-hero="editorial-split"/, "winners page should use the approved editorial split hero");
   assert.match(html, /Hall of Fame/, "winners hero should introduce the titleholder archive");
   assert.match(html, /Winners Gallery/, "winners hero should retain the gallery title");

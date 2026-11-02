@@ -8,7 +8,7 @@ const winnerCategories = ["Miss Maharashtra", "Mrs. Maharashtra"] as const;
 type WinnerCategory = (typeof winnerCategories)[number];
 
 export function Winners(_: { navigate: (page: PageKey) => void }) {
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ image: string; name: string; placement: string } | null>(null);
   const [activeCategory, setActiveCategory] = useState<WinnerCategory>("Miss Maharashtra");
   const [activeSeason, setActiveSeason] = useState(0);
   const categorySeasons = winnerSeasonGroups.filter((season) => season.eyebrow === activeCategory);
@@ -136,27 +136,33 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
             </div>
 
             <div className="winner-season-portrait-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {selectedSeason.images.map((image, idx) => (
-                <button
-                  key={image}
-                  type="button"
-                  data-winner-portrait="true"
-                  onClick={() => setLightbox(image)}
-                  className="group luxury-hover-card relative aspect-[3/4] overflow-hidden border gold-divider bg-blush-wash text-left focus:outline-none focus:ring-2 focus:ring-blush-accent"
-                >
-                  <img
-                    src={image}
-                    alt={`${selectedSeason.title} portrait ${idx + 1}`}
-                    className="luxury-hover-image h-full w-full object-cover object-[50%_6%] transition duration-700"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/82 via-transparent to-transparent" />
-                  <span className="luxury-hover-content absolute bottom-4 left-4 text-[10px] uppercase tracking-[.24em] text-blush-accent">
-                    Portrait {String(idx + 1).padStart(2, "0")}
-                  </span>
-                </button>
-              ))}
+              {selectedSeason.images.map((image, idx) => {
+                const name = selectedSeason.names?.[idx] ?? `Portrait ${String(idx + 1).padStart(2, "0")}`;
+                const placement = selectedSeason.placements?.[idx] ?? selectedSeason.eyebrow;
+
+                return (
+                  <button
+                    key={image}
+                    type="button"
+                    data-winner-portrait="true"
+                    onClick={() => setLightbox({ image, name, placement })}
+                    className="group luxury-hover-card relative aspect-[3/4] overflow-hidden border gold-divider bg-blush-wash text-left focus:outline-none focus:ring-2 focus:ring-blush-accent"
+                  >
+                    <img
+                      src={image}
+                      alt={`${name}, ${placement}, ${selectedSeason.eyebrow} ${selectedSeason.title}`}
+                      className="luxury-hover-image h-full w-full object-cover object-[50%_6%] transition duration-700"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="luxury-hover-overlay absolute inset-0 bg-gradient-to-t from-[#020817]/95 via-[#020817]/10 to-transparent" />
+                    <span className="luxury-hover-content absolute inset-x-5 bottom-5">
+                      <span className="block text-[10px] uppercase tracking-[.24em] text-blush-accent">{placement}</span>
+                      <span className="mt-2 block font-display text-2xl leading-tight text-white sm:text-[1.7rem]">{name}</span>
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -178,7 +184,13 @@ export function Winners(_: { navigate: (page: PageKey) => void }) {
           >
             <X />
           </button>
-          <img src={lightbox} alt="Selected winner portrait" className="max-h-full max-w-full object-contain" decoding="async" />
+          <figure className="flex max-h-full max-w-full flex-col items-center gap-4" onClick={(event) => event.stopPropagation()}>
+            <img src={lightbox.image} alt={`${lightbox.name}, ${lightbox.placement}`} className="max-h-[calc(100vh-8rem)] max-w-full object-contain" decoding="async" />
+            <figcaption className="text-center">
+              <span className="block text-[10px] uppercase tracking-[.24em] text-blush-accent">{lightbox.placement}</span>
+              <span className="mt-1 block font-display text-2xl text-white">{lightbox.name}</span>
+            </figcaption>
+          </figure>
         </div>
       ) : null}
     </>

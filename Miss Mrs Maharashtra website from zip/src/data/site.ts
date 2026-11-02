@@ -17,6 +17,7 @@ const WEBSITE_ZIP = `${LOCAL}website-zip/`;
 const PORTRAIT_WEBSITE_ZIP = `${LOCAL}website-zip-portrait/`;
 const CURATED = `${LOCAL}curated/`;
 const DRIVE_MM = `${LOCAL}drive-mm/`;
+const SEASON_2_WINNERS = `${LOCAL}season-2-winners/`;
 const SEASON_3_WINNERS = `${LOCAL}season-3-winners/`;
 
 const stock = {
@@ -243,12 +244,14 @@ export const winnerSeasonGroups = [
   {
     eyebrow: "Mrs. Maharashtra",
     title: "Season 2 Winners",
-    note: "Crowning portraits, runway frames and titleholder moments from Season 2.",
+    note: "Mrs. Maharashtra winner, first runner-up and second runner-up from Season 2.",
     images: [
-      `${CURATED}sneha-kalbhor.jpg`,
-      `${CURATED}apoorva-shirbhate.jpg`,
-      `${CURATED}archana-kamble.jpg`,
+      `${SEASON_2_WINNERS}mrs-ashwini-rajput.webp`,
+      `${SEASON_2_WINNERS}tripti-apreja.webp`,
+      `${SEASON_2_WINNERS}anita-nandanwar.webp`,
     ],
+    names: ["Mrs. Ashwini Rajput", "Tripti Apreja", "Anita Nandanwar"],
+    placements: ["Winner", "1st Runner-Up", "2nd Runner-Up"],
   },
   {
     eyebrow: "Mrs. Maharashtra",
@@ -263,12 +266,14 @@ export const winnerSeasonGroups = [
   {
     eyebrow: "Miss Maharashtra",
     title: "Season 2 Winners",
-    note: "Miss category titleholder images from the Season 2 winner archive.",
+    note: "Miss Maharashtra winner, first runner-up and second runner-up from Season 2.",
     images: [
-      `${PORTRAIT_WEBSITE_ZIP}MIS/s2 Winners/navdeep.jpg`,
-      `${PORTRAIT_WEBSITE_ZIP}MIS/s2 Winners/ZOHR2080.jpg`,
-      `${PORTRAIT_WEBSITE_ZIP}MIS/s2 Winners/ZOHR2090.jpg`,
+      `${SEASON_2_WINNERS}khushi-chaware.webp`,
+      `${SEASON_2_WINNERS}trupti-wajurkar.webp`,
+      `${SEASON_2_WINNERS}sonali-bisen.webp`,
     ],
+    names: ["Khushi Chaware", "Trupti Wajurkar", "Sonali Bisen"],
+    placements: ["Winner", "1st Runner-Up", "2nd Runner-Up"],
   },
   {
     eyebrow: "Miss Maharashtra",
