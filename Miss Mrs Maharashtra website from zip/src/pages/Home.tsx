@@ -67,14 +67,13 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   <span key={`${word}-${index}`} className="hero-word-reveal" style={{ animationDelay: `${220 + index * 95}ms` }}>{word}</span>
                 ))}
               </h1>
-              <div className="hero-actions mt-7 flex flex-wrap justify-center gap-5">
-                <button onClick={() => navigate("register")} className="gold-cta px-7 py-3.5 text-xs uppercase tracking-[.2em]">Register interest for the next season.</button>
-                <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
-                  <button onClick={() => navigate("categories")} className="inline-flex items-center border-b border-white/45 pb-2 text-xs uppercase tracking-[.2em] text-white transition hover:border-blush-accent hover:text-blush-accent">View categories</button>
-                  <button onClick={() => navigate("junior-india")} className="inline-flex items-center gap-2 border-b border-blush-accent/80 pb-2 text-xs uppercase tracking-[.2em] text-blush-accent transition hover:border-white hover:text-white">
-                    Explore Junior India <ArrowRight size={14} aria-hidden="true" />
-                  </button>
-                </div>
+              <div className="hero-actions mt-7 flex flex-wrap justify-center gap-3 max-sm:flex-col max-sm:items-center sm:gap-4">
+                <button onClick={() => navigate("junior-india")} className="gold-cta inline-flex min-h-[48px] items-center justify-center gap-2 px-7 py-3.5 text-xs uppercase tracking-[.18em] max-sm:w-full max-sm:max-w-[340px]">
+                  Junior India Live Voting <ArrowRight size={14} aria-hidden="true" />
+                </button>
+                <button onClick={() => navigate("register")} className="inline-flex min-h-[48px] items-center justify-center border border-white/70 bg-[#061122]/90 px-7 py-3.5 text-xs uppercase tracking-[.18em] text-white transition hover:-translate-y-0.5 hover:border-blush-accent hover:bg-[#061122] hover:text-blush-accent max-sm:w-full max-sm:max-w-[340px]">
+                  Register Now
+                </button>
               </div>
             </div>
           </div>

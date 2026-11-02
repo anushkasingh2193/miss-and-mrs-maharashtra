@@ -24,7 +24,7 @@ assert.equal(
   "homepage should include the Junior India feature and restored testimonial section",
 );
 assert.match(home, /Register interest for the next season/, "homepage should use the next-season registration CTA");
-assert.match(home, /navigate\("junior-india"\)[\s\S]*?Explore Junior India/, "homepage hero should expose a direct Junior India CTA");
+assert.match(home, /navigate\("junior-india"\)[\s\S]*?Junior India Live Voting/, "homepage hero should expose Junior India live voting");
 assert.match(layout, /Register interest for the next season/, "sticky CTA should use the next-season registration CTA");
 assert.doesNotMatch(home, /useCountdown|auditionCities|Apply for auditions|Until finale week|October 2026/, "homepage should not expose stale audition details");
 assert.doesNotMatch(layout, /useCountdown|days to finale week|still being reviewed/, "layout should not expose a stale countdown or review status");
@@ -41,6 +41,8 @@ assert.match(juniorCampaign, /\.inert\s*=\s*true/, "Junior India launch film sho
 assert.match(juniorCampaign, /event\.key === "Tab"/, "Junior India launch film should trap Tab navigation");
 assert.match(juniorCampaign, /onExitComplete/, "Junior India launch film should restore focus after its exit animation");
 assert.match(juniorCampaign, /onExplore/, "Junior India campaign should preserve the dedicated page CTA");
+assert.match(juniorCampaign, /dateTime="2026-11-22"/, "Junior India campaign should expose the event date semantically");
+assert.match(juniorCampaign, /22 November 2026/, "Junior India campaign should highlight the confirmed event date");
 assert.match(juniorCampaign, /junior-campaign__wordmark/, "Junior India campaign should use its oversized editorial wordmark");
 assert.match(juniorCampaign, /useScroll/, "Junior India campaign should use restrained scroll-linked motion");
 assert.match(juniorCampaign, /useTransform/, "Junior India campaign should transform editorial layers independently");
