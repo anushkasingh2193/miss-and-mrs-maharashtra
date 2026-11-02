@@ -63,34 +63,12 @@ const comparisonRows = [
 export function Categories({ navigate }: { navigate: (page: PageKey) => void }) {
   return (
     <div className="home-cinema">
-      <section className="relative overflow-hidden border-b gold-divider bg-[#031026] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_26%,rgba(74,169,255,.15),transparent_30%),radial-gradient(circle_at_18%_74%,rgba(74,169,255,.08),transparent_32%),linear-gradient(180deg,#031026,#061122_54%,#031026)]" />
-        <div className="content-wrap relative z-10 flex min-h-[clamp(460px,62svh,680px)] items-center px-[clamp(20px,4vw,42px)] py-[clamp(64px,8vw,112px)]">
-          <div className="reveal max-w-5xl">
-            <div className="eyebrow mb-5">Categories</div>
-            <h1 className="hero-title max-w-5xl">Three stages. One place to find yours.</h1>
-            <p className="mt-7 max-w-2xl text-base font-light leading-8 text-white/72 sm:text-lg">
-              Compare each category at a glance, then explore the pathway designed for your journey.
-            </p>
-            <div className="category-hero-proof mt-8 grid gap-3 sm:grid-cols-3">
-              {["3 distinct categories", "Separate pathways", "One confident stage"].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-            <div className="mt-9 flex flex-wrap items-center gap-5">
-              <a href="#choose-category" className="gold-cta inline-flex items-center gap-3 px-8 py-4 text-xs uppercase tracking-[.24em]">
-                Choose your category <ArrowRight size={15} />
-              </a>
-              <a href="#compare-categories" className="border-b border-blush-accent pb-2 text-xs uppercase tracking-[.24em] text-blush-accent transition hover:text-blush-hover">
-                Compare adult titles
-              </a>
-            </div>
-          </div>
+      <Section id="choose-category" className="cinematic-band gold-lift !pt-[clamp(72px,9vw,120px)]">
+        <div className="reveal mx-auto mb-[clamp(36px,5vw,64px)] max-w-5xl text-center">
+          <h1 className="text-balance font-display text-[clamp(2.8rem,5vw,5rem)] leading-[.96] tracking-[-.02em] text-blush-ink">
+            Three stages. One place to find yours.
+          </h1>
         </div>
-      </section>
-
-      <Section id="choose-category" className="cinematic-band gold-lift">
-        <SectionHeader eyebrow="Choose your category" title="Every stage, clearly presented." body="See the purpose and pathway of each category before choosing where to continue." />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {categoryDetails.map((item) => (
             <article

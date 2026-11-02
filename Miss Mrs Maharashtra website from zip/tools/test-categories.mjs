@@ -37,7 +37,20 @@ try {
     3,
     "categories should render exactly three equally structured category cards",
   );
-  assert.match(html, /3 distinct categories/, "the hero should introduce all three available categories");
+  assert.equal(
+    (html.match(/Three stages\. One place to find yours\./g) ?? []).length,
+    1,
+    "the categories page should keep one concise centered heading",
+  );
+  assert.ok(
+    html.indexOf("Three stages. One place to find yours.") < html.indexOf('data-category-card="true"'),
+    "the concise heading should appear directly before the category cards",
+  );
+  assert.doesNotMatch(
+    html,
+    /Compare each category|3 distinct categories|Separate pathways|One confident stage|Choose your category|Every stage, clearly presented/,
+    "the removed category intro copy, proof points, and actions should stay absent",
+  );
   assert.match(html, /22 November 2026/, "Junior India should show its event date");
   assert.match(
     html,

@@ -74,7 +74,8 @@ assert.ok(existsSync(resolve(root, "public/missmrs-assets/season-3-winners/miss-
 assert.match(categoriesPage, /data-category-card="true"[\s\S]*?aspect-\[4\/5\]/, "category cards should preserve consistent portrait proportions");
 assert.match(categoriesPage, /md:grid-cols-2 xl:grid-cols-3/, "category cards should show all three categories together on wide screens");
 assert.match(categoriesPage, /luxury-hover-content flex flex-1 flex-col/, "category cards should keep their visible copy and actions aligned");
-assert.match(categoriesPage, /min-h-\[clamp\(460px,62svh,680px\)\]/, "the simplified category hero should remain compact and responsive");
+assert.match(categoriesPage, /text-center[\s\S]*Three stages\. One place to find yours\.[\s\S]*md:grid-cols-2 xl:grid-cols-3/, "the centered category title should lead directly into the three-card grid");
+assert.doesNotMatch(categoriesPage, /min-h-\[clamp\(460px,62svh,680px\)\]/, "the categories page should not keep a separate oversized hero");
 assert.match(videoBento, /return \(\s*<div className=/, "YouTube preview should use a non-interactive outer container");
 assert.doesNotMatch(videoBento, /return \(\s*<button/, "YouTube preview must not wrap its play button in another button");
 assert.match(home, /data-hero-video[\s\S]*?preload="auto"/, "hero video should preload for the clearest immediate playback");
