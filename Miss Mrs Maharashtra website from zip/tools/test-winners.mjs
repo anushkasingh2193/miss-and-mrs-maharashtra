@@ -5,10 +5,9 @@ import { createServer } from "vite";
 
 const expectedSeasonPortraits = [
   [
-    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/AKAL3979.jpg",
-    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/AKAL4002.jpg",
-    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/DSC_6501.jpg",
-    "/missmrs-assets/website-zip-portrait/M&M/M&M s1 winners/DSC_6792.jpg",
+    "/missmrs-assets/season-1-winners/dr-rasika-raj.webp",
+    "/missmrs-assets/season-1-winners/manisha-tamaskar.webp",
+    "/missmrs-assets/season-1-winners/rashmi-revatkar.webp",
   ],
   [
     "/missmrs-assets/season-2-winners/mrs-ashwini-rajput.webp",
@@ -19,6 +18,11 @@ const expectedSeasonPortraits = [
     "/missmrs-assets/season-3-winners/mrs-maharashtra-winner.jpg",
     "/missmrs-assets/season-3-winners/mrs-maharashtra-first-runner-up.jpg",
     "/missmrs-assets/season-3-winners/mrs-maharashtra-second-runner-up.jpg",
+  ],
+  [
+    "/missmrs-assets/season-1-winners/tejashree-mohite.webp",
+    "/missmrs-assets/season-1-winners/poonam-badwaik.webp",
+    "/missmrs-assets/season-1-winners/khushi-chhabra.webp",
   ],
   [
     "/missmrs-assets/season-2-winners/khushi-chaware.webp",
@@ -59,8 +63,26 @@ try {
 
   assert.deepEqual(
     ["Miss Maharashtra", "Mrs. Maharashtra"].map((category) => winnerSeasonGroups.filter((season) => season.eyebrow === category).length),
-    [2, 3],
+    [3, 3],
     "Miss and Mrs categories should expose their own season collections",
+  );
+
+  const seasonOneGroups = winnerSeasonGroups.filter((season) => season.title === "Season 1 Winners");
+  assert.deepEqual(
+    seasonOneGroups.map((season) => season.names),
+    [
+      ["Dr. Rasika Raj", "Manisha Tamaskar", "Rashmi Revatkar"],
+      ["Tejashree Mohite", "Poonam Badwaik", "Khushi Chhabra"],
+    ],
+    "Season 1 should use the supplied winner names in podium order",
+  );
+  assert.deepEqual(
+    seasonOneGroups.map((season) => season.placements),
+    [
+      ["Winner", "1st Runner-Up", "2nd Runner-Up"],
+      ["Winner", "1st Runner-Up", "2nd Runner-Up"],
+    ],
+    "Season 1 should label every titleholder placement",
   );
 
   const seasonTwoGroups = winnerSeasonGroups.filter((season) => season.title === "Season 2 Winners");
@@ -91,14 +113,14 @@ try {
   const html = renderToStaticMarkup(createElement(Winners, { navigate: () => {} }));
 
   assert.equal((html.match(/data-winner-category-tab="true"/g) ?? []).length, 2, "two winner category tabs should render");
-  assert.equal((html.match(/data-winner-season-tab="true"/g) ?? []).length, 2, "the default Miss category should render two season tabs");
+  assert.equal((html.match(/data-winner-season-tab="true"/g) ?? []).length, 3, "the default Miss category should render three season tabs");
   assert.equal((html.match(/data-winner-portrait="true"/g) ?? []).length, 3, "the default Miss season should render three unique portraits");
   assert.match(html, /aria-label="Winner categories"/, "Miss and Mrs controls should be exposed as a category tab list");
   assert.match(html, /aria-label="Miss Maharashtra seasons"/, "season controls should follow the active category");
   assert.match(html, /id="winner-season-panel"/, "the active portrait grid should be exposed as the tab panel");
-  assert.match(html, /Khushi Chaware/, "the default Miss Season 2 grid should show the winner name");
-  assert.match(html, /Trupti Wajurkar/, "the default Miss Season 2 grid should show the first runner-up name");
-  assert.match(html, /Sonali Bisen/, "the default Miss Season 2 grid should show the second runner-up name");
+  assert.match(html, /Tejashree Mohite/, "the default Miss Season 1 grid should show the winner name");
+  assert.match(html, /Poonam Badwaik/, "the default Miss Season 1 grid should show the first runner-up name");
+  assert.match(html, /Khushi Chhabra/, "the default Miss Season 1 grid should show the second runner-up name");
   assert.match(html, /1st Runner-Up/, "winner cards should show placement labels");
   assert.match(html, /data-winners-hero="editorial-split"/, "winners page should use the approved editorial split hero");
   assert.match(html, /Hall of Fame/, "winners hero should introduce the titleholder archive");

@@ -17,6 +17,7 @@ const WEBSITE_ZIP = `${LOCAL}website-zip/`;
 const PORTRAIT_WEBSITE_ZIP = `${LOCAL}website-zip-portrait/`;
 const CURATED = `${LOCAL}curated/`;
 const DRIVE_MM = `${LOCAL}drive-mm/`;
+const SEASON_1_WINNERS = `${LOCAL}season-1-winners/`;
 const SEASON_2_WINNERS = `${LOCAL}season-2-winners/`;
 const SEASON_3_WINNERS = `${LOCAL}season-3-winners/`;
 
@@ -233,13 +234,14 @@ export const winnerSeasonGroups = [
   {
     eyebrow: "Mrs. Maharashtra",
     title: "Season 1 Winners",
-    note: "The first titleholder archive from the Miss & Mrs. Maharashtra stage.",
+    note: "Mrs. Maharashtra winner, first runner-up and second runner-up from Season 1.",
     images: [
-      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/AKAL3979.jpg`,
-      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/AKAL4002.jpg`,
-      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/DSC_6501.jpg`,
-      `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s1 winners/DSC_6792.jpg`,
+      `${SEASON_1_WINNERS}dr-rasika-raj.webp`,
+      `${SEASON_1_WINNERS}manisha-tamaskar.webp`,
+      `${SEASON_1_WINNERS}rashmi-revatkar.webp`,
     ],
+    names: ["Dr. Rasika Raj", "Manisha Tamaskar", "Rashmi Revatkar"],
+    placements: ["Winner", "1st Runner-Up", "2nd Runner-Up"],
   },
   {
     eyebrow: "Mrs. Maharashtra",
@@ -262,6 +264,18 @@ export const winnerSeasonGroups = [
       `${SEASON_3_WINNERS}mrs-maharashtra-first-runner-up.jpg`,
       `${SEASON_3_WINNERS}mrs-maharashtra-second-runner-up.jpg`,
     ],
+  },
+  {
+    eyebrow: "Miss Maharashtra",
+    title: "Season 1 Winners",
+    note: "Miss Maharashtra winner, first runner-up and second runner-up from Season 1.",
+    images: [
+      `${SEASON_1_WINNERS}tejashree-mohite.webp`,
+      `${SEASON_1_WINNERS}poonam-badwaik.webp`,
+      `${SEASON_1_WINNERS}khushi-chhabra.webp`,
+    ],
+    names: ["Tejashree Mohite", "Poonam Badwaik", "Khushi Chhabra"],
+    placements: ["Winner", "1st Runner-Up", "2nd Runner-Up"],
   },
   {
     eyebrow: "Miss Maharashtra",
