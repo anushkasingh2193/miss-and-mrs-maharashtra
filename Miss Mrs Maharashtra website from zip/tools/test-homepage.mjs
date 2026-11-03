@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { Children, isValidElement } from "react";
@@ -20,6 +20,13 @@ const gallery = read("src/components/ui/image-gallery.tsx");
 const testimonials = read("src/components/ui/testimonials-6.tsx");
 const juniorCampaign = read("src/components/JuniorIndiaCampaign.tsx");
 const styles = read("src/index.css");
+const seasonFourVideo = resolve(root, "public/missmrs-assets/videos/season-4-reveal.mp4");
+const seasonFourPoster = resolve(root, "public/missmrs-assets/videos/season-4-reveal-poster.jpg");
+
+assert.ok(existsSync(seasonFourVideo), "Season 4 reveal video must exist");
+assert.ok(existsSync(seasonFourPoster), "Season 4 reveal poster must exist");
+assert.ok(statSync(seasonFourVideo).size > 0, "Season 4 reveal video must not be empty");
+assert.ok(statSync(seasonFourPoster).size > 0, "Season 4 reveal poster must not be empty");
 
 assert.match(data, /label:\s*"Finale guests"/, "homepage statistics should consistently say Finale guests");
 assert.equal(
