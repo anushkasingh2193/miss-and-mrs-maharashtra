@@ -29,11 +29,6 @@ assert.ok(statSync(seasonFourVideo).size > 0, "Season 4 reveal video must not be
 assert.ok(statSync(seasonFourPoster).size > 0, "Season 4 reveal poster must not be empty");
 
 assert.match(data, /label:\s*"Finale guests"/, "homepage statistics should consistently say Finale guests");
-assert.equal(
-  (home.match(/data-home-section\b/g) || []).length + (juniorCampaign.match(/data-home-section\b/g) || []).length,
-  10,
-  "homepage should include the Junior India feature and restored testimonial section",
-);
 assert.match(home, /Register interest for the next season/, "homepage should use the next-season registration CTA");
 assert.match(about, /Who we are · What we do/, "the About page should clearly introduce the organisation and its work");
 assert.match(about, /founded in Nagpur by Zoya and Siraj Sheikh/, "the About bio should identify the founders using established site facts");
@@ -188,7 +183,27 @@ try {
     "Season 4 reel playback should pause offscreen and resume onscreen",
   );
 
-  const { HomeCategorySelector } = await vite.ssrLoadModule("/src/pages/Home.tsx");
+  const { Home, HomeCategorySelector } = await vite.ssrLoadModule("/src/pages/Home.tsx");
+  const renderedHome = renderToStaticMarkup(createElement(Home, { navigate: () => undefined }));
+  const juniorCampaignIndex = renderedHome.indexOf("data-junior-india-campaign");
+  const seasonFourIndex = renderedHome.indexOf("data-season-four-reveal");
+  const registrationInterestIndex = renderedHome.indexOf("The next season starts with your interest.");
+
+  assert.equal(
+    (renderedHome.match(/data-home-section="true"/g) ?? []).length,
+    11,
+    "homepage should render eleven distinct content sections",
+  );
+  assert.equal(
+    (renderedHome.match(/data-season-four-reveal="true"/g) ?? []).length,
+    1,
+    "homepage should render one Season 4 reveal",
+  );
+  assert.ok(
+    juniorCampaignIndex >= 0 && seasonFourIndex > juniorCampaignIndex && registrationInterestIndex > seasonFourIndex,
+    "Season 4 reveal should appear after Junior India and before registration interest",
+  );
+
   const navigations = [];
   const selector = HomeCategorySelector({ navigate: (target) => navigations.push(target) });
   const html = renderToStaticMarkup(selector);

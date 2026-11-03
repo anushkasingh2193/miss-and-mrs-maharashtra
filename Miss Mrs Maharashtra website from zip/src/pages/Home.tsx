@@ -4,6 +4,7 @@ import { imageRoles, interestCities, pillars, stats, type PageKey } from "@/data
 import { useHomeMotion } from "@/hooks/useHomeMotion";
 import { Section, SectionHeader } from "@/components/Section";
 import { JuniorIndiaCampaign } from "@/components/JuniorIndiaCampaign";
+import { SeasonFourReveal } from "@/components/SeasonFourReveal";
 import ImageGallery from "@/components/ui/image-gallery";
 import { TestimonialsSection } from "@/components/ui/testimonials-6";
 
@@ -217,6 +218,8 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
       </Section>
 
       <JuniorIndiaCampaign onExplore={() => navigate("junior-india")} />
+
+      <SeasonFourReveal onRegister={() => navigate("register")} />
 
       <Section className="cinematic-band !py-[clamp(44px,6vw,82px)] text-white">
         <div data-home-section className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_.82fr] lg:items-center">
