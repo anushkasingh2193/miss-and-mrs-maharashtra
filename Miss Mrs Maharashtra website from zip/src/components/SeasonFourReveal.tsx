@@ -81,12 +81,12 @@ export function SeasonFourRevealContent({
 
         <aside className="season-four-reveal__facts" aria-label="Season 4 event details">
           <div className="season-four-reveal__fact-card">
-            <p>Dates</p>
-            <time dateTime="2026-11-21">21st, 22nd &amp; 23rd November 2026</time>
+            <p className="season-four-reveal__fact-label">Dates</p>
+            <p className="season-four-reveal__fact-value">21st, 22nd &amp; 23rd November 2026</p>
           </div>
           <div className="season-four-reveal__fact-card">
-            <p>Venue</p>
-            <address>BTP Farms And Resorts, Nagpur</address>
+            <p className="season-four-reveal__fact-label">Venue</p>
+            <address className="season-four-reveal__fact-value">BTP Farms And Resorts, Nagpur</address>
           </div>
         </aside>
       </div>

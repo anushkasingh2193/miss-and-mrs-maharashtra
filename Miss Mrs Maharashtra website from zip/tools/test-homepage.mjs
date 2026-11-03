@@ -145,6 +145,11 @@ try {
   assert.match(revealHtml, /Season 4 Reveal/, "Season 4 reveal should identify the announcement");
   assert.match(revealHtml, /The crown returns to Nagpur\./, "Season 4 reveal should lead with the approved headline");
   assert.match(revealHtml, /21st, 22nd &amp; 23rd November 2026/, "Season 4 reveal should show the confirmed dates");
+  assert.doesNotMatch(
+    revealHtml,
+    /datetime="2026-11-21"/i,
+    "the three-day Season 4 range should not be represented as a single date",
+  );
   assert.match(revealHtml, /BTP Farms And Resorts, Nagpur/, "Season 4 reveal should show the confirmed venue");
   assert.match(revealHtml, /season-4-reveal\.mp4/, "Season 4 reveal should use the supplied reel");
   assert.match(revealHtml, /season-4-reveal-poster\.jpg/, "Season 4 reveal should use the generated poster");

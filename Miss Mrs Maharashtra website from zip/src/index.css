@@ -3035,7 +3035,7 @@ select:focus-visible {
 }
 
 .season-four-reveal__eyebrow,
-.season-four-reveal__fact-card > p,
+.season-four-reveal__fact-label,
 .season-four-reveal__film-meta,
 .season-four-reveal__film figcaption {
   margin: 0;
@@ -3142,10 +3142,9 @@ select:focus-visible {
   background: rgba(238, 246, 255, 0.035);
 }
 
-.season-four-reveal__fact-card time,
-.season-four-reveal__fact-card address {
+.season-four-reveal__fact-value {
   display: block;
-  margin-top: 24px;
+  margin: 24px 0 0;
   color: #f5f2ea;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: clamp(2.3rem, 3.1vw, 3.25rem);
@@ -3212,8 +3211,7 @@ select:focus-visible {
     padding: 26px;
   }
 
-  .season-four-reveal__fact-card time,
-  .season-four-reveal__fact-card address {
+  .season-four-reveal__fact-value {
     font-size: clamp(2.1rem, 11vw, 3rem);
   }
 }
