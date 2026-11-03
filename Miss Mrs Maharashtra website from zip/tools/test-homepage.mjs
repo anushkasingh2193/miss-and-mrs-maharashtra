@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
-import { Children, isValidElement } from "react";
+import { Children, createElement, isValidElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createServer } from "vite";
 
@@ -125,6 +125,69 @@ const vite = await createServer({
 });
 
 try {
+  let seasonFourModule;
+  try {
+    seasonFourModule = await vite.ssrLoadModule("/src/components/SeasonFourReveal.tsx");
+  } catch (error) {
+    assert.fail(`Season 4 reveal component should load: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  const { SeasonFourRevealContent, syncRevealPlayback } = seasonFourModule;
+  const registrations = [];
+  const reveal = createElement(SeasonFourRevealContent, {
+    onRegister: () => registrations.push("register"),
+    shouldReduceMotion: false,
+    videoRef: { current: null },
+  });
+  const revealHtml = renderToStaticMarkup(reveal);
+  const revealButtons = collectButtons(SeasonFourRevealContent({
+    onRegister: () => registrations.push("register"),
+    shouldReduceMotion: false,
+    videoRef: { current: null },
+  }));
+  const registerButton = revealButtons.find((button) => button.props["data-season-four-register"] === "true");
+
+  assert.match(revealHtml, /Season 4 Reveal/, "Season 4 reveal should identify the announcement");
+  assert.match(revealHtml, /The crown returns to Nagpur\./, "Season 4 reveal should lead with the approved headline");
+  assert.match(revealHtml, /21st, 22nd &amp; 23rd November 2026/, "Season 4 reveal should show the confirmed dates");
+  assert.match(revealHtml, /BTP Farms And Resorts, Nagpur/, "Season 4 reveal should show the confirmed venue");
+  assert.match(revealHtml, /season-4-reveal\.mp4/, "Season 4 reveal should use the supplied reel");
+  assert.match(revealHtml, /season-4-reveal-poster\.jpg/, "Season 4 reveal should use the generated poster");
+  assert.match(revealHtml, /autoplay=""/, "motion-safe Season 4 reveal should autoplay");
+  assert.match(revealHtml, /muted=""/, "Season 4 reveal should stay muted");
+  assert.match(revealHtml, /loop=""/, "Season 4 reveal should loop");
+  assert.match(revealHtml, /playsinline=""/, "Season 4 reveal should play inline");
+  assert.ok(registerButton, "Season 4 reveal should expose one registration action");
+  registerButton.props.onClick();
+  assert.deepEqual(registrations, ["register"], "Season 4 registration action should call its callback once");
+
+  const reducedMotionHtml = renderToStaticMarkup(createElement(SeasonFourRevealContent, {
+    onRegister: () => undefined,
+    shouldReduceMotion: true,
+    videoRef: { current: null },
+  }));
+  assert.doesNotMatch(reducedMotionHtml, /autoplay=""/, "reduced-motion visitors should not receive forced autoplay");
+  assert.match(reducedMotionHtml, /controls=""/, "reduced-motion visitors should receive manual video controls");
+
+  const playback = {
+    playCalls: 0,
+    pauseCalls: 0,
+    play() {
+      this.playCalls += 1;
+      return Promise.resolve();
+    },
+    pause() {
+      this.pauseCalls += 1;
+    },
+  };
+  syncRevealPlayback(playback, false);
+  await syncRevealPlayback(playback, true);
+  assert.deepEqual(
+    { playCalls: playback.playCalls, pauseCalls: playback.pauseCalls },
+    { playCalls: 1, pauseCalls: 1 },
+    "Season 4 reel playback should pause offscreen and resume onscreen",
+  );
+
   const { HomeCategorySelector } = await vite.ssrLoadModule("/src/pages/Home.tsx");
   const navigations = [];
   const selector = HomeCategorySelector({ navigate: (target) => navigations.push(target) });
