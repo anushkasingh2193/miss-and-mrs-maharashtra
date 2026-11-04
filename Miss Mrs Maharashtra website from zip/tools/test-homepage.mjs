@@ -188,6 +188,15 @@ try {
     "Season 4 reel playback should pause offscreen and resume onscreen",
   );
 
+  const { About } = await vite.ssrLoadModule("/src/pages/About.tsx");
+  const renderedAbout = renderToStaticMarkup(createElement(About, { navigate: () => undefined }));
+
+  assert.match(renderedAbout, /data-zoya-profile="true"/, "About page should render Zoya Sheikh's editorial profile");
+  assert.match(renderedAbout, /Founder &amp; Chairperson/, "Zoya profile should identify her leadership role");
+  assert.match(renderedAbout, /Mrs Universe 2022 - 3rd Runner Up/, "Zoya profile should show her international placement");
+  assert.match(renderedAbout, /A crown becomes meaningful/, "Zoya profile should include the approved founder quote");
+  assert.doesNotMatch(renderedAbout, /From first crown to Season 3/, "the old timeline should be removed from the About page");
+
   const { Home, HomeCategorySelector } = await vite.ssrLoadModule("/src/pages/Home.tsx");
   const renderedHome = renderToStaticMarkup(createElement(Home, { navigate: () => undefined }));
   const juniorCampaignIndex = renderedHome.indexOf("data-junior-india-campaign");

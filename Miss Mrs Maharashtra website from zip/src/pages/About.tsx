@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { archive, imageRoles, timeline, type PageKey } from "@/data/site";
+import { archive, imageRoles, type PageKey } from "@/data/site";
 import { ImageTile, Section, SectionHeader } from "@/components/Section";
 
 const leadershipCards = [
@@ -119,16 +119,57 @@ export function About({ navigate }: { navigate: (page: PageKey) => void }) {
         </div>
       </Section>
 
-      <Section className="cinematic-band">
-        <SectionHeader eyebrow="Timeline" title="From first crown to Season 3." />
-        <div className="border-y gold-divider">
-          {timeline.map((item) => (
-            <div key={`${item.when}-${item.title}`} className="reveal grid gap-5 border-t gold-divider py-7 md:grid-cols-[120px_1fr]">
-              <div className="font-display text-4xl text-blush-accent">{item.when}</div>
-              <h3 className="font-display text-2xl text-blush-ink">{item.title}</h3>
-            </div>
-          ))}
-        </div>
+      <Section className="cinematic-band !py-[clamp(56px,7vw,104px)]">
+        <article
+          data-zoya-profile="true"
+          aria-labelledby="zoya-profile-title"
+          className="reveal grid overflow-hidden border gold-divider bg-[#07162f] shadow-[0_36px_110px_rgba(0,0,0,.28)] lg:grid-cols-[minmax(0,.88fr)_minmax(0,1.12fr)]"
+        >
+          <figure className="relative min-h-[480px] overflow-hidden bg-black sm:min-h-[620px] lg:min-h-[760px]">
+            <img
+              src="/missmrs-assets/curated/zoya-founder-profile.png"
+              alt="Zoya Siraj Sheikh, Founder and Chairperson"
+              className="absolute inset-y-0 h-full max-w-none"
+              style={{ transform: "translateX(-5.1%)" }}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+
+          <div className="flex flex-col justify-center px-[clamp(24px,5vw,88px)] py-[clamp(44px,6vw,92px)]">
+            <p className="text-[11px] font-semibold uppercase tracking-[.24em] text-blush-accent">
+              Founder &amp; Chairperson
+            </p>
+            <h2
+              id="zoya-profile-title"
+              className="mt-5 max-w-[12ch] font-display text-[clamp(3rem,6vw,6rem)] leading-[.94] tracking-[-.025em] text-blush-ink"
+            >
+              Zoya Siraj Sheikh
+            </h2>
+            <p className="mt-8 max-w-[68ch] text-[clamp(1rem,1.25vw,1.18rem)] font-light leading-8 text-blush-body">
+              Zoya Siraj Sheikh, Mrs Universe 2022 - 3rd Runner Up, is the visionary Founder of Mrs. Supranational. Her work has helped shape a polished pageant environment for women who want to express confidence, fashion, purpose, and presence on an international stage.
+            </p>
+
+            <ul aria-label="Zoya Siraj Sheikh highlights" className="mt-8 flex flex-wrap gap-3">
+              {[
+                "Mrs Universe 2022 - 3rd Runner Up",
+                "Pageant visionary",
+                "Fashion & empowerment leader",
+              ].map((highlight) => (
+                <li
+                  key={highlight}
+                  className="rounded-full border border-white/15 bg-white/[.055] px-5 py-3 text-[10px] font-semibold uppercase tracking-[.15em] text-blush-ink"
+                >
+                  {highlight}
+                </li>
+              ))}
+            </ul>
+
+            <blockquote className="mt-10 border-l border-blush-accent pl-7 font-display text-[clamp(1.75rem,3vw,3.35rem)] italic leading-[1.18] text-blush-ink">
+              “A crown becomes meaningful when it helps a woman recognize her own voice, strength, and place in the world.”
+            </blockquote>
+          </div>
+        </article>
       </Section>
 
       <Section className="cinematic-band">
