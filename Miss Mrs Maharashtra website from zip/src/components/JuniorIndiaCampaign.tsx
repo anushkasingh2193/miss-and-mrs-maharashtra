@@ -6,15 +6,26 @@ import {
   useTransform,
 } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import type { RefObject } from "react";
 
 const FILM_SRC = "/missmrs-assets/videos/junior-india-home.mp4";
 const FILM_POSTER = "/missmrs-assets/videos/junior-india-home-poster.jpg";
 
-export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
+type JuniorIndiaCampaignContentProps = {
+  onExplore: () => void;
+  shouldReduceMotion: boolean;
+  videoRef: RefObject<HTMLVideoElement>;
+  isVideoReady: boolean;
+};
+
+export function JuniorIndiaCampaignContent({
+  onExplore,
+  shouldReduceMotion,
+  videoRef,
+  isVideoReady,
+}: JuniorIndiaCampaignContentProps) {
   const [canParallax, setCanParallax] = useState(false);
   const sectionRef = useRef<HTMLElement | null>(null);
-  const previewRef = useRef<HTMLVideoElement | null>(null);
-  const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -60,25 +71,6 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
     return () => query.removeEventListener("change", syncParallax);
   }, []);
 
-  useEffect(() => {
-    const preview = previewRef.current;
-    if (!preview || shouldReduceMotion) {
-      preview?.pause();
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) void preview.play().catch(() => undefined);
-        else preview.pause();
-      },
-      { threshold: 0.32 },
-    );
-
-    observer.observe(preview);
-    return () => observer.disconnect();
-  }, [shouldReduceMotion]);
-
   return (
     <section ref={sectionRef} data-home-section data-junior-india-campaign className="junior-campaign">
       <div className="junior-campaign__stage">
@@ -116,18 +108,19 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
           whileHover={shouldReduceMotion ? undefined : { scale: 1.018 }}
         >
           <video
-            ref={previewRef}
+            ref={videoRef}
             data-junior-india-video
             className="junior-campaign__preview"
             poster={FILM_POSTER}
-            autoPlay={!shouldReduceMotion}
+            autoPlay={isVideoReady && !shouldReduceMotion}
+            controls={shouldReduceMotion}
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             aria-label="Junior India official launch film preview"
           >
-            <source src={FILM_SRC} type="video/mp4" />
+            {isVideoReady ? <source src={FILM_SRC} type="video/mp4" /> : null}
           </video>
           <div className="junior-campaign__film-shade" aria-hidden="true" />
           <figcaption>
@@ -137,5 +130,51 @@ export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
         </motion.figure>
       </div>
     </section>
+  );
+}
+
+export function JuniorIndiaCampaign({ onExplore }: { onExplore: () => void }) {
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const previewRef = useRef<HTMLVideoElement | null>(null);
+  const shouldReduceMotion = Boolean(useReducedMotion());
+
+  useEffect(() => {
+    const preview = previewRef.current;
+    if (!preview) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVideoReady(true);
+        else preview.pause();
+      },
+      { rootMargin: "360px 0px", threshold: 0.01 },
+    );
+
+    observer.observe(preview);
+    return () => {
+      observer.disconnect();
+      preview.pause();
+    };
+  }, []);
+
+  useEffect(() => {
+    const preview = previewRef.current;
+    if (!preview || !isVideoReady) return;
+
+    preview.load();
+    if (shouldReduceMotion) {
+      preview.pause();
+      return;
+    }
+    void preview.play().catch(() => undefined);
+  }, [isVideoReady, shouldReduceMotion]);
+
+  return (
+    <JuniorIndiaCampaignContent
+      onExplore={onExplore}
+      shouldReduceMotion={shouldReduceMotion}
+      videoRef={previewRef}
+      isVideoReady={isVideoReady}
+    />
   );
 }

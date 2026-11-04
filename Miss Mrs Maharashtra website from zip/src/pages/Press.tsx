@@ -50,7 +50,7 @@ export function Press(_: { navigate: (page: PageKey) => void }) {
               aria-label={`Watch ${leadNews.title}`}
             >
               <img
-                src="/missmrs-assets/featured/newsroom-titleholders-cutout.png"
+                src="/missmrs-assets/featured/newsroom-titleholders-cutout.webp"
                 alt="Miss and Mrs. Maharashtra titleholders on the finale runway"
                 className="h-full w-full object-contain object-bottom px-[clamp(10px,2vw,28px)] pt-16 transition duration-700 group-hover:scale-[1.015]"
                 loading="eager"

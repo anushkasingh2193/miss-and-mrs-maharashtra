@@ -247,7 +247,7 @@ try {
   assert.match(juniorIndiaHtml, /22 Nov 2026/, "homepage Junior India card should retain the abbreviated event fact");
   assert.match(
     html,
-    /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.png/,
+    /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.webp/,
     "homepage Junior India card should use the enhanced supplied runway picture",
   );
 

@@ -75,7 +75,7 @@ export const imageRoles = {
   founderPortrait: `${FAST}zoya.jpg`,
   titleMiss: `${SEASON_3_WINNERS}miss-supraglobal-india.jpg`,
   titleMrs: `${LOCAL}featured/title-mrs-maharashtra.jpg`,
-  juniorIndiaCategory: `${LOCAL}junior-india/junior-india-runway-hd.png`,
+  juniorIndiaCategory: `${LOCAL}junior-india/junior-india-runway-hd.webp`,
   mentorHero: `${FAST}zoya.jpg`,
   sponsorHero: `${PORTRAIT_WEBSITE_ZIP}M&M/M&M s3 winners/TS102046.jpg`,
   sponsorProof: stock.makeup,
@@ -218,10 +218,10 @@ export const winnersGallery = [
   ...gallery,
   `${LOCAL}testimonial/DSC00092.JPG`,
   `${LOCAL}testimonial/IMG_9405.JPG_5.jpeg`,
-  `${LOCAL}testimonial/IMG_9410.JPG.jpeg`,
+  `${LOCAL}mentor/img_9410-optimized.webp`,
   `${LOCAL}testimonial/IMG_9411.JPG.jpeg`,
   `${LOCAL}testimonial/IMG_9412.JPG.jpeg`,
-  `${LOCAL}testimonial/IMG_9413.JPG.jpeg`,
+  `${LOCAL}mentor/img_9413-optimized.webp`,
   `${LOCAL}testimonial/IMG_9414.JPG.jpeg`,
   `${LOCAL}testimonial/IMG_9415.JPG.jpeg`,
   `${LOCAL}mentor/Zoya-sheikh--scaled.jpg`,
@@ -395,9 +395,9 @@ export const mentors = [
   { name: "Mr. Sunny Kamble", role: "Show Choreographer & Ramp Walk Trainer", bio: "Builds polished runway movement, stage formations and confident presentation for every show round.", bg: `${LOCAL}mentor/sunny-kamble-drive.webp`, position: "50% 5%" },
   { name: "Megha Kapoor Amesar", role: "Makeover Expert", bio: "Heads hair and makeup for all rounds, and teaches contestants to create polished looks with confidence.", bg: `${LOCAL}mentor/megha-kapoor-amesar-drive.webp`, position: "50% 5%" },
   { name: "Mrs. Sonali Nakshine", role: "Voice Modulation Expert", bio: "Prepares contestants for interviews, public speaking and live on-stage questions.", bg: `${LOCAL}mentor/sonali-nakshine-drive.webp`, position: "50% 5%" },
-  { name: "Dr. Girish Chabrani", role: "Smile Expert", bio: "Guides contestants on smile aesthetics, oral presentation and confident stage-ready expression.", bg: `${LOCAL}mentor/dr-girish-chabrani-confirmed.png`, position: "50% 50%" },
-  { name: "Dr. Anshul Jain", role: "Skin Expert", bio: "Shares practical skin-care guidance for healthy, camera-ready confidence throughout the season.", bg: `${LOCAL}mentor/dr-anshul-jain-confirmed.png`, position: "50% 10%" },
-  { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-confirmed.png`, position: "50% 8%" },
+  { name: "Dr. Girish Chabrani", role: "Smile Expert", bio: "Guides contestants on smile aesthetics, oral presentation and confident stage-ready expression.", bg: `${LOCAL}mentor/dr-girish-chabrani-confirmed.webp`, position: "50% 50%" },
+  { name: "Dr. Anshul Jain", role: "Skin Expert", bio: "Shares practical skin-care guidance for healthy, camera-ready confidence throughout the season.", bg: `${LOCAL}mentor/dr-anshul-jain-confirmed.webp`, position: "50% 10%" },
+  { name: "Mrs. Soniya Khatri", role: "Diet Expert", bio: "Supports balanced nutrition, steady energy and sustainable routines through the pageant journey.", bg: `${LOCAL}mentor/soniya-khatri-confirmed.webp`, position: "50% 8%" },
   { name: "Dr. Shivangi Garg", role: "Mental Health Expert", bio: "Helps contestants build resilience, emotional balance and calm confidence under pressure.", bg: `${LOCAL}mentor/dr-shivangi-garg-confirmed.webp`, position: "50% 8%" },
 ];
 
@@ -422,8 +422,8 @@ export const titleholders = [
 ];
 
 export const quotes = [
-  { text: "An excellent platform for participants to showcase their talent, confidence and potential at the next level.", name: "Shreyas Talpade", role: "Actor, Jury Season 1", bg: `${LOCAL}testimonial/IMG_9410.JPG.jpeg` },
-  { text: "The participants are incredibly talented and confident, with amazing energy and enthusiasm.", name: "Sonal Naik", role: "Actress, Jury Season 1", bg: `${LOCAL}testimonial/IMG_9413.JPG.jpeg` },
+  { text: "An excellent platform for participants to showcase their talent, confidence and potential at the next level.", name: "Shreyas Talpade", role: "Actor, Jury Season 1", bg: `${LOCAL}mentor/img_9410-optimized.webp` },
+  { text: "The participants are incredibly talented and confident, with amazing energy and enthusiasm.", name: "Sonal Naik", role: "Actress, Jury Season 1", bg: `${LOCAL}mentor/img_9413-optimized.webp` },
   { text: "A fantastic event with talented contestants. Wishing everyone a bright future: beauty with brains.", name: "Terence Lewis", role: "Special Guest, Season 2", bg: `${LOCAL}testimonial/image-1757942638238-755557391.jpg` },
 ];
 

@@ -54,7 +54,7 @@ try {
   assert.match(html, /22 November 2026/, "Junior India should show its event date");
   assert.match(
     html,
-    /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.png/,
+    /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.webp/,
     "Junior India should use the enhanced supplied runway picture",
   );
   assert.match(html, /Adult title comparison/, "the comparison table should be scoped to the adult titles");

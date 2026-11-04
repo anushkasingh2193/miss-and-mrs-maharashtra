@@ -31,11 +31,11 @@ assert.doesNotMatch(mentorBlock[1], /Miss Mohini Sharma/, "removed mentor profil
 assert.match(mentorBlock[1], /mentor\/sunny-kamble-drive\.webp/);
 assert.match(mentorBlock[1], /mentor\/megha-kapoor-amesar-drive\.webp/);
 assert.match(mentorBlock[1], /mentor\/sonali-nakshine-drive\.webp/);
-assert.match(mentorBlock[1], /mentor\/dr-girish-chabrani-confirmed\.png/);
-assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-confirmed\.png/);
+assert.match(mentorBlock[1], /mentor\/dr-girish-chabrani-confirmed\.webp/);
+assert.match(mentorBlock[1], /mentor\/dr-anshul-jain-confirmed\.webp/);
 assert.match(mentorBlock[1], /name: "Dr\. Girish Chabrani"[\s\S]*?position: "50% 50%"/);
 assert.match(mentorBlock[1], /name: "Dr\. Anshul Jain"[\s\S]*?position: "50% 10%"/);
-assert.match(mentorBlock[1], /mentor\/soniya-khatri-confirmed\.png/);
+assert.match(mentorBlock[1], /mentor\/soniya-khatri-confirmed\.webp/);
 assert.match(mentorBlock[1], /name: "Mrs\. Soniya Khatri"[\s\S]*?position: "50% 8%"/);
 assert.match(mentorBlock[1], /mentor\/dr-shivangi-garg-confirmed\.webp/);
 assert.match(mentorBlock[1], /name: "Dr\. Shivangi Garg"[\s\S]*?position: "50% 8%"/);

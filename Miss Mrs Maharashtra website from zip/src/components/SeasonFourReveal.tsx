@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { RefObject } from "react";
 import { ArrowRight } from "lucide-react";
 import { useReducedMotion } from "motion/react";
@@ -21,12 +21,14 @@ type SeasonFourRevealContentProps = {
   onRegister: () => void;
   shouldReduceMotion: boolean;
   videoRef: RefObject<HTMLVideoElement>;
+  isVideoReady?: boolean;
 };
 
 export function SeasonFourRevealContent({
   onRegister,
   shouldReduceMotion,
   videoRef,
+  isVideoReady = true,
 }: SeasonFourRevealContentProps) {
   return (
     <section
@@ -63,15 +65,15 @@ export function SeasonFourRevealContent({
               ref={videoRef}
               className="season-four-reveal__video"
               poster={REVEAL_POSTER}
-              autoPlay={!shouldReduceMotion}
+              autoPlay={isVideoReady && !shouldReduceMotion}
               controls={shouldReduceMotion}
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="none"
               aria-label="Season 4 Nagpur venue and dates reveal"
             >
-              <source src={REVEAL_FILM} type="video/mp4" />
+              {isVideoReady ? <source src={REVEAL_FILM} type="video/mp4" /> : null}
             </video>
           </div>
           <figcaption>
@@ -95,21 +97,20 @@ export function SeasonFourRevealContent({
 }
 
 export function SeasonFourReveal({ onRegister }: { onRegister: () => void }) {
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const shouldReduceMotion = Boolean(useReducedMotion());
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || shouldReduceMotion) {
-      if (video) void syncRevealPlayback(video, false);
-      return;
-    }
+    if (!video) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        void syncRevealPlayback(video, entry.isIntersecting);
+        if (entry.isIntersecting) setIsVideoReady(true);
+        else void syncRevealPlayback(video, false);
       },
-      { threshold: 0.34 },
+      { rootMargin: "360px 0px", threshold: 0.01 },
     );
 
     observer.observe(video);
@@ -117,13 +118,22 @@ export function SeasonFourReveal({ onRegister }: { onRegister: () => void }) {
       observer.disconnect();
       void syncRevealPlayback(video, false);
     };
-  }, [shouldReduceMotion]);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !isVideoReady) return;
+
+    video.load();
+    void syncRevealPlayback(video, !shouldReduceMotion);
+  }, [isVideoReady, shouldReduceMotion]);
 
   return (
     <SeasonFourRevealContent
       onRegister={onRegister}
       shouldReduceMotion={shouldReduceMotion}
       videoRef={videoRef}
+      isVideoReady={isVideoReady}
     />
   );
 }
