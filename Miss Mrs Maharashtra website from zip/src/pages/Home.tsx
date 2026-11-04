@@ -155,7 +155,7 @@ export function Home({ navigate }: { navigate: (page: PageKey) => void }) {
                   Junior India Live Voting <ArrowRight size={14} aria-hidden="true" />
                 </button>
                 <button onClick={() => navigate("register")} className="inline-flex min-h-[48px] items-center justify-center border border-white/70 bg-[#061122]/90 px-7 py-3.5 text-xs uppercase tracking-[.18em] text-white transition hover:-translate-y-0.5 hover:border-blush-accent hover:bg-[#061122] hover:text-blush-accent max-sm:w-full max-sm:max-w-[340px]">
-                  Register Now
+                  Enter Miss & Mrs.
                 </button>
               </div>
             </div>

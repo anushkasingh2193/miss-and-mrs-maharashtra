@@ -34,6 +34,8 @@ assert.match(about, /Who we are · What we do/, "the About page should clearly i
 assert.match(about, /founded in Nagpur by Zoya and Siraj Sheikh/, "the About bio should identify the founders using established site facts");
 assert.match(about, /mentoring, grooming, runway, styling, voice, interview and portfolio preparation/, "the About bio should explain how the platform prepares applicants");
 assert.match(home, /navigate\("junior-india"\)[\s\S]*?Junior India Live Voting/, "homepage hero should expose Junior India live voting");
+assert.match(home, /navigate\("register"\)[\s\S]*?Enter Miss & Mrs\./, "homepage hero should expose the approved Miss and Mrs contestant entry CTA");
+assert.doesNotMatch(home, /Register Now/, "homepage hero should not keep the generic registration label");
 assert.doesNotMatch(layout, /Season 3 auditions are complete|Register interest for the next season|inset-x-0 bottom-0 z-40/, "the global sticky registration banner should stay removed");
 assert.doesNotMatch(layout, /pb-20 sm:pb-0/, "pages should not reserve mobile space for the removed sticky banner");
 assert.doesNotMatch(home, /useCountdown|auditionCities|Apply for auditions|Until finale week|October 2026/, "homepage should not expose stale audition details");
