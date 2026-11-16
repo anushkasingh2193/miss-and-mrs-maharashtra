@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Preserve the existing navy, blush, gold, editorial typography, imagery, and motion language.
-- Display `22 November 2026` for Junior India.
+- Display `5 December 2026` for Junior India.
 - Do not invent Junior India age, eligibility, pathway, or scoring rules.
 - Miss and Mrs. actions navigate to `register`; Junior India navigates to `junior-india`.
 - Essential copy and actions remain visible without hover.
@@ -47,7 +47,7 @@ Update `tools/test-categories.mjs` to assert:
 ```js
 assert.equal((html.match(/data-category-card="true"/g) ?? []).length, 3);
 assert.match(html, /3 distinct categories/);
-assert.match(html, /22 November 2026/);
+assert.match(html, /5 December 2026/);
 assert.match(html, /junior-india-runway-hd\.png/);
 assert.match(html, /Adult title comparison/);
 assert.match(html, /Miss &amp; Mrs\. title scoring/);
@@ -124,4 +124,4 @@ git push origin main
 
 - [ ] **Step 4: Redeploy and verify production**
 
-Verify the linked Vercel project, deploy production from the repository root, inspect for `READY`, and confirm the public production alias returns HTTP 200 with a bundle containing `3 distinct categories`, `22 November 2026`, and `junior-india-runway-hd.png`.
+Verify the linked Vercel project, deploy production from the repository root, inspect for `READY`, and confirm the public production alias returns HTTP 200 with a bundle containing `3 distinct categories`, `5 December 2026`, and `junior-india-runway-hd.png`.

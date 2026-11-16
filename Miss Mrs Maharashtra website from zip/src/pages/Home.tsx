@@ -41,7 +41,7 @@ const homepageCategories = [
     image: imageRoles.juniorIndiaCategory,
     imagePosition: "50% 50%",
     target: "junior-india",
-    facts: [["Event", "22 Nov 2026"], ["Stage", "Runway"], ["Reach", "India"]],
+    facts: [["Event", "5 Dec 2026"], ["Stage", "Runway"], ["Reach", "India"]],
   },
 ] as const satisfies ReadonlyArray<{
   key: string;

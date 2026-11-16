@@ -33,7 +33,7 @@ const categoryDetails = [
     label: "Youth category",
     description: "A dedicated runway experience for young talent to shine with confidence and creativity.",
     metaLabel: "Event date",
-    meta: "22 November 2026",
+    meta: "5 December 2026",
     image: imageRoles.juniorIndiaCategory,
     position: "50% 50%",
     target: "junior-india",

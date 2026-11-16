@@ -51,7 +51,7 @@ try {
     /Compare each category|3 distinct categories|Separate pathways|One confident stage|Choose your category|Every stage, clearly presented/,
     "the removed category intro copy, proof points, and actions should stay absent",
   );
-  assert.match(html, /22 November 2026/, "Junior India should show its event date");
+  assert.match(html, /5 December 2026/, "Junior India should show its event date");
   assert.match(
     html,
     /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.webp/,

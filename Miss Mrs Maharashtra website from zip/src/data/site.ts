@@ -470,7 +470,7 @@ export const eligibility = [
   "Mrs. category: open to married, divorced and widowed women, and single mothers.",
   "No minimum height, weight or complexion requirement.",
   "No prior national title held in the same category.",
-  "Available for all four days of finale week in Nagpur, 18-21 November 2026.",
+  "Available for all three days of finale week in Nagpur, 4-6 December 2026.",
 ];
 
 export const receives = [
@@ -570,7 +570,7 @@ export const faqs = [
   { q: "Can I apply if I have children?", a: "Yes. In the Mrs. category, mothers are explicitly welcome." },
   { q: "What does the Rs. 2,500 application fee cover?", a: "The city audition, grooming day and administrative processing. It does not guarantee selection." },
   { q: "When are the next auditions?", a: "Season 3 auditions are complete. Register your interest and the team will share next-season cities and dates when they are announced." },
-  { q: "How long is the finale commitment?", a: "Four days in Nagpur, 18-21 November 2026." },
+  { q: "How long is the finale commitment?", a: "Three days in Nagpur, 4-6 December 2026." },
   { q: "What happens after I win?", a: "The title runs for a full year with public appearances, community programmes, content opportunities and national platform consideration." },
 ];
 

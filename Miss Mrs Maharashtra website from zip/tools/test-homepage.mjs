@@ -47,8 +47,8 @@ assert.match(home, /TestimonialsSection/, "homepage should include the animated 
 assert.match(juniorCampaign, /junior-india-home\.mp4/, "Junior India campaign should use the existing launch film");
 assert.doesNotMatch(juniorCampaign, /junior-campaign__play|Play the Junior India launch film|role="dialog"|createPortal/, "Junior India preview should not render a play overlay or unreachable dialog");
 assert.match(juniorCampaign, /onExplore/, "Junior India campaign should preserve the dedicated page CTA");
-assert.match(juniorCampaign, /dateTime="2026-11-22"/, "Junior India campaign should expose the event date semantically");
-assert.match(juniorCampaign, /22 November 2026/, "Junior India campaign should highlight the confirmed event date");
+assert.match(juniorCampaign, /dateTime="2026-12-05"/, "Junior India campaign should expose the event date semantically");
+assert.match(juniorCampaign, /5 December 2026/, "Junior India campaign should highlight the confirmed event date");
 assert.match(juniorCampaign, /junior-campaign__wordmark/, "Junior India campaign should use its oversized editorial wordmark");
 assert.match(juniorCampaign, /useScroll/, "Junior India campaign should use restrained scroll-linked motion");
 assert.match(juniorCampaign, /useTransform/, "Junior India campaign should transform editorial layers independently");
@@ -146,10 +146,10 @@ try {
 
   assert.match(revealHtml, /Season 4 Reveal/, "Season 4 reveal should identify the announcement");
   assert.match(revealHtml, /The crown returns to Nagpur\./, "Season 4 reveal should lead with the approved headline");
-  assert.match(revealHtml, /21st, 22nd &amp; 23rd November 2026/, "Season 4 reveal should show the confirmed dates");
+  assert.match(revealHtml, /4th, 5th &amp; 6th December 2026/, "Season 4 reveal should show the confirmed dates");
   assert.doesNotMatch(
     revealHtml,
-    /datetime="2026-11-21"/i,
+    /datetime="2026-12-04"/i,
     "the three-day Season 4 range should not be represented as a single date",
   );
   assert.match(revealHtml, /BTP Farms And Resorts, Nagpur/, "Season 4 reveal should show the confirmed venue");
@@ -237,14 +237,14 @@ try {
   );
   assert.match(html, /Junior India/, "homepage category selector should name Junior India");
   assert.match(juniorIndiaHtml, /Youth category/, "homepage Junior India card should keep the category label");
-  assert.doesNotMatch(juniorIndiaHtml, /22 November 2026/, "homepage Junior India card should keep the portrait clear of the full event date");
+  assert.doesNotMatch(juniorIndiaHtml, /5 December 2026/, "homepage Junior India card should keep the portrait clear of the full event date");
   assert.deepEqual(
     categoryButtons.map((button) => Children.toArray(button.props.children).length),
     [4, 4, 4],
     "homepage category cards should share the same direct image, overlay, label, and content structure",
   );
   assert.match(juniorIndiaHtml, /<dt[^>]*>Event<\/dt>/, "homepage Junior India card should retain the event fact label");
-  assert.match(juniorIndiaHtml, /22 Nov 2026/, "homepage Junior India card should retain the abbreviated event fact");
+  assert.match(juniorIndiaHtml, /5 Dec 2026/, "homepage Junior India card should retain the abbreviated event fact");
   assert.match(
     html,
     /\/missmrs-assets\/junior-india\/junior-india-runway-hd\.webp/,

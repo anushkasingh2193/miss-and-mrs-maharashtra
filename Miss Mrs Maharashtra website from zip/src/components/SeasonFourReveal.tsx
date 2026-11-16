@@ -77,14 +77,14 @@ export function SeasonFourRevealContent({
             </video>
           </div>
           <figcaption>
-            Season 4 Reveal — 21st, 22nd &amp; 23rd November 2026
+            Season 4 Reveal — 4th, 5th &amp; 6th December 2026
           </figcaption>
         </figure>
 
         <aside className="season-four-reveal__facts" aria-label="Season 4 event details">
           <div className="season-four-reveal__fact-card">
             <p className="season-four-reveal__fact-label">Dates</p>
-            <p className="season-four-reveal__fact-value">21st, 22nd &amp; 23rd November 2026</p>
+            <p className="season-four-reveal__fact-value">4th, 5th &amp; 6th December 2026</p>
           </div>
           <div className="season-four-reveal__fact-card">
             <p className="season-four-reveal__fact-label">Venue</p>

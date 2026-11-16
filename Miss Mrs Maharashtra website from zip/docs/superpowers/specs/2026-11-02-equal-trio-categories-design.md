@@ -23,7 +23,7 @@ Make Miss Maharashtra, Mrs. Maharashtra, and Junior India equally visible at the
 ## Constraints
 
 - Reuse the three existing category images and current project components/tokens.
-- Junior India must continue to show the event date `22 November 2026`.
+- Junior India must continue to show the event date `5 December 2026`.
 - Miss and Mrs. calls to action continue to open registration.
 - Junior India continues to open the dedicated Junior India page.
 - Cards must remain keyboard accessible with visible focus treatment.
@@ -64,7 +64,7 @@ Use three equal cards in one responsive category grid. All categories remain vis
   4. One short eligibility or purpose line using only confirmed copy.
   5. Pathway or event-date detail.
   6. Clear call to action.
-- Junior India receives a compact `22 November 2026` badge in the same position used for pathway/status information on the adult cards.
+- Junior India receives a compact `5 December 2026` badge in the same position used for pathway/status information on the adult cards.
 - Essential copy and calls to action remain visible without hover.
 
 ### Supporting information

@@ -11,7 +11,7 @@ Add a premium Season 4 announcement to the homepage using the supplied reel as t
 - Supporting line: `Three days. One stage. A new chapter begins.`
 - CTA: `Register for Season 4` and route to the existing registration page
 - Video labels: `Official Reel` and `Nagpur Reveal`
-- Dates: `21st, 22nd & 23rd November 2026`
+- Dates: `4th, 5th & 6th December 2026`
 - Venue: `BTP Farms And Resorts, Nagpur`
 
 ## Placement and layout

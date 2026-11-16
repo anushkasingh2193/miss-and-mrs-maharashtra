@@ -91,7 +91,7 @@ export function JuniorIndiaCampaignContent({
         <motion.div className="junior-campaign__message" style={{ y: copyY }}>
           <div className="junior-campaign__event-date">
             <span>Junior India Event</span>
-            <time dateTime="2026-11-22">22 November 2026</time>
+            <time dateTime="2026-12-05">5 December 2026</time>
           </div>
           <motion.h2 style={{ clipPath: headlineClip }}>
             <span>A New Generation.</span>

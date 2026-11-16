@@ -33,7 +33,7 @@
 - [ ] Extend `tools/test-homepage.mjs` with failing source assertions for:
   - exact label `Season 4 Reveal`
   - headline `The crown returns to Nagpur.`
-  - exact dates `21st, 22nd & 23rd November 2026`
+  - exact dates `4th, 5th & 6th December 2026`
   - venue `BTP Farms And Resorts, Nagpur`
   - video and poster asset paths
   - `autoPlay`, `muted`, `loop`, and `playsInline`
