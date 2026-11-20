@@ -129,7 +129,7 @@ try {
     assert.fail(`Season 4 reveal component should load: ${error instanceof Error ? error.message : String(error)}`);
   }
 
-  const { SeasonFourRevealContent, syncRevealPlayback } = seasonFourModule;
+  const { SeasonFourRevealContent, syncRevealPlayback, syncRevealVisibility } = seasonFourModule;
   const registrations = [];
   const reveal = createElement(SeasonFourRevealContent, {
     onRegister: () => registrations.push("register"),
@@ -188,6 +188,34 @@ try {
     { playCalls: playback.playCalls, pauseCalls: playback.pauseCalls },
     { playCalls: 1, pauseCalls: 1 },
     "Season 4 reel playback should pause offscreen and resume onscreen",
+  );
+
+  const visibilityPlayback = {
+    playCalls: 0,
+    pauseCalls: 0,
+    play() {
+      this.playCalls += 1;
+      return Promise.resolve();
+    },
+    pause() {
+      this.pauseCalls += 1;
+    },
+  };
+  let readyCalls = 0;
+  const markReady = () => {
+    readyCalls += 1;
+  };
+  await syncRevealVisibility(visibilityPlayback, true, false, markReady);
+  await syncRevealVisibility(visibilityPlayback, false, false, markReady);
+  await syncRevealVisibility(visibilityPlayback, true, false, markReady);
+  assert.deepEqual(
+    {
+      playCalls: visibilityPlayback.playCalls,
+      pauseCalls: visibilityPlayback.pauseCalls,
+      readyCalls,
+    },
+    { playCalls: 2, pauseCalls: 1, readyCalls: 2 },
+    "Season 4 reel should resume every time it re-enters the viewport",
   );
 
   const { About } = await vite.ssrLoadModule("/src/pages/About.tsx");

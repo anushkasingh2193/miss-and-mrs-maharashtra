@@ -17,6 +17,18 @@ export function syncRevealPlayback(video: RevealPlaybackTarget, shouldPlay: bool
   return video.play().catch(() => undefined);
 }
 
+export function syncRevealVisibility(
+  video: RevealPlaybackTarget,
+  isIntersecting: boolean,
+  shouldReduceMotion: boolean,
+  markReady: () => void,
+) {
+  if (!isIntersecting) return syncRevealPlayback(video, false);
+
+  markReady();
+  return syncRevealPlayback(video, !shouldReduceMotion);
+}
+
 type SeasonFourRevealContentProps = {
   onRegister: () => void;
   shouldReduceMotion: boolean;
@@ -107,8 +119,12 @@ export function SeasonFourReveal({ onRegister }: { onRegister: () => void }) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVideoReady(true);
-        else void syncRevealPlayback(video, false);
+        void syncRevealVisibility(
+          video,
+          entry.isIntersecting,
+          shouldReduceMotion,
+          () => setIsVideoReady(true),
+        );
       },
       { rootMargin: "360px 0px", threshold: 0.01 },
     );
@@ -118,7 +134,7 @@ export function SeasonFourReveal({ onRegister }: { onRegister: () => void }) {
       observer.disconnect();
       void syncRevealPlayback(video, false);
     };
-  }, []);
+  }, [shouldReduceMotion]);
 
   useEffect(() => {
     const video = videoRef.current;
